@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */; };
 		46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0A2B582610008792D0 /* AppDelegate.swift */; };
 		46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0C2B582610008792D0 /* SceneDelegate.swift */; };
 		46F2DD0F2B582610008792D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0E2B582610008792D0 /* HomeViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceCardCell.swift; sourceTree = "<group>"; };
 		46F2DD072B582610008792D0 /* Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F2DD0A2B582610008792D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46F2DD0C2B582610008792D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				46F2DD422B5832A7008792D0 /* HomeView.swift */,
+				46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */,
 				46F2DD322B582A33008792D0 /* Colors.swift in Sources */,
 				46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */,
+				46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */,
 				46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */,
 				46F2DD362B582C17008792D0 /* OnBoardingViewController2.swift in Sources */,
 				46F2DD0F2B582610008792D0 /* HomeViewController.swift in Sources */,
