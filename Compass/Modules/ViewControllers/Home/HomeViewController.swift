@@ -29,6 +29,9 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         view.backgroundColor = Colors.beigeColor
     }
     
+    //MARK: - Private Methods
+    
+    //Setupview
     private func setupCollectionView() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -39,10 +42,8 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
+        
     //MARK: - CollectionView Delegates
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
@@ -63,7 +64,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedItem = indexPath.row
-        coordinator?.eventOccured(with: .goToDetailVC)
+        coordinator?.eventOccured(with: .goToDetailVC(for: selectedItem))
     }
 }
 

@@ -39,7 +39,7 @@ class HomeView: UIView, Coordinating {
     
     @objc
     private func goToDetailPage() {
-        coordinator?.eventOccured(with: .goToDetailVC)
+        //coordinator?.eventOccured(with: .goToDetailVC)
     }
     
 }

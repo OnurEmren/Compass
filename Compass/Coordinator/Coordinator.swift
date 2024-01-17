@@ -10,7 +10,7 @@ import UIKit
 
 enum Event {
     case goToHomeVC
-    case goToDetailVC
+    case goToDetailVC(for: Int)
 }
 
 protocol Coordinator: AnyObject {
