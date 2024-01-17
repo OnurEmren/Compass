@@ -68,7 +68,7 @@ extension ManageOnBoardingViewController {
     
     func style() {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.currentPageIndicatorTintColor = .darkGray
         pageControl.pageIndicatorTintColor = .white
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = initialPage

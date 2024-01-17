@@ -25,6 +25,7 @@
 		46F2DD3C2B582C98008792D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3B2B582C98008792D0 /* Constants.swift */; };
 		46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */; };
 		46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */; };
+		46F2DD432B5832A7008792D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD422B5832A7008792D0 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		46F2DD3B2B582C98008792D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
 		46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController5.swift; sourceTree = "<group>"; };
+		46F2DD422B5832A7008792D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				46F2DD2E2B582998008792D0 /* OnBoarding */,
-				46F2DD262B5827A7008792D0 /* ViewControllers */,
+				46F2DD412B583125008792D0 /* Modules */,
 				46F2DD212B5826DC008792D0 /* Coordinator */,
-				46F2DD202B5826D7008792D0 /* ViewModel */,
-				46F2DD1F2B5826D2008792D0 /* Views */,
 				46F2DD1E2B5826CD008792D0 /* Model */,
 				46F2DD222B5826E5008792D0 /* Utils */,
 				46F2DD232B5826EC008792D0 /* Others */,
@@ -102,6 +102,7 @@
 		46F2DD1F2B5826D2008792D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				46F2DD422B5832A7008792D0 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +165,16 @@
 				46F2DD392B582C87008792D0 /* OnBoardingElements.swift */,
 			);
 			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		46F2DD412B583125008792D0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				46F2DD262B5827A7008792D0 /* ViewControllers */,
+				46F2DD1F2B5826D2008792D0 /* Views */,
+				46F2DD202B5826D7008792D0 /* ViewModel */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 				46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */,
 				46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */,
 				46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */,
+				46F2DD432B5832A7008792D0 /* HomeView.swift in Sources */,
 				46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */,
 				46F2DD3A2B582C87008792D0 /* OnBoardingElements.swift in Sources */,
 			);

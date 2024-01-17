@@ -7,12 +7,13 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-
+class DetailViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = Colors.beigeColor
     }
     
 

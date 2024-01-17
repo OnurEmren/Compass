@@ -15,6 +15,11 @@ class AppCoordinator: Coordinator {
             let homeVC = HomeViewController()
             homeVC.coordinator = self
             navigationController?.pushViewController(homeVC, animated: true)
+        
+        case .goToDetailVC:
+            let detailVC = DetailViewController()
+            detailVC.coordinator = self
+            navigationController?.pushViewController(detailVC, animated: true)
         }
     }
     
