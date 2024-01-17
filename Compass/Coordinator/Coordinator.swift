@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum Event {
-    case goToDetail
+    case goToHomeVC
 }
 
 protocol Coordinator: AnyObject {

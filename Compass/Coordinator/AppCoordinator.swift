@@ -11,8 +11,10 @@ import UIKit
 class AppCoordinator: Coordinator {
     func eventOccured(with type: Event) {
         switch type {
-        case .goToDetail:
-            print("goToDetail")
+        case .goToHomeVC:
+            let homeVC = HomeViewController()
+            homeVC.coordinator = self
+            navigationController?.pushViewController(homeVC, animated: true)
         }
     }
     
@@ -25,7 +27,8 @@ class AppCoordinator: Coordinator {
     
     func start() {
         navigationController = UINavigationController()
-        let viewController = ViewController()
+        let viewController = ManageOnBoardingViewController()
+        viewController.coordinator = self
         navigationController?.setViewControllers([viewController], animated: true)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
