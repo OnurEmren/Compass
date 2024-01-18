@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		469D15BA2B598A8700544E35 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 469D15B92B598A8700544E35 /* DGCharts */; };
+		469D15BC2B598BF300544E35 /* InComeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BB2B598BF300544E35 /* InComeEntryView.swift */; };
+		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
+		469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */; };
+		469D15C32B598F6100544E35 /* InCome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15C22B598F6100544E35 /* InCome.swift */; };
 		46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */; };
 		46AF0ACF2B585B2A00647EA1 /* InComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */; };
 		46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */; };
@@ -29,10 +34,13 @@
 		46F2DD3C2B582C98008792D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3B2B582C98008792D0 /* Constants.swift */; };
 		46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */; };
 		46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */; };
-		46F2DD432B5832A7008792D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD422B5832A7008792D0 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		469D15BB2B598BF300544E35 /* InComeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryView.swift; sourceTree = "<group>"; };
+		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
+		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
+		469D15C22B598F6100544E35 /* InCome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCome.swift; sourceTree = "<group>"; };
 		46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceCardCell.swift; sourceTree = "<group>"; };
 		46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeViewController.swift; sourceTree = "<group>"; };
 		46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +64,6 @@
 		46F2DD3B2B582C98008792D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
 		46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController5.swift; sourceTree = "<group>"; };
-		46F2DD422B5832A7008792D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				469D15BA2B598A8700544E35 /* DGCharts in Frameworks */,
 				46F2DD2B2B58294B008792D0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,12 +79,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		469D15B72B5988D100544E35 /* SubModulesViews */ = {
+			isa = PBXGroup;
+			children = (
+				469D15BB2B598BF300544E35 /* InComeEntryView.swift */,
+			);
+			path = SubModulesViews;
+			sourceTree = "<group>";
+		};
 		46AF0ACD2B585B1900647EA1 /* SubModules */ = {
 			isa = PBXGroup;
 			children = (
 				46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */,
 				46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */,
 				46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */,
+				469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */,
 			);
 			path = SubModules;
 			sourceTree = "<group>";
@@ -114,6 +131,7 @@
 				46F2DD1E2B5826CD008792D0 /* Model */,
 				46F2DD222B5826E5008792D0 /* Utils */,
 				46F2DD232B5826EC008792D0 /* Others */,
+				469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */,
 			);
 			path = Compass;
 			sourceTree = "<group>";
@@ -121,6 +139,7 @@
 		46F2DD1E2B5826CD008792D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				469D15C22B598F6100544E35 /* InCome.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,7 +147,6 @@
 		46F2DD1F2B5826D2008792D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				46F2DD422B5832A7008792D0 /* HomeView.swift */,
 				46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */,
 			);
 			path = Views;
@@ -176,6 +194,7 @@
 			children = (
 				46AF0AD02B585B3F00647EA1 /* Home */,
 				46AF0ACD2B585B1900647EA1 /* SubModules */,
+				469D15B72B5988D100544E35 /* SubModulesViews */,
 				46F2DD2C2B582972008792D0 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
@@ -223,6 +242,7 @@
 			name = Compass;
 			packageProductDependencies = (
 				46F2DD2A2B58294B008792D0 /* SnapKit */,
+				469D15B92B598A8700544E35 /* DGCharts */,
 			);
 			productName = Compass;
 			productReference = 46F2DD072B582610008792D0 /* Compass.app */;
@@ -254,6 +274,7 @@
 			mainGroup = 46F2DCFE2B582610008792D0;
 			packageReferences = (
 				46F2DD292B58294B008792D0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				469D15B82B598A8700544E35 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 46F2DD082B582610008792D0 /* Products */;
 			projectDirPath = "";
@@ -281,6 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				469D15BC2B598BF300544E35 /* InComeEntryView.swift in Sources */,
+				469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */,
 				46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */,
 				46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */,
 				46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */,
@@ -295,11 +318,12 @@
 				46F2DD2D2B582972008792D0 /* DetailViewController.swift in Sources */,
 				46AF0ACF2B585B2A00647EA1 /* InComeViewController.swift in Sources */,
 				46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */,
+				469D15C32B598F6100544E35 /* InCome.swift in Sources */,
 				46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */,
 				46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */,
-				46F2DD432B5832A7008792D0 /* HomeView.swift in Sources */,
 				46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */,
 				46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */,
+				469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */,
 				46F2DD3A2B582C87008792D0 /* OnBoardingElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +539,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		469D15B82B598A8700544E35 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		46F2DD292B58294B008792D0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -526,12 +558,30 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		469D15B92B598A8700544E35 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 469D15B82B598A8700544E35 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
 		46F2DD2A2B58294B008792D0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 46F2DD292B58294B008792D0 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */,
+			);
+			currentVersion = 469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */;
+			path = InComeEntry.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 46F2DCFF2B582610008792D0 /* Project object */;
 }

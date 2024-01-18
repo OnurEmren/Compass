@@ -50,11 +50,11 @@ extension ManageOnBoardingViewController {
                                               subtitleText: "Harcamalarınızı sektörlere ayırarak kaydedin. Bu sayede nereye ne kadar harcadığınızı anlayabilir, bütçenizi daha iyi yönetebilirsiniz.")
         
         let page4 = OnBoardingViewController4(imageName: "page",
-                                              titleText: "Harcamalarınızı Kaydedin",
+                                              titleText: "Yatırımlarınızı Takip Edin",
                                               subtitleText: "Eğer yatırımlarınız varsa, bunları burada kaydedin. Yatırımlarınızın performansını takip ederek finansal hedeflerinize daha yakından ulaşın.")
         
         let page5 = OnBoardingViewController4(imageName: "page",
-                                              titleText: "Harcamalarınızı Kaydedin",
+                                              titleText: "Raporlar ve İpuçları",
                                               subtitleText: "Compass size finansal durumunuz hakkında detaylı raporlar sunar. Ayrıca, harika finansal alışkanlıklar edinmenize yardımcı olacak ipuçları da bulabilirsiniz.")
         
         pages.append(page1)
@@ -85,7 +85,7 @@ extension ManageOnBoardingViewController {
         
         skipButton.snp.makeConstraints { make in
             make.right.equalTo(view.snp.right).offset(-32)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
         
         skipButton.layer.cornerRadius = 10
@@ -102,7 +102,7 @@ extension ManageOnBoardingViewController {
         
         nextButton.snp.makeConstraints { make in
             make.leading.equalTo(view.snp.leading).offset(32)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
         
         nextButton.layer.cornerRadius = 10

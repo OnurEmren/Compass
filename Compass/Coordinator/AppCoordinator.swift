@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class AppCoordinator: Coordinator {
-    
     var navigationController: UINavigationController?
     var window: UIWindow?
     
@@ -23,31 +22,34 @@ class AppCoordinator: Coordinator {
             let homeVC = HomeViewController()
             homeVC.coordinator = self
             navigationController?.pushViewController(homeVC, animated: true)
-        
+            
         case .goToDetailVC(let selectedIndex):
             showDetailViewController(for: selectedIndex)
+            
+        case .goToInComeEntryVC:
+            let inComeEntryVC = IncomeEntryViewController()
+            inComeEntryVC.coordinator = self
+            navigationController?.pushViewController(inComeEntryVC, animated: true)
         }
     }
   
-    
     func start() {
-        navigationController = UINavigationController()
-        
-        if UserDefaults.standard.bool(forKey: "appHasBeenLaunched"){
-            showOnBoarding()
-        } else {
-            showMainScreen()
-        }
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-    }
+           navigationController = UINavigationController()
+           if UserDefaults.standard.bool(forKey: "onboardingShown") {
+               showMainScreen()
+           } else {
+               showOnboarding()
+           }
+           window?.rootViewController = navigationController
+           window?.makeKeyAndVisible()
+       }
     
-    private func showOnBoarding() {
-        UserDefaults.standard.string(forKey: "appHasBeenLaunched")
-        let viewController = ManageOnBoardingViewController()
-        viewController.coordinator = self
-        navigationController?.setViewControllers([viewController], animated: true)
-    }
+    func showOnboarding() {
+            UserDefaults.standard.set(true, forKey: "onboardingShown")
+            let onboardingVC = ManageOnBoardingViewController()
+            onboardingVC.coordinator = self
+            navigationController?.pushViewController(onboardingVC, animated: false)
+        }
     
     private func showMainScreen() {
         let viewController = HomeViewController()
@@ -65,9 +67,7 @@ class AppCoordinator: Coordinator {
             let expenseVC = ExpenseViewController()
             expenseVC.coordinator = self
             navigationController?.pushViewController(expenseVC, animated: true)
-            
         case 2:
-          //  destinationViewController = InvestmentViewController()
             let investmentVC = InvestmentViewController()
             investmentVC.coordinator = self
             navigationController?.pushViewController(investmentVC, animated: true)

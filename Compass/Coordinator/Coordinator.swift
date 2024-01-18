@@ -11,6 +11,7 @@ import UIKit
 enum Event {
     case goToHomeVC
     case goToDetailVC(for: Int)
+    case goToInComeEntryVC
 }
 
 protocol Coordinator: AnyObject {
