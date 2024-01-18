@@ -9,6 +9,7 @@ import UIKit
 import Charts
 import SnapKit
 import DGCharts
+import CoreData
 
 class InComeViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
@@ -59,14 +60,23 @@ class InComeViewController: UIViewController, Coordinating {
         return button
     }()
     
+    //MARK: - Lifecycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        setupChart()
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchDataFromCoreData()
+    }
+    
+    //MARK: - Private Methods
+    
+    //Setup Views
     private func setupViews() {
         view.addSubview(totalIncomeLabel)
         view.addSubview(incomeSourcesLabel)
@@ -109,23 +119,55 @@ class InComeViewController: UIViewController, Coordinating {
         }
     }
     
-    private func setupChart() {
-        let entries = [
-            BarChartDataEntry(x: 0.0, y: 3000.0),
-            BarChartDataEntry(x: 1.0, y: 5000.0),
-            BarChartDataEntry(x: 2.0, y: 2000.0)
-        ]
-        
+    private func setupChart(with data: [InComeEntry]) {
+        var entries: [BarChartDataEntry] = []
+
+        for (index, entry) in data.enumerated() {
+            let barEntry = BarChartDataEntry(x: Double(index), y: entry.wage)
+            entries.append(barEntry)
+        }
+
         let dataSet = BarChartDataSet(entries: entries, label: "Gelir Dağılımı")
         dataSet.colors = ChartColorTemplates.material()
-        
+
         let data = BarChartData(dataSet: dataSet)
         incomeDistributionChart.data = data
-        
+
         incomeDistributionChart.chartDescription.text = ""
         incomeDistributionChart.xAxis.labelPosition = .bottom
         incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
+
+    
+    //MARK: - Load Data
+    
+    private func fetchDataFromCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "InComeEntry")
+        
+        do {
+            let fetchedData = try context.fetch(fetchRequest) as! [InComeEntry]
+            // Veriyi kullanarak labellara atama
+            let totalIncome = fetchedData.reduce(0) { (result, entry) in
+                return result + entry.wage
+            }
+            totalIncomeLabel.text = "Toplam Gelir: \(totalIncome)"
+            // Gelir Kaynakları
+            let salary = fetchedData.reduce(0) { $0 + $1.wage }
+            let sideInCome = fetchedData.reduce(0) { $0 + $1.sideInCome}
+            
+            incomeSourcesTextView.text = "- Maaş: $\(salary)\n- Yan Gelirler: \(sideInCome)"
+            
+            setupChart(with: fetchedData)
+            print("Veri Çekildi: \(totalIncome)")
+        } catch {
+            print("Veri çekme hatası: \(error)")
+        }
+        
+    }
+    
+    //MARK: - @objc Methods
     
     @objc
     private func goToAddInCome() {
