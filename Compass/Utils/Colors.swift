@@ -21,7 +21,13 @@ enum Colors{
     static let beigeGreen: CGFloat = 225.0 / 255.0
     static let beigeBlue: CGFloat = 218.0 / 255.0
     
+    static let pieRed: CGFloat = 9.0 / 255.0
+    static let pieGreen: CGFloat = 77.0 / 255.0
+    static let pieBlue: CGFloat = 77.0 / 255.0
+    
+    
     static let lightThemeColor = UIColor(red: lightRed, green:lightGreen, blue: lightBlue, alpha: 1)
     static let darkThemeColor = UIColor (red: darkRed, green: darkGreen, blue: darkBlue, alpha: 1)
     static let beigeColor = UIColor(red: beigeRed, green: beigeGreen, blue: beigeBlue, alpha: 1)
+    static let piesGreenColor = UIColor(red: pieRed, green: pieGreen, blue: pieBlue, alpha: 1)
 }

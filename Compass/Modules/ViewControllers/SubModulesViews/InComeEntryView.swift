@@ -10,7 +10,16 @@ import UIKit
 import SnapKit
 
 protocol IncomeEntryViewDelegate: AnyObject {
-    func didTapSaveButton(incomeText: String?, sideIncomeText: String?, inComeType: String?)
+    func didTapSaveButton(incomeText: String?,
+                          sideIncomeText: String?,
+                          inComeType: String?,
+                          currency: String?)
+}
+
+protocol InComeUpdateViewDelegate: AnyObject {
+    func didTapUpdateButton(inComeType: String?,
+                            newWage: String,
+                            newSideInCome: String)
 }
 
 protocol IncomeTypePickerViewDelegate: AnyObject {
@@ -23,6 +32,7 @@ class IncomeEntryView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
     private var isCurrencyPickerVisible: Bool = false
     weak var delegate: IncomeTypePickerViewDelegate?
     weak var saveDelegate: IncomeEntryViewDelegate?
+    weak var updateDelegate: InComeUpdateViewDelegate?
     
     private let incomeTypePickerView: UIPickerView = {
         let pickerView = UIPickerView()
@@ -90,6 +100,14 @@ class IncomeEntryView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         return button
     }()
     
+    private let updateButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Güncelle", for: .normal)
+        button.backgroundColor = Colors.darkThemeColor
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
     
     override init(frame: CGRect) {
@@ -113,6 +131,7 @@ class IncomeEntryView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         addSubview(inComeTypeLabel)
         addSubview(currencyTypeLabel)
         addSubview(saveButton)
+        addSubview(updateButton)
         
         incomeTextField.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(150)
@@ -145,6 +164,13 @@ class IncomeEntryView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
             make.height.equalTo(40)
         }
         
+        updateButton.snp.makeConstraints { make in
+            make.top.equalTo(currencyTypeLabel.snp.bottom).offset(80)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(40)
+        }
+        
         currencyPickerView.isHidden = true
         incomeTypePickerView.isHidden = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(inComeTypeLabelTapped))
@@ -152,6 +178,7 @@ class IncomeEntryView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         currencyTypeLabel.addGestureRecognizer(currencyTapGesture)
         inComeTypeLabel.addGestureRecognizer(tapGesture)
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }
     
     //PickerView Setup
@@ -205,7 +232,16 @@ class IncomeEntryView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         saveDelegate?.didTapSaveButton(
             incomeText: incomeTextField.text,
             sideIncomeText: sideIncomeTextField.text,
-            inComeType: inComeTypeLabel.text
+            inComeType: inComeTypeLabel.text,
+            currency: currencyTypeLabel.text
+        )
+    }
+    
+    @objc private func updateButtonTapped() {
+        updateDelegate?.didTapUpdateButton(
+            inComeType: inComeTypeLabel.text ?? "",
+            newWage: incomeTextField.text ?? "",
+            newSideInCome: sideIncomeTextField.text ?? ""
         )
     }
     

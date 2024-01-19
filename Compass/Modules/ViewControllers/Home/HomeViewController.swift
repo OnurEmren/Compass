@@ -38,7 +38,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             make.edges.equalToSuperview()
         }
         
-        collectionView.backgroundColor = Colors.beigeColor
+        collectionView.backgroundColor = Colors.piesGreenColor
         collectionView.dataSource = self
         collectionView.delegate = self
     }

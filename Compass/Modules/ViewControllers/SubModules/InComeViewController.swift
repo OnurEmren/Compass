@@ -13,17 +13,19 @@ import CoreData
 
 class InComeViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
-    
-    private let incomeDistributionChart: BarChartView = {
-        let chartView = BarChartView()
+
+    private let incomeDistributionChart: PieChartView = {
+        let chartView = PieChartView()
+        chartView.layer.cornerRadius = 20
+        chartView.layer.masksToBounds = true
         return chartView
     }()
     
     private let totalIncomeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textAlignment = .center
-        label.text = "Toplam Gelir: $10,000" // Bu kısmı dinamik olarak güncellemelisiniz
+        label.text = "10,000"
+        label.font = Fonts.bigNunitoFont
         return label
     }()
     
@@ -31,6 +33,7 @@ class InComeViewController: UIViewController, Coordinating {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
+        label.font = Fonts.bigerNunitoFont
         label.text = "Gelir Kaynakları:"
         return label
     }()
@@ -39,12 +42,9 @@ class InComeViewController: UIViewController, Coordinating {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.isEditable = false
-        textView.backgroundColor = Colors.lightThemeColor
-        textView.layer.borderWidth = 0.7
-        textView.layer.borderColor = Colors.darkThemeColor.cgColor
         textView.layer.cornerRadius = 10
         textView.layer.masksToBounds = true
-        textView.text = "- Maaş: $0,000\n- Yatırım Getirisi: $0,000\n- Diğer: $0,000"
+        textView.text = "- Maaş: 0,000\n- Yatırım Getirisi: 0,000\n- Diğer: $0,000"
         return textView
     }()
     
@@ -52,6 +52,7 @@ class InComeViewController: UIViewController, Coordinating {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
+        label.font = Fonts.bigerNunitoFont
         label.text = "Gelir Dağılımı:"
         return label
     }()
@@ -60,7 +61,17 @@ class InComeViewController: UIViewController, Coordinating {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
+        label.font = Fonts.bigerNunitoFont
         label.text = "Gelir Tipi:"
+        return label
+    }()
+    
+    private let currencyLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textAlignment = .left
+        label.font = Fonts.bigerNunitoFont
+        label.text = ""
         return label
     }()
     
@@ -68,7 +79,10 @@ class InComeViewController: UIViewController, Coordinating {
         let button = UIButton()
         button.tintColor = .black
         button.setTitle("Gelir Ekle", for: .normal)
-        button.setTitleColor(Colors.darkThemeColor, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 10
+        button.layer.masksToBounds = true
+        button.titleLabel?.font = Fonts.bigerNunitoFont
         button.addTarget(self, action: #selector(goToAddInCome), for: .touchUpInside)
         return button
     }()
@@ -78,7 +92,8 @@ class InComeViewController: UIViewController, Coordinating {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.beigeColor
-        
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
         setupViews()
     }
     
@@ -91,73 +106,101 @@ class InComeViewController: UIViewController, Coordinating {
     
     //Setup Views
     private func setupViews() {
+        view.backgroundColor = Colors.piesGreenColor
         view.addSubview(totalIncomeLabel)
+        view.addSubview(incomeDistributionChart)
+        view.addSubview(inComeTypeLabel)
+        view.addSubview(currencyLabel)
         view.addSubview(incomeSourcesLabel)
         view.addSubview(incomeSourcesTextView)
-        view.addSubview(incomeDistributionLabel)
-        view.addSubview(inComeTypeLabel)
-        view.addSubview(incomeDistributionChart)
         view.addSubview(addButton)
         
         totalIncomeLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
         }
+        totalIncomeLabel.textColor = .white
         
-        incomeSourcesLabel.snp.makeConstraints { make in
+        incomeDistributionChart.snp.makeConstraints { make in
             make.top.equalTo(totalIncomeLabel.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(300)
+        }
+        incomeDistributionChart.backgroundColor = Colors.lightThemeColor
+        let legend = incomeDistributionChart.legend
+        legend.verticalAlignment = .bottom
+        legend.horizontalAlignment = .center
+        legend.orientation = .horizontal
+        legend.formSize = 10
+        legend.font = UIFont(name: "Nunito-Bold", size: 12) ?? .systemFont(ofSize: 12)
+        
+        inComeTypeLabel.snp.makeConstraints { make in
+            make.top.equalTo(incomeDistributionChart.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        inComeTypeLabel.textColor = .white
+        
+        currencyLabel.snp.makeConstraints { make in
+            make.top.equalTo(inComeTypeLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
         }
+        currencyLabel.textColor = .white
+        
+        incomeSourcesLabel.snp.makeConstraints { make in
+            make.top.equalTo(currencyLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+        }
+        incomeSourcesLabel.textColor = .white
         
         incomeSourcesTextView.snp.makeConstraints { make in
             make.top.equalTo(incomeSourcesLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(100)
         }
-        
-        inComeTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(incomeSourcesTextView.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(100)
-        }
+        incomeSourcesTextView.backgroundColor = .white
         
         addButton.snp.makeConstraints { make in
-            make.top.equalTo(inComeTypeLabel.snp.bottom).offset(10)
+            make.top.equalTo(incomeSourcesTextView.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(100)
+            make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-20)
         }
-        
-        incomeDistributionLabel.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-        }
-        
-        incomeDistributionChart.snp.makeConstraints { make in
-            make.top.equalTo(incomeDistributionLabel.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(150)
-        }
+        addButton.backgroundColor = .white
     }
     
+    
     private func setupChart(with data: [InComeEntry]) {
-        var entries: [BarChartDataEntry] = []
-
+        var wageEntries: [PieChartDataEntry] = []
+        var sideIncomeEntries: [PieChartDataEntry] = []
+        
         for (index, entry) in data.enumerated() {
-            let barEntry = BarChartDataEntry(x: Double(index), y: entry.wage)
-            entries.append(barEntry)
+            let wageEntry = PieChartDataEntry(value: entry.wage, label: "Maaş")
+            let sideIncomeEntry = PieChartDataEntry(value: entry.sideInCome, label: "Yan Gelir")
+            
+            wageEntries.append(wageEntry)
+            sideIncomeEntries.append(sideIncomeEntry)
         }
-
-        let dataSet = BarChartDataSet(entries: entries, label: "Gelir Dağılımı")
-        dataSet.colors = ChartColorTemplates.material()
-
-        let data = BarChartData(dataSet: dataSet)
-        incomeDistributionChart.data = data
-
-        incomeDistributionChart.chartDescription.text = ""
-        incomeDistributionChart.xAxis.labelPosition = .bottom
+        
+        let wageDataSet = PieChartDataSet(entries: wageEntries, label: "")
+        wageDataSet.colors = ChartColorTemplates.material()
+        
+        let sideIncomeDataSet = PieChartDataSet(entries: sideIncomeEntries, label: "")
+        sideIncomeDataSet.colors = ChartColorTemplates.colorful()
+        
+        let wageData = PieChartData(dataSet: wageDataSet)
+        let sideIncomeData = PieChartData(dataSet: sideIncomeDataSet)
+        wageData.setValueTextColor(.white)
+        sideIncomeData.setValueTextColor(.white)
+        
+        let combinedDataSet = PieChartDataSet(entries: wageEntries + sideIncomeEntries, label: "")
+        combinedDataSet.colors = ChartColorTemplates.material()
+        
+        let combinedData = PieChartData(dataSet: combinedDataSet)
+        combinedData.setValueTextColor(.white)
+        
+        incomeDistributionChart.data = combinedData
+        incomeDistributionChart.centerText = "Maaş"
         incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
-
     
     //MARK: - Load Data
     
@@ -178,8 +221,12 @@ class InComeViewController: UIViewController, Coordinating {
                 let incomeTypeName = entry.inComeType
                 let salary = entry.wage
                 let sideInCome = entry.sideInCome
-                inComeTypeLabel.text = "Gelir Tipi: \(String(describing: incomeTypeName))"
-                incomeSourcesTextView.text = "- Maaş: $\(salary)\n- Yan Gelirler: \(sideInCome)"
+                let inComeTotal = salary + sideInCome
+                let currency = entry.currency
+                inComeTypeLabel.text = "Gelir Tipi: \(incomeTypeName)"
+                incomeSourcesTextView.text = "- Maaş:\(salary)\n- Yan Gelirler: \(sideInCome)"
+                totalIncomeLabel.text = String(describing:inComeTotal)
+                currencyLabel.text = currency
             }
             setupChart(with: fetchedData)
         } catch {

@@ -34,6 +34,7 @@
 		46F2DD3C2B582C98008792D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3B2B582C98008792D0 /* Constants.swift */; };
 		46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */; };
 		46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */; };
+		46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA244F2B5B1A9000D2ACBE /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		46F2DD3B2B582C98008792D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
 		46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController5.swift; sourceTree = "<group>"; };
+		46FA244F2B5B1A9000D2ACBE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			children = (
 				46F2DD312B582A33008792D0 /* Colors.swift */,
 				46F2DD3B2B582C98008792D0 /* Constants.swift */,
+				46FA244F2B5B1A9000D2ACBE /* Fonts.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				46F2DD2D2B582972008792D0 /* DetailViewController.swift in Sources */,
 				46AF0ACF2B585B2A00647EA1 /* InComeViewController.swift in Sources */,
 				46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */,
+				46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */,
 				469D15C32B598F6100544E35 /* InCome.swift in Sources */,
 				46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */,
 				46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */,
