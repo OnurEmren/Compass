@@ -10,4 +10,5 @@ import Foundation
 struct InCome {
     var wage: Double
     var sideInCome: Double
+    var inComeType: String
 }

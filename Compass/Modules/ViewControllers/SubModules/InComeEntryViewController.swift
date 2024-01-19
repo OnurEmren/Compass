@@ -9,7 +9,9 @@ import UIKit
 import SnapKit
 import CoreData
 
-class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate,Coordinating {
+class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate, IncomeEntryViewDelegate,Coordinating {
+ 
+    
     var coordinator: Coordinator?
     
     private let incomeEntryView = IncomeEntryView()
@@ -24,15 +26,15 @@ class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate,Coord
     private func setupViews() {
         view.addSubview(incomeEntryView)
         
+        incomeEntryView.saveDelegate = self
         incomeEntryView.delegate = self
-        
         incomeEntryView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
-    func didTapSaveButton(incomeText: String?, sideIncomeText: String?) {
-        guard let income = Double(incomeText ?? ""), let sideIncome = Double(sideIncomeText ?? "") else {
+    func didTapSaveButton(incomeText: String?, sideIncomeText: String?, inComeType: String?) {
+        guard let income = Double(incomeText ?? ""), let sideIncome = Double(sideIncomeText ?? ""), let inComeType = inComeType else {
             print("Geçersiz veri")
             return
         }
@@ -43,7 +45,8 @@ class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate,Coord
         if var incomeEntity = NSEntityDescription.insertNewObject(forEntityName: "InComeEntry", into: context) as? InComeEntry {
             incomeEntity.wage = income
             incomeEntity.sideInCome = sideIncome
-          
+            incomeEntity.inComeType = inComeType
+            
             do {
                 try context.save()
                 showToast(message: "Kayıt Başarılı!")
@@ -52,6 +55,10 @@ class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate,Coord
                 print("Veri kaydedilemedi. Hata: \(error)")
             }
         }
+    }
+    
+    func didSelectIncomeType(_ incomeType: String) {
+        //
     }
 }
 

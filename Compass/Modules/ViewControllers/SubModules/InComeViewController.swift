@@ -39,7 +39,12 @@ class InComeViewController: UIViewController, Coordinating {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.isEditable = false
-        textView.text = "- Maaş: $6,000\n- Yatırım Getirisi: $3,000\n- Diğer: $1,000"
+        textView.backgroundColor = Colors.lightThemeColor
+        textView.layer.borderWidth = 0.7
+        textView.layer.borderColor = Colors.darkThemeColor.cgColor
+        textView.layer.cornerRadius = 10
+        textView.layer.masksToBounds = true
+        textView.text = "- Maaş: $0,000\n- Yatırım Getirisi: $0,000\n- Diğer: $0,000"
         return textView
     }()
     
@@ -48,6 +53,14 @@ class InComeViewController: UIViewController, Coordinating {
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
         label.text = "Gelir Dağılımı:"
+        return label
+    }()
+    
+    private let inComeTypeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textAlignment = .left
+        label.text = "Gelir Tipi:"
         return label
     }()
     
@@ -64,7 +77,7 @@ class InComeViewController: UIViewController, Coordinating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.beigeColor
         
         setupViews()
     }
@@ -82,6 +95,7 @@ class InComeViewController: UIViewController, Coordinating {
         view.addSubview(incomeSourcesLabel)
         view.addSubview(incomeSourcesTextView)
         view.addSubview(incomeDistributionLabel)
+        view.addSubview(inComeTypeLabel)
         view.addSubview(incomeDistributionChart)
         view.addSubview(addButton)
         
@@ -101,8 +115,14 @@ class InComeViewController: UIViewController, Coordinating {
             make.height.equalTo(100)
         }
         
-        addButton.snp.makeConstraints { make in
+        inComeTypeLabel.snp.makeConstraints { make in
             make.top.equalTo(incomeSourcesTextView.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(100)
+        }
+        
+        addButton.snp.makeConstraints { make in
+            make.top.equalTo(inComeTypeLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(100)
         }
@@ -153,18 +173,18 @@ class InComeViewController: UIViewController, Coordinating {
                 return result + entry.wage
             }
             totalIncomeLabel.text = "Toplam Gelir: \(totalIncome)"
-            // Gelir Kaynakları
-            let salary = fetchedData.reduce(0) { $0 + $1.wage }
-            let sideInCome = fetchedData.reduce(0) { $0 + $1.sideInCome}
             
-            incomeSourcesTextView.text = "- Maaş: $\(salary)\n- Yan Gelirler: \(sideInCome)"
-            
+            for entry in fetchedData {
+                let incomeTypeName = entry.inComeType
+                let salary = entry.wage
+                let sideInCome = entry.sideInCome
+                inComeTypeLabel.text = "Gelir Tipi: \(String(describing: incomeTypeName))"
+                incomeSourcesTextView.text = "- Maaş: $\(salary)\n- Yan Gelirler: \(sideInCome)"
+            }
             setupChart(with: fetchedData)
-            print("Veri Çekildi: \(totalIncome)")
         } catch {
             print("Veri çekme hatası: \(error)")
         }
-        
     }
     
     //MARK: - @objc Methods
