@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		469D15BA2B598A8700544E35 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 469D15B92B598A8700544E35 /* DGCharts */; };
-		469D15BC2B598BF300544E35 /* InComeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BB2B598BF300544E35 /* InComeEntryView.swift */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
 		469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */; };
 		469D15C32B598F6100544E35 /* InCome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15C22B598F6100544E35 /* InCome.swift */; };
@@ -35,10 +34,10 @@
 		46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */; };
 		46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */; };
 		46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA244F2B5B1A9000D2ACBE /* Fonts.swift */; };
+		46FC99A62B5C683C0064A1F0 /* InComeEntryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		469D15BB2B598BF300544E35 /* InComeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryView.swift; sourceTree = "<group>"; };
 		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
 		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
 		469D15C22B598F6100544E35 /* InCome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCome.swift; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
 		46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController5.swift; sourceTree = "<group>"; };
 		46FA244F2B5B1A9000D2ACBE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 		469D15B72B5988D100544E35 /* SubModulesViews */ = {
 			isa = PBXGroup;
 			children = (
-				469D15BB2B598BF300544E35 /* InComeEntryView.swift */,
+				46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */,
 			);
 			path = SubModulesViews;
 			sourceTree = "<group>";
@@ -305,7 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				469D15BC2B598BF300544E35 /* InComeEntryView.swift in Sources */,
 				469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */,
 				46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */,
 				46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */,
@@ -315,6 +314,7 @@
 				46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */,
 				46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */,
 				46F2DD362B582C17008792D0 /* OnBoardingViewController2.swift in Sources */,
+				46FC99A62B5C683C0064A1F0 /* InComeEntryPickerView.swift in Sources */,
 				46F2DD0F2B582610008792D0 /* HomeViewController.swift in Sources */,
 				46F2DD282B5827B4008792D0 /* Coordinator.swift in Sources */,
 				46F2DD3C2B582C98008792D0 /* Constants.swift in Sources */,

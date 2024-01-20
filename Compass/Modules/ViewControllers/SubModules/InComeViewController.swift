@@ -24,7 +24,7 @@ class InComeViewController: UIViewController, Coordinating {
     private let totalIncomeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.text = "10,000"
+        label.text = "0.0"
         label.font = Fonts.bigNunitoFont
         return label
     }()
@@ -57,29 +57,11 @@ class InComeViewController: UIViewController, Coordinating {
         return label
     }()
     
-    private let inComeTypeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .left
-        label.font = Fonts.bigerNunitoFont
-        label.text = "Gelir Tipi:"
-        return label
-    }()
-    
-    private let currencyLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .left
-        label.font = Fonts.bigerNunitoFont
-        label.text = ""
-        return label
-    }()
-    
     private let addButton: UIButton = {
         let button = UIButton()
-        button.tintColor = .black
         button.setTitle("Gelir Ekle", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = Colors.buttonColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.titleLabel?.font = Fonts.bigerNunitoFont
@@ -91,9 +73,8 @@ class InComeViewController: UIViewController, Coordinating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.beigeColor
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = UIColor.white
+        title = "Gelirleriniz"
+        setupNavigationView()
         setupViews()
     }
     
@@ -104,13 +85,17 @@ class InComeViewController: UIViewController, Coordinating {
     
     //MARK: - Private Methods
     
+    private func setupNavigationView() {
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
     //Setup Views
     private func setupViews() {
         view.backgroundColor = Colors.piesGreenColor
         view.addSubview(totalIncomeLabel)
         view.addSubview(incomeDistributionChart)
-        view.addSubview(inComeTypeLabel)
-        view.addSubview(currencyLabel)
         view.addSubview(incomeSourcesLabel)
         view.addSubview(incomeSourcesTextView)
         view.addSubview(addButton)
@@ -127,6 +112,7 @@ class InComeViewController: UIViewController, Coordinating {
             make.height.equalTo(300)
         }
         incomeDistributionChart.backgroundColor = Colors.lightThemeColor
+        
         let legend = incomeDistributionChart.legend
         legend.verticalAlignment = .bottom
         legend.horizontalAlignment = .center
@@ -134,20 +120,8 @@ class InComeViewController: UIViewController, Coordinating {
         legend.formSize = 10
         legend.font = UIFont(name: "Nunito-Bold", size: 12) ?? .systemFont(ofSize: 12)
         
-        inComeTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(incomeDistributionChart.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(20)
-        }
-        inComeTypeLabel.textColor = .white
-        
-        currencyLabel.snp.makeConstraints { make in
-            make.top.equalTo(inComeTypeLabel.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-        }
-        currencyLabel.textColor = .white
-        
         incomeSourcesLabel.snp.makeConstraints { make in
-            make.top.equalTo(currencyLabel.snp.bottom).offset(10)
+            make.top.equalTo(incomeDistributionChart.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
         }
         incomeSourcesLabel.textColor = .white
@@ -163,8 +137,8 @@ class InComeViewController: UIViewController, Coordinating {
             make.top.equalTo(incomeSourcesTextView.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-20)
+            make.height.equalTo(40)
         }
-        addButton.backgroundColor = .white
     }
     
     
@@ -218,15 +192,17 @@ class InComeViewController: UIViewController, Coordinating {
             totalIncomeLabel.text = "Toplam Gelir: \(totalIncome)"
             
             for entry in fetchedData {
-                let incomeTypeName = entry.inComeType
                 let salary = entry.wage
                 let sideInCome = entry.sideInCome
                 let inComeTotal = salary + sideInCome
                 let currency = entry.currency
-                inComeTypeLabel.text = "Gelir Tipi: \(incomeTypeName)"
+                
                 incomeSourcesTextView.text = "- Maaş:\(salary)\n- Yan Gelirler: \(sideInCome)"
-                totalIncomeLabel.text = String(describing:inComeTotal)
-                currencyLabel.text = currency
+                if let unwrappedCurrency = currency {
+                    totalIncomeLabel.text = "\(inComeTotal) \(unwrappedCurrency)"
+                } else {
+                    totalIncomeLabel.text = "\(inComeTotal) Bilinmiyor"
+                }
             }
             setupChart(with: fetchedData)
         } catch {

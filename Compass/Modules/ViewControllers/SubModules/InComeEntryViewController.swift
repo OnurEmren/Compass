@@ -11,17 +11,17 @@ import CoreData
 
 class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate, IncomeEntryViewDelegate,InComeUpdateViewDelegate, Coordinating {
     
-    
-    
     var coordinator: Coordinator?
     
-    private let incomeEntryView = IncomeEntryView()
+    private let incomeEntryView = InComeEntryPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        title = "Gelirinizi Girin"
+        view.backgroundColor = Colors.piesGreenColor
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         setupViews()
     }
     
@@ -82,7 +82,6 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
             print("Fetched Data: \(fetchedData)")
             
             if let existingInComeEntry = fetchedData.first {
-                // Varolan kaydı güncelle
                 existingInComeEntry.wage = newWage
                 existingInComeEntry.sideInCome = newSideInCome
                 
