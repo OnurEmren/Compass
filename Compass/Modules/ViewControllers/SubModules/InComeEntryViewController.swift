@@ -48,7 +48,7 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        if var incomeEntity = NSEntityDescription.insertNewObject(forEntityName: "InComeEntry", into: context) as? InComeEntry {
+        if let incomeEntity = NSEntityDescription.insertNewObject(forEntityName: "InComeEntry", into: context) as? InComeEntry {
             incomeEntity.wage = income
             incomeEntity.sideInCome = sideIncome
             incomeEntity.inComeType = inComeType

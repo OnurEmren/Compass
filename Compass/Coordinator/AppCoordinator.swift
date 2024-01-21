@@ -30,6 +30,11 @@ class AppCoordinator: Coordinator {
             let inComeEntryVC = IncomeEntryViewController()
             inComeEntryVC.coordinator = self
             navigationController?.pushViewController(inComeEntryVC, animated: true)
+            
+        case .goToExpenseEntryVC:
+            let expenseEntryVC = ExpenseEntryViewController()
+            expenseEntryVC.coordinator = self
+            navigationController?.pushViewController(expenseEntryVC, animated: true)
         }
     }
   

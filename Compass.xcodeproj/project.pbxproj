@@ -35,6 +35,9 @@
 		46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */; };
 		46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA244F2B5B1A9000D2ACBE /* Fonts.swift */; };
 		46FC99A62B5C683C0064A1F0 /* InComeEntryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */; };
+		46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A72B5C8B830064A1F0 /* Expense.swift */; };
+		46FC99AA2B5C904F0064A1F0 /* ExpenseEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A92B5C904F0064A1F0 /* ExpenseEntryViewController.swift */; };
+		46FC99AC2B5C91E60064A1F0 /* ExpenseEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99AB2B5C91E60064A1F0 /* ExpenseEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController5.swift; sourceTree = "<group>"; };
 		46FA244F2B5B1A9000D2ACBE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryPickerView.swift; sourceTree = "<group>"; };
+		46FC99A72B5C8B830064A1F0 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		46FC99A92B5C904F0064A1F0 /* ExpenseEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEntryViewController.swift; sourceTree = "<group>"; };
+		46FC99AB2B5C91E60064A1F0 /* ExpenseEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */,
+				46FC99AB2B5C91E60064A1F0 /* ExpenseEntryView.swift */,
 			);
 			path = SubModulesViews;
 			sourceTree = "<group>";
@@ -93,9 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */,
+				469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */,
 				46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */,
 				46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */,
-				469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */,
+				46FC99A92B5C904F0064A1F0 /* ExpenseEntryViewController.swift */,
 			);
 			path = SubModules;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				469D15C22B598F6100544E35 /* InCome.swift */,
+				46FC99A72B5C8B830064A1F0 /* Expense.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,7 +321,9 @@
 				46F2DD322B582A33008792D0 /* Colors.swift in Sources */,
 				46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */,
 				46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */,
+				46FC99AC2B5C91E60064A1F0 /* ExpenseEntryView.swift in Sources */,
 				46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */,
+				46FC99AA2B5C904F0064A1F0 /* ExpenseEntryViewController.swift in Sources */,
 				46F2DD362B582C17008792D0 /* OnBoardingViewController2.swift in Sources */,
 				46FC99A62B5C683C0064A1F0 /* InComeEntryPickerView.swift in Sources */,
 				46F2DD0F2B582610008792D0 /* HomeViewController.swift in Sources */,
@@ -324,6 +335,7 @@
 				46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */,
 				469D15C32B598F6100544E35 /* InCome.swift in Sources */,
 				46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */,
+				46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */,
 				46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */,
 				46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */,
 				46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */,
