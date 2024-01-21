@@ -115,7 +115,10 @@ class ExpenseViewController: UIViewController, Coordinating {
                 let transportExpense = entry.transportExpense
                 let foodExpense = entry.foodExpense
                 let taxExpense = entry.taxExpense
-                let inComeTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
+                let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
+                
+                totalExpenseLabel.text = "\(expenseTotal)"
+
             }
             setupExpenseChart(with: fetchedData)
         } catch {
@@ -184,7 +187,15 @@ class ExpenseViewController: UIViewController, Coordinating {
             entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
             label: "")
         
-        combinedDataSet.colors = ChartColorTemplates.material()
+        combinedDataSet.colors = [
+            .red,
+            Colors.piesGreenColor,
+            .blue,
+            Colors.darkThemeColor,
+            .orange,
+            .purple,
+            .magenta
+        ]
         
         let combinedData = PieChartData(dataSet: combinedDataSet)
         combinedData.setValueTextColor(.white)

@@ -1369,10 +1369,42 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "fetchDataFromCoreData()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DC083361-57D4-48C5-A6CA-C626E98D6823 - ee7ff1b14545556"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ExpenseViewController.fetchDataFromCoreData() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "1436">
+               </Location>
+               <Location
+                  uuid = "DC083361-57D4-48C5-A6CA-C626E98D6823 - ee7ff1b14545556"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ExpenseViewController.fetchDataFromCoreData() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "1468">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1385,10 +1417,42 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "fetchDataFromCoreData()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "06C63B6F-B5DA-4D2D-96E4-ACC3E177CEA8 - ee7ff1b14545598"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ExpenseViewController.fetchDataFromCoreData() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "1476">
+               </Location>
+               <Location
+                  uuid = "06C63B6F-B5DA-4D2D-96E4-ACC3E177CEA8 - ee7ff1b14545598"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ExpenseViewController.fetchDataFromCoreData() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "1596">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
