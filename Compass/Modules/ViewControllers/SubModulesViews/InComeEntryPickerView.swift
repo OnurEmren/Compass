@@ -12,7 +12,9 @@ protocol IncomeEntryViewDelegate: AnyObject {
     func didTapSaveButton(incomeText: String?,
                           sideIncomeText: String?,
                           inComeType: String?,
-                          currency: String?)
+                          currency: String?,
+                          month: String?
+    )
 }
 
 protocol InComeUpdateViewDelegate: AnyObject {
@@ -73,7 +75,23 @@ class InComeEntryPickerView: UIView {
         return label
     }()
     
+    private let monthLabel: UITextField = {
+        let label = UITextField()
+        label.text = "Ay"
+        label.layer.borderWidth = 0.7
+        label.layer.borderColor = Colors.darkThemeColor.cgColor
+        label.layer.cornerRadius = 10
+        label.layer.masksToBounds = true
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .darkGray
+        label.backgroundColor = Colors.lightThemeColor
+        label.isUserInteractionEnabled = true
+        return label
+    }()
+    
     private let currencyPickerView = UIPickerView()
+    private let monthPickerView = UIPickerView()
     
     private let inComeTypeLabel: UITextField = {
         let label = UITextField()
@@ -100,6 +118,7 @@ class InComeEntryPickerView: UIView {
 
     let inComeType = ["Maaş", "Yan Gelir", "Diğer"]
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
+    private let month = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -130,6 +149,7 @@ class InComeEntryPickerView: UIView {
         addSubview(sideIncomeTextField)
         addSubview(inComeTypeLabel)
         addSubview(currencyTypeLabel)
+        addSubview(monthLabel)
         addSubview(saveButton)
         addSubview(updateButton)
         
@@ -143,6 +163,10 @@ class InComeEntryPickerView: UIView {
         currencyTypeLabel.inputView = currencyPickerView
         currencyPickerView.setPickerView()
                 
+        monthPickerView.delegate = self
+        monthPickerView.dataSource = self
+        monthLabel.inputView = monthPickerView
+        monthPickerView.setPickerView()
         
         incomeTextField.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(150)
@@ -168,9 +192,15 @@ class InComeEntryPickerView: UIView {
             make.height.equalTo(40)
         }
         
+        monthLabel.snp.makeConstraints { make in
+            make.top.equalTo(currencyTypeLabel.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(40)
+        }
+        
         saveButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(currencyTypeLabel.snp.bottom).offset(30)
+            make.top.equalTo(monthLabel.snp.bottom).offset(30)
             make.width.equalTo(120)
             make.height.equalTo(40)
         }
@@ -192,7 +222,8 @@ class InComeEntryPickerView: UIView {
             incomeText: incomeTextField.text,
             sideIncomeText: sideIncomeTextField.text,
             inComeType: inComeTypeLabel.text,
-            currency: currencyTypeLabel.text
+            currency: currencyTypeLabel.text,
+            month: monthLabel.text
         )
     }
     
@@ -218,6 +249,8 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
             return inComeType.count
         } else if pickerView == currencyPickerView {
             return currencies.count
+        } else if pickerView == monthPickerView {
+            return month.count
         }
         return 0
     }
@@ -227,6 +260,8 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
             return inComeType[row]
         } else if pickerView == currencyPickerView {
             return currencies[row]
+        } else if pickerView == monthPickerView {
+            return month[row]
         }
         return nil
     }
@@ -239,7 +274,9 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
         } else if pickerView == currencyPickerView {
             let selectedCurrency = currencies[row]
             currencyTypeLabel.text = selectedCurrency
-            print("Seçilen Para Birimi: \(selectedCurrency)")
+        } else if pickerView == monthPickerView {
+            let selectedMonth = month[row]
+            monthLabel.text = selectedMonth
         }
     }
 }

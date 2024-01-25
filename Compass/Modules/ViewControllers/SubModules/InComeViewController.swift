@@ -38,6 +38,15 @@ class InComeViewController: UIViewController, Coordinating {
         return label
     }()
     
+    private let incomeMonthsLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textAlignment = .left
+        label.font = Fonts.bigerNunitoFont
+        label.text = "Ay:"
+        return label
+    }()
+    
     private let incomeSourcesTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 16)
@@ -98,11 +107,18 @@ class InComeViewController: UIViewController, Coordinating {
         view.addSubview(incomeDistributionChart)
         view.addSubview(incomeSourcesLabel)
         view.addSubview(incomeSourcesTextView)
+        view.addSubview(incomeMonthsLabel)
         view.addSubview(addButton)
+        
+        incomeMonthsLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
+        }
+        incomeMonthsLabel.textColor = .white
         
         totalIncomeLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(incomeMonthsLabel).offset(20)
         }
         totalIncomeLabel.textColor = .white
         
@@ -190,14 +206,20 @@ class InComeViewController: UIViewController, Coordinating {
                 return result + entry.wage
             }
             totalIncomeLabel.text = "Toplam Gelir: \(totalIncome)"
-            
             for entry in fetchedData {
                 let salary = entry.wage
                 let sideInCome = entry.sideInCome
                 let inComeTotal = salary + sideInCome
                 let currency = entry.currency
-                
+                let month = entry.month
                 incomeSourcesTextView.text = "- Maaş:\(salary)\n- Yan Gelirler: \(sideInCome)"
+                
+                if let unwrappedMonth = month {
+                    incomeMonthsLabel.text = "\(unwrappedMonth)"
+                } else {
+                    incomeMonthsLabel.text = "\(month) Bilinmiyor"
+                }
+
                 if let unwrappedCurrency = currency {
                     totalIncomeLabel.text = "\(inComeTotal) \(unwrappedCurrency)"
                 } else {

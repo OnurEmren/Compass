@@ -8,6 +8,7 @@
 import Foundation
 
 struct Expense {
+    var month: String
     var clothesExpense: Double
     var electronicExpense: Double
     var foodExpense: Double

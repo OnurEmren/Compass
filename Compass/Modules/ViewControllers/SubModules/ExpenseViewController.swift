@@ -38,6 +38,15 @@ class ExpenseViewController: UIViewController, Coordinating {
         return label
     }()
     
+    private let monthLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textAlignment = .left
+        label.font = Fonts.bigerNunitoFont
+        label.text = "Ay:"
+        return label
+    }()
+    
     private let addButton: UIButton = {
         let button = UIButton()
         button.setTitle("Gider Ekle", for: .normal)
@@ -50,26 +59,52 @@ class ExpenseViewController: UIViewController, Coordinating {
         return button
     }()
     
+    
+    private let deleteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Sil", for: .normal)
+        button.backgroundColor = .red
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = UIColor.white
-        view.backgroundColor = .red
         
+        view.backgroundColor = Colors.piesGreenColor
+        setupNavigationSettings()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchDataFromCoreData()
     }
     
-    
+    private func setupNavigationSettings() {
+        title = Strings.expenseTitle
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
     
     private func setupView() {
         view.addSubview(expenseChart)
         view.addSubview(totalExpenseLabel)
+        view.addSubview(monthLabel)
         view.addSubview(addButton)
+        view.addSubview(deleteButton)
+        
+        
+        monthLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+        }
+        monthLabel.textColor = Colors.lightThemeColor
         
         totalExpenseLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(monthLabel).offset(30)
         }
         totalExpenseLabel.textColor = Colors.lightThemeColor
         
@@ -85,7 +120,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         legend.orientation = .horizontal
         legend.formSize = 10
         legend.font = UIFont(name: "Nunito-Bold", size: 12) ?? .systemFont(ofSize: 12)
-
+        
         
         addButton.snp.makeConstraints { make in
             make.top.equalTo(expenseChart.snp.bottom).offset(20)
@@ -93,6 +128,16 @@ class ExpenseViewController: UIViewController, Coordinating {
             make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-20)
             make.height.equalTo(40)
         }
+        
+        deleteButton.snp.makeConstraints { make in
+            make.top.equalTo(addButton.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(120)
+            make.height.equalTo(40)
+        }
+        
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        
     }
     
     private func fetchDataFromCoreData() {
@@ -118,7 +163,7 @@ class ExpenseViewController: UIViewController, Coordinating {
                 let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
                 
                 totalExpenseLabel.text = "\(expenseTotal)"
-
+                
             }
             setupExpenseChart(with: fetchedData)
         } catch {
@@ -134,7 +179,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         var rentExpenseEntries: [PieChartDataEntry] = []
         var taxExpenseEntries: [PieChartDataEntry] = []
         
-        for (index, entry) in data.enumerated() {
+        for (_, entry) in data.enumerated() {
             let clothesExpenseEntry = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
             let electronicExpenseEntry = PieChartDataEntry(value: entry.electronicExpense, label: "Elektronik")
             let foodExpenseEntry = PieChartDataEntry(value: entry.foodExpense, label: "Gıda")
@@ -185,7 +230,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         
         let combinedDataSet = PieChartDataSet(
             entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
-            label: "")
+            label: "test")
         
         combinedDataSet.colors = [
             .red,
@@ -209,4 +254,74 @@ class ExpenseViewController: UIViewController, Coordinating {
     private func goToAddExpense() {
         coordinator?.eventOccured(with: .goToExpenseEntryVC)
     }
+    
+    @objc
+    func deleteButtonTapped() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<ExpenseEntry> = ExpenseEntry.fetchRequest()
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            
+            if result.isEmpty {
+                // Önceki veri yoksa
+                let alertController = UIAlertController(
+                    title: "Silme İptal Edildi",
+                    message: "Önce bir veri eklemeniz gerekmektedir.",
+                    preferredStyle: .alert
+                )
+                
+                let cancelAction = UIAlertAction(title: "Tamam", style: .cancel) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+                alertController.addAction(cancelAction)
+                present(alertController, animated: true, completion: nil)
+            } else {
+                // Önceki veri varsa
+                let alertController = UIAlertController(
+                    title: "Sil",
+                    message: "Bu öğeyi silmek istediğinizden emin misiniz?",
+                    preferredStyle: .alert
+                )
+                
+                let cancelAction = UIAlertAction(title: "İptal", style: .cancel) { _ in
+                    print("Silme işlemi iptal edildi.")
+                }
+                
+                let deleteAction = UIAlertAction(title: "Sil", style: .destructive) { _ in
+                    self.deleteLastIncomeEntry()
+                }
+                alertController.addAction(cancelAction)
+                alertController.addAction(deleteAction)
+                present(alertController, animated: true, completion: nil)
+            }
+        } catch {
+            print("Hata: \(error)")
+        }
+    }
+    
+    func deleteLastIncomeEntry() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<ExpenseEntry> = ExpenseEntry.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "transportExpense", ascending: false)]
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            
+            if let lastIncomeEntry = result.first {
+                context.delete(lastIncomeEntry)
+                
+                try context.save()
+            }
+        } catch {
+            print("Hata: \(error)")
+        }
+    }
+    
 }

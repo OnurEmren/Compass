@@ -14,7 +14,9 @@ protocol ExpenseEntryViewDelegate: AnyObject {
                           fuelExpenseText: String?,
                           foodExpenseText: String?,
                           rentExpenseText: String?,
-                          taxExpenseText: String?)
+                          taxExpenseText: String?,
+                          month: String?
+    )    
 }
 
 protocol ExpenseUpdateViewDelegate: AnyObject {
@@ -36,7 +38,9 @@ class ExpenseEntryView: UIView {
             button.layer.cornerRadius = 8
             return button
         }()
+    
     private let expensePickerView = UIPickerView()
+    private let monthsPickerView = UIPickerView()
     
     private let clothesExpenseText: UITextField = {
         let textField = UITextField()
@@ -82,6 +86,7 @@ class ExpenseEntryView: UIView {
         textField.keyboardType = .numberPad
         return textField
     }()
+   
     private let rentExpenseText: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Kira Giderinizi Girin"
@@ -90,9 +95,6 @@ class ExpenseEntryView: UIView {
         textField.keyboardType = .numberPad
         return textField
     }()
-    weak var delegate: ExpenseTypePickerViewDelegate?
-    weak var saveDelegate: ExpenseEntryViewDelegate?
-    weak var updateDelegate: InComeUpdateViewDelegate?
     
     private let currencyTypeLabel: UITextField = {
         let label = UITextField()
@@ -109,11 +111,25 @@ class ExpenseEntryView: UIView {
         return label
     }()
     
-    private let currencyPickerView = UIPickerView()
     
     private let expenseTypeLabel: UITextField = {
         let label = UITextField()
         label.text = "Gider Türü"
+        label.layer.borderWidth = 0.7
+        label.layer.borderColor = Colors.darkThemeColor.cgColor
+        label.layer.cornerRadius = 10
+        label.layer.masksToBounds = true
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .darkGray
+        label.backgroundColor = Colors.lightThemeColor
+        label.isUserInteractionEnabled = true
+        return label
+    }()
+    
+    private let monthLabel: UITextField = {
+        let label = UITextField()
+        label.text = "Ay"
         label.layer.borderWidth = 0.7
         label.layer.borderColor = Colors.darkThemeColor.cgColor
         label.layer.cornerRadius = 10
@@ -134,8 +150,13 @@ class ExpenseEntryView: UIView {
         return button
     }()
 
-    let expenseType = ["Gıda", "Giyim", "Ulaşım", "Akaryakıt", "Kira", "Elektronik"]
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
+    private let months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
+    
+    private let currencyPickerView = UIPickerView()
+    weak var delegate: ExpenseTypePickerViewDelegate?
+    weak var saveDelegate: ExpenseEntryViewDelegate?
+    weak var updateDelegate: InComeUpdateViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -162,9 +183,9 @@ class ExpenseEntryView: UIView {
     }
     
     private func setupViews() {
+        addSubview(monthLabel)
         addSubview(clothesExpenseText)
         addSubview(electronicExpenseText)
-        addSubview(expenseTypeLabel)
         addSubview(foodExpenseText)
         addSubview(fuelExpenseText)
         addSubview(rentExpenseText)
@@ -182,10 +203,21 @@ class ExpenseEntryView: UIView {
         currencyPickerView.dataSource = self
         currencyTypeLabel.inputView = currencyPickerView
         currencyPickerView.setPickerView()
+        
+        monthsPickerView.delegate = self
+        monthsPickerView.dataSource = self
+        monthLabel.inputView = monthsPickerView
+        monthsPickerView.setPickerView()
                 
         
-        clothesExpenseText.snp.makeConstraints { make in
+        monthLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(150)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(40)
+        }
+        
+        clothesExpenseText.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(200)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
@@ -220,18 +252,12 @@ class ExpenseEntryView: UIView {
             make.height.equalTo(40)
         }
         
-        expenseTypeLabel.snp.makeConstraints { make in
+        currencyTypeLabel.snp.makeConstraints { make in
             make.top.equalTo(taxExpenseText.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
-        
-        currencyTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(expenseTypeLabel.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(40)
-        }
-        
+    
         saveButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(currencyTypeLabel.snp.bottom).offset(30)
@@ -258,11 +284,13 @@ class ExpenseEntryView: UIView {
             fuelExpenseText: fuelExpenseText.text,
             foodExpenseText: foodExpenseText.text,
             rentExpenseText: rentExpenseText.text,
-            taxExpenseText: taxExpenseText.text
+            taxExpenseText: taxExpenseText.text,
+            month: monthLabel.text
         )
     }
     
-    @objc private func updateButtonTapped() {
+    @objc 
+    private func updateButtonTapped() {
         updateDelegate?.didTapUpdateButton(
             inComeType: expenseTypeLabel.text ?? "",
             newWage: clothesExpenseText.text ?? "",
@@ -280,17 +308,18 @@ extension ExpenseEntryView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == expensePickerView {
-            return expenseType.count
+        if pickerView == monthsPickerView {
+            return months.count
         } else if pickerView == currencyPickerView {
             return currencies.count
         }
+        
         return 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == expensePickerView {
-            return expenseType[row]
+        if pickerView == monthsPickerView {
+            return months[row]
         } else if pickerView == currencyPickerView {
             return currencies[row]
         }
@@ -298,14 +327,24 @@ extension ExpenseEntryView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == expensePickerView {
-            let selectedIncomeType = expenseType[row]
-            expenseTypeLabel.text = selectedIncomeType
-            delegate?.didSelectIncomeType(selectedIncomeType)
+        if pickerView == monthsPickerView {
+            let selectedMonth = months[row]
+            monthLabel.text = selectedMonth
         } else if pickerView == currencyPickerView {
             let selectedCurrency = currencies[row]
             currencyTypeLabel.text = selectedCurrency
-            print("Seçilen Para Birimi: \(selectedCurrency)")
         }
     }
+    
+    private func getViewController() -> UIViewController? {
+          var responder: UIResponder? = self
+          while let nextResponder = responder?.next {
+              responder = nextResponder
+              if let viewController = responder as? UIViewController {
+                  return viewController
+              }
+          }
+          return nil
+      }
 }
+

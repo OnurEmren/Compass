@@ -8,6 +8,7 @@
 import Foundation
 
 struct InCome {
+    var month: String
     var wage: Double
     var sideInCome: Double
     var inComeType: String

@@ -17,7 +17,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
         super.viewDidLoad()
         
         title = "Giderlerinizi Girin"
-        view.backgroundColor = .blue
+        view.backgroundColor = Colors.lightThemeColor
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -42,13 +42,17 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
                           fuelExpenseText: String?,
                           foodExpenseText: String?,
                           rentExpenseText: String?,
-                          taxExpenseText: String?) {
+                          taxExpenseText: String?,
+                          month: String?
+    ) {
         guard let clothesExpense = Double(clothesExpenseText ?? ""),
               let electronicExpense = Double(electronicExpenseText ?? ""),
               let fuelExpense = Double(fuelExpenseText ?? ""),
               let foodExpense = Double(foodExpenseText ?? ""),
               let rentExpense = Double(rentExpenseText ?? ""),
-              let taxExpense = Double(taxExpenseText ?? "") else {
+              let taxExpense = Double(taxExpenseText ?? ""),
+              let month = month
+        else {
             print("Geçersiz veri")
             return
         }
@@ -62,6 +66,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
             expenseEntity.fuelExpense = fuelExpense
             expenseEntity.rentExpense = rentExpense
             expenseEntity.taxExpense = taxExpense
+            expenseEntity.month = month
             do {
                 try context.save()
                 print("Veri başarıyla kaydedildi.")
@@ -74,4 +79,5 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
     func didSelectIncomeType(_ incomeType: String) {
         //
     }
+
 }

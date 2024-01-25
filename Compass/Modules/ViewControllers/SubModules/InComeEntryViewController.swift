@@ -17,7 +17,7 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Gelirinizi Girin"
+        title = Strings.inComeEntryTitle
         view.backgroundColor = Colors.piesGreenColor
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -36,7 +36,7 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
         }
     }
     
-    func didTapSaveButton(incomeText: String?, sideIncomeText: String?, inComeType: String?, currency: String?) {
+    func didTapSaveButton(incomeText: String?, sideIncomeText: String?, inComeType: String?, currency: String?, month: String?) {
         guard let income = Double(incomeText ?? ""),
               let sideIncome = Double(sideIncomeText ?? ""),
               let inComeType = inComeType,
@@ -53,6 +53,7 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
             incomeEntity.sideInCome = sideIncome
             incomeEntity.inComeType = inComeType
             incomeEntity.currency = currency
+            incomeEntity.month = month
             do {
                 try context.save()
                 showToast(message: "Kayıt Başarılı!")

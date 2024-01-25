@@ -125,6 +125,9 @@ extension ManageOnBoardingViewController {
     @objc
     private func nextTapped(_ sender: UIButton) {
         pageControl.currentPage += 1
+        if pageControl.currentPage == 5 {
+            dismiss(animated: true)
+        }
         goToNextPage()
     }
     
@@ -199,7 +202,6 @@ extension ManageOnBoardingViewController: UIPageViewControllerDelegate {
         }
         
         pageControl.currentPage = currentIndex
-        
     }
 }
 
