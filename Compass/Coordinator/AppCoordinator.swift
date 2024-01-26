@@ -7,11 +7,12 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class AppCoordinator: Coordinator {
     var navigationController: UINavigationController?
     var window: UIWindow?
-    
+
     init(window: UIWindow?) {
         self.window = window
     }
@@ -37,24 +38,24 @@ class AppCoordinator: Coordinator {
             navigationController?.pushViewController(expenseEntryVC, animated: true)
         }
     }
-  
+    
     func start() {
-           navigationController = UINavigationController()
-           if UserDefaults.standard.bool(forKey: "onboardingShown") {
-               showMainScreen()
-           } else {
-               showOnboarding()
-           }
-           window?.rootViewController = navigationController
-           window?.makeKeyAndVisible()
-       }
+        navigationController = UINavigationController()
+        if UserDefaults.standard.bool(forKey: "onboardingShown") {
+            showMainScreen()
+        } else {
+            showOnboarding()
+        }
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
     
     func showOnboarding() {
-            UserDefaults.standard.set(true, forKey: "onboardingShown")
-            let onboardingVC = ManageOnBoardingViewController()
-            onboardingVC.coordinator = self
-            navigationController?.pushViewController(onboardingVC, animated: false)
-        }
+        UserDefaults.standard.set(true, forKey: "onboardingShown")
+        let onboardingVC = ManageOnBoardingViewController()
+        onboardingVC.coordinator = self
+        navigationController?.pushViewController(onboardingVC, animated: false)
+    }
     
     private func showMainScreen() {
         let viewController = HomeViewController()
@@ -73,7 +74,9 @@ class AppCoordinator: Coordinator {
             expenseVC.coordinator = self
             navigationController?.pushViewController(expenseVC, animated: true)
         case 2:
-            let investmentVC = InvestmentViewController()
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let viewModel = InvestmentViewModel(context: context)
+            let investmentVC = InvestmentViewController(viewModel: viewModel)
             investmentVC.coordinator = self
             navigationController?.pushViewController(investmentVC, animated: true)
         default:
