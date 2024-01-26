@@ -149,7 +149,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         
         //purchasePriceTextField Settings
         purchasePriceTextField.delegate = self
-        purchasePriceTextField.keyboardType = .numberPad
+        purchasePriceTextField.keyboardType = .decimalPad
         purchasePriceTextField.layer.borderWidth = 0.7
         purchasePriceTextField.layer.borderColor = UIColor.white.cgColor
         purchasePriceTextField.layer.cornerRadius = 10
@@ -200,7 +200,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         
         // amountText'i Double'a çevir
         guard let amount = Double(amountText),
-              let purchase = Double(purchase),
+              let purchase = Double(purchase.replacingOccurrences(of: ",", with: ".")),
               let piece = Double(piece)
         else {
             print("Geçersiz miktar formatı")

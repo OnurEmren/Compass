@@ -31,21 +31,18 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         view.backgroundColor = Colors.beigeColor
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     //MARK: - Private Methods
     
     //Setupview
     private func setupCollectionView() {
         view.addSubview(collectionView)
-        //collectionView.addSubview(homeView)
-        
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-//        homeView.snp.makeConstraints { make in
-//            make.center.equalToSuperview()
-//        }
-//        homeView.backgroundColor = .black
         
         collectionView.backgroundColor = Colors.piesGreenColor
         collectionView.dataSource = self

@@ -23,12 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = appCoordinator.navigationController
         window?.makeKeyAndVisible()
-        // Uygulama genelinde kullanılacak fontu belirle
-        let customFont = UIFont(name: "SanFranciscoText-ThinItalic", size: 17.0)
-
-        // Uygulama genelinde fontu ayarla
-        UILabel.appearance().font = customFont
-        UIButton.appearance().titleLabel?.font = customFont
+     
         return true
     }
     

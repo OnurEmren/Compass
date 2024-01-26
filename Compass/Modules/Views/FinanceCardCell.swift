@@ -24,7 +24,7 @@ class FinanceCardCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont(name: "SanFranciscoText-ThinItalic", size: 20)
         return label
     }()
 
@@ -56,8 +56,6 @@ class FinanceCardCell: UICollectionViewCell {
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
-
-        // PieChart'ı güncelle
         updateLabel(with: overallStatus)
     }
 

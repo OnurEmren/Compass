@@ -59,7 +59,6 @@ class ExpenseViewController: UIViewController, Coordinating {
         return button
     }()
     
-    
     private let deleteButton: UIButton = {
         let button = UIButton()
         button.setTitle("Sil", for: .normal)
@@ -161,8 +160,10 @@ class ExpenseViewController: UIViewController, Coordinating {
                 let foodExpense = entry.foodExpense
                 let taxExpense = entry.taxExpense
                 let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
+                let month = entry.month
                 
                 totalExpenseLabel.text = "\(expenseTotal)"
+                monthLabel.text = month
                 
             }
             setupExpenseChart(with: fetchedData)
@@ -323,5 +324,4 @@ class ExpenseViewController: UIViewController, Coordinating {
             print("Hata: \(error)")
         }
     }
-    
 }

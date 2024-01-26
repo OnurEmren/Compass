@@ -36,6 +36,13 @@ class AppCoordinator: Coordinator {
             let expenseEntryVC = ExpenseEntryViewController()
             expenseEntryVC.coordinator = self
             navigationController?.pushViewController(expenseEntryVC, animated: true)
+            
+        case .goToInvestmentEntryVC:
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let viewModel = InvestmentViewModel(context: context)
+            let investmentVC = InvestmentViewController(viewModel: viewModel)
+            investmentVC.coordinator = self
+            navigationController?.pushViewController(investmentVC, animated: true)
         }
     }
     
@@ -74,9 +81,7 @@ class AppCoordinator: Coordinator {
             expenseVC.coordinator = self
             navigationController?.pushViewController(expenseVC, animated: true)
         case 2:
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            let viewModel = InvestmentViewModel(context: context)
-            let investmentVC = InvestmentViewController(viewModel: viewModel)
+            let investmentVC = InvestmentListViewController()
             investmentVC.coordinator = self
             navigationController?.pushViewController(investmentVC, animated: true)
         default:

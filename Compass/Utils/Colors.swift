@@ -9,6 +9,15 @@ import Foundation
 import UIKit
 
 enum Colors{
+    
+    static let colors: [UIColor] = [
+        UIColor(red: 0.98, green: 0.96, blue: 0.86, alpha: 1),
+        UIColor(red: 0.97, green: 0.82, blue: 0.63, alpha: 1),
+        UIColor(red: 0.99, green: 0.90, blue: 0.83, alpha: 1),
+        UIColor(red: 0.99, green: 0.94, blue: 0.78, alpha: 1),
+        UIColor(red: 0.97, green: 0.89, blue: 0.88, alpha: 1)
+    ]
+    
     static let lightRed: CGFloat = 251.0 / 255.0
     static let lightGreen: CGFloat = 249.0 / 255.0
     static let lightBlue: CGFloat = 241.0 / 255.0

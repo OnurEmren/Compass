@@ -78,6 +78,14 @@ class InComeViewController: UIViewController, Coordinating {
         return button
     }()
     
+    private let deleteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Sil", for: .normal)
+        button.backgroundColor = .red
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
     //MARK: - Lifecycles
     
     override func viewDidLoad() {
@@ -109,6 +117,7 @@ class InComeViewController: UIViewController, Coordinating {
         view.addSubview(incomeSourcesTextView)
         view.addSubview(incomeMonthsLabel)
         view.addSubview(addButton)
+        view.addSubview(deleteButton)
         
         incomeMonthsLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -128,6 +137,16 @@ class InComeViewController: UIViewController, Coordinating {
             make.height.equalTo(300)
         }
         incomeDistributionChart.backgroundColor = Colors.lightThemeColor
+        
+        deleteButton.snp.makeConstraints { make in
+            make.top.equalTo(addButton.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(120)
+            make.height.equalTo(40)
+        }
+        
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+
         
         let legend = incomeDistributionChart.legend
         legend.verticalAlignment = .bottom
@@ -157,12 +176,11 @@ class InComeViewController: UIViewController, Coordinating {
         }
     }
     
-    
     private func setupChart(with data: [InComeEntry]) {
         var wageEntries: [PieChartDataEntry] = []
         var sideIncomeEntries: [PieChartDataEntry] = []
         
-        for (index, entry) in data.enumerated() {
+        for (_, entry) in data.enumerated() {
             let wageEntry = PieChartDataEntry(value: entry.wage, label: "Maaş")
             let sideIncomeEntry = PieChartDataEntry(value: entry.sideInCome, label: "Yan Gelir")
             
@@ -217,7 +235,7 @@ class InComeViewController: UIViewController, Coordinating {
                 if let unwrappedMonth = month {
                     incomeMonthsLabel.text = "\(unwrappedMonth)"
                 } else {
-                    incomeMonthsLabel.text = "\(month) Bilinmiyor"
+                    incomeMonthsLabel.text = "\(String(describing: month)) Bilinmiyor"
                 }
 
                 if let unwrappedCurrency = currency {
@@ -237,6 +255,76 @@ class InComeViewController: UIViewController, Coordinating {
     @objc
     private func goToAddInCome() {
         coordinator?.eventOccured(with: .goToInComeEntryVC)
+    }
+    
+    @objc
+    func deleteButtonTapped() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<InComeEntry> = InComeEntry.fetchRequest()
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            
+            if result.isEmpty {
+                // Önceki veri yoksa
+                let alertController = UIAlertController(
+                    title: "Silme İptal Edildi",
+                    message: "Önce bir veri eklemeniz gerekmektedir.",
+                    preferredStyle: .alert
+                )
+                
+                let cancelAction = UIAlertAction(title: "Tamam", style: .cancel) { _ in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+                alertController.addAction(cancelAction)
+                present(alertController, animated: true, completion: nil)
+            } else {
+                // Önceki veri varsa
+                let alertController = UIAlertController(
+                    title: "Sil",
+                    message: "Bu öğeyi silmek istediğinizden emin misiniz?",
+                    preferredStyle: .alert
+                )
+                
+                let cancelAction = UIAlertAction(title: "İptal", style: .cancel) { _ in
+                    print("Silme işlemi iptal edildi.")
+                }
+                
+                let deleteAction = UIAlertAction(title: "Sil", style: .destructive) { _ in
+                    self.deleteLastIncomeEntry()
+
+                }
+                alertController.addAction(cancelAction)
+                alertController.addAction(deleteAction)
+                present(alertController, animated: true, completion: nil)
+            }
+        } catch {
+            print("Hata: \(error)")
+        }
+    }
+    
+    func deleteLastIncomeEntry() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<InComeEntry> = InComeEntry.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "wage", ascending: false)]
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            
+            if let lastIncomeEntry = result.first {
+                context.delete(lastIncomeEntry)
+                
+                try context.save()
+            }
+        } catch {
+            print("Hata: \(error)")
+        }
     }
 }
 

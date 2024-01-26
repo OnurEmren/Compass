@@ -10,6 +10,9 @@
 		460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D832B64216100DA3E02 /* InvestmentView.swift */; };
 		460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */; };
 		460D1D882B64399A00DA3E02 /* InvestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */; };
+		460D1D8A2B6450AC00DA3E02 /* InvestmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */; };
+		460D1D8C2B6451C400DA3E02 /* InvestmentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */; };
+		460D1D8E2B64526500DA3E02 /* InvestmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */; };
 		4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678BBE32B61C4DC00333CF1 /* Strings.swift */; };
 		469D15BA2B598A8700544E35 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 469D15B92B598A8700544E35 /* DGCharts */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
@@ -27,7 +30,6 @@
 		46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD242B582741008792D0 /* AppCoordinator.swift */; };
 		46F2DD282B5827B4008792D0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD272B5827B4008792D0 /* Coordinator.swift */; };
 		46F2DD2B2B58294B008792D0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 46F2DD2A2B58294B008792D0 /* SnapKit */; };
-		46F2DD2D2B582972008792D0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD2C2B582972008792D0 /* DetailViewController.swift */; };
 		46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD2F2B582A0B008792D0 /* ManageOnBoardingViewController.swift */; };
 		46F2DD322B582A33008792D0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD312B582A33008792D0 /* Colors.swift */; };
 		46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD332B582C0B008792D0 /* OnBoardingViewController1.swift */; };
@@ -48,6 +50,9 @@
 		460D1D832B64216100DA3E02 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 		460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentTypeEntry.swift; sourceTree = "<group>"; };
 		460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentViewModel.swift; sourceTree = "<group>"; };
+		460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListViewController.swift; sourceTree = "<group>"; };
+		460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListView.swift; sourceTree = "<group>"; };
+		460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListViewModel.swift; sourceTree = "<group>"; };
 		4678BBE32B61C4DC00333CF1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
 		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
@@ -65,7 +70,6 @@
 		46F2DD182B582612008792D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46F2DD242B582741008792D0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		46F2DD272B5827B4008792D0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		46F2DD2C2B582972008792D0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		46F2DD2F2B582A0B008792D0 /* ManageOnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOnBoardingViewController.swift; sourceTree = "<group>"; };
 		46F2DD312B582A33008792D0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		46F2DD332B582C0B008792D0 /* OnBoardingViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController1.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */,
 				46FC99AB2B5C91E60064A1F0 /* ExpenseEntryView.swift */,
 				460D1D832B64216100DA3E02 /* InvestmentView.swift */,
+				460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */,
 			);
 			path = SubModulesViews;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 				46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */,
 				46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */,
 				46FC99A92B5C904F0064A1F0 /* ExpenseEntryViewController.swift */,
+				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
 			);
 			path = SubModules;
 			sourceTree = "<group>";
@@ -169,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */,
+				469D15B72B5988D100544E35 /* SubModulesViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */,
+				460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -218,8 +226,6 @@
 			children = (
 				46AF0AD02B585B3F00647EA1 /* Home */,
 				46AF0ACD2B585B1900647EA1 /* SubModules */,
-				469D15B72B5988D100544E35 /* SubModulesViews */,
-				46F2DD2C2B582972008792D0 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -345,13 +351,15 @@
 				46F2DD0F2B582610008792D0 /* HomeViewController.swift in Sources */,
 				46F2DD282B5827B4008792D0 /* Coordinator.swift in Sources */,
 				46F2DD3C2B582C98008792D0 /* Constants.swift in Sources */,
-				46F2DD2D2B582972008792D0 /* DetailViewController.swift in Sources */,
 				46AF0ACF2B585B2A00647EA1 /* InComeViewController.swift in Sources */,
 				46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */,
 				46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */,
 				469D15C32B598F6100544E35 /* InCome.swift in Sources */,
 				46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */,
+				460D1D8A2B6450AC00DA3E02 /* InvestmentListViewController.swift in Sources */,
 				46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */,
+				460D1D8E2B64526500DA3E02 /* InvestmentListViewModel.swift in Sources */,
+				460D1D8C2B6451C400DA3E02 /* InvestmentListView.swift in Sources */,
 				46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */,
 				46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */,
 				46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */,
