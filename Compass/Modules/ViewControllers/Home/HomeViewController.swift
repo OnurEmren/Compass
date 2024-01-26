@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreData
+import DGCharts
 
 class HomeViewController: UIViewController, Coordinating, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
@@ -19,8 +21,8 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         return collectionView
     }()
     
-    let data = [("Gelir", UIColor.systemGreen), ("Gider", UIColor.red), ("Yatırım", UIColor.blue)]
-    
+    let data = [("Gelir", UIColor.systemGreen), ("Gider", UIColor.red), ("Genel", UIColor.blue)]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +36,53 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     //Setupview
     private func setupCollectionView() {
         view.addSubview(collectionView)
+        //collectionView.addSubview(homeView)
+        
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+//        homeView.snp.makeConstraints { make in
+//            make.center.equalToSuperview()
+//        }
+//        homeView.backgroundColor = .black
         
         collectionView.backgroundColor = Colors.piesGreenColor
         collectionView.dataSource = self
         collectionView.delegate = self
     }
+    
+    func fetchInComeData() -> [InComeEntry] {
+        var incomeEntries: [InComeEntry] = []
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<InComeEntry>(entityName: "InComeEntry")
+
+        do {
+            incomeEntries = try context.fetch(fetchRequest)
+        } catch {
+            print("Veri çekme hatası: \(error)")
+        }
+
+        return incomeEntries
+    }
+
+    func fetchExpenseData() -> [ExpenseEntry] {
+          var expenseEntries: [ExpenseEntry] = []
+
+          let appDelegate = UIApplication.shared.delegate as! AppDelegate
+          let context = appDelegate.persistentContainer.viewContext
+          let fetchExpenseRequest = NSFetchRequest<ExpenseEntry>(entityName: "ExpenseEntry")
+
+          do {
+              expenseEntries = try context.fetch(fetchExpenseRequest)
+          } catch {
+              print("Gider verisi çekme hatası: \(error)")
+          }
+
+          return expenseEntries
+      }
         
     //MARK: - CollectionView Delegates
     
@@ -52,7 +93,34 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FinanceCardCell.reuseIdentifier, for: indexPath) as! FinanceCardCell
         let (title, color) = data[indexPath.item]
-        cell.configure(with: title, backgroundColor: color)
+
+        let inComeData = fetchInComeData()
+        let expenseData = fetchExpenseData()
+        let totalIncome = inComeData.reduce(0) { (result, entry) in
+            return result + entry.wage
+        }
+        
+        let totalExpense = expenseData.reduce(0) { (result, entry) in
+            let total = entry.clothesExpense + entry.electronicExpense + entry.foodExpense + entry.fuelExpense + entry.rentExpense + entry.taxExpense + entry.transportExpense
+            return result + total
+        }
+        
+        if title == "Gelir" {
+            cell.configure(with: title, backgroundColor: color, overallStatus: totalIncome)
+
+        } else if title == "Gider" {
+            let totalExpense = expenseData.reduce(0) { (result, entry) in
+                let total = entry.clothesExpense + entry.electronicExpense + entry.foodExpense + entry.fuelExpense + entry.rentExpense + entry.taxExpense + entry.transportExpense
+                return result + total
+            }
+            
+            cell.configure(with: title, backgroundColor: color, overallStatus: totalExpense)
+
+        } else if title == "Genel" {
+            
+            let overallStatus = totalIncome - totalExpense 
+            cell.configure(with: title, backgroundColor: color, overallStatus: overallStatus)
+        }        
         return cell
     }
     

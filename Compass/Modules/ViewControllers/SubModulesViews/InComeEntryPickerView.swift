@@ -116,7 +116,6 @@ class InComeEntryPickerView: UIView {
         return button
     }()
 
-    let inComeType = ["Maaş", "Yan Gelir", "Diğer"]
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
     private let month = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
     
@@ -147,16 +146,10 @@ class InComeEntryPickerView: UIView {
     private func setupViews() {
         addSubview(incomeTextField)
         addSubview(sideIncomeTextField)
-        addSubview(inComeTypeLabel)
         addSubview(currencyTypeLabel)
         addSubview(monthLabel)
         addSubview(saveButton)
         addSubview(updateButton)
-        
-        inComePickerView.dataSource = self
-        inComePickerView.delegate = self
-        inComeTypeLabel.inputView = inComePickerView
-        inComePickerView.setPickerView()
         
         currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
@@ -180,14 +173,8 @@ class InComeEntryPickerView: UIView {
             make.height.equalTo(40)
         }
         
-        inComeTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(sideIncomeTextField.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(40)
-        }
-        
         currencyTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(inComeTypeLabel.snp.bottom).offset(20)
+            make.top.equalTo(sideIncomeTextField.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
@@ -245,9 +232,7 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == inComePickerView {
-            return inComeType.count
-        } else if pickerView == currencyPickerView {
+      if pickerView == currencyPickerView {
             return currencies.count
         } else if pickerView == monthPickerView {
             return month.count
@@ -256,9 +241,7 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == inComePickerView {
-            return inComeType[row]
-        } else if pickerView == currencyPickerView {
+      if pickerView == currencyPickerView {
             return currencies[row]
         } else if pickerView == monthPickerView {
             return month[row]
@@ -267,11 +250,7 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == inComePickerView {
-            let selectedIncomeType = inComeType[row]
-            inComeTypeLabel.text = selectedIncomeType
-            delegate?.didSelectIncomeType(selectedIncomeType)
-        } else if pickerView == currencyPickerView {
+        if pickerView == currencyPickerView {
             let selectedCurrency = currencies[row]
             currencyTypeLabel.text = selectedCurrency
         } else if pickerView == monthPickerView {

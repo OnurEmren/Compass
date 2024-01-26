@@ -17,7 +17,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
         super.viewDidLoad()
         
         title = "Giderlerinizi Girin"
-        view.backgroundColor = Colors.lightThemeColor
+        view.backgroundColor = Colors.piesGreenColor
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]

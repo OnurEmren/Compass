@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D832B64216100DA3E02 /* InvestmentView.swift */; };
 		4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678BBE32B61C4DC00333CF1 /* Strings.swift */; };
 		469D15BA2B598A8700544E35 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 469D15B92B598A8700544E35 /* DGCharts */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		460D1D832B64216100DA3E02 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 		4678BBE32B61C4DC00333CF1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
 		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */,
 				46FC99AB2B5C91E60064A1F0 /* ExpenseEntryView.swift */,
+				460D1D832B64216100DA3E02 /* InvestmentView.swift */,
 			);
 			path = SubModulesViews;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */,
+				460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */,
 				46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */,
 				46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */,
 				46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */,

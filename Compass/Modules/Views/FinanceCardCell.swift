@@ -5,9 +5,17 @@
 //  Created by Onur Emren on 17.01.2024.
 //
 
-import Foundation
+//
+//  FinanceCardCell.swift
+//  Compass
+//
+//  Created by Onur Emren on 17.01.2024.
+//
+
 import UIKit
+import Charts
 import SnapKit
+import DGCharts
 
 class FinanceCardCell: UICollectionViewCell {
     static let reuseIdentifier = "FinanceCardCell"
@@ -31,6 +39,7 @@ class FinanceCardCell: UICollectionViewCell {
 
     private func setupViews() {
         addSubview(titleLabel)
+
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)
             make.leading.equalToSuperview().offset(20)
@@ -38,7 +47,7 @@ class FinanceCardCell: UICollectionViewCell {
         }
     }
 
-    func configure(with title: String, backgroundColor: UIColor) {
+    func configure(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         titleLabel.text = title
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
@@ -47,5 +56,15 @@ class FinanceCardCell: UICollectionViewCell {
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
+
+        // PieChart'ı güncelle
+        updateLabel(with: overallStatus)
     }
+
+    private func updateLabel(with overallStatus: Double) {
+        titleLabel.text = "Genel durum: \(overallStatus)"
+    }
+
+
+
 }

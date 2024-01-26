@@ -16,13 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+      
         
         let appCoordinator = AppCoordinator(window: window)
         appCoordinator.start()
         
         window?.rootViewController = appCoordinator.navigationController
         window?.makeKeyAndVisible()
-        
+        // Uygulama genelinde kullanılacak fontu belirle
+        let customFont = UIFont(name: "SanFranciscoText-ThinItalic", size: 17.0)
+
+        // Uygulama genelinde fontu ayarla
+        UILabel.appearance().font = customFont
+        UIButton.appearance().titleLabel?.font = customFont
         return true
     }
     
