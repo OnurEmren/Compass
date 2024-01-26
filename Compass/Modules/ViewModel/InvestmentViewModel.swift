@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 protocol InvestmentViewModelDelegate: AnyObject {
     func didSaveLesson()
@@ -20,16 +21,19 @@ class InvestmentViewModel {
         self.context = context
     }
     
-    func saveLesson(invesmentType: String, amount: Double, selectedDate: Date) {
+    func saveLesson(invesmentType: String, amount: Double, selectedDate: Date, purchase: Double, piece: Double) {
         let entity = NSEntityDescription.entity(forEntityName: "InvestmentEntry", in: context)!
-        let newLesson = NSManagedObject(entity: entity, insertInto: context)
-        newLesson.setValue(invesmentType, forKey: "investmentType")
-        newLesson.setValue(amount, forKey: "amount")
-        newLesson.setValue(selectedDate, forKey: "date")
+        let investmentData = NSManagedObject(entity: entity, insertInto: context)
+        investmentData.setValue(invesmentType, forKey: "investmentType")
+        investmentData.setValue(amount, forKey: "amount")
+        investmentData.setValue(selectedDate, forKey: "date")
+        investmentData.setValue(purchase, forKey: "purchase")
+        investmentData.setValue(piece, forKey: "piece")
         
         do {
             try context.save()
             delegate?.didSaveLesson()
+            
             print("Kayıt başarılı")
         } catch {
             print("Hata: \(error.localizedDescription)")

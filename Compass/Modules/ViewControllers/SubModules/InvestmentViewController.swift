@@ -26,6 +26,8 @@ class InvestmentViewController: UIViewController, Coordinating {
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         setupView()
+        title = "Lütfen tüm alanları eksiksiz doldurunuz."
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         view.backgroundColor = Colors.piesGreenColor
     }
     

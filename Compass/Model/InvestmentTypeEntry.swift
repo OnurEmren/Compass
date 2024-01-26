@@ -11,4 +11,6 @@ struct InvestmentTypeEntry {
     var amount: Double
     var investmentType: String
     var date: Date
+    var purchase: Double
+    var piece: Double
 }

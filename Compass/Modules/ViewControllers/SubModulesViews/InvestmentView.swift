@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
-  
+    
     lazy var investmentPicker: UIPickerView = {
         let picker = UIPickerView()
         picker.dataSource = self
@@ -17,11 +17,14 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         return picker
     }()
     private var viewModel: InvestmentViewModel
-    let investmentOptions = ["Döviz", "Altın", "Hisse Senedi"]
+    let investmentOptions = ["Dolar", "Euro", "Altın", "Hisse Senedi"]
     lazy var datePicker = UIDatePicker()
     private var investmentAmount = UITextField()
+    private var purchasePriceTextField = UITextField()
     private var investmentTypeTextField = UITextField()
     private var investmentDate = UITextField()
+    private var pieceTextField = UITextField()
+    private var titleLabel = UILabel()
     private var saveButton = UIButton()
     
     
@@ -54,6 +57,8 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         addSubview(investmentTypeTextField)
         addSubview(investmentDate)
         addSubview(investmentAmount)
+        addSubview(purchasePriceTextField)
+        addSubview(pieceTextField)
         addSubview(saveButton)
         
         //Constraints
@@ -78,8 +83,22 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
             make.height.equalTo(40)
         }
         
-        saveButton.snp.makeConstraints { make in
+        purchasePriceTextField.snp.makeConstraints { make in
             make.top.equalTo(investmentAmount.snp.top).offset(60)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(40)
+        }
+        
+        pieceTextField.snp.makeConstraints { make in
+            make.top.equalTo(purchasePriceTextField.snp.top).offset(60)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(40)
+        }
+        
+        saveButton.snp.makeConstraints { make in
+            make.top.equalTo(pieceTextField.snp.top).offset(60)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
@@ -128,6 +147,34 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         investmentTypeTextField.textColor = .white
         investmentTypeTextField.textAlignment = .center
         
+        //purchasePriceTextField Settings
+        purchasePriceTextField.delegate = self
+        purchasePriceTextField.keyboardType = .numberPad
+        purchasePriceTextField.layer.borderWidth = 0.7
+        purchasePriceTextField.layer.borderColor = UIColor.white.cgColor
+        purchasePriceTextField.layer.cornerRadius = 10
+        purchasePriceTextField.layer.masksToBounds = true
+        purchasePriceTextField.textColor = .white
+        purchasePriceTextField.textAlignment = .center
+        purchasePriceTextField.attributedPlaceholder = NSAttributedString(
+            string: "Aldığınız ürünün birim fiyatını giriniz",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+        )
+        
+        //pieceTextField Settings
+        pieceTextField.delegate = self
+        pieceTextField.keyboardType = .numberPad
+        pieceTextField.layer.borderWidth = 0.7
+        pieceTextField.layer.borderColor = UIColor.white.cgColor
+        pieceTextField.layer.cornerRadius = 10
+        pieceTextField.layer.masksToBounds = true
+        pieceTextField.textColor = .white
+        pieceTextField.textAlignment = .center
+        pieceTextField.attributedPlaceholder = NSAttributedString(
+            string: "Ürünün adetini giriniz",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+        )
+        
         //Button Settings
         saveButton.setTitle("Kaydet", for: .normal)
         saveButton.layer.cornerRadius = 10
@@ -138,17 +185,26 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
+    //MARK: - Save
+    
     @objc
     private func saveButtonTapped() {
         guard let investmentType = investmentTypeTextField.text,
               let amountText = investmentAmount.text,
-              let date = investmentDate.text else {
+              let date = investmentDate.text,
+              let piece = pieceTextField.text,
+              let purchase = purchasePriceTextField.text
+        else {
             return
         }
         
         // amountText'i Double'a çevir
-        guard let amount = Double(amountText) else {
+        guard let amount = Double(amountText),
+              let purchase = Double(purchase),
+              let piece = Double(piece)
+        else {
             print("Geçersiz miktar formatı")
+            showToastInvestment(message: "Tüm alanları uygun şekilde doldurunuz.")
             return
         }
         
@@ -157,12 +213,14 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         
         guard let selectedDate = dateFormatter.date(from: date) else {
             print("Geçersiz tarih formatı")
+            showToastInvestment(message: "Geçersiz tarih formatı.")
             return
         }
         
-        viewModel.saveLesson(invesmentType: investmentType, amount: amount, selectedDate: selectedDate)
+        viewModel.saveLesson(invesmentType: investmentType, amount: amount, selectedDate: selectedDate, purchase: purchase, piece: piece)
+        showToastInvestment(message: "Kayıt Başarılı")
     }
-
+    
     
     @objc
     public func datePickerValueChanged() {
@@ -200,5 +258,27 @@ extension UIDatePicker {
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.tintColor = .brown
         datePicker.backgroundColor = Colors.beigeColor
+    }
+}
+
+extension Investment {
+    func showToastInvestment(message: String) {
+        let toastLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 35))
+        toastLabel.center = CGPoint(x: self.frame.size.width / 2, y: frame.size.height / 2)
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.font = UIFont.systemFont(ofSize: 12)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        self.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: { (isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }

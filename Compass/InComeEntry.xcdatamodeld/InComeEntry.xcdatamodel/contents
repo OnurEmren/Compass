@@ -22,5 +22,7 @@
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="investmentType" optional="YES" attributeType="String"/>
+        <attribute name="piece" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="purchase" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
 </model>
