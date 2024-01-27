@@ -18,6 +18,7 @@ class InComeViewController: UIViewController, Coordinating {
         let chartView = PieChartView()
         chartView.layer.cornerRadius = 20
         chartView.layer.masksToBounds = true
+        chartView.entryLabelFont = Fonts.generalFont
         return chartView
     }()
     
@@ -25,43 +26,55 @@ class InComeViewController: UIViewController, Coordinating {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "0.0"
-        label.font = Fonts.bigNunitoFont
+        label.font = Fonts.generalFont
         return label
     }()
     
     private let incomeSourcesLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
-        label.font = Fonts.bigerNunitoFont
+        label.font = Fonts.generalFont
         label.text = "Gelir Kaynakları:"
         return label
     }()
     
     private let incomeMonthsLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
-        label.font = Fonts.bigerNunitoFont
+        label.font = Fonts.generalFont
         label.text = "Ay:"
         return label
     }()
     
     private let incomeSourcesTextView: UITextView = {
         let textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 16)
         textView.isEditable = false
         textView.layer.cornerRadius = 10
         textView.layer.masksToBounds = true
-        textView.text = "- Maaş: 0,000\n- Yatırım Getirisi: 0,000\n- Diğer: $0,000"
+        
+        let text = """
+            - Maaş: 0,000
+            - Yatırım Getirisi: 0,000
+        """
+        
+        let attributedText = NSMutableAttributedString(string: text)
+        
+        if let font = UIFont(name: "Tahoma", size: 16) {
+            let attributes: [NSAttributedString.Key: Any] = [.font: font]
+            attributedText.addAttributes(attributes, range: NSRange(location: 0, length: text.count))
+        } else {
+            print("Belirtilen font bulunamadı.")
+        }
+        
+        textView.attributedText = attributedText
+        
         return textView
     }()
     
     private let incomeDistributionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
-        label.font = Fonts.bigerNunitoFont
+        label.font = Fonts.generalFont
         label.text = "Gelir Dağılımı:"
         return label
     }()
@@ -73,7 +86,7 @@ class InComeViewController: UIViewController, Coordinating {
         button.backgroundColor = Colors.buttonColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
-        button.titleLabel?.font = Fonts.bigerNunitoFont
+        button.titleLabel?.font = Fonts.generalFont
         button.addTarget(self, action: #selector(goToAddInCome), for: .touchUpInside)
         return button
     }()
@@ -83,6 +96,7 @@ class InComeViewController: UIViewController, Coordinating {
         button.setTitle("Sil", for: .normal)
         button.backgroundColor = .red
         button.layer.cornerRadius = 8
+        button.titleLabel?.font = Fonts.generalFont
         return button
     }()
     
@@ -105,7 +119,8 @@ class InComeViewController: UIViewController, Coordinating {
     private func setupNavigationView() {
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let font = UIFont(name: "Tahoma", size: 18.0)
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font!, NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     //Setup Views
@@ -153,7 +168,7 @@ class InComeViewController: UIViewController, Coordinating {
         legend.horizontalAlignment = .center
         legend.orientation = .horizontal
         legend.formSize = 10
-        legend.font = UIFont(name: "Nunito-Bold", size: 12) ?? .systemFont(ofSize: 12)
+        legend.font = UIFont(name: "Tahoma", size: 12) ?? .systemFont(ofSize: 15)
         
         incomeSourcesLabel.snp.makeConstraints { make in
             make.top.equalTo(incomeDistributionChart.snp.bottom).offset(10)

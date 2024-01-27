@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = appCoordinator.navigationController
         window?.makeKeyAndVisible()
-     
         return true
     }
     

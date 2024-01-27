@@ -25,7 +25,7 @@ class InvestmentViewModel {
         let entity = NSEntityDescription.entity(forEntityName: "InvestmentEntry", in: context)!
         let investmentData = NSManagedObject(entity: entity, insertInto: context)
         investmentData.setValue(invesmentType, forKey: "investmentType")
-        investmentData.setValue(amount, forKey: "amount")
+        investmentData.setValue(amount, forKey: "investmentAmount")
         investmentData.setValue(selectedDate, forKey: "date")
         investmentData.setValue(purchase, forKey: "purchase")
         investmentData.setValue(piece, forKey: "piece")

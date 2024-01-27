@@ -8,7 +8,7 @@
 import Foundation
 
 struct InvestmentTypeEntry {
-    var amount: Double
+    var investmentAmount: Double
     var investmentType: String
     var date: Date
     var purchase: Double

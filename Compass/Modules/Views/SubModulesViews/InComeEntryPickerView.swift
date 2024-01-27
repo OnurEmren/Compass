@@ -28,14 +28,18 @@ protocol IncomeTypePickerViewDelegate: AnyObject {
 }
 
 class InComeEntryPickerView: UIView {
-
+    weak var delegate: IncomeTypePickerViewDelegate?
+    weak var saveDelegate: IncomeEntryViewDelegate?
+    weak var updateDelegate: InComeUpdateViewDelegate?
+    
     private let saveButton: UIButton = {
-            let button = UIButton()
-            button.setTitle("Kaydet", for: .normal)
-            button.backgroundColor = Colors.darkThemeColor
-            button.layer.cornerRadius = 8
-            return button
-        }()
+        let button = UIButton()
+        button.setTitle("Kaydet", for: .normal)
+        button.backgroundColor = Colors.darkThemeColor
+        button.layer.cornerRadius = 8
+        button.titleLabel?.font = Fonts.generalFont
+        return button
+    }()
     private let inComePickerView = UIPickerView()
     
     private let incomeTextField: UITextField = {
@@ -44,6 +48,7 @@ class InComeEntryPickerView: UIView {
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
         return textField
     }()
     
@@ -53,12 +58,9 @@ class InComeEntryPickerView: UIView {
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
         return textField
     }()
-    
-    weak var delegate: IncomeTypePickerViewDelegate?
-    weak var saveDelegate: IncomeEntryViewDelegate?
-    weak var updateDelegate: InComeUpdateViewDelegate?
     
     private let currencyTypeLabel: UITextField = {
         let label = UITextField()
@@ -72,6 +74,7 @@ class InComeEntryPickerView: UIView {
         label.textColor = .darkGray
         label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
+        label.font = Fonts.generalFont
         return label
     }()
     
@@ -87,6 +90,7 @@ class InComeEntryPickerView: UIView {
         label.textColor = .darkGray
         label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
+        label.font = Fonts.generalFont
         return label
     }()
     
@@ -105,6 +109,7 @@ class InComeEntryPickerView: UIView {
         label.textColor = .darkGray
         label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
+        label.font = Fonts.generalFont
         return label
     }()
     
@@ -113,9 +118,10 @@ class InComeEntryPickerView: UIView {
         button.setTitle("Güncelle", for: .normal)
         button.backgroundColor = Colors.darkThemeColor
         button.layer.cornerRadius = 8
+        button.titleLabel?.font = Fonts.generalFont
         return button
     }()
-
+    
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
     private let month = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
     
@@ -150,12 +156,12 @@ class InComeEntryPickerView: UIView {
         addSubview(monthLabel)
         addSubview(saveButton)
         addSubview(updateButton)
-        
+                
         currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
         currencyTypeLabel.inputView = currencyPickerView
         currencyPickerView.setPickerView()
-                
+        
         monthPickerView.delegate = self
         monthPickerView.dataSource = self
         monthLabel.inputView = monthPickerView
@@ -203,7 +209,7 @@ class InComeEntryPickerView: UIView {
         updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }
     
-    @objc 
+    @objc
     private func saveButtonTapped() {
         saveDelegate?.didTapSaveButton(
             incomeText: incomeTextField.text,
@@ -232,7 +238,7 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-      if pickerView == currencyPickerView {
+        if pickerView == currencyPickerView {
             return currencies.count
         } else if pickerView == monthPickerView {
             return month.count
@@ -241,7 +247,7 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-      if pickerView == currencyPickerView {
+        if pickerView == currencyPickerView {
             return currencies[row]
         } else if pickerView == monthPickerView {
             return month[row]
@@ -281,21 +287,9 @@ extension UIView {
     }
 }
 
-extension UITextField {
-    func setTextField(_ placeHolder: String) {
-        self.snp.makeConstraints { make in
-            make.height.equalTo(50)
-        }
-        self.borderStyle = .roundedRect
-        self.textColor = .brown
-        self.backgroundColor = Colors.beigeColor
-        self.placeholder = placeHolder
-    }
-}
-
 extension UIPickerView {
     func setPickerView() {
-        self.backgroundColor = Colors.beigeColor
-        self.tintColor = .brown
+        self.backgroundColor = Colors.darkThemeColor
+        self.tintColor = .white
     }
 }

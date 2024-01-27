@@ -14,6 +14,7 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
     var coordinator: Coordinator?
     
     private let incomeEntryView = InComeEntryPickerView()
+    private let font = UIFont(name: "Tahoma", size: 18.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,8 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
         view.backgroundColor = Colors.piesGreenColor
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font!, NSAttributedString.Key.foregroundColor: UIColor.white]
         setupViews()
     }
     

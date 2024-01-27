@@ -122,7 +122,7 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
         //Set Label Tag
         let labelConfigs: [(tag: Int, text: String)] = [
             (1, "Yatırım Türü: \(record.investmentType ?? "")"),
-            (2, "Miktar: \(record.amount)"),
+            (2, "Miktar: \(record.investmentAmount)"),
             (3, "Tarih: \(dateFormatter.string(from: record.date!))"),
             (4, "Toplam: \(record.purchase)"),
             (5, "Adet: \(record.piece)")

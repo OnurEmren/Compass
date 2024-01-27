@@ -13,6 +13,7 @@
 		460D1D8A2B6450AC00DA3E02 /* InvestmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */; };
 		460D1D8C2B6451C400DA3E02 /* InvestmentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */; };
 		460D1D8E2B64526500DA3E02 /* InvestmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */; };
+		466B8CF82B653CFF0079BCCC /* tahoma.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 466B8CF72B653CFF0079BCCC /* tahoma.ttf */; };
 		4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678BBE32B61C4DC00333CF1 /* Strings.swift */; };
 		469D15BA2B598A8700544E35 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 469D15B92B598A8700544E35 /* DGCharts */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
@@ -53,6 +54,7 @@
 		460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListViewController.swift; sourceTree = "<group>"; };
 		460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListView.swift; sourceTree = "<group>"; };
 		460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListViewModel.swift; sourceTree = "<group>"; };
+		466B8CF72B653CFF0079BCCC /* tahoma.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tahoma.ttf; sourceTree = "<group>"; };
 		4678BBE32B61C4DC00333CF1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
 		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		46F2DD232B5826EC008792D0 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				466B8CF72B653CFF0079BCCC /* tahoma.ttf */,
 				46F2DD182B582612008792D0 /* Info.plist */,
 				46F2DD0A2B582610008792D0 /* AppDelegate.swift */,
 				46F2DD0C2B582610008792D0 /* SceneDelegate.swift */,
@@ -322,6 +325,7 @@
 			files = (
 				46F2DD172B582612008792D0 /* LaunchScreen.storyboard in Resources */,
 				46F2DD142B582612008792D0 /* Assets.xcassets in Resources */,
+				466B8CF82B653CFF0079BCCC /* tahoma.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
