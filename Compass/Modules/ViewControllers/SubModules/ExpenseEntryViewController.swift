@@ -43,6 +43,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
                           foodExpenseText: String?,
                           rentExpenseText: String?,
                           taxExpenseText: String?,
+                          transportText: String?,
                           month: String?
     ) {
         guard let clothesExpense = Double(clothesExpenseText ?? ""),
@@ -51,6 +52,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
               let foodExpense = Double(foodExpenseText ?? ""),
               let rentExpense = Double(rentExpenseText ?? ""),
               let taxExpense = Double(taxExpenseText ?? ""),
+              let transportExpense = Double(transportText ?? ""),
               let month = month
         else {
             print("Geçersiz veri")
@@ -66,6 +68,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
             expenseEntity.fuelExpense = fuelExpense
             expenseEntity.rentExpense = rentExpense
             expenseEntity.taxExpense = taxExpense
+            expenseEntity.transportExpense = transportExpense
             expenseEntity.month = month
             do {
                 try context.save()

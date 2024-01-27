@@ -25,7 +25,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "0.0"
-        label.font = Fonts.bigNunitoFont
+        label.font = Fonts.generalFont
         return label
     }()
     
@@ -33,7 +33,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
-        label.font = Fonts.bigerNunitoFont
+        label.font = Fonts.generalFont
         label.text = "Gider Dağılımı:"
         return label
     }()
@@ -42,7 +42,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
-        label.font = Fonts.bigerNunitoFont
+        label.font = Fonts.generalFont
         label.text = "Ay:"
         return label
     }()
@@ -54,7 +54,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         button.backgroundColor = Colors.buttonColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
-        button.titleLabel?.font = Fonts.bigerNunitoFont
+        button.titleLabel?.font = Fonts.generalFont
         button.addTarget(self, action: #selector(goToAddExpense), for: .touchUpInside)
         return button
     }()
@@ -63,6 +63,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         let button = UIButton()
         button.setTitle("Sil", for: .normal)
         button.backgroundColor = .red
+        button.titleLabel?.font = Fonts.generalFont
         button.layer.cornerRadius = 8
         return button
     }()
@@ -118,7 +119,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         legend.horizontalAlignment = .center
         legend.orientation = .horizontal
         legend.formSize = 10
-        legend.font = UIFont(name: "Nunito-Bold", size: 12) ?? .systemFont(ofSize: 12)
+        legend.font = UIFont(name: "Tahoma", size: 12) ?? .systemFont(ofSize: 12)
         
         
         addButton.snp.makeConstraints { make in
@@ -179,14 +180,16 @@ class ExpenseViewController: UIViewController, Coordinating {
         var fuelExpenseEntries: [PieChartDataEntry] = []
         var rentExpenseEntries: [PieChartDataEntry] = []
         var taxExpenseEntries: [PieChartDataEntry] = []
+        var transportEntries: [PieChartDataEntry] = []
         
         for (_, entry) in data.enumerated() {
             let clothesExpenseEntry = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
             let electronicExpenseEntry = PieChartDataEntry(value: entry.electronicExpense, label: "Elektronik")
             let foodExpenseEntry = PieChartDataEntry(value: entry.foodExpense, label: "Gıda")
             let fuelExpenseEntry = PieChartDataEntry(value: entry.fuelExpense, label: "Yakıt")
-            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Ulaşım")
+            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
             let taxExpenseEntry = PieChartDataEntry(value: entry.taxExpense, label: "Faturalar")
+            let transportEntry = PieChartDataEntry(value: entry.transportExpense, label: "Ulaşım")
             
             clothesExpenseEntries.append(clothesExpenseEntry)
             electronicExpenseEntries.append(electronicExpenseEntry)
@@ -194,6 +197,7 @@ class ExpenseViewController: UIViewController, Coordinating {
             fuelExpenseEntries.append(fuelExpenseEntry)
             rentExpenseEntries.append(rentExpenseEntry)
             taxExpenseEntries.append(taxExpenseEntry)
+            transportEntries.append(transportEntry)
             
         }
         
@@ -215,12 +219,16 @@ class ExpenseViewController: UIViewController, Coordinating {
         let taxDataSet = PieChartDataSet(entries: taxExpenseEntries, label: "")
         taxDataSet.colors = ChartColorTemplates.colorful()
         
+        let transportDataSet = PieChartDataSet(entries: transportEntries, label: "")
+        transportDataSet.colors = ChartColorTemplates.colorful()
+        
         let clothesData = PieChartData(dataSet: clothesDataSet)
         let electronikData = PieChartData(dataSet: electronicDataSet)
         let foodData = PieChartData(dataSet: foodDataSet)
         let fuelData = PieChartData(dataSet: fuelDataSet)
         let rentData = PieChartData(dataSet: rentDataSet)
         let taxData = PieChartData(dataSet: taxDataSet)
+        let transportData = PieChartData(dataSet: transportDataSet)
         
         clothesData.setValueTextColor(.white)
         electronikData.setValueTextColor(.white)
@@ -228,6 +236,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         fuelData.setValueTextColor(.white)
         rentData.setValueTextColor(.white)
         taxData.setValueTextColor(.white)
+        transportData.setValueTextColor(.white)
         
         let combinedDataSet = PieChartDataSet(
             entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,

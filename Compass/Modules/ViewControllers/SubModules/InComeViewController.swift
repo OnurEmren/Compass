@@ -104,7 +104,7 @@ class InComeViewController: UIViewController, Coordinating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Gelirleriniz"
+        title = Strings.incomeTitle
         setupNavigationView()
         setupViews()
     }

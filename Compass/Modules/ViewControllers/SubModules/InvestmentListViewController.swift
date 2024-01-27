@@ -18,6 +18,7 @@ class InvestmentListViewController: UIViewController, Coordinating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationSettings()
         setupViewModel()
         setupView()
         updateView(with: [])
@@ -30,6 +31,13 @@ class InvestmentListViewController: UIViewController, Coordinating {
     
     override func viewWillAppear(_ animated: Bool) {
         loadAttendanceRecords()
+    }
+    
+    private func navigationSettings() {
+        title = "Yatırımlarım"
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     //MARK: - Private Methods

@@ -99,6 +99,7 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
         let label = UILabel()
         label.textColor = .brown
+        label.font = Fonts.generalFont
         cell.contentView.addSubview(label)
         
         label.snp.makeConstraints { make in

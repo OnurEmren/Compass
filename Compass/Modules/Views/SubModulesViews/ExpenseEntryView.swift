@@ -15,8 +15,9 @@ protocol ExpenseEntryViewDelegate: AnyObject {
                           foodExpenseText: String?,
                           rentExpenseText: String?,
                           taxExpenseText: String?,
+                          transportText: String?,
                           month: String?
-    )    
+    )
 }
 
 protocol ExpenseUpdateViewDelegate: AnyObject {
@@ -30,14 +31,16 @@ protocol ExpenseTypePickerViewDelegate: AnyObject {
 }
 
 class ExpenseEntryView: UIView {
-
+    
     private let saveButton: UIButton = {
-            let button = UIButton()
-            button.setTitle("Kaydet", for: .normal)
-            button.backgroundColor = Colors.darkThemeColor
-            button.layer.cornerRadius = 8
-            return button
-        }()
+        let button = UIButton()
+        button.setTitle("Kaydet", for: .normal)
+        button.backgroundColor = Colors.darkThemeColor
+        button.layer.cornerRadius = 8
+        button.titleLabel?.font = Fonts.generalFont
+        
+        return button
+    }()
     
     private let expensePickerView = UIPickerView()
     private let monthsPickerView = UIPickerView()
@@ -49,6 +52,7 @@ class ExpenseEntryView: UIView {
         textField.keyboardType = .numberPad
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
         return textField
     }()
     
@@ -58,6 +62,7 @@ class ExpenseEntryView: UIView {
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
         return textField
     }()
     
@@ -67,6 +72,7 @@ class ExpenseEntryView: UIView {
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
         return textField
     }()
     
@@ -76,6 +82,7 @@ class ExpenseEntryView: UIView {
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
         return textField
     }()
     private let fuelExpenseText: UITextField = {
@@ -84,15 +91,27 @@ class ExpenseEntryView: UIView {
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
         return textField
     }()
-   
+    
     private let rentExpenseText: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Kira Giderinizi Girin"
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
+        return textField
+    }()
+    
+    private let transportExpenseText: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Ulaşım"
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = Colors.lightThemeColor
+        textField.keyboardType = .numberPad
+        textField.font = Fonts.generalFont
         return textField
     }()
     
@@ -104,7 +123,7 @@ class ExpenseEntryView: UIView {
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = Fonts.generalFont
         label.textColor = .darkGray
         label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
@@ -120,7 +139,7 @@ class ExpenseEntryView: UIView {
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = Fonts.generalFont
         label.textColor = .darkGray
         label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
@@ -135,9 +154,9 @@ class ExpenseEntryView: UIView {
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .darkGray
         label.backgroundColor = Colors.lightThemeColor
+        label.font = Fonts.generalFont
         label.isUserInteractionEnabled = true
         return label
     }()
@@ -146,10 +165,11 @@ class ExpenseEntryView: UIView {
         let button = UIButton()
         button.setTitle("Güncelle", for: .normal)
         button.backgroundColor = Colors.darkThemeColor
+        button.titleLabel?.font = Fonts.generalFont
         button.layer.cornerRadius = 8
         return button
     }()
-
+    
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
     private let months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
     
@@ -190,6 +210,7 @@ class ExpenseEntryView: UIView {
         addSubview(fuelExpenseText)
         addSubview(rentExpenseText)
         addSubview(taxExpenseText)
+        addSubview(transportExpenseText)
         addSubview(currencyTypeLabel)
         addSubview(saveButton)
         addSubview(updateButton)
@@ -198,7 +219,7 @@ class ExpenseEntryView: UIView {
         expensePickerView.delegate = self
         expenseTypeLabel.inputView = expensePickerView
         expensePickerView.setPickerView()
-                
+        
         currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
         currencyTypeLabel.inputView = currencyPickerView
@@ -208,7 +229,7 @@ class ExpenseEntryView: UIView {
         monthsPickerView.dataSource = self
         monthLabel.inputView = monthsPickerView
         monthsPickerView.setPickerView()
-                
+        
         
         monthLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(150)
@@ -252,12 +273,18 @@ class ExpenseEntryView: UIView {
             make.height.equalTo(40)
         }
         
-        currencyTypeLabel.snp.makeConstraints { make in
+        transportExpenseText.snp.makeConstraints { make in
             make.top.equalTo(taxExpenseText.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
-    
+        
+        currencyTypeLabel.snp.makeConstraints { make in
+            make.top.equalTo(transportExpenseText.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(40)
+        }
+        
         saveButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(currencyTypeLabel.snp.bottom).offset(30)
@@ -285,11 +312,12 @@ class ExpenseEntryView: UIView {
             foodExpenseText: foodExpenseText.text,
             rentExpenseText: rentExpenseText.text,
             taxExpenseText: taxExpenseText.text,
+            transportText: transportExpenseText.text,
             month: monthLabel.text
         )
     }
     
-    @objc 
+    @objc
     private func updateButtonTapped() {
         updateDelegate?.didTapUpdateButton(
             inComeType: expenseTypeLabel.text ?? "",
@@ -337,14 +365,14 @@ extension ExpenseEntryView: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     private func getViewController() -> UIViewController? {
-          var responder: UIResponder? = self
-          while let nextResponder = responder?.next {
-              responder = nextResponder
-              if let viewController = responder as? UIViewController {
-                  return viewController
-              }
-          }
-          return nil
-      }
+        var responder: UIResponder? = self
+        while let nextResponder = responder?.next {
+            responder = nextResponder
+            if let viewController = responder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
+    }
 }
 

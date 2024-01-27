@@ -113,6 +113,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         investmentAmount.layer.masksToBounds = true
         investmentAmount.textColor = .white
         investmentAmount.textAlignment = .center
+        investmentAmount.font = Fonts.generalFont
         investmentAmount.attributedPlaceholder = NSAttributedString(
             string: "Yatırım miktarınızı giriniz",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -130,8 +131,8 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         investmentDate.layer.masksToBounds = true
         investmentDate.textColor = .white
         investmentDate.textAlignment = .center
-        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         investmentDate.inputView = datePicker
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         datePicker.setDatePickerView(datePicker)
         
         //InvestmentTypeTextField Setting
@@ -145,6 +146,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         investmentTypeTextField.layer.cornerRadius = 10
         investmentTypeTextField.layer.masksToBounds = true
         investmentTypeTextField.textColor = .white
+        investmentTypeTextField.font = Fonts.generalFont
         investmentTypeTextField.textAlignment = .center
         
         //purchasePriceTextField Settings
@@ -155,6 +157,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         purchasePriceTextField.layer.cornerRadius = 10
         purchasePriceTextField.layer.masksToBounds = true
         purchasePriceTextField.textColor = .white
+        purchasePriceTextField.font = Fonts.generalFont
         purchasePriceTextField.textAlignment = .center
         purchasePriceTextField.attributedPlaceholder = NSAttributedString(
             string: "Aldığınız ürünün birim fiyatını giriniz",
@@ -170,6 +173,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         pieceTextField.layer.masksToBounds = true
         pieceTextField.textColor = .white
         pieceTextField.textAlignment = .center
+        pieceTextField.font = Fonts.generalFont
         pieceTextField.attributedPlaceholder = NSAttributedString(
             string: "Ürünün adetini giriniz",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
@@ -181,6 +185,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         saveButton.layer.borderWidth = 0.7
         saveButton.layer.borderColor = UIColor.white.cgColor
         saveButton.layer.masksToBounds = true
+        saveButton.titleLabel?.font = Fonts.generalFont
         saveButton.backgroundColor = Colors.buttonColor
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
@@ -217,7 +222,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
             return
         }
         
-        viewModel.saveLesson(invesmentType: investmentType, amount: amount, selectedDate: selectedDate, purchase: purchase, piece: piece)
+        viewModel.saveInvestments(invesmentType: investmentType, amount: amount, selectedDate: selectedDate, purchase: purchase, piece: piece)
         showToastInvestment(message: "Kayıt Başarılı")
     }
     

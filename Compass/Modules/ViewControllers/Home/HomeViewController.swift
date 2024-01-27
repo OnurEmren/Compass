@@ -12,6 +12,8 @@ import DGCharts
 class HomeViewController: UIViewController, Coordinating, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     var coordinator: Coordinator?
+    private var homeViewModel = HomeViewModel()
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -51,57 +53,9 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = false
-        
         collectionView.reloadData()
-        
     }
-    
-    func fetchInComeData() -> [InComeEntry] {
-        var incomeEntries: [InComeEntry] = []
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<InComeEntry>(entityName: "InComeEntry")
-        
-        do {
-            incomeEntries = try context.fetch(fetchRequest)
-        } catch {
-            print("Veri çekme hatası: \(error)")
-        }
-        
-        return incomeEntries
-    }
-    
-    func fetchExpenseData() -> [ExpenseEntry] {
-        var expenseEntries: [ExpenseEntry] = []
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchExpenseRequest = NSFetchRequest<ExpenseEntry>(entityName: "ExpenseEntry")
-        
-        do {
-            expenseEntries = try context.fetch(fetchExpenseRequest)
-        } catch {
-            print("Gider verisi çekme hatası: \(error)")
-        }
-        
-        return expenseEntries
-    }
-    
-    func fetchInvestmentData() -> [InvestmentEntry] {
-        var investmentEntries: [InvestmentEntry] = []
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchInvestmentRequest = NSFetchRequest<InvestmentEntry>(entityName: "InvestmentEntry")
-        
-        do {
-            investmentEntries = try context.fetch(fetchInvestmentRequest)
-            
-        } catch {
-            print("Yatırım verisi çekme hatası: \(error)")
-        }
-        
-        return investmentEntries
-    }
-    
+ 
     //MARK: - CollectionView Delegates
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -112,9 +66,10 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FinanceCardCell.reuseIdentifier, for: indexPath) as! FinanceCardCell
         let (title, color) = data[indexPath.item]
         
-        let inComeData = fetchInComeData()
-        let expenseData = fetchExpenseData()
-        let investmentData = fetchInvestmentData()
+        let inComeData = homeViewModel.fetchInComeData()
+        let expenseData = homeViewModel.fetchExpenseData()
+        let investmentData = homeViewModel.fetchInvestmentData()
+        
         
         let totalIncome = inComeData.reduce(0) { (result, entry) in
             return result + entry.wage + entry.sideInCome
@@ -129,6 +84,8 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             return result + entry.investmentAmount
         }
         
+        let overallStatus = (totalIncome - totalExpense) + totalInvestment
+        
         switch title {
         case "Gelir":
             cell.configureInComeLabel(with: title, backgroundColor: color, overallStatus: totalIncome)
@@ -140,19 +97,18 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             cell.configureInvestmentLabel(with: title, backgroundColor: color, overallStatus: totalInvestment)
             
         case "Genel":
-            let overallStatus = (totalIncome - totalExpense) + totalInvestment
+            let overallStatus = overallStatus
             cell.configure(with: title, backgroundColor: color, overallStatus: overallStatus)
             
         default:
             break
         }
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width - 40
-        let height: CGFloat = 200
+        let height: CGFloat = 150
         return CGSize(width: width, height: height)
     }
     
@@ -165,4 +121,3 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         collectionView.reloadData()
     }
 }
-

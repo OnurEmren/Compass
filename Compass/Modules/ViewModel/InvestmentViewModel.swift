@@ -10,7 +10,7 @@ import CoreData
 import UIKit
 
 protocol InvestmentViewModelDelegate: AnyObject {
-    func didSaveLesson()
+    func didSaveInvestment()
 }
 
 class InvestmentViewModel {
@@ -21,7 +21,7 @@ class InvestmentViewModel {
         self.context = context
     }
     
-    func saveLesson(invesmentType: String, amount: Double, selectedDate: Date, purchase: Double, piece: Double) {
+    func saveInvestments(invesmentType: String, amount: Double, selectedDate: Date, purchase: Double, piece: Double) {
         let entity = NSEntityDescription.entity(forEntityName: "InvestmentEntry", in: context)!
         let investmentData = NSManagedObject(entity: entity, insertInto: context)
         investmentData.setValue(invesmentType, forKey: "investmentType")
@@ -32,8 +32,7 @@ class InvestmentViewModel {
         
         do {
             try context.save()
-            delegate?.didSaveLesson()
-            
+            delegate?.didSaveInvestment()
             print("Kayıt başarılı")
         } catch {
             print("Hata: \(error.localizedDescription)")

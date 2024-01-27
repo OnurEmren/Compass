@@ -9,7 +9,8 @@ import Foundation
 
 enum Strings {
     //Titles
-    static let expenseTitle = "Giderleriniz"
+    static let expenseTitle = "Giderlerim"
     static let inComeEntryTitle = "Gelirinizi Girin"
+    static let incomeTitle = "Gelirlerim"
 
 }

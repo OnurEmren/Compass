@@ -62,7 +62,7 @@ class FinanceCardCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    // Clear labels
     override func prepareForReuse() {
         super.prepareForReuse()
         overallStatusLabel.text = nil
@@ -78,32 +78,25 @@ class FinanceCardCell: UICollectionViewCell {
         addSubview(investmentLabel)
 
         overallStatusLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.center.equalToSuperview()
         }
         
         incomeLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.center.equalToSuperview()
         }
         
         investmentLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.center.equalToSuperview()
         }
         
         expenseLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.center.equalToSuperview()
         }
     }
 
     func configure(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         overallStatusLabel.text = title
+        overallStatusLabel.textColor = .black
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
         layer.masksToBounds = false
