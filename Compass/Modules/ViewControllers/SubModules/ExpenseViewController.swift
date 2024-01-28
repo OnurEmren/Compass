@@ -64,11 +64,7 @@ class ExpenseViewController: UIViewController, Coordinating {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if entityName == "ExpenseEntry" {
-            fetchDataFromCoreData(entityName: "ExpenseEntry")
-        } else {
-            fetchGeneralExpenseCoreData()
-        }
+       fetchDataFromCoreData()
     }
     
     private func setupNavigationSettings() {
@@ -133,64 +129,59 @@ class ExpenseViewController: UIViewController, Coordinating {
         isGeneralExpense = true
     }
     
-    private func fetchDataFromCoreData(entityName: String) {
+    private func fetchDataFromCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-      
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        if entityName == "ExpenseEntry" {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ExpenseEntry")
+                DispatchQueue.main.async {
+                    do {
+                        let fetchedData = try context.fetch(fetchRequest) as! [ExpenseEntry]
+                        let totalIncome = fetchedData.reduce(0) { (result, entry) in
+                            return result + entry.totalExpense
+                        }
+                        self.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
+                        
+                        for entry in fetchedData {
+                            let clothesExpense = entry.clothesExpense
+                            let electronicExpense = entry.electronicExpense
+                            let fuelExpense = entry.fuelExpense
+                            let rentExpense = entry.rentExpense
+                            let transportExpense = entry.transportExpense
+                            let foodExpense = entry.foodExpense
+                            let taxExpense = entry.taxExpense
+                            let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
+                            let month = entry.month
+                            self.totalExpenseLabel.text = "\(expenseTotal)"
+                            self.monthLabel.text = month
+                        }
+                        self.setupCombinedChart(expenseData: fetchedData, generalData: [])
+                    } catch {
+                        print("Veri çekme hatası: \(error)")
+                }
+            }
+        } else {
+            let fetchGeneralData = NSFetchRequest<NSFetchRequestResult>(entityName: "GeneralExpenseEntry")
             DispatchQueue.main.async {
                 do {
-                    let fetchedData = try context.fetch(fetchRequest) as! [ExpenseEntry]
+                    let fetchedData = try context.fetch(fetchGeneralData) as! [GeneralExpenseEntry]
                     let totalIncome = fetchedData.reduce(0) { (result, entry) in
-                        return result + entry.totalExpense
+                        return result + entry.creditCardExpense + entry.rentExpense
                     }
                     self.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
                     
                     for entry in fetchedData {
-                        let clothesExpense = entry.clothesExpense
-                        let electronicExpense = entry.electronicExpense
-                        let fuelExpense = entry.fuelExpense
                         let rentExpense = entry.rentExpense
-                        let transportExpense = entry.transportExpense
-                        let foodExpense = entry.foodExpense
-                        let taxExpense = entry.taxExpense
-                        let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
-                        let month = entry.month
+                        let creditCardExpense = entry.creditCardExpense
+                        let expenseTotal = rentExpense + creditCardExpense
+                        
                         self.totalExpenseLabel.text = "\(expenseTotal)"
-                        self.monthLabel.text = month
                     }
-                    self.setupCombinedChart(expenseData: fetchedData, generalData: [])
+                    self.setupCombinedChart(expenseData: [], generalData: fetchedData )
                 } catch {
-                    print("Veri çekme hatası: \(error)")
-            }
-        }
-    }
-    
-    private func fetchGeneralExpenseCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchGeneralData = NSFetchRequest<NSFetchRequestResult>(entityName: "GeneralExpenseEntry")
-        
-        DispatchQueue.main.async {
-            do {
-                let fetchedData = try context.fetch(fetchGeneralData) as! [GeneralExpenseEntry]
-                let totalIncome = fetchedData.reduce(0) { (result, entry) in
-                    return result + entry.creditCardExpense + entry.rentExpense
+                    print("General data çekme hatası \(error)")
                 }
-                self.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
-                
-                for entry in fetchedData {
-                    let rentExpense = entry.rentExpense
-                    let creditCardExpense = entry.creditCardExpense
-                    let expenseTotal = rentExpense + creditCardExpense
-                    
-                    self.totalExpenseLabel.text = "\(expenseTotal)"
-                }
-                self.setupCombinedChart(expenseData: [], generalData: fetchedData )
-                
-            } catch {
-                print("General data çekme hatası \(error)")
             }
         }
     }

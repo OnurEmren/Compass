@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		46051FED2B66F0E600C614D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46051FEC2B66F0E600C614D2 /* Extensions.swift */; };
+		46051FEF2B66F3F700C614D2 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46051FEE2B66F3F700C614D2 /* ExpenseView.swift */; };
 		460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D832B64216100DA3E02 /* InvestmentView.swift */; };
 		460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */; };
 		460D1D882B64399A00DA3E02 /* InvestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		46051FEC2B66F0E600C614D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		46051FEE2B66F3F700C614D2 /* ExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseView.swift; sourceTree = "<group>"; };
 		460D1D832B64216100DA3E02 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 		460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentTypeEntry.swift; sourceTree = "<group>"; };
 		460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentViewModel.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				460D1D832B64216100DA3E02 /* InvestmentView.swift */,
 				460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */,
 				46BF14412B65CC7400431683 /* GeneralExpenseView.swift */,
+				46051FEE2B66F3F700C614D2 /* ExpenseView.swift */,
 			);
 			path = SubModulesViews;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */,
 				46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */,
 				46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */,
+				46051FEF2B66F3F700C614D2 /* ExpenseView.swift in Sources */,
 				46F2DD322B582A33008792D0 /* Colors.swift in Sources */,
 				46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */,
 				46051FED2B66F0E600C614D2 /* Extensions.swift in Sources */,
