@@ -84,6 +84,7 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
         
         do {
             try context.save()
+            showToastInvestment(message: "Veriler silindi.")
             attendanceRecords.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.reloadData()
@@ -138,5 +139,26 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
         //Set Color
         let colorIndex = indexPath.row % Colors.colors.count
         cell.backgroundColor = Colors.colors[colorIndex]
+    }
+}
+
+extension UIView {
+    func showToastInvestment(message: String) {
+        let toastLabel = UILabel(frame: CGRect(x: self.frame.size.width/2 - 150, y: self.frame.size.height-100, width: 300, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds  =  true
+        self.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 1.5, delay: 0.2, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: { _ in
+            toastLabel.removeFromSuperview()
+        })
     }
 }

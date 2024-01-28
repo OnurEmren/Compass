@@ -43,6 +43,11 @@ class AppCoordinator: Coordinator {
             let investmentVC = InvestmentViewController(viewModel: viewModel)
             investmentVC.coordinator = self
             navigationController?.pushViewController(investmentVC, animated: true)
+            
+        case .goToGeneralExpenseVC:
+            let generalVC = GeneralExpenseViewController()
+            generalVC.coordinator = self
+            navigationController?.pushViewController(generalVC, animated: true)
         }
     }
     

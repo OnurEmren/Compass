@@ -17,9 +17,8 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         return picker
     }()
     private var viewModel: InvestmentViewModel
-    let investmentOptions = ["Dolar", "Euro", "Altın", "Hisse Senedi"]
-    lazy var datePicker = UIDatePicker()
-    private var investmentAmount = UITextField()
+    private let investmentOptions = ["Dolar", "Euro", "Altın", "Hisse Senedi"]
+    private lazy var datePicker = UIDatePicker()
     private var purchasePriceTextField = UITextField()
     private var investmentTypeTextField = UITextField()
     private var investmentDate = UITextField()
@@ -56,7 +55,6 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     private func setupView() {
         addSubview(investmentTypeTextField)
         addSubview(investmentDate)
-        addSubview(investmentAmount)
         addSubview(purchasePriceTextField)
         addSubview(pieceTextField)
         addSubview(saveButton)
@@ -76,15 +74,8 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
             make.height.equalTo(40)
         }
         
-        investmentAmount.snp.makeConstraints { make in
-            make.top.equalTo(investmentDate.snp.top).offset(60)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(40)
-        }
-        
         purchasePriceTextField.snp.makeConstraints { make in
-            make.top.equalTo(investmentAmount.snp.top).offset(60)
+            make.top.equalTo(investmentDate.snp.top).offset(60)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
@@ -103,22 +94,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
         }
-        
-        //AmountTextField Settings
-        investmentAmount.delegate = self
-        investmentAmount.keyboardType = .numberPad
-        investmentAmount.layer.borderWidth = 0.7
-        investmentAmount.layer.borderColor = UIColor.white.cgColor
-        investmentAmount.layer.cornerRadius = 10
-        investmentAmount.layer.masksToBounds = true
-        investmentAmount.textColor = .white
-        investmentAmount.textAlignment = .center
-        investmentAmount.font = Fonts.generalFont
-        investmentAmount.attributedPlaceholder = NSAttributedString(
-            string: "Yatırım miktarınızı giriniz",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
-        )
-        
+                
         //InvestmentDateTextField Settings
         investmentDate.attributedPlaceholder = NSAttributedString(
             string: "Yatırım yaptığınız tarihi giriniz",
@@ -195,7 +171,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     @objc
     private func saveButtonTapped() {
         guard let investmentType = investmentTypeTextField.text,
-              let amountText = investmentAmount.text,
+              
               let date = investmentDate.text,
               let piece = pieceTextField.text,
               let purchase = purchasePriceTextField.text
@@ -203,9 +179,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
             return
         }
         
-        // amountText'i Double'a çevir
-        guard let amount = Double(amountText),
-              let purchase = Double(purchase.replacingOccurrences(of: ",", with: ".")),
+        guard let purchase = Double(purchase.replacingOccurrences(of: ",", with: ".")),
               let piece = Double(piece)
         else {
             print("Geçersiz miktar formatı")
@@ -222,7 +196,10 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
             return
         }
         
-        viewModel.saveInvestments(invesmentType: investmentType, amount: amount, selectedDate: selectedDate, purchase: purchase, piece: piece)
+        let calculatedAmount = purchase * piece
+        
+        viewModel.saveInvestments(invesmentType: investmentType, amount: calculatedAmount, selectedDate: selectedDate, purchase: purchase, piece: piece)
+        
         showToastInvestment(message: "Kayıt Başarılı")
     }
     
@@ -263,27 +240,5 @@ extension UIDatePicker {
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.tintColor = .brown
         datePicker.backgroundColor = Colors.beigeColor
-    }
-}
-
-extension Investment {
-    func showToastInvestment(message: String) {
-        let toastLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 35))
-        toastLabel.center = CGPoint(x: self.frame.size.width / 2, y: frame.size.height / 2)
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.textAlignment = .center
-        toastLabel.font = UIFont.systemFont(ofSize: 12)
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10
-        toastLabel.clipsToBounds = true
-        self.addSubview(toastLabel)
-        
-        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: { (isCompleted) in
-            toastLabel.removeFromSuperview()
-        })
     }
 }

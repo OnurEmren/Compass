@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     }()
     private var financeCardCell = FinanceCardCell()
     
-    let data = [("Gelir", UIColor.systemGreen), ("Gider", UIColor.red), ("Yatırım", UIColor.blue), ("Genel", UIColor.white) ]
+    let data = [("Gelir", UIColor.systemGreen), ("Gider", UIColor.red), ("Yatırım", UIColor.blue), ("Genel", UIColor.lightGray) ]
     
     
     override func viewDidLoad() {

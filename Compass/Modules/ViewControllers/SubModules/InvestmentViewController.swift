@@ -11,11 +11,11 @@ class InvestmentViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     private var investment: Investment!
     private let viewModel: InvestmentViewModel
-       
-       init(viewModel: InvestmentViewModel) {
-           self.viewModel = viewModel
-           super.init(nibName: nil, bundle: nil)
-       }
+    
+    init(viewModel: InvestmentViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

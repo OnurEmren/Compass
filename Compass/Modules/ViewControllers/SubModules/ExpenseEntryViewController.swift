@@ -61,7 +61,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
 
-        if var expenseEntity = NSEntityDescription.insertNewObject(forEntityName: "ExpenseEntry", into: context) as? ExpenseEntry {
+        if let expenseEntity = NSEntityDescription.insertNewObject(forEntityName: "ExpenseEntry", into: context) as? ExpenseEntry {
             expenseEntity.clothesExpense = clothesExpense
             expenseEntity.electronicExpense = electronicExpense
             expenseEntity.foodExpense = foodExpense
@@ -72,6 +72,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
             expenseEntity.month = month
             do {
                 try context.save()
+                showToastExpenseEntry(message: "Giderler kaydedildi.")
                 print("Veri başarıyla kaydedildi.")
             } catch {
                 print("Veri kaydedilemedi. Hata: \(error)")
@@ -82,5 +83,25 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
     func didSelectIncomeType(_ incomeType: String) {
         //
     }
+}
 
+extension ExpenseEntryViewController {
+    func showToastExpenseEntry(message: String) {
+        let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width/2 - 150, y: view.frame.size.height-100, width: 300, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds  =  true
+        view.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 1.5, delay: 0.2, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: { _ in
+            toastLabel.removeFromSuperview()
+        })
+    }
 }

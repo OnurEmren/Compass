@@ -144,6 +144,14 @@ class FinanceCardCell: UICollectionViewCell {
     }
 
     private func updateLabel(with overallStatus: Double) {
+        if overallStatus < 0 {
+            overallStatusLabel.textColor = .red
+        } else if overallStatus == 0 {
+            overallStatusLabel.textColor = .gray
+        } else {
+            overallStatusLabel.textColor = .green
+        }
+        
         overallStatusLabel.text = "Genel durum: \(overallStatus)"
     }
 

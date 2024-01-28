@@ -24,6 +24,8 @@
 		46AF0ACF2B585B2A00647EA1 /* InComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */; };
 		46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */; };
 		46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */; };
+		46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */; };
+		46BF14422B65CC7400431683 /* GeneralExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF14412B65CC7400431683 /* GeneralExpenseView.swift */; };
 		46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0A2B582610008792D0 /* AppDelegate.swift */; };
 		46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0C2B582610008792D0 /* SceneDelegate.swift */; };
 		46F2DD0F2B582610008792D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0E2B582610008792D0 /* HomeViewController.swift */; };
@@ -65,6 +67,8 @@
 		46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeViewController.swift; sourceTree = "<group>"; };
 		46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentViewController.swift; sourceTree = "<group>"; };
+		46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseViewController.swift; sourceTree = "<group>"; };
+		46BF14412B65CC7400431683 /* GeneralExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseView.swift; sourceTree = "<group>"; };
 		46F2DD072B582610008792D0 /* Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F2DD0A2B582610008792D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46F2DD0C2B582610008792D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				46FC99AB2B5C91E60064A1F0 /* ExpenseEntryView.swift */,
 				460D1D832B64216100DA3E02 /* InvestmentView.swift */,
 				460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */,
+				46BF14412B65CC7400431683 /* GeneralExpenseView.swift */,
 			);
 			path = SubModulesViews;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 				46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */,
 				46FC99A92B5C904F0064A1F0 /* ExpenseEntryViewController.swift */,
 				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
+				46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */,
 			);
 			path = SubModules;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				46A4BD1D2B6599AB009FF7B0 /* HomeViewModel.swift in Sources */,
 				46F2DD282B5827B4008792D0 /* Coordinator.swift in Sources */,
 				46F2DD3C2B582C98008792D0 /* Constants.swift in Sources */,
+				46BF14422B65CC7400431683 /* GeneralExpenseView.swift in Sources */,
 				46AF0ACF2B585B2A00647EA1 /* InComeViewController.swift in Sources */,
 				46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */,
 				46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */,
@@ -370,6 +377,7 @@
 				460D1D8C2B6451C400DA3E02 /* InvestmentListView.swift in Sources */,
 				46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */,
 				46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */,
+				46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */,
 				46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */,
 				469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */,
 				46F2DD3A2B582C87008792D0 /* OnBoardingElements.swift in Sources */,

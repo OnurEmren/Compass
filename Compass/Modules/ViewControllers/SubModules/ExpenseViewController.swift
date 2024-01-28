@@ -49,7 +49,7 @@ class ExpenseViewController: UIViewController, Coordinating {
     
     private let addButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Gider Ekle", for: .normal)
+        button.setTitle("Detaylı Gider Ekle", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = Colors.buttonColor
         button.layer.cornerRadius = 10
@@ -75,6 +75,12 @@ class ExpenseViewController: UIViewController, Coordinating {
         view.backgroundColor = Colors.piesGreenColor
         setupNavigationSettings()
         setupView()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(rightAddButtonTapped)
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,6 +144,11 @@ class ExpenseViewController: UIViewController, Coordinating {
         
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         
+    }
+    
+    @objc
+    private func rightAddButtonTapped() {
+        coordinator?.eventOccured(with: .goToGeneralExpenseVC)
     }
     
     private func fetchDataFromCoreData() {

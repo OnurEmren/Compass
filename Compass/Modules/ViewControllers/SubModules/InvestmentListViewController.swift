@@ -55,10 +55,10 @@ class InvestmentListViewController: UIViewController, Coordinating {
         }
     }
     
-    @objc func addButtonTapped() {
+    @objc 
+    private func addButtonTapped() {
         coordinator?.eventOccured(with: .goToInvestmentEntryVC)
     }
-    
     
     private func updateView(with records: [InvestmentEntry]) {
         investmentListView.updateAttendanceRecords(records)
