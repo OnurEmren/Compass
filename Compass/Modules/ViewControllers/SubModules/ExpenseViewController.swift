@@ -14,7 +14,6 @@ import CoreData
 class ExpenseViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     var isGeneralExpense = true
-
     private let expenseChart: PieChartView = {
         let chartView = PieChartView()
         chartView.layer.cornerRadius = 20
@@ -22,53 +21,32 @@ class ExpenseViewController: UIViewController, Coordinating {
         return chartView
     }()
     
-    private let totalExpenseLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "0.0"
-        label.font = Fonts.generalFont
-        return label
-    }()
-    
-    private let expenseDistributionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .left
-        label.font = Fonts.generalFont
-        label.text = "Gider Dağılımı:"
-        return label
-    }()
-    
-    private let monthLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textAlignment = .left
-        label.font = Fonts.generalFont
-        label.text = "Ay:"
-        return label
-    }()
-    
-    private let addButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Detaylı Gider Ekle", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = Colors.buttonColor
-        button.layer.cornerRadius = 10
-        button.layer.masksToBounds = true
-        button.titleLabel?.font = Fonts.generalFont
-        button.addTarget(self, action: #selector(goToAddExpense), for: .touchUpInside)
-        return button
-    }()
-    
-    private let deleteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Sil", for: .normal)
-        button.backgroundColor = .red
-        button.titleLabel?.font = Fonts.generalFont
-        button.layer.cornerRadius = 10
-        return button
-    }()
-    
+    private let totalExpenseLabel = UIExtensions.createLabel(
+        text: "0.0",
+        fontSize: Fonts.generalFont!.pointSize,
+        alignment: .center)
+    private let expenseDistributionLabel = UIExtensions.createLabel(
+        text: "Gider Dağılımı:",
+        fontSize: 18,
+        alignment: .left)
+    private let monthLabel = UIExtensions.createLabel(
+        text: "Ay:",
+        fontSize: 18,
+        alignment: .left)
+    private let addButton = UIExtensions.createButton(
+        title: "Detaylı Gider Ekle",
+        backgroundColor: Colors.buttonColor,
+        cornerRadius: 10,
+        target: self,
+        action: #selector(goToAddExpense),
+        font: Fonts.generalFont!)
+    private let deleteButton = UIExtensions.createButton(
+        title: "Sil",
+        backgroundColor: .red,
+        cornerRadius: 10,
+        target: nil,
+        action: #selector(deleteButtonTapped),
+        font: Fonts.generalFont!)
     private var entityName = ""
     
     override func viewDidLoad() {
@@ -87,11 +65,8 @@ class ExpenseViewController: UIViewController, Coordinating {
     
     override func viewWillAppear(_ animated: Bool) {
         if entityName == "ExpenseEntry" {
-            coordinator?.isGeneralExpense = false
             fetchDataFromCoreData(entityName: "ExpenseEntry")
-            
         } else {
-            coordinator?.isGeneralExpense = true
             fetchGeneralExpenseCoreData()
         }
     }
@@ -109,7 +84,6 @@ class ExpenseViewController: UIViewController, Coordinating {
         view.addSubview(monthLabel)
         view.addSubview(addButton)
         view.addSubview(deleteButton)
-        
         
         monthLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -149,9 +123,7 @@ class ExpenseViewController: UIViewController, Coordinating {
             make.width.equalTo(120)
             make.height.equalTo(40)
         }
-        
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-        
     }
     
     @objc
@@ -164,6 +136,7 @@ class ExpenseViewController: UIViewController, Coordinating {
     private func fetchDataFromCoreData(entityName: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
+      
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
             DispatchQueue.main.async {
@@ -184,10 +157,8 @@ class ExpenseViewController: UIViewController, Coordinating {
                         let taxExpense = entry.taxExpense
                         let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
                         let month = entry.month
-                        
                         self.totalExpenseLabel.text = "\(expenseTotal)"
                         self.monthLabel.text = month
-                        
                     }
                     self.setupCombinedChart(expenseData: fetchedData, generalData: [])
                 } catch {
@@ -199,11 +170,9 @@ class ExpenseViewController: UIViewController, Coordinating {
     private func fetchGeneralExpenseCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
         let fetchGeneralData = NSFetchRequest<NSFetchRequestResult>(entityName: "GeneralExpenseEntry")
         
         DispatchQueue.main.async {
-                
             do {
                 let fetchedData = try context.fetch(fetchGeneralData) as! [GeneralExpenseEntry]
                 let totalIncome = fetchedData.reduce(0) { (result, entry) in
@@ -212,13 +181,11 @@ class ExpenseViewController: UIViewController, Coordinating {
                 self.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
                 
                 for entry in fetchedData {
-                   
                     let rentExpense = entry.rentExpense
                     let creditCardExpense = entry.creditCardExpense
                     let expenseTotal = rentExpense + creditCardExpense
                     
                     self.totalExpenseLabel.text = "\(expenseTotal)"
-                    
                 }
                 self.setupCombinedChart(expenseData: [], generalData: fetchedData )
                 
@@ -226,7 +193,6 @@ class ExpenseViewController: UIViewController, Coordinating {
                 print("General data çekme hatası \(error)")
             }
         }
-       
     }
     
     private func setupCombinedChart(expenseData: [ExpenseEntry], generalData: [GeneralExpenseEntry]) {
@@ -237,7 +203,6 @@ class ExpenseViewController: UIViewController, Coordinating {
         var rentExpenseEntries: [PieChartDataEntry] = []
         var taxExpenseEntries: [PieChartDataEntry] = []
         var transportEntries: [PieChartDataEntry] = []
-        
         var generalExpenseEntries: [PieChartDataEntry] = []
 
         for (_, entry) in expenseData.enumerated() {
@@ -256,7 +221,6 @@ class ExpenseViewController: UIViewController, Coordinating {
             rentExpenseEntries.append(rentExpenseEntry)
             taxExpenseEntries.append(taxExpenseEntry)
             transportEntries.append(transportEntry)
-            
         }
         
         for (_, entry) in generalData.enumerated() {
@@ -303,19 +267,16 @@ class ExpenseViewController: UIViewController, Coordinating {
         rentData.setValueTextColor(.white)
         taxData.setValueTextColor(.white)
         transportData.setValueTextColor(.white)
-        
 
         let generalExpenseDataSet = PieChartDataSet(entries: generalExpenseEntries, label: "")
         generalExpenseDataSet.colors = ChartColorTemplates.colorful()
-        
     
         if isGeneralExpense {
             let generalDataSet = PieChartDataSet(
                 entries: generalExpenseEntries,
                 label: "")
             generalDataSet.colors = [
-                .red, .blue, .green, .yellow, .orange, .purple, .magenta
-            ]
+                .red, .blue]
 
             let generalData = PieChartData(dataSet: generalDataSet)
             generalData.setValueTextColor(.white)
@@ -334,99 +295,9 @@ class ExpenseViewController: UIViewController, Coordinating {
             expenseChart.data = combinedData
             expenseChart.centerText = "Expenses"
         }
-
         expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-
     }
 
-    
-//    private func setupExpenseChart(with data: [ExpenseEntry], generalData: [GeneralExpenseEntry]) {
-//        var clothesExpenseEntries: [PieChartDataEntry] = []
-//        var electronicExpenseEntries: [PieChartDataEntry] = []
-//        var foodExpenseEntries: [PieChartDataEntry] = []
-//        var fuelExpenseEntries: [PieChartDataEntry] = []
-//        var rentExpenseEntries: [PieChartDataEntry] = []
-//        var taxExpenseEntries: [PieChartDataEntry] = []
-//        var transportEntries: [PieChartDataEntry] = []
-//        
-//        for (_, entry) in data.enumerated() {
-//            let clothesExpenseEntry = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
-//            let electronicExpenseEntry = PieChartDataEntry(value: entry.electronicExpense, label: "Elektronik")
-//            let foodExpenseEntry = PieChartDataEntry(value: entry.foodExpense, label: "Gıda")
-//            let fuelExpenseEntry = PieChartDataEntry(value: entry.fuelExpense, label: "Yakıt")
-//            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
-//            let taxExpenseEntry = PieChartDataEntry(value: entry.taxExpense, label: "Faturalar")
-//            let transportEntry = PieChartDataEntry(value: entry.transportExpense, label: "Ulaşım")
-//            
-//            clothesExpenseEntries.append(clothesExpenseEntry)
-//            electronicExpenseEntries.append(electronicExpenseEntry)
-//            foodExpenseEntries.append(foodExpenseEntry)
-//            fuelExpenseEntries.append(fuelExpenseEntry)
-//            rentExpenseEntries.append(rentExpenseEntry)
-//            taxExpenseEntries.append(taxExpenseEntry)
-//            transportEntries.append(transportEntry)
-//            
-//        }
-//        
-//        let clothesDataSet = PieChartDataSet(entries: clothesExpenseEntries, label: "")
-//        clothesDataSet.colors = ChartColorTemplates.material()
-//        
-//        let electronicDataSet = PieChartDataSet(entries: electronicExpenseEntries, label: "")
-//        electronicDataSet.colors = ChartColorTemplates.colorful()
-//        
-//        let foodDataSet = PieChartDataSet(entries: foodExpenseEntries, label: "")
-//        foodDataSet.colors = ChartColorTemplates.colorful()
-//        
-//        let fuelDataSet = PieChartDataSet(entries: fuelExpenseEntries, label: "")
-//        fuelDataSet.colors = ChartColorTemplates.colorful()
-//        
-//        let rentDataSet = PieChartDataSet(entries: rentExpenseEntries, label: "")
-//        rentDataSet.colors = ChartColorTemplates.colorful()
-//        
-//        let taxDataSet = PieChartDataSet(entries: taxExpenseEntries, label: "")
-//        taxDataSet.colors = ChartColorTemplates.colorful()
-//        
-//        let transportDataSet = PieChartDataSet(entries: transportEntries, label: "")
-//        transportDataSet.colors = ChartColorTemplates.colorful()
-//        
-//        let clothesData = PieChartData(dataSet: clothesDataSet)
-//        let electronikData = PieChartData(dataSet: electronicDataSet)
-//        let foodData = PieChartData(dataSet: foodDataSet)
-//        let fuelData = PieChartData(dataSet: fuelDataSet)
-//        let rentData = PieChartData(dataSet: rentDataSet)
-//        let taxData = PieChartData(dataSet: taxDataSet)
-//        let transportData = PieChartData(dataSet: transportDataSet)
-//        
-//        clothesData.setValueTextColor(.white)
-//        electronikData.setValueTextColor(.white)
-//        foodData.setValueTextColor(.white)
-//        fuelData.setValueTextColor(.white)
-//        rentData.setValueTextColor(.white)
-//        taxData.setValueTextColor(.white)
-//        transportData.setValueTextColor(.white)
-//        
-//        let combinedDataSet = PieChartDataSet(
-//            entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
-//            label: "")
-//        
-//        combinedDataSet.colors = [
-//            .red,
-//            Colors.piesGreenColor,
-//            .blue,
-//            Colors.darkThemeColor,
-//            .orange,
-//            .purple,
-//            .magenta
-//        ]
-//        
-//        let combinedData = PieChartData(dataSet: combinedDataSet)
-//        combinedData.setValueTextColor(.white)
-//        
-//        expenseChart.data = combinedData
-//        expenseChart.centerText = "Giderler"
-//        expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-//    }
-//    
     @objc
     private func goToAddExpense() {
         coordinator?.eventOccured(with: .goToExpenseEntryVC)
@@ -480,47 +351,6 @@ class ExpenseViewController: UIViewController, Coordinating {
         } catch {
             print("Hata: \(error)")
         }
-        
-        do {
-            
-            let result = try context.fetch(fetchGeneralRequest)
-            
-            if result.isEmpty {
-                // Önceki veri yoksa
-                let alertController = UIAlertController(
-                    title: "Silme İptal Edildi",
-                    message: "Önce bir veri eklemeniz gerekmektedir.",
-                    preferredStyle: .alert
-                )
-                
-                let cancelAction = UIAlertAction(title: "Tamam", style: .cancel) { _ in
-                    self.dismiss(animated: true, completion: nil)
-                }
-                
-                alertController.addAction(cancelAction)
-                present(alertController, animated: true, completion: nil)
-            } else {
-                // Önceki veri varsa
-                let alertController = UIAlertController(
-                    title: "Sil",
-                    message: "Bu öğeyi silmek istediğinizden emin misiniz?",
-                    preferredStyle: .alert
-                )
-                
-                let cancelAction = UIAlertAction(title: "İptal", style: .cancel) { _ in
-                    print("Silme işlemi iptal edildi.")
-                }
-                
-                let deleteAction = UIAlertAction(title: "Sil", style: .destructive) { _ in
-                    self.deleteLastIncomeEntry()
-                }
-                alertController.addAction(cancelAction)
-                alertController.addAction(deleteAction)
-                present(alertController, animated: true, completion: nil)
-            }
-        } catch {
-            print("Hata: \(error)")
-        }
     }
     
     func deleteLastIncomeEntry() {
@@ -536,7 +366,6 @@ class ExpenseViewController: UIViewController, Coordinating {
             
             if let lastIncomeEntry = result.first {
                 context.delete(lastIncomeEntry)
-                
                 try context.save()
             }
         } catch {

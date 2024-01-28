@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46051FED2B66F0E600C614D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46051FEC2B66F0E600C614D2 /* Extensions.swift */; };
 		460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D832B64216100DA3E02 /* InvestmentView.swift */; };
 		460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */; };
 		460D1D882B64399A00DA3E02 /* InvestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46051FEC2B66F0E600C614D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		460D1D832B64216100DA3E02 /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 		460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentTypeEntry.swift; sourceTree = "<group>"; };
 		460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentViewModel.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				46F2DD3B2B582C98008792D0 /* Constants.swift */,
 				46FA244F2B5B1A9000D2ACBE /* Fonts.swift */,
 				4678BBE32B61C4DC00333CF1 /* Strings.swift */,
+				46051FEC2B66F0E600C614D2 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */,
 				46F2DD322B582A33008792D0 /* Colors.swift in Sources */,
 				46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */,
+				46051FED2B66F0E600C614D2 /* Extensions.swift in Sources */,
 				4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */,
 				46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */,
 				460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */,
