@@ -15,6 +15,7 @@
 		460D1D8E2B64526500DA3E02 /* InvestmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */; };
 		466B8CF82B653CFF0079BCCC /* tahoma.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 466B8CF72B653CFF0079BCCC /* tahoma.ttf */; };
 		4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678BBE32B61C4DC00333CF1 /* Strings.swift */; };
+		4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B8E42B66B44A0021D591 /* GeneralExpense.swift */; };
 		469D15BA2B598A8700544E35 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 469D15B92B598A8700544E35 /* DGCharts */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
 		469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */; };
@@ -59,6 +60,7 @@
 		460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListViewModel.swift; sourceTree = "<group>"; };
 		466B8CF72B653CFF0079BCCC /* tahoma.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tahoma.ttf; sourceTree = "<group>"; };
 		4678BBE32B61C4DC00333CF1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		4697B8E42B66B44A0021D591 /* GeneralExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpense.swift; sourceTree = "<group>"; };
 		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
 		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
 		469D15C22B598F6100544E35 /* InCome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCome.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				469D15C22B598F6100544E35 /* InCome.swift */,
 				46FC99A72B5C8B830064A1F0 /* Expense.swift */,
 				460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */,
+				4697B8E42B66B44A0021D591 /* GeneralExpense.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */,
 				46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */,
 				469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */,
+				4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */,
 				46F2DD3A2B582C87008792D0 /* OnBoardingElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

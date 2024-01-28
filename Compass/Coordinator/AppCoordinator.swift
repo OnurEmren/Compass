@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class AppCoordinator: Coordinator {
+    var isGeneralExpense: Bool?
     var navigationController: UINavigationController?
     var window: UIWindow?
 

@@ -8,12 +8,16 @@
 import Foundation
 import UIKit
 
+protocol GeneralExpenseSaveDelegate: AnyObject {
+    func didTapGeneralExpenseSave(rentExpenseText: String?,
+                                  creditCardExpenseText: String?)
+}
+
 class GeneralExpenseView: UIView {
-    private var rentExpensePickerView = UIPickerView()
-    private var creditCardExpensePickerView = UIPickerView()
     private var rentExpenseLabel = UITextField()
     private var creditCardExpenseLabel = UITextField()
     private var saveButton = UIButton()
+    weak var generalExpenseDelegate: GeneralExpenseSaveDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,7 +59,6 @@ class GeneralExpenseView: UIView {
             string: "Yatırım yaptığınız tarihi giriniz",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        rentExpenseLabel.inputView = rentExpensePickerView
         rentExpenseLabel.layer.cornerRadius = 10
         rentExpenseLabel.layer.borderWidth = 0.7
         rentExpenseLabel.layer.masksToBounds = true
@@ -70,7 +73,6 @@ class GeneralExpenseView: UIView {
             string: "Yatırım yaptığınız tarihi giriniz",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        creditCardExpenseLabel.inputView = creditCardExpensePickerView
         creditCardExpenseLabel.layer.cornerRadius = 10
         creditCardExpenseLabel.layer.borderWidth = 0.7
         creditCardExpenseLabel.layer.masksToBounds = true
@@ -94,6 +96,9 @@ class GeneralExpenseView: UIView {
     
     @objc
     private func saveButtonTapped() {
-        //
+        generalExpenseDelegate?.didTapGeneralExpenseSave(
+            rentExpenseText: rentExpenseLabel.text,
+            creditCardExpenseText: creditCardExpenseLabel.text
+        )
     }
 }

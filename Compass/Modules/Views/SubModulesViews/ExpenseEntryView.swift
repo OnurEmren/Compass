@@ -36,7 +36,7 @@ class ExpenseEntryView: UIView {
         let button = UIButton()
         button.setTitle("Kaydet", for: .normal)
         button.backgroundColor = Colors.darkThemeColor
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 10
         button.titleLabel?.font = Fonts.generalFont
         
         return button

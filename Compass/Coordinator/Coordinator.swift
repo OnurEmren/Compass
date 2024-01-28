@@ -19,6 +19,7 @@ enum Event {
 
 protocol Coordinator: AnyObject {
     var navigationController: UINavigationController? { get set }
+    var isGeneralExpense: Bool? {get set}
     func eventOccured(with type: Event)
     func start()
 }

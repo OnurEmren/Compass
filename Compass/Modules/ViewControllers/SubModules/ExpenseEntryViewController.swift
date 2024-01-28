@@ -12,7 +12,8 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
 
     var coordinator: Coordinator?
     var expenseEntryView = ExpenseEntryView()
-    
+    var isGeneralExpense = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +32,7 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
         
         expenseEntryView.saveDelegate = self
         expenseEntryView.delegate = self
-       // expenseEntryView.updateDelegate = self
+        //expenseEntryView.updateDelegate = self
         expenseEntryView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
