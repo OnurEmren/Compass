@@ -51,7 +51,6 @@ class InComeViewController: UIViewController, Coordinating {
         textView.isEditable = false
         textView.layer.cornerRadius = 10
         textView.layer.masksToBounds = true
-        
         let text = """
             - Maaş: 0,000
             - Yatırım Getirisi: 0,000
@@ -162,7 +161,6 @@ class InComeViewController: UIViewController, Coordinating {
         
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
 
-        
         let legend = incomeDistributionChart.legend
         legend.verticalAlignment = .bottom
         legend.horizontalAlignment = .center
@@ -283,19 +281,7 @@ class InComeViewController: UIViewController, Coordinating {
             let result = try context.fetch(fetchRequest)
             
             if result.isEmpty {
-                // Önceki veri yoksa
-                let alertController = UIAlertController(
-                    title: "Silme İptal Edildi",
-                    message: "Önce bir veri eklemeniz gerekmektedir.",
-                    preferredStyle: .alert
-                )
-                
-                let cancelAction = UIAlertAction(title: "Tamam", style: .cancel) { _ in
-                    self.dismiss(animated: true, completion: nil)
-                }
-                
-                alertController.addAction(cancelAction)
-                present(alertController, animated: true, completion: nil)
+               showToast(message: "Silinecek veri bulunamadı.")
             } else {
                 // Önceki veri varsa
                 let alertController = UIAlertController(
@@ -342,4 +328,3 @@ class InComeViewController: UIViewController, Coordinating {
         }
     }
 }
-

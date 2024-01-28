@@ -17,7 +17,7 @@ class UIExtensions {
         label.text = text
         return label
     }
-
+    
     static func createButton(title: String, backgroundColor: UIColor, cornerRadius: CGFloat, target: Any?, action: Selector, font: UIFont) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
@@ -28,5 +28,27 @@ class UIExtensions {
         button.titleLabel?.font = font
         button.addTarget(target, action: action, for: .touchUpInside)
         return button
+    }
+}
+
+extension UIViewController {
+    func showToast(message: String) {
+        let toastLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 35))
+        toastLabel.center = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.font = UIFont.systemFont(ofSize: 12)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+        self.view.addSubview(toastLabel)
+        
+        UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: { (isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }

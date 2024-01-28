@@ -14,40 +14,9 @@ import CoreData
 class ExpenseViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     var isGeneralExpense = true
-    private let expenseChart: PieChartView = {
-        let chartView = PieChartView()
-        chartView.layer.cornerRadius = 20
-        chartView.layer.masksToBounds = true
-        return chartView
-    }()
-    
-    private let totalExpenseLabel = UIExtensions.createLabel(
-        text: "0.0",
-        fontSize: Fonts.generalFont!.pointSize,
-        alignment: .center)
-    private let expenseDistributionLabel = UIExtensions.createLabel(
-        text: "Gider Dağılımı:",
-        fontSize: 18,
-        alignment: .left)
-    private let monthLabel = UIExtensions.createLabel(
-        text: "Ay:",
-        fontSize: 18,
-        alignment: .left)
-    private let addButton = UIExtensions.createButton(
-        title: "Detaylı Gider Ekle",
-        backgroundColor: Colors.buttonColor,
-        cornerRadius: 10,
-        target: self,
-        action: #selector(goToAddExpense),
-        font: Fonts.generalFont!)
-    private let deleteButton = UIExtensions.createButton(
-        title: "Sil",
-        backgroundColor: .red,
-        cornerRadius: 10,
-        target: nil,
-        action: #selector(deleteButtonTapped),
-        font: Fonts.generalFont!)
+
     private var entityName = ""
+    private var expenseView = ExpenseView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,12 +24,6 @@ class ExpenseViewController: UIViewController, Coordinating {
         view.backgroundColor = Colors.piesGreenColor
         setupNavigationSettings()
         setupView()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .add,
-            target: self,
-            action: #selector(rightAddButtonTapped)
-        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,57 +32,31 @@ class ExpenseViewController: UIViewController, Coordinating {
     
     private func setupNavigationSettings() {
         title = Strings.expenseTitle
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(rightAddButtonTapped)
+        )
+        
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(
+            title: "",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     private func setupView() {
-        view.addSubview(expenseChart)
-        view.addSubview(totalExpenseLabel)
-        view.addSubview(monthLabel)
-        view.addSubview(addButton)
-        view.addSubview(deleteButton)
-        
-        monthLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-        }
-        monthLabel.textColor = Colors.lightThemeColor
-        
-        totalExpenseLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(monthLabel).offset(30)
-        }
-        totalExpenseLabel.textColor = Colors.lightThemeColor
-        
-        expenseChart.snp.makeConstraints { make in
-            make.top.equalTo(totalExpenseLabel.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(300)
-        }
-        expenseChart.backgroundColor = .white
-        let legend = expenseChart.legend
-        legend.verticalAlignment = .bottom
-        legend.horizontalAlignment = .center
-        legend.orientation = .horizontal
-        legend.formSize = 10
-        legend.font = UIFont(name: "Tahoma", size: 12) ?? .systemFont(ofSize: 12)
-        
-        addButton.snp.makeConstraints { make in
-            make.top.equalTo(expenseChart.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-20)
-            make.height.equalTo(40)
+        view.addSubview(expenseView)
+        expenseView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
-        deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(120)
-            make.height.equalTo(40)
-        }
-        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        expenseView.addButton.addTarget(self, action: #selector(goToAddExpense), for: .touchUpInside)
+        expenseView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
     @objc
@@ -141,7 +78,7 @@ class ExpenseViewController: UIViewController, Coordinating {
                         let totalIncome = fetchedData.reduce(0) { (result, entry) in
                             return result + entry.totalExpense
                         }
-                        self.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
+                        self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
                         
                         for entry in fetchedData {
                             let clothesExpense = entry.clothesExpense
@@ -153,8 +90,8 @@ class ExpenseViewController: UIViewController, Coordinating {
                             let taxExpense = entry.taxExpense
                             let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
                             let month = entry.month
-                            self.totalExpenseLabel.text = "\(expenseTotal)"
-                            self.monthLabel.text = month
+                            self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
+                            self.expenseView.monthLabel.text = month
                         }
                         self.setupCombinedChart(expenseData: fetchedData, generalData: [])
                     } catch {
@@ -169,14 +106,14 @@ class ExpenseViewController: UIViewController, Coordinating {
                     let totalIncome = fetchedData.reduce(0) { (result, entry) in
                         return result + entry.creditCardExpense + entry.rentExpense
                     }
-                    self.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
+                    self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
                     
                     for entry in fetchedData {
                         let rentExpense = entry.rentExpense
                         let creditCardExpense = entry.creditCardExpense
                         let expenseTotal = rentExpense + creditCardExpense
                         
-                        self.totalExpenseLabel.text = "\(expenseTotal)"
+                        self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
                     }
                     self.setupCombinedChart(expenseData: [], generalData: fetchedData )
                 } catch {
@@ -271,8 +208,8 @@ class ExpenseViewController: UIViewController, Coordinating {
 
             let generalData = PieChartData(dataSet: generalDataSet)
             generalData.setValueTextColor(.white)
-            expenseChart.data = generalData
-            expenseChart.centerText = "General Expenses"
+            expenseView.expenseChart.data = generalData
+            expenseView.expenseChart.centerText = "General Expenses"
         } else {
             let combinedDataSet = PieChartDataSet(
                 entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
@@ -283,10 +220,10 @@ class ExpenseViewController: UIViewController, Coordinating {
 
             let combinedData = PieChartData(dataSet: combinedDataSet)
             combinedData.setValueTextColor(.white)
-            expenseChart.data = combinedData
-            expenseChart.centerText = "Expenses"
+            expenseView.expenseChart.data = combinedData
+            expenseView.expenseChart.centerText = "Expenses"
         }
-        expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        expenseView.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 
     @objc
