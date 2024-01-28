@@ -1399,8 +1399,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "fetchDataFromCoreData()"
             landmarkType = "7">
             <Locations>

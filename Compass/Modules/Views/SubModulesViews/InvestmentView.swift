@@ -26,7 +26,6 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     private var titleLabel = UILabel()
     private var saveButton = UIButton()
     
-    
     init(viewModel: InvestmentViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)

@@ -13,91 +13,7 @@ import CoreData
 
 class InComeViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
-
-    private let incomeDistributionChart: PieChartView = {
-        let chartView = PieChartView()
-        chartView.layer.cornerRadius = 20
-        chartView.layer.masksToBounds = true
-        chartView.entryLabelFont = Fonts.generalFont
-        return chartView
-    }()
-    
-    private let totalIncomeLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = "0.0"
-        label.font = Fonts.generalFont
-        return label
-    }()
-    
-    private let incomeSourcesLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.font = Fonts.generalFont
-        label.text = "Gelir Kaynakları:"
-        return label
-    }()
-    
-    private let incomeMonthsLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.font = Fonts.generalFont
-        label.text = "Ay:"
-        return label
-    }()
-    
-    private let incomeSourcesTextView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.layer.cornerRadius = 10
-        textView.layer.masksToBounds = true
-        let text = """
-            - Maaş: 0,000
-            - Yatırım Getirisi: 0,000
-        """
-        
-        let attributedText = NSMutableAttributedString(string: text)
-        
-        if let font = UIFont(name: "Tahoma", size: 16) {
-            let attributes: [NSAttributedString.Key: Any] = [.font: font]
-            attributedText.addAttributes(attributes, range: NSRange(location: 0, length: text.count))
-        } else {
-            print("Belirtilen font bulunamadı.")
-        }
-        
-        textView.attributedText = attributedText
-        
-        return textView
-    }()
-    
-    private let incomeDistributionLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .left
-        label.font = Fonts.generalFont
-        label.text = "Gelir Dağılımı:"
-        return label
-    }()
-    
-    private let addButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Gelir Ekle", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = Colors.buttonColor
-        button.layer.cornerRadius = 10
-        button.layer.masksToBounds = true
-        button.titleLabel?.font = Fonts.generalFont
-        button.addTarget(self, action: #selector(goToAddInCome), for: .touchUpInside)
-        return button
-    }()
-    
-    private let deleteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Sil", for: .normal)
-        button.backgroundColor = .red
-        button.layer.cornerRadius = 8
-        button.titleLabel?.font = Fonts.generalFont
-        return button
-    }()
+    private var inComeView = InComeView()
     
     //MARK: - Lifecycles
     
@@ -125,68 +41,14 @@ class InComeViewController: UIViewController, Coordinating {
     //Setup Views
     private func setupViews() {
         view.backgroundColor = Colors.piesGreenColor
-        view.addSubview(totalIncomeLabel)
-        view.addSubview(incomeDistributionChart)
-        view.addSubview(incomeSourcesLabel)
-        view.addSubview(incomeSourcesTextView)
-        view.addSubview(incomeMonthsLabel)
-        view.addSubview(addButton)
-        view.addSubview(deleteButton)
+        view.addSubview(inComeView)
         
-        incomeMonthsLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(40)
-        }
-        incomeMonthsLabel.textColor = .white
-        
-        totalIncomeLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(incomeMonthsLabel).offset(20)
-        }
-        totalIncomeLabel.textColor = .white
-        
-        incomeDistributionChart.snp.makeConstraints { make in
-            make.top.equalTo(totalIncomeLabel.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(300)
-        }
-        incomeDistributionChart.backgroundColor = Colors.lightThemeColor
-        
-        deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(120)
-            make.height.equalTo(40)
+        inComeView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
-        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-
-        let legend = incomeDistributionChart.legend
-        legend.verticalAlignment = .bottom
-        legend.horizontalAlignment = .center
-        legend.orientation = .horizontal
-        legend.formSize = 10
-        legend.font = UIFont(name: "Tahoma", size: 12) ?? .systemFont(ofSize: 15)
-        
-        incomeSourcesLabel.snp.makeConstraints { make in
-            make.top.equalTo(incomeDistributionChart.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-        }
-        incomeSourcesLabel.textColor = .white
-        
-        incomeSourcesTextView.snp.makeConstraints { make in
-            make.top.equalTo(incomeSourcesLabel.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(100)
-        }
-        incomeSourcesTextView.backgroundColor = .white
-        
-        addButton.snp.makeConstraints { make in
-            make.top.equalTo(incomeSourcesTextView.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-20)
-            make.height.equalTo(40)
-        }
+        inComeView.addButton.addTarget(self, action: #selector(goToAddInCome), for: .touchUpInside)
+        inComeView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
     private func setupChart(with data: [InComeEntry]) {
@@ -218,9 +80,9 @@ class InComeViewController: UIViewController, Coordinating {
         let combinedData = PieChartData(dataSet: combinedDataSet)
         combinedData.setValueTextColor(.white)
         
-        incomeDistributionChart.data = combinedData
-        incomeDistributionChart.centerText = "Maaş"
-        incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        inComeView.incomeDistributionChart.data = combinedData
+        inComeView.incomeDistributionChart.centerText = "Maaş"
+        inComeView.incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
     
     //MARK: - Load Data
@@ -236,25 +98,25 @@ class InComeViewController: UIViewController, Coordinating {
             let totalIncome = fetchedData.reduce(0) { (result, entry) in
                 return result + entry.wage
             }
-            totalIncomeLabel.text = "Toplam Gelir: \(totalIncome)"
+            inComeView.totalIncomeLabel.text = "Toplam Gelir: \(totalIncome)"
             for entry in fetchedData {
                 let salary = entry.wage
                 let sideInCome = entry.sideInCome
                 let inComeTotal = salary + sideInCome
                 let currency = entry.currency
                 let month = entry.month
-                incomeSourcesTextView.text = "- Maaş:\(salary)\n- Yan Gelirler: \(sideInCome)"
+                inComeView.incomeSourcesTextView.text = "- Maaş:\(salary)\n- Yan Gelirler: \(sideInCome)"
                 
                 if let unwrappedMonth = month {
-                    incomeMonthsLabel.text = "\(unwrappedMonth)"
+                    inComeView.incomeMonthsLabel.text = "\(unwrappedMonth)"
                 } else {
-                    incomeMonthsLabel.text = "\(String(describing: month)) Bilinmiyor"
+                    inComeView.incomeMonthsLabel.text = "\(String(describing: month)) Bilinmiyor"
                 }
 
                 if let unwrappedCurrency = currency {
-                    totalIncomeLabel.text = "\(inComeTotal) \(unwrappedCurrency)"
+                    inComeView.totalIncomeLabel.text = "\(inComeTotal) \(unwrappedCurrency)"
                 } else {
-                    totalIncomeLabel.text = "\(inComeTotal) Bilinmiyor"
+                    inComeView.totalIncomeLabel.text = "\(inComeTotal) Bilinmiyor"
                 }
             }
             setupChart(with: fetchedData)
@@ -274,7 +136,6 @@ class InComeViewController: UIViewController, Coordinating {
     func deleteButtonTapped() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
         let fetchRequest: NSFetchRequest<InComeEntry> = InComeEntry.fetchRequest()
         
         do {
@@ -296,7 +157,6 @@ class InComeViewController: UIViewController, Coordinating {
                 
                 let deleteAction = UIAlertAction(title: "Sil", style: .destructive) { _ in
                     self.deleteLastIncomeEntry()
-
                 }
                 alertController.addAction(cancelAction)
                 alertController.addAction(deleteAction)
@@ -310,7 +170,6 @@ class InComeViewController: UIViewController, Coordinating {
     func deleteLastIncomeEntry() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
         let fetchRequest: NSFetchRequest<InComeEntry> = InComeEntry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "wage", ascending: false)]
         fetchRequest.fetchLimit = 1
