@@ -25,8 +25,13 @@ class InComeViewController: UIViewController, Coordinating {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         fetchDataFromCoreData()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+
     }
     
     //MARK: - Private Methods
@@ -40,7 +45,7 @@ class InComeViewController: UIViewController, Coordinating {
     
     //Setup Views
     private func setupViews() {
-        view.backgroundColor = Colors.piesGreenColor
+        view.backgroundColor = .black
         view.addSubview(inComeView)
         
         inComeView.snp.makeConstraints { make in

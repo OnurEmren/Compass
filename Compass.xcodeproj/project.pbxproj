@@ -10,6 +10,8 @@
 		46051FED2B66F0E600C614D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46051FEC2B66F0E600C614D2 /* Extensions.swift */; };
 		46051FEF2B66F3F700C614D2 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46051FEE2B66F3F700C614D2 /* ExpenseView.swift */; };
 		46051FF12B66FEAD00C614D2 /* InComeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46051FF02B66FEAD00C614D2 /* InComeView.swift */; };
+		46051FF32B67083100C614D2 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 46051FF22B67083100C614D2 /* DGCharts */; };
+		46051FF52B67084200C614D2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 46051FF42B67084200C614D2 /* SnapKit */; };
 		460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D832B64216100DA3E02 /* InvestmentView.swift */; };
 		460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */; };
 		460D1D882B64399A00DA3E02 /* InvestmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */; };
@@ -19,7 +21,6 @@
 		466B8CF82B653CFF0079BCCC /* tahoma.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 466B8CF72B653CFF0079BCCC /* tahoma.ttf */; };
 		4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678BBE32B61C4DC00333CF1 /* Strings.swift */; };
 		4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B8E42B66B44A0021D591 /* GeneralExpense.swift */; };
-		469D15BA2B598A8700544E35 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 469D15B92B598A8700544E35 /* DGCharts */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
 		469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */; };
 		469D15C32B598F6100544E35 /* InCome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15C22B598F6100544E35 /* InCome.swift */; };
@@ -28,6 +29,7 @@
 		46AF0ACF2B585B2A00647EA1 /* InComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */; };
 		46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */; };
 		46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */; };
+		46B42F122B69A22D000E976C /* TryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B42F112B69A22D000E976C /* TryViewController.swift */; };
 		46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */; };
 		46BF14422B65CC7400431683 /* GeneralExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF14412B65CC7400431683 /* GeneralExpenseView.swift */; };
 		46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0A2B582610008792D0 /* AppDelegate.swift */; };
@@ -37,7 +39,6 @@
 		46F2DD172B582612008792D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F2DD152B582612008792D0 /* LaunchScreen.storyboard */; };
 		46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD242B582741008792D0 /* AppCoordinator.swift */; };
 		46F2DD282B5827B4008792D0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD272B5827B4008792D0 /* Coordinator.swift */; };
-		46F2DD2B2B58294B008792D0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 46F2DD2A2B58294B008792D0 /* SnapKit */; };
 		46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD2F2B582A0B008792D0 /* ManageOnBoardingViewController.swift */; };
 		46F2DD322B582A33008792D0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD312B582A33008792D0 /* Colors.swift */; };
 		46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD332B582C0B008792D0 /* OnBoardingViewController1.swift */; };
@@ -47,6 +48,7 @@
 		46F2DD3C2B582C98008792D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3B2B582C98008792D0 /* Constants.swift */; };
 		46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */; };
 		46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */; };
+		46F34BDE2B6A815200C9F570 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F34BDD2B6A815200C9F570 /* ExpenseViewModel.swift */; };
 		46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA244F2B5B1A9000D2ACBE /* Fonts.swift */; };
 		46FC99A62B5C683C0064A1F0 /* InComeEntryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */; };
 		46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A72B5C8B830064A1F0 /* Expense.swift */; };
@@ -75,6 +77,7 @@
 		46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeViewController.swift; sourceTree = "<group>"; };
 		46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentViewController.swift; sourceTree = "<group>"; };
+		46B42F112B69A22D000E976C /* TryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryViewController.swift; sourceTree = "<group>"; };
 		46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseViewController.swift; sourceTree = "<group>"; };
 		46BF14412B65CC7400431683 /* GeneralExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseView.swift; sourceTree = "<group>"; };
 		46F2DD072B582610008792D0 /* Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +98,7 @@
 		46F2DD3B2B582C98008792D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
 		46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController5.swift; sourceTree = "<group>"; };
+		46F34BDD2B6A815200C9F570 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		46FA244F2B5B1A9000D2ACBE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryPickerView.swift; sourceTree = "<group>"; };
 		46FC99A72B5C8B830064A1F0 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
@@ -107,8 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				469D15BA2B598A8700544E35 /* DGCharts in Frameworks */,
-				46F2DD2B2B58294B008792D0 /* SnapKit in Frameworks */,
+				46051FF32B67083100C614D2 /* DGCharts in Frameworks */,
+				46051FF52B67084200C614D2 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +143,7 @@
 				46FC99A92B5C904F0064A1F0 /* ExpenseEntryViewController.swift */,
 				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
 				46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */,
+				46B42F112B69A22D000E976C /* TryViewController.swift */,
 			);
 			path = SubModules;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				46A4BD1C2B6599AB009FF7B0 /* HomeViewModel.swift */,
 				460D1D872B64399A00DA3E02 /* InvestmentViewModel.swift */,
 				460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */,
+				46F34BDD2B6A815200C9F570 /* ExpenseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -295,8 +301,8 @@
 			);
 			name = Compass;
 			packageProductDependencies = (
-				46F2DD2A2B58294B008792D0 /* SnapKit */,
-				469D15B92B598A8700544E35 /* DGCharts */,
+				46051FF22B67083100C614D2 /* DGCharts */,
+				46051FF42B67084200C614D2 /* SnapKit */,
 			);
 			productName = Compass;
 			productReference = 46F2DD072B582610008792D0 /* Compass.app */;
@@ -360,6 +366,7 @@
 				469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */,
 				460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */,
 				46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */,
+				46B42F122B69A22D000E976C /* TryViewController.swift in Sources */,
 				46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */,
 				46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */,
 				46051FEF2B66F3F700C614D2 /* ExpenseView.swift in Sources */,
@@ -387,6 +394,7 @@
 				469D15C32B598F6100544E35 /* InCome.swift in Sources */,
 				46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */,
 				460D1D8A2B6450AC00DA3E02 /* InvestmentListViewController.swift in Sources */,
+				46F34BDE2B6A815200C9F570 /* ExpenseViewModel.swift in Sources */,
 				46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */,
 				460D1D8E2B64526500DA3E02 /* InvestmentListViewModel.swift in Sources */,
 				460D1D8C2B6451C400DA3E02 /* InvestmentListView.swift in Sources */,
@@ -543,10 +551,11 @@
 				DEVELOPMENT_TEAM = HYWSXS9XNK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Compass/Others/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,6 +563,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onuremren.Compass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -570,10 +582,11 @@
 				DEVELOPMENT_TEAM = HYWSXS9XNK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Compass/Others/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,6 +594,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onuremren.Compass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -630,12 +646,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		469D15B92B598A8700544E35 /* DGCharts */ = {
+		46051FF22B67083100C614D2 /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 469D15B82B598A8700544E35 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
 		};
-		46F2DD2A2B58294B008792D0 /* SnapKit */ = {
+		46051FF42B67084200C614D2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 46F2DD292B58294B008792D0 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;

@@ -30,7 +30,7 @@ class InvestmentListView: UIView {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        tableView.backgroundColor = Colors.piesGreenColor
+        tableView.backgroundColor = .black
         
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -99,7 +99,7 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
     
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
         let label = UILabel()
-        label.textColor = .brown
+        label.textColor = .black
         label.font = Fonts.generalFont
         cell.contentView.addSubview(label)
         

@@ -14,20 +14,27 @@ import CoreData
 class ExpenseViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
     var isGeneralExpense = true
-
-    private var entityName = ""
+    private var expenseViewModel = ExpenseViewModel()
+    private var entityName = "GeneralExpenseEntry"
     private var expenseView = ExpenseView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Colors.piesGreenColor
+        entityName = "GeneralExpenseEntry"
+        view.backgroundColor = .black
         setupNavigationSettings()
         setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       fetchDataFromCoreData()
+        fetchDataFromCoreData()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+
     }
     
     private func setupNavigationSettings() {
@@ -54,7 +61,7 @@ class ExpenseViewController: UIViewController, Coordinating {
         expenseView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+            
         expenseView.addButton.addTarget(self, action: #selector(goToAddExpense), for: .touchUpInside)
         expenseView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
@@ -72,35 +79,34 @@ class ExpenseViewController: UIViewController, Coordinating {
         
         if entityName == "ExpenseEntry" {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ExpenseEntry")
-                DispatchQueue.main.async {
-                    do {
-                        let fetchedData = try context.fetch(fetchRequest) as! [ExpenseEntry]
-                        let totalIncome = fetchedData.reduce(0) { (result, entry) in
-                            return result + entry.totalExpense
-                        }
-                        self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
-                        
-                        for entry in fetchedData {
-                            let clothesExpense = entry.clothesExpense
-                            let electronicExpense = entry.electronicExpense
-                            let fuelExpense = entry.fuelExpense
-                            let rentExpense = entry.rentExpense
-                            let transportExpense = entry.transportExpense
-                            let foodExpense = entry.foodExpense
-                            let taxExpense = entry.taxExpense
-                            let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
-                            let month = entry.month
-                            self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
-                            self.expenseView.monthLabel.text = month
-                        }
-                        self.setupCombinedChart(expenseData: fetchedData, generalData: [])
-                    } catch {
-                        print("Veri çekme hatası: \(error)")
+            
+                do {
+                    let fetchedData = try context.fetch(fetchRequest) as! [ExpenseEntry]
+                    let totalIncome = fetchedData.reduce(0) { (result, entry) in
+                        return result + entry.totalExpense
+                    }
+                    self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
+                    
+                    for entry in fetchedData {
+                        let clothesExpense = entry.clothesExpense
+                        let electronicExpense = entry.electronicExpense
+                        let fuelExpense = entry.fuelExpense
+                        let rentExpense = entry.rentExpense
+                        let transportExpense = entry.transportExpense
+                        let foodExpense = entry.foodExpense
+                        let taxExpense = entry.taxExpense
+                        let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
+                        let month = entry.month
+                        self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
+                        self.expenseView.monthLabel.text = month
+                    }
+                    self.setupCombinedChart(expenseData: fetchedData, generalData: [])
+                } catch {
+                    print("Veri çekme hatası: \(error)")
                 }
-            }
+            
         } else {
             let fetchGeneralData = NSFetchRequest<NSFetchRequestResult>(entityName: "GeneralExpenseEntry")
-            DispatchQueue.main.async {
                 do {
                     let fetchedData = try context.fetch(fetchGeneralData) as! [GeneralExpenseEntry]
                     let totalIncome = fetchedData.reduce(0) { (result, entry) in
@@ -119,7 +125,7 @@ class ExpenseViewController: UIViewController, Coordinating {
                 } catch {
                     print("General data çekme hatası \(error)")
                 }
-            }
+            
         }
     }
     
@@ -132,33 +138,34 @@ class ExpenseViewController: UIViewController, Coordinating {
         var taxExpenseEntries: [PieChartDataEntry] = []
         var transportEntries: [PieChartDataEntry] = []
         var generalExpenseEntries: [PieChartDataEntry] = []
-
-        for (_, entry) in expenseData.enumerated() {
-            let clothesExpenseEntry = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
-            let electronicExpenseEntry = PieChartDataEntry(value: entry.electronicExpense, label: "Elektronik")
-            let foodExpenseEntry = PieChartDataEntry(value: entry.foodExpense, label: "Gıda")
-            let fuelExpenseEntry = PieChartDataEntry(value: entry.fuelExpense, label: "Yakıt")
-            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
-            let taxExpenseEntry = PieChartDataEntry(value: entry.taxExpense, label: "Faturalar")
-            let transportEntry = PieChartDataEntry(value: entry.transportExpense, label: "Ulaşım")
-            
-            clothesExpenseEntries.append(clothesExpenseEntry)
-            electronicExpenseEntries.append(electronicExpenseEntry)
-            foodExpenseEntries.append(foodExpenseEntry)
-            fuelExpenseEntries.append(fuelExpenseEntry)
-            rentExpenseEntries.append(rentExpenseEntry)
-            taxExpenseEntries.append(taxExpenseEntry)
-            transportEntries.append(transportEntry)
-        }
         
-        for (_, entry) in generalData.enumerated() {
-            let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "General \(entry.creditCardExpense)")
-            generalExpenseEntries.append(generalExpenseEntry)
+            for (_, entry) in expenseData.enumerated() {
+                let clothesExpenseEntry = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
+                let electronicExpenseEntry = PieChartDataEntry(value: entry.electronicExpense, label: "Elektronik")
+                let foodExpenseEntry = PieChartDataEntry(value: entry.foodExpense, label: "Gıda")
+                let fuelExpenseEntry = PieChartDataEntry(value: entry.fuelExpense, label: "Yakıt")
+                let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
+                let taxExpenseEntry = PieChartDataEntry(value: entry.taxExpense, label: "Faturalar")
+                let transportEntry = PieChartDataEntry(value: entry.transportExpense, label: "Ulaşım")
+                
+                clothesExpenseEntries.append(clothesExpenseEntry)
+                electronicExpenseEntries.append(electronicExpenseEntry)
+                foodExpenseEntries.append(foodExpenseEntry)
+                fuelExpenseEntries.append(fuelExpenseEntry)
+                rentExpenseEntries.append(rentExpenseEntry)
+                taxExpenseEntries.append(taxExpenseEntry)
+                transportEntries.append(transportEntry)
+            }
             
-            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
-            generalExpenseEntries.append(rentExpenseEntry)
-        }
-
+            for (_, entry) in generalData.enumerated() {
+                let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "General \(entry.creditCardExpense)")
+                generalExpenseEntries.append(generalExpenseEntry)
+                
+                let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
+                generalExpenseEntries.append(rentExpenseEntry)
+            }
+        
+        
         let clothesDataSet = PieChartDataSet(entries: clothesExpenseEntries, label: "")
         clothesDataSet.colors = ChartColorTemplates.material()
         
@@ -195,21 +202,21 @@ class ExpenseViewController: UIViewController, Coordinating {
         rentData.setValueTextColor(.white)
         taxData.setValueTextColor(.white)
         transportData.setValueTextColor(.white)
-
+        
         let generalExpenseDataSet = PieChartDataSet(entries: generalExpenseEntries, label: "")
         generalExpenseDataSet.colors = ChartColorTemplates.colorful()
-    
-        if isGeneralExpense {
+        
+        if self.isGeneralExpense {
             let generalDataSet = PieChartDataSet(
                 entries: generalExpenseEntries,
                 label: "")
             generalDataSet.colors = [
                 .red, .blue]
-
+            
             let generalData = PieChartData(dataSet: generalDataSet)
             generalData.setValueTextColor(.white)
-            expenseView.expenseChart.data = generalData
-            expenseView.expenseChart.centerText = "General Expenses"
+            self.expenseView.expenseChart.data = generalData
+            self.expenseView.expenseChart.centerText = "General Expenses"
         } else {
             let combinedDataSet = PieChartDataSet(
                 entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
@@ -217,13 +224,13 @@ class ExpenseViewController: UIViewController, Coordinating {
             combinedDataSet.colors = [
                 .red, .blue, .green, .yellow, .orange, .purple, .magenta
             ]
-
+            
             let combinedData = PieChartData(dataSet: combinedDataSet)
             combinedData.setValueTextColor(.white)
-            expenseView.expenseChart.data = combinedData
-            expenseView.expenseChart.centerText = "Expenses"
+            self.expenseView.expenseChart.data = combinedData
+            self.expenseView.expenseChart.centerText = "Expenses"
         }
-        expenseView.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        self.expenseView.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 
     @objc
@@ -270,7 +277,7 @@ class ExpenseViewController: UIViewController, Coordinating {
                 }
                 
                 let deleteAction = UIAlertAction(title: "Sil", style: .destructive) { _ in
-                    self.deleteLastIncomeEntry()
+                    self.deleteLastIncomeEntry(entityName: self.entityName)
                 }
                 alertController.addAction(cancelAction)
                 alertController.addAction(deleteAction)
@@ -281,23 +288,36 @@ class ExpenseViewController: UIViewController, Coordinating {
         }
     }
     
-    func deleteLastIncomeEntry() {
+    func deleteLastIncomeEntry(entityName: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest: NSFetchRequest<ExpenseEntry> = ExpenseEntry.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "transportExpense", ascending: false)]
-        fetchRequest.fetchLimit = 1
+        var fetchRequest: NSFetchRequest<NSFetchRequestResult>?
         
-        do {
-            let result = try context.fetch(fetchRequest)
-            
-            if let lastIncomeEntry = result.first {
-                context.delete(lastIncomeEntry)
-                try context.save()
+        if entityName == "ExpenseEntry" {
+            let expenseFetchRequest: NSFetchRequest<ExpenseEntry> = ExpenseEntry.fetchRequest()
+            expenseFetchRequest.sortDescriptors = [NSSortDescriptor(key: "transportExpense", ascending: false)]
+            expenseFetchRequest.fetchLimit = 1
+            fetchRequest = expenseFetchRequest as? NSFetchRequest<NSFetchRequestResult>
+        } else if entityName == "GeneralExpenseEntry" {
+            let generalFetchRequest: NSFetchRequest<GeneralExpenseEntry> = GeneralExpenseEntry.fetchRequest()
+            generalFetchRequest.sortDescriptors = [NSSortDescriptor(key: "rentExpense", ascending: false)]
+            generalFetchRequest.fetchLimit = 1
+            fetchRequest = generalFetchRequest as? NSFetchRequest<NSFetchRequestResult>
+        }
+        
+        if let fetchRequest = fetchRequest {
+            do {
+                let result = try context.fetch(fetchRequest)
+                
+                if let lastIncomeEntry = result.first as? NSManagedObject {
+                    context.delete(lastIncomeEntry)
+                    try context.save()
+                }
+            } catch {
+                print("Hata: \(error)")
             }
-        } catch {
-            print("Hata: \(error)")
         }
     }
+
 }

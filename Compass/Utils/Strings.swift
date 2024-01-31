@@ -12,5 +12,5 @@ enum Strings {
     static let expenseTitle = "Giderlerim"
     static let inComeEntryTitle = "Gelirinizi Girin"
     static let incomeTitle = "Gelirlerim"
-
+    static let homeTitle = "Ana Sayfa"
 }

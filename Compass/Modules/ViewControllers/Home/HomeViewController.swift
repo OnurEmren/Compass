@@ -19,24 +19,23 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(FinanceCardCell.self, forCellWithReuseIdentifier: FinanceCardCell.reuseIdentifier)
-        collectionView.backgroundColor = .white
         return collectionView
     }()
     private var financeCardCell = FinanceCardCell()
-    
-    let data = [("Gelir", UIColor.systemGreen), ("Gider", UIColor.red), ("Yatırım", UIColor.blue), ("Genel", UIColor.lightGray) ]
-    
+    let data = [("Gelir", .black), ("Gider", UIColor.black), ("Yatırım", UIColor.black), ("Genel", UIColor.black) ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Ana Sayfa"
         
         setupCollectionView()
-        view.backgroundColor = Colors.beigeColor
+        view.backgroundColor = .systemBackground
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.layoutIfNeeded()
+        navigationController?.navigationBar.tintColor = UIColor.black
         collectionView.reloadData()
     }
     
@@ -46,10 +45,11 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     private func setupCollectionView() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(60)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(700)
         }
-        
-        collectionView.backgroundColor = Colors.piesGreenColor
+        collectionView.backgroundColor = .black
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = false
@@ -103,8 +103,14 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         default:
             break
         }
+        collectionView.roundCorners([.topLeft,.topRight], radius: 20)
+
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+          return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+      }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width - 40
@@ -121,3 +127,13 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         collectionView.reloadData()
     }
 }
+
+extension UICollectionView {
+    func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
+}
+
