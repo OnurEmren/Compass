@@ -13,28 +13,45 @@ import CoreData
 
 class ExpenseViewController: UIViewController, Coordinating {
     var coordinator: Coordinator?
-    var isGeneralExpense = true
+    var isGeneralExpense = false
     private var expenseViewModel = ExpenseViewModel()
-    private var entityName = "GeneralExpenseEntry"
+    var entityName = "ExpenseEntry"
     private var expenseView = ExpenseView()
+    
+    private let segmentedControl: UISegmentedControl = {
+        let items = ["Detay Harcamalar", "Genel Harcamalar"]
+        let segmented = UISegmentedControl(items: items)
+        segmented.selectedSegmentIndex = 0
+        return segmented
+    }()
+
+    private var fetchedGeneralData: [GeneralExpenseEntry] = []
+    private var fetchedDetailData: [ExpenseEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        entityName = "GeneralExpenseEntry"
+
         view.backgroundColor = .black
         setupNavigationSettings()
         setupView()
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .allEvents)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchDataFromCoreData()
+        if entityName == "GeneralExpenseEntry" {
+            segmentedControl.selectedSegmentIndex = 1
+            fetchDataFromCoreData()
+        } else {
+            segmentedControl.selectedSegmentIndex = 0
+            fetchDetailData()
+        }
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        
     }
     
     private func setupNavigationSettings() {
@@ -58,78 +75,112 @@ class ExpenseViewController: UIViewController, Coordinating {
     
     private func setupView() {
         view.addSubview(expenseView)
+        view.addSubview(segmentedControl)
+        
         expenseView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        segmentedControl.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(90)
+        }
+        
+        segmentedControl.layer.borderWidth = 0.7
+        segmentedControl.layer.borderColor = UIColor.white.cgColor
+        segmentedControl.backgroundColor = .gray
+        segmentedControl.tintColor = .black
         
         expenseView.addButton.addTarget(self, action: #selector(goToAddExpense), for: .touchUpInside)
         expenseView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
     @objc
-    private func rightAddButtonTapped() {
-        coordinator?.eventOccured(with: .goToGeneralExpenseVC)
-        entityName = "GeneralExpenseEntry"
-        isGeneralExpense = true
+    private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            fetchDetailData()
+            entityName = "ExpenseEntry"
+            setupDetailExpenseChart(expenseData: fetchedDetailData)
+            break
+        case 1:    
+            fetchDataFromCoreData()
+            setupCombinedChart(generalData: fetchedGeneralData)
+            break
+        default:
+            break
+        }
     }
+    
+    @objc
+    private func rightAddButtonTapped() {
+        entityName = "GeneralExpenseEntity"
+        coordinator?.eventOccured(with: .goToGeneralExpenseVC)
+    }
+    
+    private func fetchDetailData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ExpenseEntry")
+        
+        do {
+            let fetchedDetailData = try context.fetch(fetchRequest) as! [ExpenseEntry]
+            let totalIncome = fetchedDetailData.reduce(0) { (result, entry) in
+                return result + entry.totalExpense
+            }
+            self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
+            
+            for entry in fetchedDetailData {
+                let clothesExpense = entry.clothesExpense
+                let electronicExpense = entry.electronicExpense
+                let fuelExpense = entry.fuelExpense
+                let rentExpense = entry.rentExpense
+                let transportExpense = entry.transportExpense
+                let foodExpense = entry.foodExpense
+                let taxExpense = entry.taxExpense
+                let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
+                let month = entry.month
+                self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
+                self.expenseView.monthLabel.text = month
+            }
+            self.setupDetailExpenseChart(expenseData: fetchedDetailData)
+            self.fetchedDetailData = fetchedDetailData
+        } catch {
+            print("Veri çekme hatası: \(error)")
+        }
+        
+    }
+    
     
     private func fetchDataFromCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        
-        if entityName == "ExpenseEntry" {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ExpenseEntry")
-            
-            do {
-                let fetchedData = try context.fetch(fetchRequest) as! [ExpenseEntry]
-                let totalIncome = fetchedData.reduce(0) { (result, entry) in
-                    return result + entry.totalExpense
-                }
-                self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
-                
-                for entry in fetchedData {
-                    let clothesExpense = entry.clothesExpense
-                    let electronicExpense = entry.electronicExpense
-                    let fuelExpense = entry.fuelExpense
-                    let rentExpense = entry.rentExpense
-                    let transportExpense = entry.transportExpense
-                    let foodExpense = entry.foodExpense
-                    let taxExpense = entry.taxExpense
-                    let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
-                    let month = entry.month
-                    self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
-                    self.expenseView.monthLabel.text = month
-                }
-                self.setupCombinedChart(expenseData: fetchedData, generalData: [])
-            } catch {
-                print("Veri çekme hatası: \(error)")
+        let fetchGeneralData = NSFetchRequest<NSFetchRequestResult>(entityName: "GeneralExpenseEntry")
+        do {
+            let fetchedGeneralData = try context.fetch(fetchGeneralData) as! [GeneralExpenseEntry]
+            let totalIncome = fetchedGeneralData.reduce(0) { (result, entry) in
+                return result + entry.creditCardExpense + entry.rentExpense
             }
+            self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
             
-        } else {
-            let fetchGeneralData = NSFetchRequest<NSFetchRequestResult>(entityName: "GeneralExpenseEntry")
-            do {
-                let fetchedData = try context.fetch(fetchGeneralData) as! [GeneralExpenseEntry]
-                let totalIncome = fetchedData.reduce(0) { (result, entry) in
-                    return result + entry.creditCardExpense + entry.rentExpense
-                }
-                self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
+            for entry in fetchedGeneralData {
+                let rentExpense = entry.rentExpense
+                let creditCardExpense = entry.creditCardExpense
+                let expenseTotal = rentExpense + creditCardExpense
                 
-                for entry in fetchedData {
-                    let rentExpense = entry.rentExpense
-                    let creditCardExpense = entry.creditCardExpense
-                    let expenseTotal = rentExpense + creditCardExpense
-                    
-                    self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
-                }
-                self.setupCombinedChart(expenseData: [], generalData: fetchedData )
-            } catch {
-                print("General data çekme hatası \(error)")
+                self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
             }
-            
+            self.setupCombinedChart(generalData: fetchedGeneralData)
+            self.fetchedGeneralData = fetchedGeneralData
+        } catch {
+            print("General data çekme hatası \(error)")
         }
+        
     }
     
-    private func setupCombinedChart(expenseData: [ExpenseEntry], generalData: [GeneralExpenseEntry]) {
+    private func setupDetailExpenseChart(expenseData: [ExpenseEntry]) {
         var clothesExpenseEntries: [PieChartDataEntry] = []
         var electronicExpenseEntries: [PieChartDataEntry] = []
         var foodExpenseEntries: [PieChartDataEntry] = []
@@ -137,7 +188,6 @@ class ExpenseViewController: UIViewController, Coordinating {
         var rentExpenseEntries: [PieChartDataEntry] = []
         var taxExpenseEntries: [PieChartDataEntry] = []
         var transportEntries: [PieChartDataEntry] = []
-        var generalExpenseEntries: [PieChartDataEntry] = []
         
         for (_, entry) in expenseData.enumerated() {
             let clothesExpenseEntry = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
@@ -156,15 +206,6 @@ class ExpenseViewController: UIViewController, Coordinating {
             taxExpenseEntries.append(taxExpenseEntry)
             transportEntries.append(transportEntry)
         }
-        
-        for (_, entry) in generalData.enumerated() {
-            let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "General \(entry.creditCardExpense)")
-            generalExpenseEntries.append(generalExpenseEntry)
-            
-            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
-            generalExpenseEntries.append(rentExpenseEntry)
-        }
-        
         
         let clothesDataSet = PieChartDataSet(entries: clothesExpenseEntries, label: "")
         clothesDataSet.colors = ChartColorTemplates.material()
@@ -203,33 +244,39 @@ class ExpenseViewController: UIViewController, Coordinating {
         taxData.setValueTextColor(.white)
         transportData.setValueTextColor(.white)
         
+        
+        let combinedDataSet = PieChartDataSet(
+            entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
+            label: "")
+        combinedDataSet.colors = [
+            .red, .blue, .green, .yellow, .orange, .purple, .magenta
+        ]
+        
+        let combinedData = PieChartData(dataSet: combinedDataSet)
+        combinedData.setValueTextColor(.white)
+        self.expenseView.expenseChart.data = combinedData
+        self.expenseView.expenseChart.centerText = "Expenses"
+        self.expenseView.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+
+        
+    }
+    
+    private func setupCombinedChart(generalData: [GeneralExpenseEntry]) {
+        let generalExpenseEntries = expenseViewModel.getGeneralExpenseChartData(generalData: generalData)
+        
         let generalExpenseDataSet = PieChartDataSet(entries: generalExpenseEntries, label: "")
         generalExpenseDataSet.colors = ChartColorTemplates.colorful()
         
-        if self.isGeneralExpense {
-            let generalDataSet = PieChartDataSet(
-                entries: generalExpenseEntries,
-                label: "")
-            generalDataSet.colors = [
-                .red, .blue]
-            
-            let generalData = PieChartData(dataSet: generalDataSet)
-            generalData.setValueTextColor(.white)
-            self.expenseView.expenseChart.data = generalData
-            self.expenseView.expenseChart.centerText = "General Expenses"
-        } else {
-            let combinedDataSet = PieChartDataSet(
-                entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
-                label: "")
-            combinedDataSet.colors = [
-                .red, .blue, .green, .yellow, .orange, .purple, .magenta
-            ]
-            
-            let combinedData = PieChartData(dataSet: combinedDataSet)
-            combinedData.setValueTextColor(.white)
-            self.expenseView.expenseChart.data = combinedData
-            self.expenseView.expenseChart.centerText = "Expenses"
-        }
+        let generalDataSet = PieChartDataSet(
+            entries: generalExpenseEntries,
+            label: "")
+        generalDataSet.colors = [.red, .blue]
+        
+        let generalData = PieChartData(dataSet: generalDataSet)
+        generalData.setValueTextColor(.white)
+        
+        self.expenseView.expenseChart.data = generalData
+        self.expenseView.expenseChart.centerText = "General Expenses"
         self.expenseView.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
     
@@ -245,7 +292,6 @@ class ExpenseViewController: UIViewController, Coordinating {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<ExpenseEntry> = ExpenseEntry.fetchRequest()
-        let fetchGeneralRequest: NSFetchRequest<GeneralExpenseEntry> = GeneralExpenseEntry.fetchRequest()
         
         do {
             let result = try context.fetch(fetchRequest)

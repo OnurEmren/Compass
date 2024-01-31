@@ -85,6 +85,7 @@ class AppCoordinator: Coordinator {
         case 1:
             let expenseVC = ExpenseViewController()
             expenseVC.coordinator = self
+            expenseVC.entityName = "ExpenseEntry"
             navigationController?.pushViewController(expenseVC, animated: true)
         case 2:
             let investmentVC = InvestmentListViewController()

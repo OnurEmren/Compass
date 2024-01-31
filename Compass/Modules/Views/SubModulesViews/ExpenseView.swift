@@ -10,6 +10,7 @@ import UIKit
 import DGCharts
 
 class ExpenseView: UIView {
+    
     let expenseChart: PieChartView = {
         let chartView = PieChartView()
         chartView.layer.cornerRadius = 20
@@ -37,14 +38,6 @@ class ExpenseView: UIView {
         return button
     }()
     
-    private let segmented: UISegmentedControl = {
-        let items = ["Detaylı", "Genel"]
-        let segmented = UISegmentedControl(items: items)
-        segmented.selectedSegmentIndex = 0 // Varsayılan olarak ilk segmenti seç
-        segmented.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
-        return segmented
-    }()
-    
     let totalExpenseLabel = UIExtensions.createLabel(
         text: "Giderlerim: 0.0",
         fontSize: Fonts.generalFont!.pointSize,
@@ -61,36 +54,16 @@ class ExpenseView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc
-    private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            //
-            break
-        case 1:
-            // "Gider" seçildiğinde yapılacak işlemler
-            break
-        case 2:
-            // "Yatırım" seçildiğinde yapılacak işlemler
-            break
-        case 3:
-            // "Genel" seçildiğinde yapılacak işlemler
-            break
-        default:
-            break
-        }
-    }
-    
     private func setupView() {
         addSubview(totalExpenseLabel)
         addSubview(monthLabel)
-        addSubview(segmented)
         addSubview(expenseChart)
         addSubview(addButton)
         addSubview(deleteButton)
@@ -106,19 +79,10 @@ class ExpenseView: UIView {
             make.top.equalTo(monthLabel).offset(30)
         }
         totalExpenseLabel.textColor = Colors.lightThemeColor
-        
-        segmented.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(totalExpenseLabel.snp.top).offset(40)
-        }
-        
-        segmented.layer.borderWidth = 0.7
-        segmented.layer.borderColor = UIColor.white.cgColor
-        segmented.backgroundColor = .gray
-        segmented.tintColor = .black
+      
         
         expenseChart.snp.makeConstraints { make in
-            make.top.equalTo(segmented.snp.top).offset(40)
+            make.top.equalTo(totalExpenseLabel.snp.top).offset(80)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(300)
         }
@@ -144,5 +108,33 @@ class ExpenseView: UIView {
             make.width.equalTo(120)
             make.height.equalTo(40)
         }
+    }
+    
+    private func setupCombinedChart(generalData: [GeneralExpenseEntry]) {
+        var generalExpenseEntries: [PieChartDataEntry] = []
+        
+        for (_, entry) in generalData.enumerated() {
+            let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "General \(entry.creditCardExpense)")
+            generalExpenseEntries.append(generalExpenseEntry)
+            
+            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
+            generalExpenseEntries.append(rentExpenseEntry)
+        }
+        
+        let generalExpenseDataSet = PieChartDataSet(entries: generalExpenseEntries, label: "")
+        generalExpenseDataSet.colors = ChartColorTemplates.colorful()
+        
+        let generalDataSet = PieChartDataSet(
+            entries: generalExpenseEntries,
+            label: "")
+        generalDataSet.colors = [
+            .red, .blue]
+        
+        let generalData = PieChartData(dataSet: generalDataSet)
+        generalData.setValueTextColor(.white)
+        expenseChart.data = generalData
+        expenseChart.centerText = "General Expenses"
+        
+        expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 }
