@@ -15,7 +15,7 @@ class InComeView: UIView {
         chartView.layer.cornerRadius = 20
         chartView.layer.masksToBounds = true
         chartView.entryLabelFont = Fonts.generalFont
-        chartView.backgroundColor = Colors.tryColor2
+        chartView.backgroundColor = .systemBackground
         return chartView
     }()
     
@@ -56,7 +56,7 @@ class InComeView: UIView {
         
         let attributedText = NSMutableAttributedString(string: text)
         
-        if let font = UIFont(name: "Tahoma", size: 16) {
+        if let font = UIFont(name: "MalayalamSangamMN", size: 16) {
             let attributes: [NSAttributedString.Key: Any] = [.font: font]
             attributedText.addAttributes(attributes, range: NSRange(location: 0, length: text.count))
         } else {
@@ -166,7 +166,6 @@ class InComeView: UIView {
             sideIncomeEntries.append(sideIncomeEntry)
             
             let wageEntry = PieChartDataEntry(value: entry.wage, label: "Maaş \(entry.wage)")
-            
             let totalIncome = entry.wage + entry.sideInCome
             totalIncomeLabel.text = "Toplam Gelir: \(totalIncome)"
             
@@ -202,8 +201,21 @@ class InComeView: UIView {
         combinedData.setValueTextColor(.white)
         combinedData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
 
+        incomeDistributionChart.notifyDataSetChanged()
+
         incomeDistributionChart.data = combinedData
         incomeDistributionChart.centerText = "Maaş ve Yan Gelir"
         incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeOutBack)
+    }
+    
+    func updateChart() {
+        var wageEntries: [PieChartDataEntry] = []
+        var sideIncomeEntries: [PieChartDataEntry] = []
+        let combinedEntries = wageEntries + sideIncomeEntries
+        let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
+        combinedDataSet.colors = ChartColorTemplates.material()
+
+        let updatedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
+        incomeDistributionChart.data = PieChartData(dataSet: updatedDataSet)
     }
 }

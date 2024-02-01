@@ -20,7 +20,7 @@ class GeneralExpenseViewController: UIViewController, Coordinating, GeneralExpen
         generalExpenseView.generalExpenseDelegate = self
         navigationSettings()
         setupView()
-        view.backgroundColor = Colors.piesGreenColor
+        view.backgroundColor = .black
     }
     
     private func setupView() {
@@ -54,7 +54,6 @@ class GeneralExpenseViewController: UIViewController, Coordinating, GeneralExpen
             
             do {
                 try context.save()
-                print("Genel Gider Kaydı Başarılı")
             } catch {
                 print("Genel Gider Kaydedilirken bir hata oluştu: \(error)")
             }

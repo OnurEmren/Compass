@@ -35,10 +35,10 @@ class ExpenseEntryView: UIView {
     private let saveButton: UIButton = {
         let button = UIButton()
         button.setTitle("Kaydet", for: .normal)
-        button.backgroundColor = Colors.darkThemeColor
+        button.backgroundColor = Colors.tryColor
         button.layer.cornerRadius = 10
         button.titleLabel?.font = Fonts.generalFont
-        
+        button.tintColor = .black
         return button
     }()
     
@@ -164,15 +164,15 @@ class ExpenseEntryView: UIView {
     private let updateButton: UIButton = {
         let button = UIButton()
         button.setTitle("Güncelle", for: .normal)
-        button.backgroundColor = Colors.darkThemeColor
+        button.backgroundColor = Colors.tryColor
         button.titleLabel?.font = Fonts.generalFont
+        button.tintColor = .black
         button.layer.cornerRadius = 8
         return button
     }()
     
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
     private let months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
-    
     private let currencyPickerView = UIPickerView()
     weak var delegate: ExpenseTypePickerViewDelegate?
     weak var saveDelegate: ExpenseEntryViewDelegate?

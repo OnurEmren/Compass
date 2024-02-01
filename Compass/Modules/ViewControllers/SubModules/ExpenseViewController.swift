@@ -171,6 +171,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
                     showAlert(title: "Sil", message: "Genel harcamalar silinsin mi?", actions: [
                         UIAlertAction(title: "Evet", style: .default, handler: { _ in
                             self.expenseViewModel.deleteExpenseData(entityName: self.entityName)
+                            self.expenseView.updateDetailChart()
                         }),
                         UIAlertAction(title: "İptal", style: .cancel, handler: { _ in
                             // İptal butonuna tıklandığında yapılacak işlemler
@@ -188,6 +189,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
                     showAlert(title: "Sil", message: "Genel harcamalar silinsin mi?", actions: [
                         UIAlertAction(title: "Evet", style: .default, handler: { _ in
                             self.expenseViewModel.deleteExpenseData(entityName: self.entityName)
+                            self.expenseView.updateGeneralChart()
                         }),
                         UIAlertAction(title: "İptal", style: .cancel, handler: { _ in
                             // İptal butonuna tıklandığında yapılacak işlemler

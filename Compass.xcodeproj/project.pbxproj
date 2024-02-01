@@ -145,10 +145,10 @@
 				46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */,
 				469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */,
 				46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */,
-				46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */,
 				46FC99A92B5C904F0064A1F0 /* ExpenseEntryViewController.swift */,
-				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
 				46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */,
+				46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */,
+				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
 				46B42F112B69A22D000E976C /* TryViewController.swift */,
 			);
 			path = SubModules;

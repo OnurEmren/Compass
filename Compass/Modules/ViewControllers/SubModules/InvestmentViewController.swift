@@ -28,7 +28,8 @@ class InvestmentViewController: UIViewController, Coordinating {
         setupView()
         title = "Lütfen tüm alanları eksiksiz doldurunuz."
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        view.backgroundColor = Colors.piesGreenColor
+        view.backgroundColor = .black
+        
     }
     
     private func setupView() {

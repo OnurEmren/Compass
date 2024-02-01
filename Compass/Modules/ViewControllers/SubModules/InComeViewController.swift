@@ -38,7 +38,7 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.tryColor]
-
+        
     }
     
     //MARK: - Private Methods
@@ -106,6 +106,7 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
                 showAlert(title: "Sil", message: "Genel harcamalar silinsin mi?", actions: [
                     UIAlertAction(title: "Evet", style: .default, handler: { _ in
                         self.inComeViewModel.deleteLastIncomeEntry()
+                        self.inComeView.updateChart()
                     }),
                     UIAlertAction(title: "İptal", style: .cancel, handler: { _ in
                     })
@@ -114,6 +115,11 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
         } catch {
             print("Hata: \(error)")
         }
+    }
+    
+    private func updateChart() {
+     
+
     }
 }
 

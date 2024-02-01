@@ -19,11 +19,11 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.inComeEntryTitle
-        view.backgroundColor = Colors.piesGreenColor
+        view.backgroundColor = .black
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: font!, NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         setupViews()
     }
     
