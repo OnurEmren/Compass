@@ -27,7 +27,6 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Ana Sayfa"
-        
         setupCollectionView()
         view.backgroundColor = .systemBackground
     }
@@ -36,6 +35,8 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         super.viewWillAppear(animated)
         view.layoutIfNeeded()
         navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.tryColor]
+
         collectionView.reloadData()
     }
     
@@ -49,7 +50,10 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(700)
         }
-        collectionView.backgroundColor = .black
+        
+        let originalBlack = UIColor.black
+        let slightlyBrighterBlack = originalBlack.withAlphaComponent(0.95)
+        collectionView.backgroundColor = slightlyBrighterBlack
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = false
@@ -68,6 +72,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         
         let inComeData = homeViewModel.fetchInComeData()
         let expenseData = homeViewModel.fetchExpenseData()
+        let generalExpenseData = homeViewModel.fetchGeneralExpenseData()
         let investmentData = homeViewModel.fetchInvestmentData()
         
         
@@ -75,10 +80,18 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             return result + entry.wage + entry.sideInCome
         }
         
-        let totalExpense = expenseData.reduce(0) { (result, entry) in
+        let totalDetailExpense = expenseData.reduce(0) { (result, entry) in
             let total = entry.clothesExpense + entry.electronicExpense + entry.foodExpense + entry.fuelExpense + entry.rentExpense + entry.taxExpense + entry.transportExpense
             return result + total
         }
+        
+        
+        let totalGeneralExpense = generalExpenseData.reduce(0) { (result, entry) in
+            let total = entry.creditCardExpense + entry.rentExpense
+            return result + total
+        }
+        
+        let totalExpense = totalDetailExpense + totalGeneralExpense
         
         let totalInvestment = investmentData.reduce(0) { (result, entry) in
             return result + entry.investmentAmount
@@ -104,6 +117,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             break
         }
         collectionView.roundCorners([.topLeft,.topRight], radius: 20)
+        cell.backgroundColor = .clear
 
         return cell
     }
@@ -121,10 +135,6 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedItem = indexPath.row
         coordinator?.eventOccured(with: .goToDetailVC(for: selectedItem))
-    }
-    
-    func updateRecord() {
-        collectionView.reloadData()
     }
 }
 

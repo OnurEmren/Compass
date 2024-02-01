@@ -55,7 +55,20 @@ class HomeViewModel {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let fetchExpenseRequest = NSFetchRequest<ExpenseEntry>(entityName: "ExpenseEntry")
+        do {
+            expenseEntries = try context.fetch(fetchExpenseRequest)
+        } catch {
+            print("Gider verisi çekme hatası: \(error)")
+        }
         
+        return expenseEntries
+    }
+    
+    func fetchGeneralExpenseData() -> [GeneralExpenseEntry] {
+        var expenseEntries: [GeneralExpenseEntry] = []
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchExpenseRequest = NSFetchRequest<GeneralExpenseEntry>(entityName: "GeneralExpenseEntry")
         do {
             expenseEntries = try context.fetch(fetchExpenseRequest)
         } catch {

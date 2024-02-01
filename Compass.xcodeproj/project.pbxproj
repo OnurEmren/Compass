@@ -49,6 +49,7 @@
 		46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */; };
 		46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */; };
 		46F34BDE2B6A815200C9F570 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F34BDD2B6A815200C9F570 /* ExpenseViewModel.swift */; };
+		46F34BE02B6B0AFA00C9F570 /* NeonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F34BDF2B6B0AFA00C9F570 /* NeonView.swift */; };
 		46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA244F2B5B1A9000D2ACBE /* Fonts.swift */; };
 		46FC99A62B5C683C0064A1F0 /* InComeEntryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */; };
 		46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A72B5C8B830064A1F0 /* Expense.swift */; };
@@ -99,6 +100,7 @@
 		46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
 		46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController5.swift; sourceTree = "<group>"; };
 		46F34BDD2B6A815200C9F570 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
+		46F34BDF2B6B0AFA00C9F570 /* NeonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonView.swift; sourceTree = "<group>"; };
 		46FA244F2B5B1A9000D2ACBE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryPickerView.swift; sourceTree = "<group>"; };
 		46FC99A72B5C8B830064A1F0 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				46FA244F2B5B1A9000D2ACBE /* Fonts.swift */,
 				4678BBE32B61C4DC00333CF1 /* Strings.swift */,
 				46051FEC2B66F0E600C614D2 /* Extensions.swift */,
+				46F34BDF2B6B0AFA00C9F570 /* NeonView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */,
 				460D1D8E2B64526500DA3E02 /* InvestmentListViewModel.swift in Sources */,
 				460D1D8C2B6451C400DA3E02 /* InvestmentListView.swift in Sources */,
+				46F34BE02B6B0AFA00C9F570 /* NeonView.swift in Sources */,
 				46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */,
 				46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */,
 				46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */,

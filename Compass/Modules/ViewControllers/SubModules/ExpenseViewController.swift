@@ -127,10 +127,10 @@ class ExpenseViewController: UIViewController, Coordinating {
         
         do {
             let fetchedDetailData = try context.fetch(fetchRequest) as! [ExpenseEntry]
-            let totalIncome = fetchedDetailData.reduce(0) { (result, entry) in
+            let totalExpense = fetchedDetailData.reduce(0) { (result, entry) in
                 return result + entry.totalExpense
             }
-            self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
+            self.expenseView.totalExpenseLabel.text = "Toplam Detay Gider: \(totalExpense)"
             
             for entry in fetchedDetailData {
                 let clothesExpense = entry.clothesExpense
@@ -163,7 +163,7 @@ class ExpenseViewController: UIViewController, Coordinating {
             let totalIncome = fetchedGeneralData.reduce(0) { (result, entry) in
                 return result + entry.creditCardExpense + entry.rentExpense
             }
-            self.expenseView.totalExpenseLabel.text = "Toplam Gider: \(totalIncome)"
+            self.expenseView.totalExpenseLabel.text = "Toplam Genel Gider: \(totalIncome)"
             
             for entry in fetchedGeneralData {
                 let rentExpense = entry.rentExpense

@@ -54,7 +54,6 @@ class ExpenseView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -79,7 +78,6 @@ class ExpenseView: UIView {
             make.top.equalTo(monthLabel).offset(30)
         }
         totalExpenseLabel.textColor = Colors.lightThemeColor
-      
         
         expenseChart.snp.makeConstraints { make in
             make.top.equalTo(totalExpenseLabel.snp.top).offset(80)
@@ -92,7 +90,7 @@ class ExpenseView: UIView {
         legend.verticalAlignment = .bottom
         legend.horizontalAlignment = .center
         legend.orientation = .horizontal
-        legend.formSize = 10
+        legend.formSize = 12
         legend.font = UIFont(name: "Tahoma", size: 12) ?? .systemFont(ofSize: 12)
         
         addButton.snp.makeConstraints { make in
@@ -108,33 +106,5 @@ class ExpenseView: UIView {
             make.width.equalTo(120)
             make.height.equalTo(40)
         }
-    }
-    
-    private func setupCombinedChart(generalData: [GeneralExpenseEntry]) {
-        var generalExpenseEntries: [PieChartDataEntry] = []
-        
-        for (_, entry) in generalData.enumerated() {
-            let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "General \(entry.creditCardExpense)")
-            generalExpenseEntries.append(generalExpenseEntry)
-            
-            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
-            generalExpenseEntries.append(rentExpenseEntry)
-        }
-        
-        let generalExpenseDataSet = PieChartDataSet(entries: generalExpenseEntries, label: "")
-        generalExpenseDataSet.colors = ChartColorTemplates.colorful()
-        
-        let generalDataSet = PieChartDataSet(
-            entries: generalExpenseEntries,
-            label: "")
-        generalDataSet.colors = [
-            .red, .blue]
-        
-        let generalData = PieChartData(dataSet: generalDataSet)
-        generalData.setValueTextColor(.white)
-        expenseChart.data = generalData
-        expenseChart.centerText = "General Expenses"
-        
-        expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
     }
 }

@@ -49,7 +49,6 @@ class InComeView: UIView {
         textView.layer.masksToBounds = true
         let text = """
             - Maaş: 0,000
-            - Yatırım Getirisi: 0,000
         """
         
         let attributedText = NSMutableAttributedString(string: text)
@@ -60,7 +59,6 @@ class InComeView: UIView {
         } else {
             print("Belirtilen font bulunamadı.")
         }
-        
         textView.attributedText = attributedText
         
         return textView
@@ -78,7 +76,7 @@ class InComeView: UIView {
         let button = UIButton()
         button.setTitle("Gelir Ekle", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = Colors.buttonColor
+        button.backgroundColor = Colors.tryColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.titleLabel?.font = Fonts.generalFont
@@ -112,6 +110,10 @@ class InComeView: UIView {
         addSubview(addButton)
         addSubview(deleteButton)
         
+        let originalBlack = UIColor.black
+        let slightlyBrighterBlack = originalBlack.withAlphaComponent(0.95)
+        backgroundColor = slightlyBrighterBlack
+        
         incomeMonthsLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(safeAreaLayoutGuide).offset(40)
@@ -129,14 +131,7 @@ class InComeView: UIView {
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(300)
         }
-        incomeDistributionChart.backgroundColor = Colors.lightThemeColor
-        
-        deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(120)
-            make.height.equalTo(40)
-        }
+        incomeDistributionChart.backgroundColor = Colors.tryColor
         
         let legend = incomeDistributionChart.legend
         legend.verticalAlignment = .bottom
@@ -144,27 +139,18 @@ class InComeView: UIView {
         legend.orientation = .horizontal
         legend.formSize = 10
         legend.font = UIFont(name: "Tahoma", size: 12) ?? .systemFont(ofSize: 15)
-        
-        incomeSourcesLabel.snp.makeConstraints { make in
-            make.top.equalTo(incomeDistributionChart.snp.bottom).offset(10)
-            make.leading.equalToSuperview().offset(20)
-        }
-        incomeSourcesLabel.textColor = .white
-        
-        incomeSourcesTextView.snp.makeConstraints { make in
-            make.top.equalTo(incomeSourcesLabel.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(100)
-        }
-        incomeSourcesTextView.backgroundColor = .white
-        
+                
         addButton.snp.makeConstraints { make in
-            make.top.equalTo(incomeSourcesTextView.snp.bottom).offset(20)
+            make.top.equalTo(incomeDistributionChart    .snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.lessThanOrEqualTo(safeAreaLayoutGuide).offset(-20)
             make.height.equalTo(40)
         }
+        
+        deleteButton.snp.makeConstraints { make in
+            make.top.equalTo(addButton.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(40)
+        }
     }
-    
-    
 }

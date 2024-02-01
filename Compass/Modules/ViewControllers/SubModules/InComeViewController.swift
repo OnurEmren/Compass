@@ -11,7 +11,7 @@ import SnapKit
 import DGCharts
 import CoreData
 
-class InComeViewController: UIViewController, Coordinating {
+class InComeViewController: UIViewController, Coordinating, ChartViewDelegate {
     var coordinator: Coordinator?
     private var inComeView = InComeView()
     
@@ -22,15 +22,18 @@ class InComeViewController: UIViewController, Coordinating {
         title = Strings.incomeTitle
         setupNavigationView()
         setupViews()
+        inComeView.incomeDistributionChart.delegate = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchDataFromCoreData()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.tryColor]
 
     }
     
@@ -45,7 +48,6 @@ class InComeViewController: UIViewController, Coordinating {
     
     //Setup Views
     private func setupViews() {
-        view.backgroundColor = .black
         view.addSubview(inComeView)
         
         inComeView.snp.makeConstraints { make in
@@ -56,38 +58,71 @@ class InComeViewController: UIViewController, Coordinating {
         inComeView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+          // Kullanıcı bir dilime tıkladığında bu metod çağrılır
+          if let pieChartDataEntry = entry as? PieChartDataEntry {
+              // pieChartDataEntry, tıklanan dilimin bilgilerini içerir
+              let value = pieChartDataEntry.value
+              let label = pieChartDataEntry.label ?? ""
+              let data: [InComeEntry] = []
+           
+              inComeView.incomeDistributionChart.centerText = "\(label), Değer: \(value)"
+
+              // Burada tıklanan dilimle ilgili bir işlem yapabilirsiniz
+              print("Tıklanan Dilim - Label: \(label), Değer: \(value)")
+          }
+      }
+    
     private func setupChart(with data: [InComeEntry]) {
         var wageEntries: [PieChartDataEntry] = []
         var sideIncomeEntries: [PieChartDataEntry] = []
-        
+   
+
         for (_, entry) in data.enumerated() {
-            let wageEntry = PieChartDataEntry(value: entry.wage, label: "Maaş")
-            let sideIncomeEntry = PieChartDataEntry(value: entry.sideInCome, label: "Yan Gelir")
             
-            wageEntries.append(wageEntry)
-            sideIncomeEntries.append(sideIncomeEntry)
+            if let unwrappedCurrency = entry.currency {
+                let wageEntry = PieChartDataEntry(value: entry.wage, label: "Maaş \(unwrappedCurrency)")
+                let sideIncomeEntry = PieChartDataEntry(value: entry.sideInCome, label: "Yan Gelir \(unwrappedCurrency)")
+                wageEntries.append(wageEntry)
+                sideIncomeEntries.append(sideIncomeEntry)
+            }
+            
+            let wageEntry = PieChartDataEntry(value: entry.wage, label: "Maaş \(entry.wage)")
+
         }
-        
-        let wageDataSet = PieChartDataSet(entries: wageEntries, label: "")
-        wageDataSet.colors = ChartColorTemplates.material()
-        
-        let sideIncomeDataSet = PieChartDataSet(entries: sideIncomeEntries, label: "")
-        sideIncomeDataSet.colors = ChartColorTemplates.colorful()
-        
-        let wageData = PieChartData(dataSet: wageDataSet)
-        let sideIncomeData = PieChartData(dataSet: sideIncomeDataSet)
-        wageData.setValueTextColor(.white)
-        sideIncomeData.setValueTextColor(.white)
-        
-        let combinedDataSet = PieChartDataSet(entries: wageEntries + sideIncomeEntries, label: "")
+
+        let combinedEntries = wageEntries + sideIncomeEntries
+
+        // Toplam yüzdelik oranları hesapla
+        let toplamYuzde = combinedEntries.reduce(0) { $0 + $1.value }
+        let yuzdelikOranlari = combinedEntries.map { $0.value / toplamYuzde }
+
+        // Yüzdelik oranlarını etiketleme
+        for (index, entry) in combinedEntries.enumerated() {
+            if let yuzdelikOran = yuzdelikOranlari[safe: index] {
+                let formattedOran = String(format: "%.2f%%", yuzdelikOran * 100)
+                
+                // Label değerini güvenli bir şekilde güncelle
+                entry.label = entry.label.map { "\($0) - \(formattedOran)" } ?? "\(formattedOran)"
+            }
+        }
+
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 1
+        formatter.multiplier = 1.0
+
+        let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
         combinedDataSet.colors = ChartColorTemplates.material()
-        
+
         let combinedData = PieChartData(dataSet: combinedDataSet)
         combinedData.setValueTextColor(.white)
-        
+
+        combinedData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+
         inComeView.incomeDistributionChart.data = combinedData
-        inComeView.incomeDistributionChart.centerText = "Maaş"
-        inComeView.incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        inComeView.incomeDistributionChart.centerText = "Maaş ve Yan Gelir Dağılımı"
+        inComeView.incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeOutBack)
     }
     
     //MARK: - Load Data
@@ -190,5 +225,11 @@ class InComeViewController: UIViewController, Coordinating {
         } catch {
             print("Hata: \(error)")
         }
+    }
+}
+
+extension Array {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }

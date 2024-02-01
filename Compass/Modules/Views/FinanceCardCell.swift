@@ -23,7 +23,7 @@ class FinanceCardCell: UICollectionViewCell {
     let overallStatusLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = Colors.tryColor
         label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         return label
     }()
@@ -31,7 +31,7 @@ class FinanceCardCell: UICollectionViewCell {
     let incomeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = Colors.tryColor
         label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         return label
     }()
@@ -39,7 +39,7 @@ class FinanceCardCell: UICollectionViewCell {
     let expenseLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = Colors.tryColor
         label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         return label
     }()
@@ -47,7 +47,6 @@ class FinanceCardCell: UICollectionViewCell {
     let investmentLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .white
         label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         return label
     }()
@@ -104,7 +103,7 @@ class FinanceCardCell: UICollectionViewCell {
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = Colors.tryColor.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
@@ -118,7 +117,7 @@ class FinanceCardCell: UICollectionViewCell {
         layer.cornerRadius = 12
         layer.masksToBounds = false
         layer.borderWidth = 0.7
-        layer.borderColor = UIColor.systemBackground.cgColor
+        layer.borderColor = Colors.tryColor.cgColor
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -133,7 +132,7 @@ class FinanceCardCell: UICollectionViewCell {
         layer.cornerRadius = 12
         layer.masksToBounds = false
         layer.borderWidth = 0.7
-        layer.borderColor = UIColor.systemBackground.cgColor
+        layer.borderColor = Colors.tryColor.cgColor
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -144,11 +143,12 @@ class FinanceCardCell: UICollectionViewCell {
     func configureInvestmentLabel(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         investmentLabel.text = title
         investmentLabel.font = Fonts.generalFont
+        investmentLabel.textColor = Colors.tryColor
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
         layer.masksToBounds = false
         layer.borderWidth = 0.7
-        layer.borderColor = UIColor.systemBackground.cgColor
+        layer.borderColor = Colors.tryColor.cgColor
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
