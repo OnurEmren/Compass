@@ -77,6 +77,7 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
         return configuration
     }
     
+    
     func deleteActionTapped(at indexPath: IndexPath) {
         let recordToDelete = attendanceRecords[indexPath.row]
         let context = appDelegate.persistentContainer.viewContext

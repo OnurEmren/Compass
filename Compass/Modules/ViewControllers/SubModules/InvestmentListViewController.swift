@@ -44,6 +44,7 @@ class InvestmentListViewController: UIViewController, Coordinating {
     private func navigationSettings() {
         title = "Yatırımlarım"
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }

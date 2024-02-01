@@ -1392,54 +1392,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "702AB879-7AC6-4817-B36F-4071B7FE2ACA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "fetchDataFromCoreData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "702AB879-7AC6-4817-B36F-4071B7FE2ACA - 16a345b52b0a747a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.InComeViewController.fetchDataFromCoreData() -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "222"
-                  endingLineNumber = "222"
-                  offsetFromSymbolStart = "3136">
-               </Location>
-               <Location
-                  uuid = "702AB879-7AC6-4817-B36F-4071B7FE2ACA - 16a345b52b0a7599"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.InComeViewController.fetchDataFromCoreData() -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "223"
-                  endingLineNumber = "223"
-                  offsetFromSymbolStart = "2192">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C3E45D3F-21E6-4CFC-8293-09B67C097DD6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1792,102 +1744,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2010FDD5-221B-4BA5-AF70-D1A09A5AEAA9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "deleteButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6FE867B0-5FEC-4D71-85AE-897BA86AF2FB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "deleteButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2507B9F8-5CED-46CF-B9A6-8FA69D49FDDE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
-            landmarkName = "deleteButtonTapped()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2507B9F8-5CED-46CF-B9A6-8FA69D49FDDE - e7cfaee6b8da0a6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseViewController.deleteButtonTapped() -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "337"
-                  endingLineNumber = "337"
-                  offsetFromSymbolStart = "904">
-               </Location>
-               <Location
-                  uuid = "2507B9F8-5CED-46CF-B9A6-8FA69D49FDDE - a3f116095fab056a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in Compass.ExpenseViewController.deleteButtonTapped() -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "338"
-                  endingLineNumber = "338"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "43363575-3594-4CBE-BFD1-81D8C0B3AE62"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
-            landmarkName = "deleteButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "1A49A02F-5B6B-4AD3-9127-737AFF0CB6EB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1895,8 +1751,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "fetchDataFromCoreData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1920,22 +1776,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3AF5563F-F696-4918-AC2B-E53B1E59B647"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "fetchDataFromCoreData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "9E99797C-F45E-4A31-AAEB-07D0D5837354"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1943,24 +1783,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "fetchDataFromCoreData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6D1127F7-F491-4F0A-8D82-C16ED71617F6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "fetchDataFromCoreData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1975,8 +1799,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1985,14 +1809,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BEF22B06-581E-4DA5-B394-160CB3D043E2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2007,8 +1831,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
             <Locations>
@@ -2064,14 +1888,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "15E37C7D-7057-4A2F-8886-5FEFC4246A52"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2086,8 +1910,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
             <Locations>
@@ -2149,8 +1973,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
@@ -2197,8 +2021,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2213,8 +2037,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2229,8 +2053,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
@@ -2277,8 +2101,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "segmentedControl"
             landmarkType = "24">
             <Locations>
@@ -2325,8 +2149,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "segmentedControl"
             landmarkType = "24">
          </BreakpointContent>
@@ -2341,8 +2165,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -2383,14 +2207,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5202819A-C245-4936-86B7-16F871F050E5"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2399,14 +2223,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D14567C4-50D7-4B75-9741-CD2FA1D3C346"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2421,8 +2245,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2431,14 +2255,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "124F460B-F9DF-46AE-B0B9-9EC2D01F560F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2447,14 +2271,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B52D1639-CA6D-4E6A-ABCD-565B8411496D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2463,14 +2287,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "5C57AB24-A049-428D-9E0E-2125978CAE9F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2478,49 +2302,97 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F03C4B01-2731-43DA-9FDE-1FC4853C79EA"
+            uuid = "CAC6E010-A69D-429B-B200-7ACDA91D5E52"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "setupChart(with:)"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "segmentedControlValueChanged(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F03C4B01-2731-43DA-9FDE-1FC4853C79EA - b09a85e320e0711"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.InComeViewController.setupChart(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "1484">
-               </Location>
-               <Location
-                  uuid = "F03C4B01-2731-43DA-9FDE-1FC4853C79EA - 868f30b408693e8c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Swift.String) -&gt; Swift.String in Compass.InComeViewController.setupChart(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "100">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBAAD425-0C48-4059-9E07-965D4616B669"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "deleteButtonTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB3582C7-D270-412E-A4AB-2CB5B4AF9EB8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "deleteButtonTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94181865-4CDE-4DDF-BCB1-FDF29264B97A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "deleteButtonTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B06C8960-F281-48D6-A4C0-4513A5A28E5F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "deleteButtonTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "213A3031-B0AE-4EE2-B95E-A1ACC9A8C636"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ExpenseView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

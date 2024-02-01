@@ -10,7 +10,6 @@ import UIKit
 import DGCharts
 
 class ExpenseView: UIView {
-    
     let expenseChart: PieChartView = {
         let chartView = PieChartView()
         chartView.layer.cornerRadius = 20
@@ -31,7 +30,7 @@ class ExpenseView: UIView {
     
     let deleteButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Sil", for: .normal)
+        button.setTitle("Gider Sil", for: .normal)
         button.backgroundColor = .red
         button.titleLabel?.font = Fonts.generalFont
         button.layer.cornerRadius = 10
@@ -50,6 +49,7 @@ class ExpenseView: UIView {
         text: "Ay:",
         fontSize: 18,
         alignment: .left)
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -102,9 +102,128 @@ class ExpenseView: UIView {
         
         deleteButton.snp.makeConstraints { make in
             make.top.equalTo(addButton.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(120)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.width.equalTo(200)
             make.height.equalTo(40)
         }
+    }
+    
+    func setupCombinedChart(generalData: [GeneralExpenseEntry]) {
+        var generalExpenseEntries: [PieChartDataEntry] = []
+        
+        for (_, entry) in generalData.enumerated() {
+            let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "Kredi Kartı \(entry.creditCardExpense)")
+            generalExpenseEntries.append(generalExpenseEntry)
+            
+            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
+            generalExpenseEntries.append(rentExpenseEntry)
+        }
+        
+        let combinedEntries = generalExpenseEntries
+        let totalProcent = combinedEntries.reduce(0) { $0 + $1.value }
+        let procent = combinedEntries.map { $0.value / totalProcent }
+        
+        for (index, entry) in combinedEntries.enumerated() {
+            if let procentWage = procent[safe: index] {
+                let formattedOran = String(format: "%.2f%%", procentWage * 100)
+                
+                entry.label = entry.label.map { "\($0) - \(formattedOran)" }
+            }
+        }
+        
+        let generalExpenseDataSet = PieChartDataSet(entries: generalExpenseEntries, label: "")
+        generalExpenseDataSet.colors = ChartColorTemplates.colorful()
+        
+        let generalDataSet = PieChartDataSet(
+            entries: generalExpenseEntries,
+            label: "")
+        generalDataSet.colors = [UIColor.red, .blue]
+        
+        let generalData = PieChartData(dataSet: generalDataSet)
+        generalData.setValueTextColor(UIColor.white)
+        
+        self.expenseChart.data = generalData
+        self.expenseChart.centerText = "General Expenses"
+        self.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeOutBack)
+    }
+    
+    func setupDetailExpenseChartView(detailExpenseData: [ExpenseEntry]) {
+        var clothesExpenseEntries: [PieChartDataEntry] = []
+        var electronicExpenseEntries: [PieChartDataEntry] = []
+        var foodExpenseEntries: [PieChartDataEntry] = []
+        var fuelExpenseEntries: [PieChartDataEntry] = []
+        var rentExpenseEntries: [PieChartDataEntry] = []
+        var taxExpenseEntries: [PieChartDataEntry] = []
+        var transportEntries: [PieChartDataEntry] = []
+        
+        for (_, entry) in detailExpenseData.enumerated() {
+            let clothesExpenseEntry = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
+            let electronicExpenseEntry = PieChartDataEntry(value: entry.electronicExpense, label: "Elektronik")
+            let foodExpenseEntry = PieChartDataEntry(value: entry.foodExpense, label: "Gıda")
+            let fuelExpenseEntry = PieChartDataEntry(value: entry.fuelExpense, label: "Yakıt")
+            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
+            let taxExpenseEntry = PieChartDataEntry(value: entry.taxExpense, label: "Faturalar")
+            let transportEntry = PieChartDataEntry(value: entry.transportExpense, label: "Ulaşım")
+            
+            clothesExpenseEntries.append(clothesExpenseEntry)
+            electronicExpenseEntries.append(electronicExpenseEntry)
+            foodExpenseEntries.append(foodExpenseEntry)
+            fuelExpenseEntries.append(fuelExpenseEntry)
+            rentExpenseEntries.append(rentExpenseEntry)
+            taxExpenseEntries.append(taxExpenseEntry)
+            transportEntries.append(transportEntry)
+        }
+        
+        let clothesDataSet = PieChartDataSet(entries: clothesExpenseEntries, label: "")
+        clothesDataSet.colors = ChartColorTemplates.material()
+        
+        let electronicDataSet = PieChartDataSet(entries: electronicExpenseEntries, label: "")
+        electronicDataSet.colors = ChartColorTemplates.colorful()
+        
+        let foodDataSet = PieChartDataSet(entries: foodExpenseEntries, label: "")
+        foodDataSet.colors = ChartColorTemplates.colorful()
+        
+        let fuelDataSet = PieChartDataSet(entries: fuelExpenseEntries, label: "")
+        fuelDataSet.colors = ChartColorTemplates.colorful()
+        
+        let rentDataSet = PieChartDataSet(entries: rentExpenseEntries, label: "")
+        rentDataSet.colors = ChartColorTemplates.colorful()
+        
+        let taxDataSet = PieChartDataSet(entries: taxExpenseEntries, label: "")
+        taxDataSet.colors = ChartColorTemplates.colorful()
+        
+        let transportDataSet = PieChartDataSet(entries: transportEntries, label: "")
+        transportDataSet.colors = ChartColorTemplates.colorful()
+        
+        let clothesData = PieChartData(dataSet: clothesDataSet)
+        let electronikData = PieChartData(dataSet: electronicDataSet)
+        let foodData = PieChartData(dataSet: foodDataSet)
+        let fuelData = PieChartData(dataSet: fuelDataSet)
+        let rentData = PieChartData(dataSet: rentDataSet)
+        let taxData = PieChartData(dataSet: taxDataSet)
+        let transportData = PieChartData(dataSet: transportDataSet)
+        
+        clothesData.setValueTextColor(.white)
+        electronikData.setValueTextColor(.white)
+        foodData.setValueTextColor(.white)
+        fuelData.setValueTextColor(.white)
+        rentData.setValueTextColor(.white)
+        taxData.setValueTextColor(.white)
+        transportData.setValueTextColor(.white)
+        
+        //TODO: Add Procent Pie
+        
+        let combinedDataSet = PieChartDataSet(
+            entries: clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
+            label: "")
+        combinedDataSet.colors = [
+            .red, .blue, .green, .yellow, .orange, .purple, .magenta
+        ]
+        
+        let combinedData = PieChartData(dataSet: combinedDataSet)
+        combinedData.setValueTextColor(.white)
+        self.expenseChart.data = combinedData
+        self.expenseChart.centerText = "Expenses"
+        self.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeOutBack)
     }
 }

@@ -40,9 +40,14 @@ enum Colors{
     static let buttonGreen: CGFloat = 197.0 / 255.0
     static let buttonBlue: CGFloat = 69.0 / 255.0
     
-    static let tryRed: CGFloat = 178.0 / 255.0
-    static let tryGreen: CGFloat = 192.0 / 255.0
-    static let tryBlue: CGFloat = 122.0 / 255.0
+    static let tryRed: CGFloat = 164.0 / 255.0
+    static let tryGreen: CGFloat = 183.0 / 255.0
+    static let tryBlue: CGFloat = 158.0 / 255.0
+    
+    static let tryRed2: CGFloat = 168.0 / 255.0
+    static let tryGreen2: CGFloat = 143.0 / 255.0
+    static let tryBlue2: CGFloat = 241.0 / 255.0
+    
     
     static let lightThemeColor = UIColor(red: lightRed, green:lightGreen, blue: lightBlue, alpha: 1)
     static let darkThemeColor = UIColor (red: darkRed, green: darkGreen, blue: darkBlue, alpha: 1)
@@ -50,6 +55,7 @@ enum Colors{
     static let piesGreenColor = UIColor(red: pieRed, green: pieGreen, blue: pieBlue, alpha: 1)
     static let buttonColor = UIColor(red: buttonRed, green: buttonGreen, blue: buttonBlue, alpha: 1)
     static let tryColor = UIColor(red: tryRed, green: tryGreen, blue: tryBlue, alpha: 1)
+    static let tryColor2 = UIColor(red: tryRed2, green: tryGreen2, blue: tryBlue2, alpha: 1)
     
   
 

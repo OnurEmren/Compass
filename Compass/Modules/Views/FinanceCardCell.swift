@@ -100,6 +100,7 @@ class FinanceCardCell: UICollectionViewCell {
     func configure(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         overallStatusLabel.text = title
         overallStatusLabel.textColor = .black
+        overallStatusLabel.font = Fonts.generalFont
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
         layer.masksToBounds = false
