@@ -39,13 +39,12 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
         setupView()
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .allEvents)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if entityName == "GeneralExpenseEntry" {
             segmentedControl.selectedSegmentIndex = 1
-            fetchDataFromCoreData()
+            fetchGeneralData()
         } else {
             segmentedControl.selectedSegmentIndex = 0
             fetchDetailData()
@@ -100,7 +99,6 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
     
     @objc
     private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        
         switch sender.selectedSegmentIndex {
         case 0:
             fetchDetailData()
@@ -108,7 +106,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
             setupDetailExpenseChart(expenseData: fetchedDetailData)
             break
         case 1:    
-            fetchDataFromCoreData()
+            fetchGeneralData()
             entityName = "GeneralExpenseEntry"
             setupCombinedChart(generalData: fetchedGeneralData)
             break
@@ -119,7 +117,6 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
     
     @objc
     private func rightAddButtonTapped() {
-        entityName = "GeneralExpenseEntity"
         coordinator?.eventOccured(with: .goToGeneralExpenseVC)
     }
     
@@ -137,7 +134,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
         self.fetchedDetailData = detailExpenseData
     }
     
-    private func fetchDataFromCoreData() {
+    private func fetchGeneralData() {
         expenseViewModel.fetchDataFromCoreData()
     }
     
@@ -174,7 +171,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
                             self.expenseView.updateDetailChart()
                         }),
                         UIAlertAction(title: "İptal", style: .cancel, handler: { _ in
-                            // İptal butonuna tıklandığında yapılacak işlemler
+                            //
                         })
                     ])
                 }

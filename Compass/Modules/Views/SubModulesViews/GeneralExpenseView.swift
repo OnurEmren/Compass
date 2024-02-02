@@ -56,7 +56,6 @@ class GeneralExpenseView: UIView {
         self.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    
     @objc
     private func handleTap() {
         self.endEditing(true)
@@ -125,7 +124,6 @@ class GeneralExpenseView: UIView {
         creditCardExpenseLabel.placeholder = "Kredi Kartı Gideri"
         creditCardExpenseLabel.layer.borderColor = UIColor.white.cgColor
         creditCardExpenseLabel.keyboardType = .numberPad
-
         
         monthsPickerView.dataSource = self
         monthsPickerView.delegate = self

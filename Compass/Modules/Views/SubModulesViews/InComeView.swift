@@ -161,6 +161,7 @@ class InComeView: UIView {
         for (_, entry) in data.enumerated() {
             
             let wage = PieChartDataEntry(value: entry.wage, label: "Maaş")
+            
             let sideIncomeEntry = PieChartDataEntry(value: entry.sideInCome, label: "Yan Gelir)")
             wageEntries.append(wage)
             sideIncomeEntries.append(sideIncomeEntry)

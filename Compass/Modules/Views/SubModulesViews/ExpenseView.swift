@@ -110,6 +110,7 @@ class ExpenseView: UIView {
     
     func setupCombinedChart(generalData: [GeneralExpenseEntry]) {
         var generalExpenseEntries: [PieChartDataEntry] = []
+        var rentExpenseEntries: [PieChartDataEntry] = []
         
         for (_, entry) in generalData.enumerated() {
             let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "Kredi Kartı \(entry.creditCardExpense)")
@@ -122,15 +123,15 @@ class ExpenseView: UIView {
             totalExpenseLabel.text = "\(totalExpense)"
         }
         
-        let combinedEntries = generalExpenseEntries
+        let combinedEntries = generalExpenseEntries + rentExpenseEntries
         let totalProcent = combinedEntries.reduce(0) { $0 + $1.value }
-        let procent = combinedEntries.map { $0.value / totalProcent }
+        let yuzdelikOranlari = combinedEntries.map { $0.value / totalProcent }
         
         for (index, entry) in combinedEntries.enumerated() {
-            if let procentWage = procent[safe: index] {
-                let formattedOran = String(format: "%.2f%%", procentWage * 100)
+            if let yuzdelikOran = yuzdelikOranlari[safe: index] {
+                let formattedOran = String(format: "%.2f%%", yuzdelikOran * 100)
                 
-                entry.label = entry.label.map { "\($0) - \(formattedOran)" }
+                entry.label = entry.label.map {"\($0) - \(formattedOran)" }
             }
         }
         
@@ -151,7 +152,7 @@ class ExpenseView: UIView {
     }
     
     func updateGeneralChart() {
-        var generalExpenseEntries: [PieChartDataEntry] = []
+        let generalExpenseEntries: [PieChartDataEntry] = []
         let combinedEntries = generalExpenseEntries
         let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
         combinedDataSet.colors = ChartColorTemplates.material()
@@ -185,6 +186,22 @@ class ExpenseView: UIView {
             rentExpenseEntries.append(rentExpenseEntry)
             taxExpenseEntries.append(taxExpenseEntry)
             transportEntries.append(transportEntry)
+            
+            let combinedEntries = clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries + transportEntries
+            let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
+            combinedDataSet.colors = ChartColorTemplates.material()
+            
+            let combinedData = combinedEntries
+            let totalProcent = combinedData.reduce(0) { $0 + $1.value }
+            let procent = combinedData.map { $0.value / totalProcent }
+            
+            for (index, entry) in combinedEntries.enumerated() {
+                if let procentWage = procent[safe: index] {
+                    let formattedOran = String(format: "%.2f%%", procentWage * 100)
+                    
+                    entry.label = entry.label.map { "\($0) - \(formattedOran)" }
+                }
+            }
             
             let totalExpense = entry.clothesExpense + entry.electronicExpense + entry.foodExpense + entry.fuelExpense + entry.rentExpense + entry.taxExpense + entry.transportExpense
             totalExpenseLabel.text = "Toplam Gider: \(totalExpense)"
@@ -253,13 +270,13 @@ class ExpenseView: UIView {
     }
     
     func updateDetailChart() {
-        var clothesExpenseEntries: [PieChartDataEntry] = []
-        var electronicExpenseEntries: [PieChartDataEntry] = []
-        var foodExpenseEntries: [PieChartDataEntry] = []
-        var fuelExpenseEntries: [PieChartDataEntry] = []
-        var rentExpenseEntries: [PieChartDataEntry] = []
-        var taxExpenseEntries: [PieChartDataEntry] = []
-        var transportEntries: [PieChartDataEntry] = []
+        let clothesExpenseEntries: [PieChartDataEntry] = []
+        let electronicExpenseEntries: [PieChartDataEntry] = []
+        let foodExpenseEntries: [PieChartDataEntry] = []
+        let fuelExpenseEntries: [PieChartDataEntry] = []
+        let rentExpenseEntries: [PieChartDataEntry] = []
+        let taxExpenseEntries: [PieChartDataEntry] = []
+        let transportEntries: [PieChartDataEntry] = []
         
         let combinedEntries = clothesExpenseEntries + electronicExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries + transportEntries
         let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
@@ -267,5 +284,9 @@ class ExpenseView: UIView {
 
         let updatedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
         expenseChart.data = PieChartData(dataSet: updatedDataSet)
+    }
+    
+    func fetchDetailChartDataNew() {
+        
     }
 }
