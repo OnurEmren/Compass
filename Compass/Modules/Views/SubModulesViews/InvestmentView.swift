@@ -25,6 +25,12 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     private var pieceTextField = UITextField()
     private var titleLabel = UILabel()
     private var saveButton = UIButton()
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
     
     init(viewModel: InvestmentViewModel) {
         self.viewModel = viewModel
@@ -57,6 +63,11 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         addSubview(purchasePriceTextField)
         addSubview(pieceTextField)
         addSubview(saveButton)
+        
+        insertSubview(imageView, at: 0)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         //Constraints
         investmentTypeTextField.snp.makeConstraints { make in

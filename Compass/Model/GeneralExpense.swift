@@ -10,4 +10,5 @@ import Foundation
 struct GeneralExpense {
     var rentExpense: Double
     var creditCardExpense: Double
+    var motnh: String
 }

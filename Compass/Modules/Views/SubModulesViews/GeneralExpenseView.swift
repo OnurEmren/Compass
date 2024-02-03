@@ -11,7 +11,9 @@ import UIKit
 protocol GeneralExpenseSaveDelegate: AnyObject {
     func didTapGeneralExpenseSave(
         rentExpenseText: String?,
-        creditCardExpenseText: String?)
+        creditCardExpenseText: String?,
+        monthText: String?
+    )
 }
 
 protocol GeneralExpenseTypePickerViewDelegate: AnyObject {
@@ -38,6 +40,14 @@ class GeneralExpenseView: UIView {
         label.isUserInteractionEnabled = true
         return label
     }()
+    
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
+    
     private let months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
     weak var delegate: ExpenseTypePickerViewDelegate?
     
@@ -95,6 +105,11 @@ class GeneralExpenseView: UIView {
             make.height.equalTo(40)
         }
         
+        insertSubview(imageView, at: 0)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         //RentExpenseLabel Settings
         rentExpenseLabel.attributedPlaceholder = NSAttributedString(
             string: "Yatırım yaptığınız tarihi giriniz",
@@ -145,7 +160,8 @@ class GeneralExpenseView: UIView {
     private func saveButtonTapped() {
         generalExpenseDelegate?.didTapGeneralExpenseSave(
             rentExpenseText: rentExpenseLabel.text,
-            creditCardExpenseText: creditCardExpenseLabel.text
+            creditCardExpenseText: creditCardExpenseLabel.text,
+            monthText: monthLabel.text
         )
     }
 }

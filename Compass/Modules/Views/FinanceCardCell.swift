@@ -51,6 +51,20 @@ class FinanceCardCell: UICollectionViewCell {
         return label
     }()
     
+    let receivablesLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
+        return label
+    }()
+    
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "abstract2"))
+        image.contentMode = .center
+        image.clipsToBounds = true
+        return image
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -67,6 +81,7 @@ class FinanceCardCell: UICollectionViewCell {
         incomeLabel.text = nil
         expenseLabel.text = nil
         investmentLabel.text = nil
+        receivablesLabel.text = nil
     }
 
     private func setupViews() {
@@ -74,7 +89,7 @@ class FinanceCardCell: UICollectionViewCell {
         addSubview(incomeLabel)
         addSubview(expenseLabel)
         addSubview(investmentLabel)
-        
+        addSubview(receivablesLabel)
         
         overallStatusLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -93,9 +108,11 @@ class FinanceCardCell: UICollectionViewCell {
         expenseLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+        
+        receivablesLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
-
-    
     
     func configure(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         overallStatusLabel.text = title
@@ -157,7 +174,23 @@ class FinanceCardCell: UICollectionViewCell {
         updateInvestmentLabel(with: overallStatus)
     }
     
+    func configureReceivablesLabel(with title: String, backgroundColor: UIColor, overallStatus: Double) {
+        receivablesLabel.text = "TEST"
+        receivablesLabel.font = Fonts.generalFont
+        receivablesLabel.textColor = Colors.tryColor
+        self.backgroundColor = backgroundColor
+        layer.cornerRadius = 12
+        layer.masksToBounds = false
+        layer.borderWidth = 0.7
+        layer.borderColor = Colors.tryColor.cgColor
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+    }
+    
     private func updateLabel(with overallStatus: Double) {
+        
         if overallStatus < 0 {
             overallStatusLabel.textColor = .red
         } else if overallStatus == 0 {

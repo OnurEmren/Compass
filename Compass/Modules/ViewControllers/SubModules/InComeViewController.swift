@@ -24,6 +24,7 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
         super.viewDidLoad()
         title = Strings.incomeTitle
         
+        view.backgroundColor = .black
         inComeViewModel.delegate = self
         setupNavigationView()
         setupViews()
@@ -33,12 +34,10 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
     override func viewWillAppear(_ animated: Bool) {
         inComeViewModel.fetchDataFromCoreData()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.tryColor]
-        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
     //MARK: - Private Methods
@@ -62,20 +61,6 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
     }
     
     //MARK: - Chart Methods
-    
-    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-          // Kullanıcı bir dilime tıkladığında bu metod çağrılır
-          if let pieChartDataEntry = entry as? PieChartDataEntry {
-              // pieChartDataEntry, tıklanan dilimin bilgilerini içerir
-              let value = pieChartDataEntry.value
-              let label = pieChartDataEntry.label ?? ""
-              let data: [InComeEntry] = []
-           
-              inComeView.incomeDistributionChart.centerText = "\(value)"
-              // Burada tıklanan dilimle ilgili bir işlem yapabilirsiniz
-              print("Tıklanan Dilim - Label: \(label), Değer: \(value)")
-          }
-      }
     
     func didFetchedInComeData(inComeData: [InComeEntry]) {
         self.setupChart(with: inComeData)
@@ -103,7 +88,7 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
             let result = try context.fetch(fetchRequest)
             
             if !result.isEmpty {
-                showAlert(title: "Sil", message: "Genel harcamalar silinsin mi?", actions: [
+                showAlert(title: "Sil", message: "Tüm gelirler silinsin mi?", actions: [
                     UIAlertAction(title: "Evet", style: .default, handler: { _ in
                         self.inComeViewModel.deleteLastIncomeEntry()
                         self.inComeView.updateChart()
@@ -116,12 +101,9 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
             print("Hata: \(error)")
         }
     }
-    
-    private func updateChart() {
-     
-
-    }
 }
+
+//MARK: - Extensions
 
 extension Array {
     subscript(safe index: Index) -> Element? {

@@ -126,8 +126,8 @@
             filePath = "Compass/Coordinator/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "showDetailViewController(for:)"
             landmarkType = "7">
             <Locations>
@@ -174,8 +174,8 @@
             filePath = "Compass/Coordinator/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "showDetailViewController(for:)"
             landmarkType = "7">
             <Locations>
@@ -222,8 +222,8 @@
             filePath = "Compass/Coordinator/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "showDetailViewController(for:)"
             landmarkType = "7">
             <Locations>
@@ -270,8 +270,8 @@
             filePath = "Compass/Coordinator/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "showOnboarding()"
             landmarkType = "7">
             <Locations>
@@ -321,54 +321,6 @@
             startingLineNumber = "234"
             endingLineNumber = "234"
             landmarkName = "saveButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F31496D7-5BE9-49BF-B93A-B76E9BA23FA2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "didTapSaveButton(incomeText:sideIncomeText:inComeType:currency:month:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6DFEC728-5B33-4B1D-BA60-AB75A7AB98A0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "didTapSaveButton(incomeText:sideIncomeText:inComeType:currency:month:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F84527B2-E08C-4EA1-8B64-6C956ECAEC3D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "didTapSaveButton(incomeText:sideIncomeText:inComeType:currency:month:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -471,22 +423,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "831628D4-3111-4FE4-B3C7-76300C00DF0D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "didTapUpdateButton(inComeType:newWage:newSideInCome:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "EAA10362-667C-4ACE-A876-43EFFBFC6126"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -498,214 +434,6 @@
             endingLineNumber = "193"
             landmarkName = "setupViews()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0199506B-81CE-433A-B2E4-636DA351B391"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "didTapUpdateButton(inComeType:newWage:newSideInCome:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0199506B-81CE-433A-B2E4-636DA351B391 - 187808b6771e529d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.IncomeEntryViewController.didTapUpdateButton(inComeType: Swift.Optional&lt;Swift.String&gt;, newWage: Swift.String, newSideInCome: Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "2124">
-               </Location>
-               <Location
-                  uuid = "0199506B-81CE-433A-B2E4-636DA351B391 - 187808b6771e537c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.IncomeEntryViewController.didTapUpdateButton(inComeType: Swift.Optional&lt;Swift.String&gt;, newWage: Swift.String, newSideInCome: Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "1716">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2EB2E585-96AC-4A3F-8A0A-9BBFEAC05134"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "didTapUpdateButton(inComeType:newWage:newSideInCome:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D72334C4-663B-4E71-998A-C2AE4FAE8BF7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "didTapUpdateButton(inComeType:newWage:newSideInCome:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D72334C4-663B-4E71-998A-C2AE4FAE8BF7 - 187808b6771e52f0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.IncomeEntryViewController.didTapUpdateButton(inComeType: Swift.Optional&lt;Swift.String&gt;, newWage: Swift.String, newSideInCome: Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "94"
-                  endingLineNumber = "94"
-                  offsetFromSymbolStart = "2152">
-               </Location>
-               <Location
-                  uuid = "D72334C4-663B-4E71-998A-C2AE4FAE8BF7 - 187808b6771e52be"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.IncomeEntryViewController.didTapUpdateButton(inComeType: Swift.Optional&lt;Swift.String&gt;, newWage: Swift.String, newSideInCome: Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "2124">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "36CC96A1-3912-49C0-B953-0AAB6BD888E1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "didTapUpdateButton(inComeType:newWage:newSideInCome:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "36CC96A1-3912-49C0-B953-0AAB6BD888E1 - 187808b6771e5232"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.IncomeEntryViewController.didTapUpdateButton(inComeType: Swift.Optional&lt;Swift.String&gt;, newWage: Swift.String, newSideInCome: Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "2304">
-               </Location>
-               <Location
-                  uuid = "36CC96A1-3912-49C0-B953-0AAB6BD888E1 - 187808b6771e5211"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.IncomeEntryViewController.didTapUpdateButton(inComeType: Swift.Optional&lt;Swift.String&gt;, newWage: Swift.String, newSideInCome: Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "2152">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "10713EAF-0DCB-4CC8-BB3F-7955591A47BB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "didTapUpdateButton(inComeType:newWage:newSideInCome:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "10713EAF-0DCB-4CC8-BB3F-7955591A47BB - 187808b6771e51b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.IncomeEntryViewController.didTapUpdateButton(inComeType: Swift.Optional&lt;Swift.String&gt;, newWage: Swift.String, newSideInCome: Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "100"
-                  endingLineNumber = "100"
-                  offsetFromSymbolStart = "2344">
-               </Location>
-               <Location
-                  uuid = "10713EAF-0DCB-4CC8-BB3F-7955591A47BB - 187808b6771e5274"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.IncomeEntryViewController.didTapUpdateButton(inComeType: Swift.Optional&lt;Swift.String&gt;, newWage: Swift.String, newSideInCome: Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "98"
-                  endingLineNumber = "98"
-                  offsetFromSymbolStart = "2332">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1399,8 +1127,8 @@
             filePath = "Compass/Modules/ViewModel/InvestmentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "saveInvestments(invesmentType:amount:selectedDate:purchase:piece:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1415,8 +1143,8 @@
             filePath = "Compass/Modules/ViewModel/InvestmentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "saveInvestments(invesmentType:amount:selectedDate:purchase:piece:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2389,9 +2117,41 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ExpenseView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EFEA733-E6AC-4A87-B1B1-14110F094837"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "didTapSaveButton(incomeText:sideIncomeText:inComeType:currency:month:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49704AE8-2819-4211-8F2C-129463657DD8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/InComeEntryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "init(frame:)"
+            landmarkName = "didTapSaveButton(incomeText:sideIncomeText:inComeType:currency:month:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

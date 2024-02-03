@@ -14,6 +14,13 @@ class InvestmentListView: UIView {
     private var attendanceRecords: [InvestmentEntry] = []
     private let cellIdentifier = "investmentViewCell"
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,9 +37,14 @@ class InvestmentListView: UIView {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = .clear
         
         tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        insertSubview(imageView, at: 0)
+        imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
@@ -65,7 +77,7 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-      
+        
         let deleteAction = UIContextualAction(style: .destructive, title: "Sil") { [weak self] (_, _, completionHandler) in
             self?.deleteActionTapped(at: indexPath)
             completionHandler(true)
@@ -76,7 +88,6 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         return configuration
     }
-    
     
     func deleteActionTapped(at indexPath: IndexPath) {
         let recordToDelete = attendanceRecords[indexPath.row]

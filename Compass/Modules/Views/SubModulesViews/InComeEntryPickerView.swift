@@ -13,8 +13,7 @@ protocol IncomeEntryViewDelegate: AnyObject {
                           sideIncomeText: String?,
                           inComeType: String?,
                           currency: String?,
-                          month: String?
-    )
+                          month: String?)
 }
 
 protocol InComeUpdateViewDelegate: AnyObject {
@@ -35,7 +34,7 @@ class InComeEntryPickerView: UIView {
     private let saveButton: UIButton = {
         let button = UIButton()
         button.setTitle("Kaydet", for: .normal)
-        button.backgroundColor = Colors.darkThemeColor
+        button.backgroundColor = .darkGray
         button.layer.cornerRadius = 8
         button.titleLabel?.font = Fonts.generalFont
         return button
@@ -46,7 +45,7 @@ class InComeEntryPickerView: UIView {
         let textField = UITextField()
         textField.placeholder = "Maaşınızı girin"
         textField.borderStyle = .roundedRect
-        textField.backgroundColor = Colors.lightThemeColor
+        textField.backgroundColor = UIColor.white
         textField.keyboardType = .numberPad
         textField.font = Fonts.generalFont
         return textField
@@ -56,7 +55,7 @@ class InComeEntryPickerView: UIView {
         let textField = UITextField()
         textField.placeholder = "Yan Gelirinizi girin"
         textField.borderStyle = .roundedRect
-        textField.backgroundColor = Colors.lightThemeColor
+        textField.backgroundColor = UIColor.white
         textField.keyboardType = .numberPad
         textField.font = Fonts.generalFont
         return textField
@@ -66,12 +65,12 @@ class InComeEntryPickerView: UIView {
         let label = UITextField()
         label.text = "Para Birimi"
         label.layer.borderWidth = 0.7
-        label.layer.borderColor = Colors.darkThemeColor.cgColor
+        label.layer.borderColor = UIColor.white.cgColor
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .black
         label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
         label.font = Fonts.generalFont
@@ -80,14 +79,14 @@ class InComeEntryPickerView: UIView {
     
     private let monthLabel: UITextField = {
         let label = UITextField()
-        label.text = "Ay"
+        label.text = "Dönem"
         label.layer.borderWidth = 0.7
-        label.layer.borderColor = Colors.darkThemeColor.cgColor
+        label.layer.borderColor = UIColor.white.cgColor
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .black
         label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
         label.font = Fonts.generalFont
@@ -101,12 +100,12 @@ class InComeEntryPickerView: UIView {
         let label = UITextField()
         label.text = "Gelir Tipi"
         label.layer.borderWidth = 0.7
-        label.layer.borderColor = Colors.darkThemeColor.cgColor
+        label.layer.borderColor = UIColor.white.cgColor
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .darkGray
+        label.textColor = .black
         label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
         label.font = Fonts.generalFont
@@ -116,10 +115,17 @@ class InComeEntryPickerView: UIView {
     private let updateButton: UIButton = {
         let button = UIButton()
         button.setTitle("Güncelle", for: .normal)
-        button.backgroundColor = Colors.darkThemeColor
+        button.backgroundColor = .systemGray
         button.layer.cornerRadius = 8
         button.titleLabel?.font = Fonts.generalFont
         return button
+    }()
+    
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
     }()
     
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
@@ -156,7 +162,8 @@ class InComeEntryPickerView: UIView {
         addSubview(monthLabel)
         addSubview(saveButton)
         addSubview(updateButton)
-                
+        addSubview(imageView)
+        
         currencyPickerView.delegate = self
         currencyPickerView.dataSource = self
         currencyTypeLabel.inputView = currencyPickerView
@@ -191,26 +198,22 @@ class InComeEntryPickerView: UIView {
             make.height.equalTo(40)
         }
         
-        saveButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(monthLabel.snp.bottom).offset(30)
-            make.width.equalTo(120)
-            make.height.equalTo(40)
-        }
-        
         updateButton.snp.makeConstraints { make in
-            make.top.equalTo(saveButton.snp.bottom).offset(20)
+            make.top.equalTo(monthLabel.snp.bottom).offset(50)
             make.centerX.equalToSuperview()
-            make.width.equalTo(120)
+            make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
         
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        insertSubview(imageView, at: 0)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }
-    
-    @objc
-    private func saveButtonTapped() {
+ 
+    func saveButtonTapped() {
         saveDelegate?.didTapSaveButton(
             incomeText: incomeTextField.text,
             sideIncomeText: sideIncomeTextField.text,
@@ -220,7 +223,8 @@ class InComeEntryPickerView: UIView {
         )
     }
     
-    @objc private func updateButtonTapped() {
+    @objc 
+    private func updateButtonTapped() {
         updateDelegate?.didTapUpdateButton(
             inComeType: inComeTypeLabel.text ?? "",
             newWage: incomeTextField.text ?? "",
@@ -264,6 +268,37 @@ extension InComeEntryPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
             monthLabel.text = selectedMonth
         }
     }
+    
+    //PickerView Colors
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label: UILabel
+        if let view = view as? UILabel {
+            label = view
+        } else {
+            label = UILabel()
+        }
+        if pickerView == currencyPickerView {
+            let attributedText = NSAttributedString(string: currencies[row], attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0)
+            ])
+            
+            label.attributedText = attributedText
+            label.textAlignment = .center
+            
+            return label
+        } else {
+            let attributedText = NSAttributedString(string: month[row], attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18.0)
+            ])
+            
+            label.attributedText = attributedText
+            label.textAlignment = .center
+            
+            return label
+        }
+    }
 }
 
 extension UIView {
@@ -279,7 +314,7 @@ extension UIView {
         toastLabel.clipsToBounds  =  true
         self.addSubview(toastLabel)
         
-        UIView.animate(withDuration: 1.0, delay: 0.2, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 2.0, delay: 0.2, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: { _ in
             toastLabel.removeFromSuperview()
@@ -289,7 +324,7 @@ extension UIView {
 
 extension UIPickerView {
     func setPickerView() {
-        self.backgroundColor = Colors.darkThemeColor
-        self.tintColor = .white
+        self.backgroundColor = .clear
+        self.tintColor = .black
     }
 }

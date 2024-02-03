@@ -9,12 +9,7 @@ import Foundation
 import CoreData
 import UIKit
 
-protocol InvestmentViewModelDelegate: AnyObject {
-    func didSaveInvestment()
-}
-
 class InvestmentViewModel {
-    weak var delegate: InvestmentViewModelDelegate?
     private let context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext) {
@@ -32,7 +27,6 @@ class InvestmentViewModel {
         
         do {
             try context.save()
-            delegate?.didSaveInvestment()
             print("Kayıt başarılı")
         } catch {
             print("Hata: \(error.localizedDescription)")

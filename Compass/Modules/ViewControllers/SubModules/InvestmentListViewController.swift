@@ -18,7 +18,7 @@ class InvestmentListViewController: UIViewController, Coordinating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         navigationSettings()
         setupViewModel()
         setupView()
@@ -33,12 +33,10 @@ class InvestmentListViewController: UIViewController, Coordinating {
     override func viewWillAppear(_ animated: Bool) {
         loadAttendanceRecords()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-
     }
     
     private func navigationSettings() {

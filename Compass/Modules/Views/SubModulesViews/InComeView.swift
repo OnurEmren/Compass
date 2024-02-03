@@ -41,7 +41,7 @@ class InComeView: UIView {
         label.textAlignment = .left
         label.textColor = .white
         label.font = Fonts.generalFont
-        label.text = "Ay:"
+        label.text = "Dönem:"
         return label
     }()
     
@@ -73,6 +73,13 @@ class InComeView: UIView {
         label.font = Fonts.generalFont
         label.text = "Gelir Dağılımı:"
         return label
+    }()
+    
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
     }()
     
     let addButton: UIButton = {
@@ -113,9 +120,6 @@ class InComeView: UIView {
         addSubview(addButton)
         addSubview(deleteButton)
         
-        let originalBlack = UIColor.black
-        let slightlyBrighterBlack = originalBlack.withAlphaComponent(0.95)
-        backgroundColor = slightlyBrighterBlack
         
         incomeMonthsLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -152,6 +156,11 @@ class InComeView: UIView {
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
+        
+        insertSubview(imageView, at: 0)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     func setupInComeChartView(with data: [InComeEntry]) {
@@ -161,12 +170,11 @@ class InComeView: UIView {
         for (_, entry) in data.enumerated() {
             
             let wage = PieChartDataEntry(value: entry.wage, label: "Maaş")
-            
-            let sideIncomeEntry = PieChartDataEntry(value: entry.sideInCome, label: "Yan Gelir)")
             wageEntries.append(wage)
+
+            let sideIncomeEntry = PieChartDataEntry(value: entry.sideInCome, label: "Yan Gelir")
             sideIncomeEntries.append(sideIncomeEntry)
             
-            let wageEntry = PieChartDataEntry(value: entry.wage, label: "Maaş \(entry.wage)")
             let totalIncome = entry.wage + entry.sideInCome
             totalIncomeLabel.text = "Toplam Gelir: \(totalIncome)"
             
@@ -185,7 +193,6 @@ class InComeView: UIView {
         for (index, entry) in combinedEntries.enumerated() {
             if let yuzdelikOran = yuzdelikOranlari[safe: index] {
                 let formattedOran = String(format: "%.2f%%", yuzdelikOran * 100)
-                
                 entry.label = entry.label.map {"\($0) - \(formattedOran)" }
             }
         }
@@ -202,16 +209,14 @@ class InComeView: UIView {
         combinedData.setValueTextColor(.white)
         combinedData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
 
-        incomeDistributionChart.notifyDataSetChanged()
-
         incomeDistributionChart.data = combinedData
         incomeDistributionChart.centerText = "Maaş ve Yan Gelir"
         incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeOutBack)
     }
     
     func updateChart() {
-        var wageEntries: [PieChartDataEntry] = []
-        var sideIncomeEntries: [PieChartDataEntry] = []
+        let wageEntries: [PieChartDataEntry] = []
+        let sideIncomeEntries: [PieChartDataEntry] = []
         let combinedEntries = wageEntries + sideIncomeEntries
         let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
         combinedDataSet.colors = ChartColorTemplates.material()

@@ -51,10 +51,9 @@ class InComeViewModel {
         
         do {
             let result = try context.fetch(fetchRequest)
-            
+                
             if let lastIncomeEntry = result.first {
                 context.delete(lastIncomeEntry)
-                
                 try context.save()
             }
         } catch {
@@ -66,7 +65,7 @@ class InComeViewModel {
         var InComeEntries: [PieChartDataEntry] = []
         
         for (_, entry) in generalData.enumerated() {
-            let wageEntry = PieChartDataEntry(value: entry.wage, label: "Genel Maaş \(entry.wage)")
+            let wageEntry = PieChartDataEntry(value: entry.wage, label: "Maaş \(entry.wage)")
             InComeEntries.append(wageEntry)
             
             let sideInCome = PieChartDataEntry(value: entry.sideInCome, label: "Yan Gelir")

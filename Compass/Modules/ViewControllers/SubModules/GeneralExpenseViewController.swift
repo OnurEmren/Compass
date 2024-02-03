@@ -38,9 +38,11 @@ class GeneralExpenseViewController: UIViewController, Coordinating, GeneralExpen
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
-    func didTapGeneralExpenseSave(rentExpenseText: String?, creditCardExpenseText: String?) {
+    func didTapGeneralExpenseSave(rentExpenseText: String?, creditCardExpenseText: String?, monthText: String?) {
         guard let rentExpenseText = Double(rentExpenseText ?? ""),
-              let creditCardExpenseText = Double(creditCardExpenseText ?? "") else {
+              let creditCardExpenseText = Double(creditCardExpenseText ?? ""),
+              let monthText = monthText
+        else {
             return
         }
         
@@ -51,6 +53,7 @@ class GeneralExpenseViewController: UIViewController, Coordinating, GeneralExpen
             
             expenseEntity.rentExpense = rentExpenseText
             expenseEntity.creditCardExpense = creditCardExpenseText
+            expenseEntity.month = monthText
             
             do {
                 try context.save()

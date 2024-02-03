@@ -53,7 +53,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     private func setupNavigationSettings() {

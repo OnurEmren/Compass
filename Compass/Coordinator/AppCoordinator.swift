@@ -49,6 +49,8 @@ class AppCoordinator: Coordinator {
             let generalVC = GeneralExpenseViewController()
             generalVC.coordinator = self
             navigationController?.pushViewController(generalVC, animated: true)
+            
+      
         }
     }
     
@@ -91,6 +93,10 @@ class AppCoordinator: Coordinator {
             let investmentVC = InvestmentListViewController()
             investmentVC.coordinator = self
             navigationController?.pushViewController(investmentVC, animated: true)
+        case 3:
+            let receivablesVC = ReceivablesViewController()
+            receivablesVC.coordinator = self
+            navigationController?.pushViewController(receivablesVC, animated: true)
         default:
             break
         }

@@ -22,20 +22,37 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         return collectionView
     }()
     private var financeCardCell = FinanceCardCell()
-    let data = [("Gelir", .black), ("Gider", UIColor.black), ("Yatırım", UIColor.black), ("Genel", UIColor.black) ]
+    let data = [
+        ("Gelir", .black),
+        ("Gider", UIColor.black),
+        ("Yatırım", UIColor.black),
+        ("Alacaklarım", UIColor.black),
+        ("Genel Durum", UIColor.black)
+    ]
+    
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
+    
+    //MARK: - LifeCycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Ana Sayfa"
         setupCollectionView()
-        view.backgroundColor = .systemBackground
+        
+        view.backgroundColor = .black
+        navigationSettings()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.layoutIfNeeded()
-        navigationController?.navigationBar.tintColor = UIColor.black
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.tryColor]
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
         collectionView.reloadData()
     }
@@ -46,18 +63,28 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     private func setupCollectionView() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(60)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(700)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(50)
+            make.bottom.equalToSuperview()
+            make.trailing.leading.equalToSuperview()
         }
         
-        let originalBlack = UIColor.black
-        let slightlyBrighterBlack = originalBlack.withAlphaComponent(0.95)
-        collectionView.backgroundColor = slightlyBrighterBlack
+        collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = false
         collectionView.reloadData()
+        
+        view.insertSubview(imageView, at: 0)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    private func navigationSettings() {
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
  
     //MARK: - CollectionView Delegates
@@ -109,14 +136,15 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         case "Yatırım":
             cell.configureInvestmentLabel(with: title, backgroundColor: color, overallStatus: totalInvestment)
             
-        case "Genel":
+        case "Alacaklarım":
+            cell.configureReceivablesLabel(with: title, backgroundColor: color, overallStatus: overallStatus)
+            
+        case "Genel Durum":
             let overallStatus = overallStatus
             cell.configure(with: title, backgroundColor: color, overallStatus: overallStatus)
-            
         default:
             break
         }
-        collectionView.roundCorners([.topLeft,.topRight], radius: 20)
         cell.backgroundColor = .clear
 
         return cell

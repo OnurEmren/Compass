@@ -23,6 +23,7 @@
 		464CBD802B6C40B900553715 /* SpaceGrotesk-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 464CBD7F2B6C40B900553715 /* SpaceGrotesk-VariableFont_wght.ttf */; };
 		464CBD822B6C42E100553715 /* Comfortaa-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 464CBD812B6C42E100553715 /* Comfortaa-VariableFont_wght.ttf */; };
 		4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678BBE32B61C4DC00333CF1 /* Strings.swift */; };
+		467E75992B6DA8A500162E0D /* ReceivablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */; };
 		4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B8E42B66B44A0021D591 /* GeneralExpense.swift */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
 		469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */; };
@@ -74,6 +75,7 @@
 		464CBD7F2B6C40B900553715 /* SpaceGrotesk-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		464CBD812B6C42E100553715 /* Comfortaa-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		4678BBE32B61C4DC00333CF1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivablesViewController.swift; sourceTree = "<group>"; };
 		4697B8E42B66B44A0021D591 /* GeneralExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpense.swift; sourceTree = "<group>"; };
 		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
 		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */,
 				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
 				46B42F112B69A22D000E976C /* TryViewController.swift */,
+				467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */,
 			);
 			path = SubModules;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */,
 				469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */,
 				4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */,
+				467E75992B6DA8A500162E0D /* ReceivablesViewController.swift in Sources */,
 				46F2DD3A2B582C87008792D0 /* OnBoardingElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,7 +20,7 @@ class ExpenseView: UIView {
     let addButton: UIButton = {
         let button = UIButton()
         button.setTitle("Detaylı Gider Ekle", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = Colors.tryColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
@@ -37,6 +37,13 @@ class ExpenseView: UIView {
         return button
     }()
     
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
+    
     let totalExpenseLabel = UIExtensions.createLabel(
         text: "Giderlerim: 0.0",
         fontSize: Fonts.generalFont!.pointSize,
@@ -46,7 +53,7 @@ class ExpenseView: UIView {
         fontSize: 18,
         alignment: .left)
     let monthLabel = UIExtensions.createLabel(
-        text: "Ay:",
+        text: "Dönem:",
         fontSize: 18,
         alignment: .left)
     
@@ -106,14 +113,19 @@ class ExpenseView: UIView {
             make.width.equalTo(200)
             make.height.equalTo(40)
         }
+        
+        insertSubview(imageView, at: 0)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     func setupCombinedChart(generalData: [GeneralExpenseEntry]) {
         var generalExpenseEntries: [PieChartDataEntry] = []
-        var rentExpenseEntries: [PieChartDataEntry] = []
+        let rentExpenseEntries: [PieChartDataEntry] = []
         
         for (_, entry) in generalData.enumerated() {
-            let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "Kredi Kartı \(entry.creditCardExpense)")
+            let generalExpenseEntry = PieChartDataEntry(value: entry.creditCardExpense, label: "Kredi Kartı")
             generalExpenseEntries.append(generalExpenseEntry)
             
             let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
@@ -121,7 +133,16 @@ class ExpenseView: UIView {
             
             let totalExpense = entry.creditCardExpense + entry.rentExpense
             totalExpenseLabel.text = "\(totalExpense)"
+            
+            let month = entry.month
+            if let unwrappedMonth = month {
+                monthLabel.text = "\(unwrappedMonth) Dönemi"
+            } else {
+                monthLabel.text = "\(String(describing: month)) Bilinmiyor"
+            }
         }
+        
+        
         
         let combinedEntries = generalExpenseEntries + rentExpenseEntries
         let totalProcent = combinedEntries.reduce(0) { $0 + $1.value }

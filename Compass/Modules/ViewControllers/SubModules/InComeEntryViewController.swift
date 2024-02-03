@@ -9,29 +9,44 @@ import UIKit
 import SnapKit
 import CoreData
 
-class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate, IncomeEntryViewDelegate,InComeUpdateViewDelegate, Coordinating {
+class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate,InComeUpdateViewDelegate, Coordinating {
     
     var coordinator: Coordinator?
-    
     private let incomeEntryView = InComeEntryPickerView()
-    private let font = UIFont(name: "Tahoma", size: 18.0)
+    private let font = UIFont(name: "TamilSangamMN", size: 18.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setNavigation()
+        setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
+    private func setNavigation(){
         title = Strings.inComeEntryTitle
         view.backgroundColor = .black
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        setupViews()
+        
+        let addButton = UIBarButtonItem(
+            title: "Kaydet",
+            style: .done,
+            target: self,
+            action: #selector(addButtonTapped)
+        )
+        navigationItem.rightBarButtonItem = addButton
     }
     
     private func setupViews() {
         view.addSubview(incomeEntryView)
         
         incomeEntryView.saveDelegate = self
-        incomeEntryView.delegate = self
         incomeEntryView.updateDelegate = self
         incomeEntryView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -102,7 +117,8 @@ class IncomeEntryViewController: UIViewController, IncomeTypePickerViewDelegate,
         }
     }
     
-    func didSelectIncomeType(_ incomeType: String) {
-        //
+    @objc
+    private func addButtonTapped(){
+        incomeEntryView.saveButtonTapped()
     }
 }

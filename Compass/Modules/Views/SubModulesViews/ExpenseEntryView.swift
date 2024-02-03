@@ -171,6 +171,13 @@ class ExpenseEntryView: UIView {
         return button
     }()
     
+    private let imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
+    
     private let currencies = ["USD", "EUR", "TRY", "GBP", "JPY"]
     private let months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
     private let currencyPickerView = UIPickerView()
@@ -297,6 +304,11 @@ class ExpenseEntryView: UIView {
             make.centerX.equalToSuperview()
             make.width.equalTo(120)
             make.height.equalTo(40)
+        }
+        
+        insertSubview(imageView, at: 0)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
