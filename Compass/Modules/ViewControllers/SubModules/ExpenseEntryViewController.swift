@@ -22,6 +22,14 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        let saveButton = UIBarButtonItem(
+            title: "Kaydet",
+            style: .done,
+            target: self,
+            action: #selector(saveButtonTapped)
+        )
+        navigationItem.rightBarButtonItem = saveButton
 
         setupView()
 
@@ -83,6 +91,11 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
     
     func didSelectIncomeType(_ incomeType: String) {
         //
+    }
+    
+    @objc
+    private func saveButtonTapped() {
+        expenseEntryView.saveButtonTapped()
     }
 }
 

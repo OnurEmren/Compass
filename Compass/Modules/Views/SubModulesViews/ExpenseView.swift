@@ -21,7 +21,6 @@ class ExpenseView: UIView {
         let button = UIButton()
         button.setTitle("Detaylı Gider Ekle", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = Colors.tryColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.titleLabel?.font = Fonts.generalFont
@@ -30,8 +29,8 @@ class ExpenseView: UIView {
     
     let deleteButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Gider Sil", for: .normal)
-        button.backgroundColor = .red
+        button.setTitle("Sil", for: .normal)
+        button.setTitleColor(.red, for: .normal)
         button.titleLabel?.font = Fonts.generalFont
         button.layer.cornerRadius = 10
         return button
@@ -108,9 +107,9 @@ class ExpenseView: UIView {
         }
         
         deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.width.equalTo(200)
+            make.top.equalTo(expenseChart.snp.top).offset(10)
+            make.right.equalTo(-30)
+            make.width.equalTo(40)
             make.height.equalTo(40)
         }
         

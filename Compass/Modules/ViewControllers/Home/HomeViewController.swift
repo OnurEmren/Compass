@@ -151,12 +151,12 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-          return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+          return UIEdgeInsets(top: 20, left: 15, bottom: 0, right: 15)
       }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width - 40
-        let height: CGFloat = 150
+        let width: CGFloat = 175
+        let height: CGFloat = 175
         return CGSize(width: width, height: height)
     }
     

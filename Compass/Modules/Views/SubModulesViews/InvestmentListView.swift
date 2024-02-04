@@ -40,7 +40,9 @@ class InvestmentListView: UIView {
         tableView.backgroundColor = .clear
         
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(20)
         }
         
         insertSubview(imageView, at: 0)
@@ -67,10 +69,12 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
         
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         setLabelTag(cell: cell, record: record, indexPath: indexPath)
-        
+
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+      
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150

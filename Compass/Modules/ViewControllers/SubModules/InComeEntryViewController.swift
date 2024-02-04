@@ -34,13 +34,13 @@ class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate,InCom
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let addButton = UIBarButtonItem(
+        let saveButton = UIBarButtonItem(
             title: "Kaydet",
             style: .done,
             target: self,
             action: #selector(addButtonTapped)
         )
-        navigationItem.rightBarButtonItem = addButton
+        navigationItem.rightBarButtonItem = saveButton
     }
     
     private func setupViews() {

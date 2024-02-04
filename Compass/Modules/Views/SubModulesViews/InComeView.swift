@@ -86,7 +86,6 @@ class InComeView: UIView {
         let button = UIButton()
         button.setTitle("Gelir Ekle", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = Colors.tryColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.titleLabel?.font = Fonts.generalFont
@@ -96,7 +95,7 @@ class InComeView: UIView {
     let deleteButton: UIButton = {
         let button = UIButton()
         button.setTitle("Sil", for: .normal)
-        button.backgroundColor = .red
+        button.setTitleColor(.red, for: .normal)
         button.layer.cornerRadius = 8
         button.titleLabel?.font = Fonts.generalFont
         return button
@@ -146,14 +145,15 @@ class InComeView: UIView {
                 
         addButton.snp.makeConstraints { make in
             make.top.equalTo(incomeDistributionChart    .snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.centerX.equalToSuperview()
             make.bottom.lessThanOrEqualTo(safeAreaLayoutGuide).offset(-20)
             make.height.equalTo(40)
         }
         
         deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.top.equalTo(incomeDistributionChart.snp.top).offset(10)
+            make.right.equalTo(-30)
+            make.width.equalTo(40)
             make.height.equalTo(40)
         }
         

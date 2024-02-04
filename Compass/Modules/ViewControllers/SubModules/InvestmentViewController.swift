@@ -30,10 +30,18 @@ class InvestmentViewController: UIViewController, Coordinating {
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        title = "Lütfen tüm alanları eksiksiz doldurunuz."
+        title = "Yatırımlarım"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         view.backgroundColor = .black
         setupView()
+        
+        let saveButton = UIBarButtonItem(
+            title: "Kaydet",
+            style: .done,
+            target: self,
+            action: #selector(saveButtonTapped)
+        )
+        navigationItem.rightBarButtonItem = saveButton
         
     }
     
@@ -44,5 +52,10 @@ class InvestmentViewController: UIViewController, Coordinating {
         investment.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    @objc
+    private func saveButtonTapped() {
+        investment.saveButtonTapped()
     }
 }

@@ -21,6 +21,14 @@ class GeneralExpenseViewController: UIViewController, Coordinating, GeneralExpen
         navigationSettings()
         setupView()
         view.backgroundColor = .black
+        
+        let saveButton = UIBarButtonItem(
+            title: "Kaydet",
+            style: .done,
+            target: self,
+            action: #selector(saveButtonTapped)
+        )
+        navigationItem.rightBarButtonItem = saveButton
     }
     
     private func setupView() {
@@ -36,6 +44,11 @@ class GeneralExpenseViewController: UIViewController, Coordinating, GeneralExpen
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
+    @objc
+    private func saveButtonTapped() {
+        generalExpenseView.saveButtonTapped()
     }
     
     func didTapGeneralExpenseSave(rentExpenseText: String?, creditCardExpenseText: String?, monthText: String?) {

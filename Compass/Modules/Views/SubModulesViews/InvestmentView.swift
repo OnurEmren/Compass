@@ -71,7 +71,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         
         //Constraints
         investmentTypeTextField.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(30)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(50)
             make.height.equalTo(40)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
@@ -164,22 +164,12 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
             string: "Ürünün adetini giriniz",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        
-        //Button Settings
-        saveButton.setTitle("Kaydet", for: .normal)
-        saveButton.layer.cornerRadius = 10
-        saveButton.layer.borderWidth = 0.7
-        saveButton.layer.borderColor = UIColor.white.cgColor
-        saveButton.layer.masksToBounds = true
-        saveButton.titleLabel?.font = Fonts.generalFont
-        saveButton.backgroundColor = Colors.buttonColor
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
     //MARK: - Save
     
     @objc
-    private func saveButtonTapped() {
+    func saveButtonTapped() {
         guard let investmentType = investmentTypeTextField.text,
               
               let date = investmentDate.text,
@@ -240,7 +230,6 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedInvestment = investmentOptions[row]
         investmentTypeTextField.text = selectedInvestment
-        
     }
 }
 

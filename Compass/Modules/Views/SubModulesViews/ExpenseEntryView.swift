@@ -32,16 +32,6 @@ protocol ExpenseTypePickerViewDelegate: AnyObject {
 
 class ExpenseEntryView: UIView {
     
-    private let saveButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Kaydet", for: .normal)
-        button.backgroundColor = Colors.tryColor
-        button.layer.cornerRadius = 10
-        button.titleLabel?.font = Fonts.generalFont
-        button.tintColor = .black
-        return button
-    }()
-    
     private let expensePickerView = UIPickerView()
     private let monthsPickerView = UIPickerView()
     
@@ -219,7 +209,6 @@ class ExpenseEntryView: UIView {
         addSubview(taxExpenseText)
         addSubview(transportExpenseText)
         addSubview(currencyTypeLabel)
-        addSubview(saveButton)
         addSubview(updateButton)
         
         expensePickerView.dataSource = self
@@ -292,15 +281,8 @@ class ExpenseEntryView: UIView {
             make.height.equalTo(40)
         }
         
-        saveButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(currencyTypeLabel.snp.bottom).offset(30)
-            make.width.equalTo(120)
-            make.height.equalTo(40)
-        }
-        
         updateButton.snp.makeConstraints { make in
-            make.top.equalTo(saveButton.snp.bottom).offset(20)
+            make.top.equalTo(currencyTypeLabel.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.width.equalTo(120)
             make.height.equalTo(40)
@@ -311,12 +293,11 @@ class ExpenseEntryView: UIView {
             make.edges.equalToSuperview()
         }
         
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }
     
     @objc
-    private func saveButtonTapped() {
+    func saveButtonTapped() {
         saveDelegate?.didTapSaveButton(
             clothesExpenseText: clothesExpenseText.text,
             electronicExpenseText: electronicExpenseText.text,

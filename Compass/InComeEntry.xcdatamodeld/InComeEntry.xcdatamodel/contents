@@ -30,4 +30,9 @@
         <attribute name="piece" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="purchase" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="ReceivablesEntry" representedClassName="ReceivablesEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="person" optional="YES" attributeType="String"/>
+        <attribute name="receivablesAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
 </model>

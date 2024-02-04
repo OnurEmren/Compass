@@ -74,7 +74,6 @@ class GeneralExpenseView: UIView {
     private func setupView() {
         addSubview(rentExpenseLabel)
         addSubview(creditCardExpenseLabel)
-        addSubview(saveButton)
         addSubview(monthLabel)
         
         rentExpenseLabel.snp.makeConstraints { make in
@@ -93,13 +92,6 @@ class GeneralExpenseView: UIView {
         
         monthLabel.snp.makeConstraints { make in
             make.top.equalTo(creditCardExpenseLabel.snp.top).offset(60)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(40)
-        }
-        
-        saveButton.snp.makeConstraints { make in
-            make.top.equalTo(monthLabel.snp.top).offset(60)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
@@ -143,21 +135,10 @@ class GeneralExpenseView: UIView {
         monthsPickerView.dataSource = self
         monthsPickerView.delegate = self
         monthLabel.inputView = monthsPickerView
-        
-        //Button Settings
-        saveButton.setTitle("Kaydet", for: .normal)
-        saveButton.backgroundColor = Colors.tryColor
-        saveButton.titleLabel?.font = Fonts.generalFont
-        saveButton.tintColor = .black
-        saveButton.layer.cornerRadius = 10
-        saveButton.layer.borderWidth = 0.7
-        saveButton.layer.borderColor = UIColor.white.cgColor
-        saveButton.layer.masksToBounds = true
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
     }
     
     @objc
-    private func saveButtonTapped() {
+    func saveButtonTapped() {
         generalExpenseDelegate?.didTapGeneralExpenseSave(
             rentExpenseText: rentExpenseLabel.text,
             creditCardExpenseText: creditCardExpenseLabel.text,

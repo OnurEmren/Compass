@@ -87,7 +87,6 @@ class InComeEntryPickerView: UIView {
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .black
-        label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
         label.font = Fonts.generalFont
         return label
@@ -106,7 +105,6 @@ class InComeEntryPickerView: UIView {
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .black
-        label.backgroundColor = Colors.lightThemeColor
         label.isUserInteractionEnabled = true
         label.font = Fonts.generalFont
         return label
@@ -115,7 +113,7 @@ class InComeEntryPickerView: UIView {
     private let updateButton: UIButton = {
         let button = UIButton()
         button.setTitle("Güncelle", for: .normal)
-        button.backgroundColor = .systemGray
+        button.setTitleColor(.white, for: .highlighted)
         button.layer.cornerRadius = 8
         button.titleLabel?.font = Fonts.generalFont
         return button
@@ -201,7 +199,6 @@ class InComeEntryPickerView: UIView {
         updateButton.snp.makeConstraints { make in
             make.top.equalTo(monthLabel.snp.bottom).offset(50)
             make.centerX.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
         

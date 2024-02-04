@@ -11,13 +11,10 @@ import UIKit
 enum Colors{
     
     static let colors: [UIColor] = [
-        UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1.0),
-        UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0),
-        UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0),
-        UIColor(red: 0.41, green: 0.41, blue: 0.41, alpha: 1.0),
-        UIColor(red: 0.44, green: 0.5, blue: 0.56, alpha: 1.0),
-        UIColor(red: 0.47, green: 0.53, blue: 0.6, alpha: 1.0),
-        UIColor(red: 0.18, green: 0.31, blue: 0.31, alpha: 1.0)
+        UIColor(red: 173/255.0, green: 216/255.0, blue: 230/255.0, alpha: 1.0),
+        UIColor(red: 135/255.0, green: 206/255.0, blue: 250/255.0, alpha: 1.0),
+        UIColor(red: 173/255.0, green: 216/255.0, blue: 230/255.0, alpha: 1.0),
+        UIColor(red: 173/255.0, green: 216/255.0, blue: 230/255.0, alpha: 1.0)
     ]
     
     static let lightRed: CGFloat = 251.0 / 255.0
@@ -36,13 +33,13 @@ enum Colors{
     static let pieGreen: CGFloat = 77.0 / 255.0
     static let pieBlue: CGFloat = 77.0 / 255.0
     
-    static let buttonRed: CGFloat = 234.0 / 255.0
-    static let buttonGreen: CGFloat = 197.0 / 255.0
-    static let buttonBlue: CGFloat = 69.0 / 255.0
+    static let buttonRed: CGFloat = 255.0 / 255.0
+    static let buttonGreen: CGFloat = 255.0 / 255.0
+    static let buttonBlue: CGFloat = 255.0 / 255.0
     
-    static let tryRed: CGFloat = 164.0 / 255.0
-    static let tryGreen: CGFloat = 183.0 / 255.0
-    static let tryBlue: CGFloat = 158.0 / 255.0
+    static let tryRed: CGFloat = 26.0 / 255.0
+    static let tryGreen: CGFloat = 59.0 / 255.0
+    static let tryBlue: CGFloat = 91.0 / 255.0
     
     static let tryRed2: CGFloat = 168.0 / 255.0
     static let tryGreen2: CGFloat = 143.0 / 255.0
@@ -56,9 +53,6 @@ enum Colors{
     static let buttonColor = UIColor(red: buttonRed, green: buttonGreen, blue: buttonBlue, alpha: 1)
     static let tryColor = UIColor(red: tryRed, green: tryGreen, blue: tryBlue, alpha: 1)
     static let tryColor2 = UIColor(red: tryRed2, green: tryGreen2, blue: tryBlue2, alpha: 1)
-    
-  
-
 }
 
 
