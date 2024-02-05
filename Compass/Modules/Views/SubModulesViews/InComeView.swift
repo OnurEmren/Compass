@@ -106,7 +106,7 @@ class InComeView: UIView {
         return button
     }()
     
-    private var inComeTableView: UITableView!
+    var inComeTableView: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

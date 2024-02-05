@@ -21,26 +21,16 @@ class InComeViewModel {
     func fetchDataFromCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "InComeEntry")
-        
+        let fetchRequest = NSFetchRequest<InComeEntry>(entityName: "InComeEntry")
+
         do {
-            let fetchedData = try context.fetch(fetchRequest) as! [InComeEntry]
-            var totalWage = 0.0
-            var totalSideIncome = 0.0
-
-            for entry in fetchedData {
-                let salary = entry.wage
-                let sideInCome = entry.sideInCome
-
-                totalWage += salary
-                totalSideIncome += sideInCome
-            }
-
+            let fetchedData = try context.fetch(fetchRequest)
             delegate?.didFetchedInComeData(inComeData: fetchedData)
         } catch {
             print("Veri çekme hatası: \(error)")
         }
     }
+
     
     func deleteLastIncomeEntry() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

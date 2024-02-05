@@ -12,12 +12,12 @@ import DGCharts
 import CoreData
 
 class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, InComeViewModelDelegate {
-  
+    
     var coordinator: Coordinator?
     private var inComeView = InComeView()
     private var inComeViewModel = InComeViewModel()
     private var fetchedInComeData: [InComeEntry] = []
-
+    
     //MARK: - Lifecycles
     
     override func viewDidLoad() {
@@ -78,6 +78,13 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
     func didFetchedInComeData(inComeData: [InComeEntry]) {
         self.setupChart(with: inComeData)
         self.fetchedInComeData = inComeData
+        
+        inComeView.inComeTableView.reloadData()
+        
+        // Eğer veri varsa, en son ekleneni göster
+        if let lastEntry = inComeData.last {
+            inComeView.setupInComeChartView(with: [lastEntry])
+        }
     }
     
     private func setupChart(with data: [InComeEntry]) {
