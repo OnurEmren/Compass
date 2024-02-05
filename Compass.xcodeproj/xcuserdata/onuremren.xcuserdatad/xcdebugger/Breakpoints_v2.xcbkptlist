@@ -2283,5 +2283,180 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "740159D4-0F91-4E49-847C-6A6A8F8FC2BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "649A8240-0811-4433-B680-03EF1E54171F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "updateView(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "649A8240-0811-4433-B680-03EF1E54171F - c29964f9d4667ad8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.InComeViewController.updateView(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "649A8240-0811-4433-B680-03EF1E54171F - c29964f9d4667af9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.InComeViewController.updateView(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "649A8240-0811-4433-B680-03EF1E54171F - c29964f9d4667af9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.InComeViewController.updateView(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E4C309D-8861-4CC7-9FC3-A376A9B7471B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "updateView(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E4C309D-8861-4CC7-9FC3-A376A9B7471B - c29964f9d4667af9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.InComeViewController.updateView(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "8E4C309D-8861-4CC7-9FC3-A376A9B7471B - c29964f9d4667a9e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.InComeViewController.updateView(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7728B781-7A10-4529-9C13-8316F3C8FAF0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "updateView(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7728B781-7A10-4529-9C13-8316F3C8FAF0 - c29964f9d4667abf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.InComeViewController.updateView(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "7728B781-7A10-4529-9C13-8316F3C8FAF0 - c29964f9d4667abf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.InComeViewController.updateView(with: Swift.Array&lt;Compass.InComeEntry&gt;) -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/InComeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

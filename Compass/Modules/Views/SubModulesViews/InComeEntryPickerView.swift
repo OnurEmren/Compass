@@ -43,7 +43,15 @@ class InComeEntryPickerView: UIView {
     
     private let incomeTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Maaşınızı girin"
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Maaşım",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.textColor = .white
+        textField.borderStyle = .roundedRect
+        textField.layer.cornerRadius = 10
+        textField.layer.masksToBounds = true
+        textField.textAlignment = .center
+        textField.backgroundColor = .clear
         textField.layer.borderWidth = 0.7
         textField.layer.borderColor = UIColor.white.cgColor
         textField.keyboardType = .numberPad
@@ -53,10 +61,18 @@ class InComeEntryPickerView: UIView {
     
     private let sideIncomeTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Yan Gelirinizi girin"
-        textField.keyboardType = .numberPad
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Yan Gelirlerim",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.textColor = .white
+        textField.borderStyle = .roundedRect
+        textField.layer.cornerRadius = 10
+        textField.layer.masksToBounds = true
+        textField.textAlignment = .center
+        textField.backgroundColor = .clear
         textField.layer.borderWidth = 0.7
         textField.layer.borderColor = UIColor.white.cgColor
+        textField.keyboardType = .numberPad
         textField.font = Fonts.generalFont
         return textField
     }()

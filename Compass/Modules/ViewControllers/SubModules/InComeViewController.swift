@@ -28,7 +28,20 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
         inComeViewModel.delegate = self
         setupNavigationView()
         setupViews()
+        loadAttendanceRecords()
         inComeView.incomeDistributionChart.delegate = self
+    }
+    
+    func loadAttendanceRecords() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest: NSFetchRequest<InComeEntry> = InComeEntry.fetchRequest()
+        do {
+            let records = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+            inComeViewModel.delegate?.didFetchedInComeData(inComeData: records)
+            updateView(with: records)
+        } catch {
+            print("Error fetching attendance records: \(error.localizedDescription)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +82,11 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
     
     private func setupChart(with data: [InComeEntry]) {
         inComeView.setupInComeChartView(with: data)
+    }
+    
+    private func updateView(with records: [InComeEntry]) {
+        inComeView.updateAttendanceRecords(records)
+        inComeViewModel.fetchDataFromCoreData()
     }
     
     //MARK: - @objc Methods
