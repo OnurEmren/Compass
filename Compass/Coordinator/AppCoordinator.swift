@@ -71,7 +71,7 @@ class AppCoordinator: Coordinator {
     
     func showOnboarding() {
         UserDefaults.standard.set(true, forKey: "onboardingShown")
-        let onboardingVC = ManageOnBoardingViewController()
+        let onboardingVC = OnBoardingVC()
         onboardingVC.coordinator = self
         navigationController?.pushViewController(onboardingVC, animated: false)
     }

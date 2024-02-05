@@ -44,8 +44,8 @@ class InComeEntryPickerView: UIView {
     private let incomeTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Maaşınızı girin"
-        textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor.white
+        textField.layer.borderWidth = 0.7
+        textField.layer.borderColor = UIColor.white.cgColor
         textField.keyboardType = .numberPad
         textField.font = Fonts.generalFont
         return textField
@@ -54,9 +54,9 @@ class InComeEntryPickerView: UIView {
     private let sideIncomeTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Yan Gelirinizi girin"
-        textField.borderStyle = .roundedRect
-        textField.backgroundColor = UIColor.white
         textField.keyboardType = .numberPad
+        textField.layer.borderWidth = 0.7
+        textField.layer.borderColor = UIColor.white.cgColor
         textField.font = Fonts.generalFont
         return textField
     }()
@@ -70,8 +70,7 @@ class InComeEntryPickerView: UIView {
         label.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .black
-        label.backgroundColor = Colors.lightThemeColor
+        label.textColor = .white
         label.isUserInteractionEnabled = true
         label.font = Fonts.generalFont
         return label
@@ -85,8 +84,7 @@ class InComeEntryPickerView: UIView {
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .black
+        label.textColor = .white
         label.isUserInteractionEnabled = true
         label.font = Fonts.generalFont
         return label

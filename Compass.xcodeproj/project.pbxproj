@@ -26,6 +26,7 @@
 		467111C72B7144C90030AE1A /* ReceiVablesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467111C62B7144C90030AE1A /* ReceiVablesListViewController.swift */; };
 		467111C92B7145B60030AE1A /* ReceivablesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467111C82B7145B60030AE1A /* ReceivablesListView.swift */; };
 		467111CB2B7146530030AE1A /* ReceivablesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467111CA2B7146530030AE1A /* ReceivablesListViewModel.swift */; };
+		467111CD2B7151450030AE1A /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467111CC2B7151450030AE1A /* OnBoardingVC.swift */; };
 		4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678BBE32B61C4DC00333CF1 /* Strings.swift */; };
 		467E75992B6DA8A500162E0D /* ReceivablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */; };
 		4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B8E42B66B44A0021D591 /* GeneralExpense.swift */; };
@@ -49,15 +50,8 @@
 		46F2DD172B582612008792D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F2DD152B582612008792D0 /* LaunchScreen.storyboard */; };
 		46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD242B582741008792D0 /* AppCoordinator.swift */; };
 		46F2DD282B5827B4008792D0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD272B5827B4008792D0 /* Coordinator.swift */; };
-		46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD2F2B582A0B008792D0 /* ManageOnBoardingViewController.swift */; };
 		46F2DD322B582A33008792D0 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD312B582A33008792D0 /* Colors.swift */; };
-		46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD332B582C0B008792D0 /* OnBoardingViewController1.swift */; };
-		46F2DD362B582C17008792D0 /* OnBoardingViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD352B582C17008792D0 /* OnBoardingViewController2.swift */; };
-		46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD372B582C58008792D0 /* OnBoardingViewController3.swift */; };
-		46F2DD3A2B582C87008792D0 /* OnBoardingElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD392B582C87008792D0 /* OnBoardingElements.swift */; };
 		46F2DD3C2B582C98008792D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3B2B582C98008792D0 /* Constants.swift */; };
-		46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */; };
-		46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */; };
 		46F34BDE2B6A815200C9F570 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F34BDD2B6A815200C9F570 /* ExpenseViewModel.swift */; };
 		46FA24502B5B1A9000D2ACBE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA244F2B5B1A9000D2ACBE /* Fonts.swift */; };
 		46FC99A62B5C683C0064A1F0 /* InComeEntryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */; };
@@ -84,6 +78,7 @@
 		467111C62B7144C90030AE1A /* ReceiVablesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiVablesListViewController.swift; sourceTree = "<group>"; };
 		467111C82B7145B60030AE1A /* ReceivablesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivablesListView.swift; sourceTree = "<group>"; };
 		467111CA2B7146530030AE1A /* ReceivablesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivablesListViewModel.swift; sourceTree = "<group>"; };
+		467111CC2B7151450030AE1A /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
 		4678BBE32B61C4DC00333CF1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivablesViewController.swift; sourceTree = "<group>"; };
 		4697B8E42B66B44A0021D591 /* GeneralExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpense.swift; sourceTree = "<group>"; };
@@ -109,15 +104,8 @@
 		46F2DD182B582612008792D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46F2DD242B582741008792D0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		46F2DD272B5827B4008792D0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		46F2DD2F2B582A0B008792D0 /* ManageOnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageOnBoardingViewController.swift; sourceTree = "<group>"; };
 		46F2DD312B582A33008792D0 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		46F2DD332B582C0B008792D0 /* OnBoardingViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController1.swift; sourceTree = "<group>"; };
-		46F2DD352B582C17008792D0 /* OnBoardingViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController2.swift; sourceTree = "<group>"; };
-		46F2DD372B582C58008792D0 /* OnBoardingViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController3.swift; sourceTree = "<group>"; };
-		46F2DD392B582C87008792D0 /* OnBoardingElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingElements.swift; sourceTree = "<group>"; };
 		46F2DD3B2B582C98008792D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController4.swift; sourceTree = "<group>"; };
-		46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController5.swift; sourceTree = "<group>"; };
 		46F34BDD2B6A815200C9F570 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		46FA244F2B5B1A9000D2ACBE /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryPickerView.swift; sourceTree = "<group>"; };
@@ -293,13 +281,7 @@
 		46F2DD2E2B582998008792D0 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				46F2DD2F2B582A0B008792D0 /* ManageOnBoardingViewController.swift */,
-				46F2DD332B582C0B008792D0 /* OnBoardingViewController1.swift */,
-				46F2DD352B582C17008792D0 /* OnBoardingViewController2.swift */,
-				46F2DD372B582C58008792D0 /* OnBoardingViewController3.swift */,
-				46F2DD3D2B582E15008792D0 /* OnBoardingViewController4.swift */,
-				46F2DD3F2B582E2E008792D0 /* OnBoardingViewController5.swift */,
-				46F2DD392B582C87008792D0 /* OnBoardingElements.swift */,
+				467111CC2B7151450030AE1A /* OnBoardingVC.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -397,10 +379,8 @@
 			files = (
 				469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */,
 				460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */,
-				46F2DD302B582A0B008792D0 /* ManageOnBoardingViewController.swift in Sources */,
 				46B42F122B69A22D000E976C /* TryViewController.swift in Sources */,
 				46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */,
-				46F2DD342B582C0B008792D0 /* OnBoardingViewController1.swift in Sources */,
 				46051FEF2B66F3F700C614D2 /* ExpenseView.swift in Sources */,
 				46F2DD322B582A33008792D0 /* Colors.swift in Sources */,
 				46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */,
@@ -412,10 +392,9 @@
 				460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */,
 				460D1D882B64399A00DA3E02 /* InvestmentViewModel.swift in Sources */,
 				46FC99AC2B5C91E60064A1F0 /* ExpenseEntryView.swift in Sources */,
-				46F2DD3E2B582E15008792D0 /* OnBoardingViewController4.swift in Sources */,
+				467111CD2B7151450030AE1A /* OnBoardingVC.swift in Sources */,
 				46FC99AA2B5C904F0064A1F0 /* ExpenseEntryViewController.swift in Sources */,
 				46B8561B2B6EECDD004F5E56 /* ReceivablesView.swift in Sources */,
-				46F2DD362B582C17008792D0 /* OnBoardingViewController2.swift in Sources */,
 				46FC99A62B5C683C0064A1F0 /* InComeEntryPickerView.swift in Sources */,
 				46F2DD0F2B582610008792D0 /* HomeViewController.swift in Sources */,
 				46A4BD1D2B6599AB009FF7B0 /* HomeViewModel.swift in Sources */,
@@ -436,15 +415,12 @@
 				46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */,
 				460D1D8E2B64526500DA3E02 /* InvestmentListViewModel.swift in Sources */,
 				460D1D8C2B6451C400DA3E02 /* InvestmentListView.swift in Sources */,
-				46F2DD402B582E2E008792D0 /* OnBoardingViewController5.swift in Sources */,
 				46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */,
 				46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */,
-				46F2DD382B582C58008792D0 /* OnBoardingViewController3.swift in Sources */,
 				469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */,
 				4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */,
 				467E75992B6DA8A500162E0D /* ReceivablesViewController.swift in Sources */,
 				467111C72B7144C90030AE1A /* ReceiVablesListViewController.swift in Sources */,
-				46F2DD3A2B582C87008792D0 /* OnBoardingElements.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
