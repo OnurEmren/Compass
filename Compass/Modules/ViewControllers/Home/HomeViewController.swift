@@ -101,7 +101,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         let expenseData = homeViewModel.fetchExpenseData()
         let generalExpenseData = homeViewModel.fetchGeneralExpenseData()
         let investmentData = homeViewModel.fetchInvestmentData()
-        
+        let receivablesData = homeViewModel.fetchReceivablesData()
         
         let totalIncome = inComeData.reduce(0) { (result, entry) in
             return result + entry.wage + entry.sideInCome
@@ -124,7 +124,11 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             return result + entry.investmentAmount
         }
         
-        let overallStatus = (totalIncome - totalExpense) + totalInvestment
+        let totalReceivables = receivablesData.reduce(0) {(result, entry) in
+            return result + entry.receivablesAmount
+        }
+        
+        let overallStatus = (totalIncome - totalExpense) + totalInvestment + totalReceivables
         
         switch title {
         case "Gelir":
@@ -137,7 +141,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             cell.configureInvestmentLabel(with: title, backgroundColor: color, overallStatus: totalInvestment)
             
         case "Alacaklarım":
-            cell.configureReceivablesLabel(with: title, backgroundColor: color, overallStatus: overallStatus)
+            cell.configureReceivablesLabel(with: title, backgroundColor: color, overallStatus: totalReceivables)
             
         case "Genel Durum":
             let overallStatus = overallStatus

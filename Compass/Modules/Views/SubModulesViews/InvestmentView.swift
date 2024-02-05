@@ -21,7 +21,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     private lazy var datePicker = UIDatePicker()
     private var purchasePriceTextField = UITextField()
     private var investmentTypeTextField = UITextField()
-    private var investmentDate = UITextField()
+    private var investmentDateTextField = UITextField()
     private var pieceTextField = UITextField()
     private var titleLabel = UILabel()
     private var saveButton = UIButton()
@@ -59,7 +59,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     
     private func setupView() {
         addSubview(investmentTypeTextField)
-        addSubview(investmentDate)
+        addSubview(investmentDateTextField)
         addSubview(purchasePriceTextField)
         addSubview(pieceTextField)
         addSubview(saveButton)
@@ -77,7 +77,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
             make.trailing.equalToSuperview().offset(-20)
         }
         
-        investmentDate.snp.makeConstraints { make in
+        investmentDateTextField.snp.makeConstraints { make in
             make.top.equalTo(investmentTypeTextField.snp.top).offset(60)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
@@ -85,7 +85,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         }
         
         purchasePriceTextField.snp.makeConstraints { make in
-            make.top.equalTo(investmentDate.snp.top).offset(60)
+            make.top.equalTo(investmentDateTextField.snp.top).offset(60)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
@@ -106,18 +106,18 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
         }
                 
         //InvestmentDateTextField Settings
-        investmentDate.attributedPlaceholder = NSAttributedString(
+        investmentDateTextField.attributedPlaceholder = NSAttributedString(
             string: "Yatırım yaptığınız tarihi giriniz",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        investmentDate.inputView = datePicker
-        investmentDate.layer.borderWidth = 0.7
-        investmentDate.layer.borderColor = UIColor.white.cgColor
-        investmentDate.layer.cornerRadius = 10
-        investmentDate.layer.masksToBounds = true
-        investmentDate.textColor = .white
-        investmentDate.textAlignment = .center
-        investmentDate.inputView = datePicker
+        investmentDateTextField.inputView = datePicker
+        investmentDateTextField.layer.borderWidth = 0.7
+        investmentDateTextField.layer.borderColor = UIColor.white.cgColor
+        investmentDateTextField.layer.cornerRadius = 10
+        investmentDateTextField.layer.masksToBounds = true
+        investmentDateTextField.textColor = .white
+        investmentDateTextField.textAlignment = .center
+        investmentDateTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         datePicker.setDatePickerView(datePicker)
         
@@ -172,7 +172,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     func saveButtonTapped() {
         guard let investmentType = investmentTypeTextField.text,
               
-              let date = investmentDate.text,
+              let date = investmentDateTextField.text,
               let piece = pieceTextField.text,
               let purchase = purchasePriceTextField.text
         else {
@@ -208,7 +208,7 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     public func datePickerValueChanged() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        investmentDate.text = dateFormatter.string(from: datePicker.date)
+        investmentDateTextField.text = dateFormatter.string(from: datePicker.date)
     }
     
     // MARK: - UIPickerViewDataSource

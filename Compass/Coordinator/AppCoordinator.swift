@@ -50,7 +50,11 @@ class AppCoordinator: Coordinator {
             generalVC.coordinator = self
             navigationController?.pushViewController(generalVC, animated: true)
             
-      
+        case .goToReceivablesEntryVC:
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let viewModel = ReceivablesViewModel(context:context)
+            let receivablesEntryVC = ReceivablesViewController(viewModel: viewModel)
+            navigationController?.pushViewController(receivablesEntryVC, animated: true)
         }
     }
     
@@ -94,9 +98,9 @@ class AppCoordinator: Coordinator {
             investmentVC.coordinator = self
             navigationController?.pushViewController(investmentVC, animated: true)
         case 3:
-            let receivablesVC = ReceivablesViewController()
-            receivablesVC.coordinator = self
-            navigationController?.pushViewController(receivablesVC, animated: true)
+            let receivablesListVC = ReceiVablesListViewController()
+            receivablesListVC.coordinator = self
+            navigationController?.pushViewController(receivablesListVC, animated: true)
         default:
             break
         }

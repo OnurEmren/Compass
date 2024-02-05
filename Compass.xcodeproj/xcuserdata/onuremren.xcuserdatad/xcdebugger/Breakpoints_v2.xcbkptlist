@@ -126,8 +126,8 @@
             filePath = "Compass/Coordinator/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "showDetailViewController(for:)"
             landmarkType = "7">
             <Locations>
@@ -174,8 +174,8 @@
             filePath = "Compass/Coordinator/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "showDetailViewController(for:)"
             landmarkType = "7">
             <Locations>
@@ -222,8 +222,8 @@
             filePath = "Compass/Coordinator/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "showDetailViewController(for:)"
             landmarkType = "7">
             <Locations>
@@ -270,8 +270,8 @@
             filePath = "Compass/Coordinator/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "showOnboarding()"
             landmarkType = "7">
             <Locations>
@@ -509,10 +509,10 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
-            landmarkType = "7">
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "ExpenseEntryViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "D6CF5D7E-0160-448C-94A5-48B4F21ACD12 - 2ae720b4f711c33a"
@@ -595,102 +595,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A789F01D-7DF6-49BA-904B-D25FA986FD6B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A789F01D-7DF6-49BA-904B-D25FA986FD6B - 2ae720b4f711bc73"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "2424">
-               </Location>
-               <Location
-                  uuid = "A789F01D-7DF6-49BA-904B-D25FA986FD6B - b44f7f86b111b8f8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;, month: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "2480">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8AD035AD-54EA-41BD-AAE5-E05E7D75B7C9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8AD035AD-54EA-41BD-AAE5-E05E7D75B7C9 - 34ec78fd2c2ea5ba"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didSelectIncomeType(Swift.String) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "8AD035AD-54EA-41BD-AAE5-E05E7D75B7C9 - b44f7f86b111bb3a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;, month: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "2968">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "AAAAAB0C-08C6-40DB-A922-E538F398DBE3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -698,8 +602,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
             landmarkType = "7">
             <Locations>
@@ -761,8 +665,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
             landmarkType = "7">
             <Locations>
@@ -824,8 +728,8 @@
             filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
             landmarkType = "7">
             <Locations>
@@ -880,246 +784,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8FC1812A-FF1D-4A0F-BA0F-D7C8E09238AB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8FC1812A-FF1D-4A0F-BA0F-D7C8E09238AB - 2ae720b4f711bd0a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "2112">
-               </Location>
-               <Location
-                  uuid = "8FC1812A-FF1D-4A0F-BA0F-D7C8E09238AB - b44f7f86b111b981"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;, month: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "2108">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D5415622-0C5B-49B6-BC7B-5C4A067F6974"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D5415622-0C5B-49B6-BC7B-5C4A067F6974 - 2ae720b4f711bd6b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "2144">
-               </Location>
-               <Location
-                  uuid = "D5415622-0C5B-49B6-BC7B-5C4A067F6974 - b44f7f86b111b9e0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;, month: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "2140">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7C522795-4A5D-4215-A31F-36AE1190DCC8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7C522795-4A5D-4215-A31F-36AE1190DCC8 - 2ae720b4f711bca9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "2168">
-               </Location>
-               <Location
-                  uuid = "7C522795-4A5D-4215-A31F-36AE1190DCC8 - b44f7f86b111b9c3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;, month: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "2172">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "41B379EF-D896-4181-8283-1582FE519697"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "41B379EF-D896-4181-8283-1582FE519697 - 2ae720b4f711bca9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "2168">
-               </Location>
-               <Location
-                  uuid = "41B379EF-D896-4181-8283-1582FE519697 - b44f7f86b111b822"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;, month: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "2204">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0B5EE028-43FF-4D39-9C18-DB9A25DC60AD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "didTapSaveButton(clothesExpenseText:electronicExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:transportText:month:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0B5EE028-43FF-4D39-9C18-DB9A25DC60AD - 2ae720b4f711bc8e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "2284">
-               </Location>
-               <Location
-                  uuid = "0B5EE028-43FF-4D39-9C18-DB9A25DC60AD - b44f7f86b111b805"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Compass.ExpenseEntryViewController.didTapSaveButton(clothesExpenseText: Swift.Optional&lt;Swift.String&gt;, electronicExpenseText: Swift.Optional&lt;Swift.String&gt;, fuelExpenseText: Swift.Optional&lt;Swift.String&gt;, foodExpenseText: Swift.Optional&lt;Swift.String&gt;, rentExpenseText: Swift.Optional&lt;Swift.String&gt;, taxExpenseText: Swift.Optional&lt;Swift.String&gt;, month: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "Compass"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/ViewControllers/SubModules/ExpenseEntryViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "2236">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C3E45D3F-21E6-4CFC-8293-09B67C097DD6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1127,8 +791,8 @@
             filePath = "Compass/Modules/ViewModel/InvestmentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "saveInvestments(invesmentType:amount:selectedDate:purchase:piece:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1143,8 +807,8 @@
             filePath = "Compass/Modules/ViewModel/InvestmentViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "saveInvestments(invesmentType:amount:selectedDate:purchase:piece:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2169,6 +1833,454 @@
             endingLineNumber = "80"
             landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "383DA3F4-B444-406E-A8E5-0ED669FBA69C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ReceivablesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "didTapSaveButton(receivablesAmountTextField:dateTextField:personTextField:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11DA3E19-CA37-49E8-80D6-863E8C99ABE7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ReceivablesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "didTapSaveButton(receivablesAmountTextField:dateTextField:personTextField:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "662FAD51-8C06-4FFF-ADB4-711E6C489E33"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ReceivablesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "didTapSaveButton(receivablesAmountTextField:dateTextField:personTextField:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "828B6D1A-2F56-4D5A-8ED4-6862484AF919"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/ViewControllers/SubModules/ReceivablesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "didTapSaveButton(receivablesAmountTextField:dateTextField:personTextField:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "488DE774-8A8D-484C-B82A-A699C1F9DBC5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "saveButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "488DE774-8A8D-484C-B82A-A699C1F9DBC5 - 565079e72d5f757f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "488DE774-8A8D-484C-B82A-A699C1F9DBC5 - 565079e72d5f757f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "292EE7C1-34CE-4F77-A989-BD869125DEE8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "saveButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "292EE7C1-34CE-4F77-A989-BD869125DEE8 - 565079e72d5f755e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "460">
+               </Location>
+               <Location
+                  uuid = "292EE7C1-34CE-4F77-A989-BD869125DEE8 - 565079e72d5f755e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "300">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F57B854A-598A-4486-8AC4-B85ADCCF86F1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "saveButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F57B854A-598A-4486-8AC4-B85ADCCF86F1 - 565079e72d5f7539"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "800">
+               </Location>
+               <Location
+                  uuid = "F57B854A-598A-4486-8AC4-B85ADCCF86F1 - 565079e72d5f7539"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "536">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "784CE2D9-5ECC-4E5E-A596-4544F888ABC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "saveButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "784CE2D9-5ECC-4E5E-A596-4544F888ABC9 - 565079e72d5f7647"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+               <Location
+                  uuid = "784CE2D9-5ECC-4E5E-A596-4544F888ABC9 - 565079e72d5f7664"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "780">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14F095A2-B782-4952-9993-7CEDF1FC41EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "saveButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "14F095A2-B782-4952-9993-7CEDF1FC41EB - 565079e72d5f7647"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+               <Location
+                  uuid = "14F095A2-B782-4952-9993-7CEDF1FC41EB - 565079e72d5f7647"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "792">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A617519-CB53-4617-87E1-3A975EC2C24A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "saveButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9A617519-CB53-4617-87E1-3A975EC2C24A - 565079e72d5f7626"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "1208">
+               </Location>
+               <Location
+                  uuid = "9A617519-CB53-4617-87E1-3A975EC2C24A - 565079e72d5f7626"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "952">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0B55532-8742-4C59-B5CA-2681173D4D28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "saveButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A0B55532-8742-4C59-B5CA-2681173D4D28 - 565079e72d5f76e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "1300">
+               </Location>
+               <Location
+                  uuid = "A0B55532-8742-4C59-B5CA-2681173D4D28 - 565079e72d5f7601"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "1116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC157666-6C99-4B49-9D9B-47AB210A1587"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "saveButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FC157666-6C99-4B49-9D9B-47AB210A1587 - 565079e72d5f75fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "2992">
+               </Location>
+               <Location
+                  uuid = "FC157666-6C99-4B49-9D9B-47AB210A1587 - 565079e72d5f75fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "1432">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

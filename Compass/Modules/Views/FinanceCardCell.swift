@@ -178,7 +178,7 @@ class FinanceCardCell: UICollectionViewCell {
     }
     
     func configureReceivablesLabel(with title: String, backgroundColor: UIColor, overallStatus: Double) {
-        receivablesLabel.text = "TEST"
+        receivablesLabel.text = title
         receivablesLabel.font = Fonts.generalFont
         receivablesLabel.textColor = .white
         self.backgroundColor = backgroundColor
@@ -190,6 +190,7 @@ class FinanceCardCell: UICollectionViewCell {
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
+        updateReceivablesLabel(with: overallStatus)
     }
     
     private func updateLabel(with overallStatus: Double) {
@@ -215,5 +216,9 @@ class FinanceCardCell: UICollectionViewCell {
     
     private func updateInvestmentLabel(with overallStatus: Double) {
         investmentLabel.text = "Yatırımlar: \(overallStatus)"
+    }
+    
+    private func updateReceivablesLabel(with overallStatus: Double) {
+        receivablesLabel.text = "Alacaklarım: \(overallStatus)"
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryViewDelegate, ExpenseTypePickerViewDelegate {
+class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryViewDelegate {
 
     var coordinator: Coordinator?
     var expenseEntryView = ExpenseEntryView()
@@ -39,8 +39,6 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
         view.addSubview(expenseEntryView)
         
         expenseEntryView.saveDelegate = self
-        expenseEntryView.delegate = self
-        //expenseEntryView.updateDelegate = self
         expenseEntryView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -87,10 +85,6 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
                 print("Veri kaydedilemedi. Hata: \(error)")
             }
         }
-    }
-    
-    func didSelectIncomeType(_ incomeType: String) {
-        //
     }
     
     @objc

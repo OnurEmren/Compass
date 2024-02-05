@@ -9,62 +9,168 @@ import Foundation
 import UIKit
 import CoreData
 
-class ReceivablesView: UIView, UITextFieldDelegate {
+
+protocol ReceivablesViewDelegate: AnyObject {
+    func didTapSaveButton(receivablesAmountTextField: String?,
+                          dateTextField: String?,
+                          personTextField: String?
+    )
+}
+
+class ReceivablesView: UIView {
     
+    private var viewModel: ReceivablesViewModel
     private var receivablesAmountTextfield: UITextField = {
-        let textfield = UITextField()
-        textfield.text = "Alacaklı olduğunuz miktarı giriniz."
-        textfield.textColor = .black
-        textfield.backgroundColor = .white
-        return textfield
+        let textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Alacaklı olduğum miktar",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+        )
+        textField.layer.cornerRadius = 10
+        textField.layer.borderWidth = 0.7
+        textField.layer.masksToBounds = true
+        textField.textColor = .white
+        textField.font = Fonts.generalFont
+        textField.textAlignment = .center
+        textField.layer.borderColor = UIColor.white.cgColor
+        return textField
     }()
     
     private var dateTextfield: UITextField = {
         let textField = UITextField()
-        textField.text = "Ödemeyi alacağınız tarih"
-        textField.textColor = .black
-        textField.backgroundColor = .white
-        return textField
-    }()
-    
-    private var person: UITextField = {
-        let textField = UITextField()
-        textField.text = "Ödeme Alacağınız Kişi"
-        textField.backgroundColor = .black
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Ödeme alacağım tarih",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+        )
+        textField.layer.cornerRadius = 10
+        textField.layer.borderWidth = 0.7
+        textField.layer.masksToBounds = true
         textField.textColor = .white
+        textField.font = Fonts.generalFont
         textField.textAlignment = .center
+        textField.layer.borderColor = UIColor.white.cgColor
         return textField
     }()
     
-    private var datePickerView = UIPickerView()
+    private let personTextfield: UITextField = {
+        let textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "Borçlu kişi ya da kurum",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
+        )
+        textField.layer.cornerRadius = 10
+        textField.layer.borderWidth = 0.7
+        textField.layer.masksToBounds = true
+        textField.textColor = .white
+        textField.font = Fonts.generalFont
+        textField.textAlignment = .center
+        textField.layer.borderColor = UIColor.white.cgColor
+        return textField
+    }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    private var imageView: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "spiral"))
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        return image
+    }()
+    
+    private var datePickerView = UIDatePicker()
+    weak var saveDelegate: ReceivablesViewDelegate?
+    
+    init(viewModel: ReceivablesViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
         setupView()
+        setGestureRecognizer()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Private Methods
+    
+    private func setGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    //MARK: - Handle Methods
+    
+    @objc
+    private func handleTap() {
+        self.endEditing(true)
+    }
+    
+    //MARK: - Setup View
     
     private func setupView() {
+        insertSubview(imageView, at: 0)
+        addSubview(personTextfield)
         addSubview(receivablesAmountTextfield)
         addSubview(dateTextfield)
         
-        receivablesAmountTextfield.delegate = self
-        dateTextfield.delegate = self
-        
         dateTextfield.inputView = datePickerView
+        datePickerView.setDate(datePickerView)
         
-        receivablesAmountTextfield.snp.makeConstraints { make in
+        personTextfield.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(60)
             make.trailing.leading.equalToSuperview().inset(20)
-            make.height.equalTo(40)
+            make.height.equalTo(50)
         }
         
+        receivablesAmountTextfield.snp.makeConstraints { make in
+            make.top.equalTo(personTextfield.snp.top).offset(60)
+            make.trailing.leading.equalToSuperview().inset(20)
+            make.height.equalTo(50)
+        }
         
+        dateTextfield.snp.makeConstraints { make in
+            make.top.equalTo(receivablesAmountTextfield.snp.top).offset(60)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(50)
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        datePickerView.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+
     }
     
+    @objc
+    public func datePickerValueChanged() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateTextfield.text = dateFormatter.string(from: datePickerView.date)
+    }
+    
+    @objc
+    func saveButtonTapped() {
+        guard let person = personTextfield.text,
+              let date = dateTextfield.text,
+              let receivables = receivablesAmountTextfield.text
+        else {
+            return
+        }
+                
+        viewModel.saveReceiVables(
+            receivablesAmountTextField: receivablesAmountTextfield.text,
+            dateTextField: dateTextfield.text,
+            personTextField: personTextfield.text)
+        showToastInvestment(message: "Kayıt Başarılı")
+    }
+}
+
+//MARK: - Extensions
+
+extension UIDatePicker {
+    func setDate(_ datePicker: UIDatePicker) {
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.tintColor = .brown
+        datePicker.backgroundColor = Colors.beigeColor
+    }
 }

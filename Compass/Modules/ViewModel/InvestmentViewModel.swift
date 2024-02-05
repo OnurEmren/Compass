@@ -16,7 +16,12 @@ class InvestmentViewModel {
         self.context = context
     }
     
-    func saveInvestments(invesmentType: String, amount: Double, selectedDate: Date, purchase: Double, piece: Double) {
+    func saveInvestments(invesmentType: String, 
+                         amount: Double,
+                         selectedDate: Date,
+                         purchase: Double,
+                         piece: Double) {
+        
         let entity = NSEntityDescription.entity(forEntityName: "InvestmentEntry", in: context)!
         let investmentData = NSManagedObject(entity: entity, insertInto: context)
         investmentData.setValue(invesmentType, forKey: "investmentType")

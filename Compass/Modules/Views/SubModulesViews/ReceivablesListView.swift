@@ -1,18 +1,17 @@
 //
-//  InvestmentListView.swift
+//  ReceivablesListView.swift
 //  Compass
 //
-//  Created by Onur Emren on 26.01.2024.
+//  Created by Onur Emren on 5.02.2024.
 //
 
 import Foundation
 import UIKit
-import SnapKit
 
-class InvestmentListView: UIView {
+class ReceivablesListView: UIView {
     private let tableView = UITableView()
-    private var attendanceRecords: [InvestmentEntry] = []
-    private let cellIdentifier = "investmentViewCell"
+    private var attendanceRecords: [ReceivablesEntry] = []
+    private let cellIdentifier = "receivablesViewCell"
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private let imageView: UIImageView = {
@@ -51,13 +50,13 @@ class InvestmentListView: UIView {
         }
     }
     
-    func updateAttendanceRecords(_ records: [InvestmentEntry]) {
+    func updateAttendanceRecords(_ records: [ReceivablesEntry]) {
         attendanceRecords = records
         tableView.reloadData()
     }
 }
 
-extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
+extension ReceivablesListView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         attendanceRecords.count
@@ -132,18 +131,17 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
         return label
     }
     
-    private func setLabelTag(cell: UITableViewCell, record: InvestmentEntry, indexPath: IndexPath) {
+    private func setLabelTag(cell: UITableViewCell, record: ReceivablesEntry, indexPath: IndexPath) {
         //Set DateFormatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
         //Set Label Tag
         let labelConfigs: [(tag: Int, text: String)] = [
-            (1, "Yatırım Türü: \(record.investmentType ?? "")"),
-            (2, "Miktar: \(record.investmentAmount)"),
-            (3, "Tarih: \(dateFormatter.string(from: record.date!))"),
-            (4, "Toplam: \(record.purchase)"),
-            (5, "Adet: \(record.piece)")
+            (1, "Ödeme Alacağım Kişi: \(record.person ?? "")"),
+            (2, "Miktar: \(record.receivablesAmount)"),
+            (3, "Tarih: \(record.date!)")
+            
         ]
         
         var previousLabel: UIView?
@@ -155,26 +153,5 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
         //Set Color
         let colorIndex = indexPath.row % Colors.colors.count
         cell.backgroundColor = Colors.colors[colorIndex]
-    }
-}
-
-extension UIView {
-    func showToastInvestment(message: String) {
-        let toastLabel = UILabel(frame: CGRect(x: self.frame.size.width/2 - 150, y: self.frame.size.height-100, width: 300, height: 35))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.textAlignment = .center
-        toastLabel.font = UIFont.boldSystemFont(ofSize: 15)
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10
-        toastLabel.clipsToBounds  =  true
-        self.addSubview(toastLabel)
-        
-        UIView.animate(withDuration: 1.5, delay: 0.2, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
-        }, completion: { _ in
-            toastLabel.removeFromSuperview()
-        })
     }
 }

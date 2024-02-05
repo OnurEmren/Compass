@@ -58,7 +58,7 @@ class ExpenseEntryView: UIView {
     
     private let taxExpenseText: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Fatura Giderlerinizi girin"
+        textField.placeholder = "Fatura Giderlerim"
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
@@ -68,7 +68,7 @@ class ExpenseEntryView: UIView {
     
     private let foodExpenseText: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Gıda Harcamanızı girin"
+        textField.placeholder = "Gıda Harcamalarım"
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
@@ -77,7 +77,7 @@ class ExpenseEntryView: UIView {
     }()
     private let fuelExpenseText: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Akaryakıt Harcamanızı girin"
+        textField.placeholder = "Akaryakıt Harcamalarım"
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
@@ -87,7 +87,7 @@ class ExpenseEntryView: UIView {
     
     private let rentExpenseText: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Kira Giderinizi Girin"
+        textField.placeholder = "Kira Giderim"
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
@@ -97,7 +97,7 @@ class ExpenseEntryView: UIView {
     
     private let transportExpenseText: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Ulaşım"
+        textField.placeholder = "Ulaşım Giderim"
         textField.borderStyle = .roundedRect
         textField.backgroundColor = Colors.lightThemeColor
         textField.keyboardType = .numberPad
@@ -106,18 +106,18 @@ class ExpenseEntryView: UIView {
     }()
     
     private let currencyTypeLabel: UITextField = {
-        let label = UITextField()
-        label.text = "Para Birimi"
-        label.layer.borderWidth = 0.7
-        label.layer.borderColor = Colors.darkThemeColor.cgColor
-        label.layer.cornerRadius = 10
-        label.layer.masksToBounds = true
-        label.textAlignment = .center
-        label.font = Fonts.generalFont
-        label.textColor = .darkGray
-        label.backgroundColor = Colors.lightThemeColor
-        label.isUserInteractionEnabled = true
-        return label
+        let textField = UITextField()
+        textField.text = "Para Birimi"
+        textField.layer.borderWidth = 0.7
+        textField.layer.borderColor = Colors.darkThemeColor.cgColor
+        textField.layer.cornerRadius = 10
+        textField.layer.masksToBounds = true
+        textField.textAlignment = .center
+        textField.font = Fonts.generalFont
+        textField.textColor = .darkGray
+        textField.backgroundColor = Colors.lightThemeColor
+        textField.isUserInteractionEnabled = true
+        return textField
     }()
     
     
@@ -138,7 +138,7 @@ class ExpenseEntryView: UIView {
     
     private let monthLabel: UITextField = {
         let label = UITextField()
-        label.text = "Ay"
+        label.text = "Dönem:"
         label.layer.borderWidth = 0.7
         label.layer.borderColor = Colors.darkThemeColor.cgColor
         label.layer.cornerRadius = 10

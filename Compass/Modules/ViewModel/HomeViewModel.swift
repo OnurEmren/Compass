@@ -94,5 +94,18 @@ class HomeViewModel {
         return investmentEntries
     }
     
-
+    func fetchReceivablesData() -> [ReceivablesEntry] {
+        var receivablesEntries: [ReceivablesEntry] = []
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchReceivablesRequest = NSFetchRequest<ReceivablesEntry>(entityName: "ReceivablesEntry")
+        
+        do {
+            receivablesEntries = try context.fetch(fetchReceivablesRequest)
+            
+        } catch {
+            print("Yatırım verisi çekme hatası: \(error)")
+        }
+        return receivablesEntries
+    }
 }
