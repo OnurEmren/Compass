@@ -45,21 +45,17 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
     }
     
     func didTapSaveButton(clothesExpenseText: String?, 
-                          electronicExpenseText: String?,
                           fuelExpenseText: String?,
                           foodExpenseText: String?,
                           rentExpenseText: String?,
                           taxExpenseText: String?,
-                          transportText: String?,
                           month: String?
     ) {
         guard let clothesExpense = Double(clothesExpenseText ?? ""),
-              let electronicExpense = Double(electronicExpenseText ?? ""),
               let fuelExpense = Double(fuelExpenseText ?? ""),
               let foodExpense = Double(foodExpenseText ?? ""),
               let rentExpense = Double(rentExpenseText ?? ""),
               let taxExpense = Double(taxExpenseText ?? ""),
-              let transportExpense = Double(transportText ?? ""),
               let month = month
         else {
             print("Geçersiz veri")
@@ -70,12 +66,10 @@ class ExpenseEntryViewController: UIViewController, Coordinating, ExpenseEntryVi
 
         if let expenseEntity = NSEntityDescription.insertNewObject(forEntityName: "ExpenseEntry", into: context) as? ExpenseEntry {
             expenseEntity.clothesExpense = clothesExpense
-            expenseEntity.electronicExpense = electronicExpense
             expenseEntity.foodExpense = foodExpense
             expenseEntity.fuelExpense = fuelExpense
             expenseEntity.rentExpense = rentExpense
             expenseEntity.taxExpense = taxExpense
-            expenseEntity.transportExpense = transportExpense
             expenseEntity.month = month
             do {
                 try context.save()

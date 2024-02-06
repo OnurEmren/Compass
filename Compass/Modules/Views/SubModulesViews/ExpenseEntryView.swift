@@ -10,12 +10,10 @@ import UIKit
 
 protocol ExpenseEntryViewDelegate: AnyObject {
     func didTapSaveButton(clothesExpenseText: String?,
-                          electronicExpenseText: String?,
                           fuelExpenseText: String?,
                           foodExpenseText: String?,
                           rentExpenseText: String?,
                           taxExpenseText: String?,
-                          transportText: String?,
                           month: String?
     )
 }
@@ -151,16 +149,6 @@ class ExpenseEntryView: UIView {
         return label
     }()
     
-    private let updateButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Güncelle", for: .normal)
-        button.backgroundColor = Colors.tryColor
-        button.titleLabel?.font = Fonts.generalFont
-        button.tintColor = .black
-        button.layer.cornerRadius = 8
-        return button
-    }()
-    
     private let imageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "spiral"))
         image.contentMode = .scaleAspectFill
@@ -173,7 +161,6 @@ class ExpenseEntryView: UIView {
     private let currencyPickerView = UIPickerView()
     weak var delegate: ExpenseTypePickerViewDelegate?
     weak var saveDelegate: ExpenseEntryViewDelegate?
-    weak var updateDelegate: InComeUpdateViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -202,14 +189,11 @@ class ExpenseEntryView: UIView {
     private func setupViews() {
         addSubview(monthLabel)
         addSubview(clothesExpenseText)
-        addSubview(electronicExpenseText)
         addSubview(foodExpenseText)
         addSubview(fuelExpenseText)
         addSubview(rentExpenseText)
         addSubview(taxExpenseText)
-        addSubview(transportExpenseText)
         addSubview(currencyTypeLabel)
-        addSubview(updateButton)
         
         expensePickerView.dataSource = self
         expensePickerView.delegate = self
@@ -239,14 +223,8 @@ class ExpenseEntryView: UIView {
             make.height.equalTo(40)
         }
         
-        electronicExpenseText.snp.makeConstraints { make in
-            make.top.equalTo(clothesExpenseText.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(40)
-        }
-        
         foodExpenseText.snp.makeConstraints { make in
-            make.top.equalTo(electronicExpenseText.snp.bottom).offset(20)
+            make.top.equalTo(clothesExpenseText.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
@@ -269,22 +247,9 @@ class ExpenseEntryView: UIView {
             make.height.equalTo(40)
         }
         
-        transportExpenseText.snp.makeConstraints { make in
+        currencyTypeLabel.snp.makeConstraints { make in
             make.top.equalTo(taxExpenseText.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(40)
-        }
-        
-        currencyTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(transportExpenseText.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(40)
-        }
-        
-        updateButton.snp.makeConstraints { make in
-            make.top.equalTo(currencyTypeLabel.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(120)
             make.height.equalTo(40)
         }
         
@@ -292,30 +257,17 @@ class ExpenseEntryView: UIView {
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }
     
     @objc
     func saveButtonTapped() {
         saveDelegate?.didTapSaveButton(
             clothesExpenseText: clothesExpenseText.text,
-            electronicExpenseText: electronicExpenseText.text,
             fuelExpenseText: fuelExpenseText.text,
             foodExpenseText: foodExpenseText.text,
             rentExpenseText: rentExpenseText.text,
             taxExpenseText: taxExpenseText.text,
-            transportText: transportExpenseText.text,
             month: monthLabel.text
-        )
-    }
-    
-    @objc
-    private func updateButtonTapped() {
-        updateDelegate?.didTapUpdateButton(
-            inComeType: expenseTypeLabel.text ?? "",
-            newWage: clothesExpenseText.text ?? "",
-            newSideInCome: electronicExpenseText.text ?? ""
         )
     }
 }

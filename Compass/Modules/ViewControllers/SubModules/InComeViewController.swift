@@ -80,8 +80,6 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
         self.fetchedInComeData = inComeData
         
         inComeView.inComeTableView.reloadData()
-        
-        // Eğer veri varsa, en son ekleneni göster
         if let lastEntry = inComeData.last {
             inComeView.setupInComeChartView(with: [lastEntry])
         }

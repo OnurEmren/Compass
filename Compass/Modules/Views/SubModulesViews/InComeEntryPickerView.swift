@@ -16,12 +16,6 @@ protocol IncomeEntryViewDelegate: AnyObject {
                           month: String?)
 }
 
-protocol InComeUpdateViewDelegate: AnyObject {
-    func didTapUpdateButton(inComeType: String?,
-                            newWage: String,
-                            newSideInCome: String)
-}
-
 protocol IncomeTypePickerViewDelegate: AnyObject {
     func didSelectIncomeType(_ incomeType: String)
 }
@@ -29,7 +23,6 @@ protocol IncomeTypePickerViewDelegate: AnyObject {
 class InComeEntryPickerView: UIView {
     weak var delegate: IncomeTypePickerViewDelegate?
     weak var saveDelegate: IncomeEntryViewDelegate?
-    weak var updateDelegate: InComeUpdateViewDelegate?
     
     private let saveButton: UIButton = {
         let button = UIButton()
@@ -55,7 +48,7 @@ class InComeEntryPickerView: UIView {
         textField.layer.borderWidth = 0.7
         textField.layer.borderColor = UIColor.white.cgColor
         textField.keyboardType = .numberPad
-        textField.font = Fonts.generalFont
+        textField.font = UIFont.preferredFont(forTextStyle: .body)
         return textField
     }()
     
@@ -73,7 +66,7 @@ class InComeEntryPickerView: UIView {
         textField.layer.borderWidth = 0.7
         textField.layer.borderColor = UIColor.white.cgColor
         textField.keyboardType = .numberPad
-        textField.font = Fonts.generalFont
+        textField.font = UIFont.preferredFont(forTextStyle: .body)
         return textField
     }()
     
@@ -88,7 +81,7 @@ class InComeEntryPickerView: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .white
         label.isUserInteractionEnabled = true
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
     
@@ -102,7 +95,7 @@ class InComeEntryPickerView: UIView {
         label.textAlignment = .center
         label.textColor = .white
         label.isUserInteractionEnabled = true
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
     
@@ -120,17 +113,8 @@ class InComeEntryPickerView: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .black
         label.isUserInteractionEnabled = true
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
-    }()
-    
-    private let updateButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Güncelle", for: .normal)
-        button.setTitleColor(.white, for: .highlighted)
-        button.layer.cornerRadius = 8
-        button.titleLabel?.font = Fonts.generalFont
-        return button
     }()
     
     private let imageView: UIImageView = {
@@ -173,7 +157,6 @@ class InComeEntryPickerView: UIView {
         addSubview(currencyTypeLabel)
         addSubview(monthLabel)
         addSubview(saveButton)
-        addSubview(updateButton)
         addSubview(imageView)
         
         currencyPickerView.delegate = self
@@ -210,18 +193,10 @@ class InComeEntryPickerView: UIView {
             make.height.equalTo(40)
         }
         
-        updateButton.snp.makeConstraints { make in
-            make.top.equalTo(monthLabel.snp.bottom).offset(50)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(40)
-        }
-        
         insertSubview(imageView, at: 0)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        updateButton.addTarget(self, action: #selector(updateButtonTapped), for: .touchUpInside)
     }
  
     func saveButtonTapped() {
@@ -231,15 +206,6 @@ class InComeEntryPickerView: UIView {
             inComeType: inComeTypeLabel.text,
             currency: currencyTypeLabel.text,
             month: monthLabel.text
-        )
-    }
-    
-    @objc 
-    private func updateButtonTapped() {
-        updateDelegate?.didTapUpdateButton(
-            inComeType: inComeTypeLabel.text ?? "",
-            newWage: incomeTextField.text ?? "",
-            newSideInCome: sideIncomeTextField.text ?? ""
         )
     }
 }

@@ -38,13 +38,11 @@ class ExpenseViewModel {
             
             for entry in fetchedDetailData {
                 let clothesExpense = entry.clothesExpense
-                let electronicExpense = entry.electronicExpense
                 let fuelExpense = entry.fuelExpense
                 let rentExpense = entry.rentExpense
-                let transportExpense = entry.transportExpense
                 let foodExpense = entry.foodExpense
                 let taxExpense = entry.taxExpense
-                let expenseTotal = clothesExpense + electronicExpense + fuelExpense + rentExpense + transportExpense + foodExpense + taxExpense
+                let expenseTotal = clothesExpense + fuelExpense + rentExpense + foodExpense + taxExpense
                 let month = entry.month
                 self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
                 self.expenseView.monthLabel.text = month
@@ -58,27 +56,15 @@ class ExpenseViewModel {
     func fetchDataFromCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let fetchGeneralData = NSFetchRequest<NSFetchRequestResult>(entityName: "GeneralExpenseEntry")
+        let fetchGeneralData = NSFetchRequest<GeneralExpenseEntry>(entityName: "GeneralExpenseEntry")
         do {
-            let fetchedGeneralData = try context.fetch(fetchGeneralData) as! [GeneralExpenseEntry]
-            let totalIncome = fetchedGeneralData.reduce(0) { (result, entry) in
-                return result + entry.creditCardExpense + entry.rentExpense
-            }
-            self.expenseView.totalExpenseLabel.text = "Toplam Genel Gider: \(totalIncome)"
-            
-            for entry in fetchedGeneralData {
-                let rentExpense = entry.rentExpense
-                let creditCardExpense = entry.creditCardExpense
-                let expenseTotal = rentExpense + creditCardExpense
-                
-                self.expenseView.totalExpenseLabel.text = "\(expenseTotal)"
-            }
-            delegate?.didFetchGeneralData(generalData: fetchedGeneralData)
+            let fetchedData = try context.fetch(fetchGeneralData)
+            delegate?.didFetchGeneralData(generalData: fetchedData)
         } catch {
-            print("General data çekme hatası \(error)")
+            print("Veri çekme hatası: \(error)")
         }
     }
-    
+
     //MARK: - DeleteData
     
     func deleteExpenseData(entityName: String) {

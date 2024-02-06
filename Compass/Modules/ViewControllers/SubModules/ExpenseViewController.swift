@@ -37,7 +37,10 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
         view.backgroundColor = .black
         setupNavigationSettings()
         setupView()
+        loadAttendanceRecords()
         segmentedControl.selectedSegmentIndex = 0
+        expenseView.expenseTableView.isHidden = false
+        expenseView.generalExpenseTableView.isHidden = true
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .allEvents)
     }
     
@@ -45,6 +48,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
         if entityName == "GeneralExpenseEntry" {
             segmentedControl.selectedSegmentIndex = 1
             fetchGeneralData()
+            
         } else {
             segmentedControl.selectedSegmentIndex = 0
             fetchDetailData()
@@ -104,14 +108,46 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
             fetchDetailData()
             entityName = "ExpenseEntry"
             setupDetailExpenseChart(expenseData: fetchedDetailData)
+            expenseView.expenseTableView.isHidden = false
+            expenseView.generalExpenseTableView.isHidden = true
             break
         case 1:    
             fetchGeneralData()
             entityName = "GeneralExpenseEntry"
             setupCombinedChart(generalData: fetchedGeneralData)
+            expenseView.expenseTableView.isHidden = true
+            expenseView.generalExpenseTableView.isHidden = false
+            expenseView.generalExpenseTableView.reloadData()
+            loadGeneralRecords()
             break
         default:
             break
+        }
+    }
+    
+    func loadAttendanceRecords() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest: NSFetchRequest<ExpenseEntry> = ExpenseEntry.fetchRequest()
+        do {
+            let records = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+            expenseViewModel.delegate?.didFetchedDetailData(detailExpenseData: records)
+            expenseView.updateExpenseRecords(records)
+            expenseViewModel.fetchDataFromCoreData()
+        } catch {
+            print("Error fetching attendance records: \(error.localizedDescription)")
+        }
+    }
+    
+    func loadGeneralRecords() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest: NSFetchRequest<GeneralExpenseEntry> = GeneralExpenseEntry.fetchRequest()
+        do {
+            let records = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+            expenseViewModel.delegate?.didFetchGeneralData(generalData: records)
+            expenseView.updateGeneralExpenseRecords(records)
+            expenseViewModel.fetchDataFromCoreData()
+        } catch {
+            print("Error fetching attendance records: \(error.localizedDescription)")
         }
     }
     
@@ -127,6 +163,10 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
     func didFetchGeneralData(generalData: [GeneralExpenseEntry]) {
         self.setupCombinedChart(generalData: generalData)
         self.fetchedGeneralData = generalData
+        
+        if let lastEntry = generalData.last {
+            expenseView.setupCombinedChart(generalData: [lastEntry])
+        }
     }
     
     func didFetchedDetailData(detailExpenseData: [ExpenseEntry]) {
@@ -169,6 +209,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
                         UIAlertAction(title: "Evet", style: .default, handler: { _ in
                             self.expenseViewModel.deleteExpenseData(entityName: self.entityName)
                             self.expenseView.updateDetailChart()
+                            self.expenseView.expenseTableView.reloadData()
                         }),
                         UIAlertAction(title: "İptal", style: .cancel, handler: { _ in
                             //
@@ -187,6 +228,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
                         UIAlertAction(title: "Evet", style: .default, handler: { _ in
                             self.expenseViewModel.deleteExpenseData(entityName: self.entityName)
                             self.expenseView.updateGeneralChart()
+                            self.expenseView.generalExpenseTableView.reloadData()
                         }),
                         UIAlertAction(title: "İptal", style: .cancel, handler: { _ in
                             // İptal butonuna tıklandığında yapılacak işlemler

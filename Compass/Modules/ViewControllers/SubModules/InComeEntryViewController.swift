@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import CoreData
 
-class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate,InComeUpdateViewDelegate, Coordinating {
+class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate, Coordinating {
     
     var coordinator: Coordinator?
     private let incomeEntryView = InComeEntryPickerView()
@@ -47,7 +47,6 @@ class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate,InCom
         view.addSubview(incomeEntryView)
         
         incomeEntryView.saveDelegate = self
-        incomeEntryView.updateDelegate = self
         incomeEntryView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

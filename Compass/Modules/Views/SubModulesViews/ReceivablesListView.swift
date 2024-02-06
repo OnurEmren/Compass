@@ -76,7 +76,7 @@ extension ReceivablesListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 150
+            return 100
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -115,7 +115,7 @@ extension ReceivablesListView: UITableViewDelegate, UITableViewDataSource {
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
         let label = UILabel()
         label.textColor = .black
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body, compatibleWith: .current)
         cell.contentView.addSubview(label)
         
         label.snp.makeConstraints { make in
@@ -138,7 +138,7 @@ extension ReceivablesListView: UITableViewDelegate, UITableViewDataSource {
         
         //Set Label Tag
         let labelConfigs: [(tag: Int, text: String)] = [
-            (1, "Ödeme Alacağım Kişi: \(record.person ?? "")"),
+            (1, "Borçlu: \(record.person ?? "")"),
             (2, "Miktar: \(record.receivablesAmount)"),
             (3, "Tarih: \(record.date!)")
             

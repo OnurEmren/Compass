@@ -28,14 +28,14 @@ class InComeView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
     
     let incomeSourcesLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textColor = .white
         label.text = "Gelir Kaynakları:"
         return label
@@ -45,7 +45,7 @@ class InComeView: UIView {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = .white
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.text = "Dönem:"
         return label
     }()
@@ -68,14 +68,14 @@ class InComeView: UIView {
             print("Belirtilen font bulunamadı.")
         }
         textView.attributedText = attributedText
-        
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
         return textView
     }()
     
     let incomeDistributionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.text = "Gelir Dağılımı:"
         return label
     }()
@@ -93,7 +93,7 @@ class InComeView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
-        button.titleLabel?.font = Fonts.generalFont
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         return button
     }()
     
@@ -102,11 +102,17 @@ class InComeView: UIView {
         button.setTitle("Sil", for: .normal)
         button.setTitleColor(.red, for: .normal)
         button.layer.cornerRadius = 8
-        button.titleLabel?.font = Fonts.generalFont
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         return button
     }()
     
     var inComeTableView: UITableView!
+    
+    override func layoutSubviews() {
+         super.layoutSubviews()
+         self.layer.cornerRadius = 20
+         self.layer.masksToBounds = false
+     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -174,9 +180,9 @@ class InComeView: UIView {
         inComeTableView.dataSource = self
         inComeTableView.delegate = self
         inComeTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        inComeTableView.backgroundColor = .red
+        inComeTableView.backgroundColor = .clear
         inComeTableView.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.top).offset(40)
+            make.top.equalTo(addButton.snp.top).offset(45)
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(15)
         }
@@ -287,7 +293,7 @@ class InComeView: UIView {
         incomeDistributionChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeOutBack)
     }
 
-    
+    //After deleted data
     func updateChart() {
         let wageEntries: [PieChartDataEntry] = []
         let sideIncomeEntries: [PieChartDataEntry] = []
@@ -360,7 +366,7 @@ extension InComeView: UITableViewDelegate, UITableViewDataSource {
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
         let label = UILabel()
         label.textColor = .black
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         cell.contentView.addSubview(label)
         
         label.snp.makeConstraints { make in

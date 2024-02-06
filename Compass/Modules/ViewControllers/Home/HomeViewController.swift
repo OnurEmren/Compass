@@ -108,7 +108,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         }
         
         let totalDetailExpense = expenseData.reduce(0) { (result, entry) in
-            let total = entry.clothesExpense + entry.electronicExpense + entry.foodExpense + entry.fuelExpense + entry.rentExpense + entry.taxExpense + entry.transportExpense
+            let total = entry.clothesExpense + entry.foodExpense + entry.fuelExpense + entry.rentExpense + entry.taxExpense
             return result + total
         }
         
