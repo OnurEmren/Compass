@@ -191,7 +191,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         formatter.multiplier = 1.0
 
         let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
-        combinedDataSet.colors = ChartColorTemplates.material()
+        combinedDataSet.colors = ChartColorTemplates.pastel()
 
         let combinedData = PieChartData(dataSet: combinedDataSet)
         combinedData.setValueTextColor(.white)
@@ -231,7 +231,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         formatter.multiplier = 1.0
 
         let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
-        combinedDataSet.colors = ChartColorTemplates.material()
+        combinedDataSet.colors = ChartColorTemplates.pastel()
 
         let combinedData = PieChartData(dataSet: combinedDataSet)
         combinedData.setValueTextColor(.white)
@@ -276,7 +276,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return 100
+          return 80
       }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -290,7 +290,6 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
             let selectedGeneralRecord = generalExpenseRecord[indexPath.row]
             showGeneralChart(with: selectedGeneralRecord)
         }
-     
     }
     
     private func setLabelTag(cell: UITableViewCell, record: ExpenseEntry, indexPath: IndexPath) {
@@ -298,11 +297,11 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
+        let totalExpense = record.clothesExpense + record.foodExpense + record.fuelExpense + record.rentExpense + record.taxExpense
         //Set Label Tag
         let labelConfigs: [(tag: Int, text: String)] = [
-            (1, "Giyim: \(record.clothesExpense)"),
-            (2, "Yan Gelir: \(record.foodExpense)"),
-            (3, "Tarih: \(String(describing: record.month))"),
+            (1, "Toplam: \(totalExpense)"),
+            (2, "Dönem: \(String(describing: record.month ?? ""))"),
         ]
         
         var previousLabel: UIView?
@@ -311,8 +310,8 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
             previousLabel = createAndConfigureLabel(tag: config.tag, text: config.text, cell: cell, topView: previousLabel)
         }
         
-        let colorIndex = indexPath.row % Colors.colors.count
-        cell.backgroundColor = Colors.colors[colorIndex]
+   //     let colorIndex = indexPath.row % Colors.colors.count
+        cell.backgroundColor = .white
     }
     
     private func setGeneralLabelTag(cell: UITableViewCell, record: GeneralExpenseEntry, indexPath: IndexPath) {
@@ -320,11 +319,12 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
+        let totalGeneralExpense = record.creditCardExpense + record.rentExpense
+        
         //Set Label Tag
         let labelConfigs: [(tag: Int, text: String)] = [
-            (1, "Kart Borcu: \(record.creditCardExpense)"),
-            (2, "Kira Gideri: \(record.rentExpense)"),
-            (3, "Tarih: \(String(describing: record.month))"),
+            (1, "Toplam: \(totalGeneralExpense)"),
+            (2, "Dönem: \(String(describing: record.month ?? ""))"),
         ]
         
         var previousLabel: UIView?
@@ -334,8 +334,8 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
         
         //Set Color
-        let colorIndex = indexPath.row % Colors.colors.count
-        cell.backgroundColor = Colors.colors[colorIndex]
+ //       let colorIndex = indexPath.row % Colors.colors.count
+        cell.backgroundColor = .white
     }
     
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
