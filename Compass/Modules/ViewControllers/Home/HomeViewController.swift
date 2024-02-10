@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         ("Gider", UIColor.black),
         ("Yatırım", UIColor.black),
         ("Alacaklarım", UIColor.black),
+        ("Borçlarım", UIColor.black),
         ("Genel Durum", UIColor.black)
     ]
     
@@ -102,6 +103,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         let generalExpenseData = homeViewModel.fetchGeneralExpenseData()
         let investmentData = homeViewModel.fetchInvestmentData()
         let receivablesData = homeViewModel.fetchReceivablesData()
+        let deptData = homeViewModel.fetchDeptData()
         
         let totalIncome = inComeData.reduce(0) { (result, entry) in
             return result + entry.wage + entry.sideInCome
@@ -128,6 +130,10 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             return result + entry.receivablesAmount
         }
         
+        let deptExpense = deptData.reduce(0) {( result, entry) in
+            return result + entry.deptAmount
+        }
+        
         let overallStatus = (totalIncome - totalExpense) + totalInvestment + totalReceivables
         
         switch title {
@@ -142,6 +148,9 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
             
         case "Alacaklarım":
             cell.configureReceivablesLabel(with: title, backgroundColor: color, overallStatus: totalReceivables)
+            
+        case "Borçlarım":
+            cell.configureDeptLabel(with: title, backgroundColor: color, deptStatus: deptExpense)
             
         case "Genel Durum":
             let overallStatus = overallStatus

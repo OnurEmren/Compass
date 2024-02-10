@@ -29,11 +29,18 @@
 		467111CD2B7151450030AE1A /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467111CC2B7151450030AE1A /* OnBoardingVC.swift */; };
 		4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4678BBE32B61C4DC00333CF1 /* Strings.swift */; };
 		467E75992B6DA8A500162E0D /* ReceivablesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */; };
+		469555B12B77822F00E12C9B /* DeptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469555B02B77822F00E12C9B /* DeptView.swift */; };
+		469555B32B7782AF00E12C9B /* DeptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469555B22B7782AF00E12C9B /* DeptViewModel.swift */; };
+		469555B62B778BA600E12C9B /* DeptListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469555B52B778BA600E12C9B /* DeptListViewModel.swift */; };
 		4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B8E42B66B44A0021D591 /* GeneralExpense.swift */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
 		469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */; };
 		469D15C32B598F6100544E35 /* InCome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15C22B598F6100544E35 /* InCome.swift */; };
 		46A4BD1D2B6599AB009FF7B0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4BD1C2B6599AB009FF7B0 /* HomeViewModel.swift */; };
+		46A8A87E2B76B13200118562 /* DeptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8A87D2B76B13200118562 /* DeptListViewController.swift */; };
+		46A8A8802B76B20000118562 /* DebtListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8A87F2B76B20000118562 /* DebtListView.swift */; };
+		46A8A8822B76B4D000118562 /* Dept.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8A8812B76B4D000118562 /* Dept.swift */; };
+		46A8A8842B76C28900118562 /* DeptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A8A8832B76C28900118562 /* DeptViewController.swift */; };
 		46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */; };
 		46AF0ACF2B585B2A00647EA1 /* InComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */; };
 		46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */; };
@@ -81,11 +88,18 @@
 		467111CC2B7151450030AE1A /* OnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
 		4678BBE32B61C4DC00333CF1 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivablesViewController.swift; sourceTree = "<group>"; };
+		469555B02B77822F00E12C9B /* DeptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptView.swift; sourceTree = "<group>"; };
+		469555B22B7782AF00E12C9B /* DeptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptViewModel.swift; sourceTree = "<group>"; };
+		469555B52B778BA600E12C9B /* DeptListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptListViewModel.swift; sourceTree = "<group>"; };
 		4697B8E42B66B44A0021D591 /* GeneralExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpense.swift; sourceTree = "<group>"; };
 		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
 		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
 		469D15C22B598F6100544E35 /* InCome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InCome.swift; sourceTree = "<group>"; };
 		46A4BD1C2B6599AB009FF7B0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		46A8A87D2B76B13200118562 /* DeptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptListViewController.swift; sourceTree = "<group>"; };
+		46A8A87F2B76B20000118562 /* DebtListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebtListView.swift; sourceTree = "<group>"; };
+		46A8A8812B76B4D000118562 /* Dept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dept.swift; sourceTree = "<group>"; };
+		46A8A8832B76C28900118562 /* DeptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptViewController.swift; sourceTree = "<group>"; };
 		46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceCardCell.swift; sourceTree = "<group>"; };
 		46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeViewController.swift; sourceTree = "<group>"; };
 		46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
@@ -127,18 +141,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		469555B42B77884A00E12C9B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		469D15B72B5988D100544E35 /* SubModulesViews */ = {
 			isa = PBXGroup;
 			children = (
-				46051FF02B66FEAD00C614D2 /* InComeView.swift */,
 				46FC99A52B5C683C0064A1F0 /* InComeEntryPickerView.swift */,
-				46051FEE2B66F3F700C614D2 /* ExpenseView.swift */,
 				46FC99AB2B5C91E60064A1F0 /* ExpenseEntryView.swift */,
 				46BF14412B65CC7400431683 /* GeneralExpenseView.swift */,
-				460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */,
 				460D1D832B64216100DA3E02 /* InvestmentView.swift */,
 				46B8561A2B6EECDD004F5E56 /* ReceivablesView.swift */,
-				467111C82B7145B60030AE1A /* ReceivablesListView.swift */,
+				469555B02B77822F00E12C9B /* DeptView.swift */,
 			);
 			path = SubModulesViews;
 			sourceTree = "<group>";
@@ -146,16 +164,13 @@
 		46AF0ACD2B585B1900647EA1 /* SubModules */ = {
 			isa = PBXGroup;
 			children = (
-				46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */,
 				469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */,
-				46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */,
 				46FC99A92B5C904F0064A1F0 /* ExpenseEntryViewController.swift */,
 				46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */,
 				46AF0AD32B585B9700647EA1 /* InvestmentViewController.swift */,
-				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
 				46B42F112B69A22D000E976C /* TryViewController.swift */,
 				467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */,
-				467111C62B7144C90030AE1A /* ReceiVablesListViewController.swift */,
+				46A8A8832B76C28900118562 /* DeptViewController.swift */,
 			);
 			path = SubModules;
 			sourceTree = "<group>";
@@ -164,6 +179,11 @@
 			isa = PBXGroup;
 			children = (
 				46F2DD0E2B582610008792D0 /* HomeViewController.swift */,
+				46AF0ACE2B585B2A00647EA1 /* InComeViewController.swift */,
+				46AF0AD12B585B6600647EA1 /* ExpenseViewController.swift */,
+				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
+				467111C62B7144C90030AE1A /* ReceiVablesListViewController.swift */,
+				46A8A87D2B76B13200118562 /* DeptListViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -187,6 +207,7 @@
 		46F2DD092B582610008792D0 /* Compass */ = {
 			isa = PBXGroup;
 			children = (
+				469555B42B77884A00E12C9B /* Network */,
 				46F2DD2E2B582998008792D0 /* OnBoarding */,
 				46F2DD412B583125008792D0 /* Modules */,
 				46F2DD212B5826DC008792D0 /* Coordinator */,
@@ -206,6 +227,7 @@
 				460D1D852B6423E600DA3E02 /* InvestmentTypeEntry.swift */,
 				4697B8E42B66B44A0021D591 /* GeneralExpense.swift */,
 				46B856182B6EEC9B004F5E56 /* Receivables.swift */,
+				46A8A8812B76B4D000118562 /* Dept.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +236,11 @@
 			isa = PBXGroup;
 			children = (
 				46AF0ACB2B58550A00647EA1 /* FinanceCardCell.swift */,
+				46051FF02B66FEAD00C614D2 /* InComeView.swift */,
+				460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */,
+				467111C82B7145B60030AE1A /* ReceivablesListView.swift */,
+				46051FEE2B66F3F700C614D2 /* ExpenseView.swift */,
+				46A8A87F2B76B20000118562 /* DebtListView.swift */,
 				469D15B72B5988D100544E35 /* SubModulesViews */,
 			);
 			path = Views;
@@ -229,6 +256,8 @@
 				460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */,
 				467111C42B713EB30030AE1A /* ReceivablesViewModel.swift */,
 				467111CA2B7146530030AE1A /* ReceivablesListViewModel.swift */,
+				469555B22B7782AF00E12C9B /* DeptViewModel.swift */,
+				469555B52B778BA600E12C9B /* DeptListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -377,17 +406,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A8A87E2B76B13200118562 /* DeptListViewController.swift in Sources */,
 				469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */,
 				460D1D842B64216100DA3E02 /* InvestmentView.swift in Sources */,
+				46A8A8802B76B20000118562 /* DebtListView.swift in Sources */,
 				46B42F122B69A22D000E976C /* TryViewController.swift in Sources */,
+				469555B32B7782AF00E12C9B /* DeptViewModel.swift in Sources */,
 				46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */,
 				46051FEF2B66F3F700C614D2 /* ExpenseView.swift in Sources */,
 				46F2DD322B582A33008792D0 /* Colors.swift in Sources */,
 				46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */,
 				46051FED2B66F0E600C614D2 /* Extensions.swift in Sources */,
 				467111C52B713EB30030AE1A /* ReceivablesViewModel.swift in Sources */,
+				46A8A8822B76B4D000118562 /* Dept.swift in Sources */,
 				46051FF12B66FEAD00C614D2 /* InComeView.swift in Sources */,
 				4678BBE42B61C4DC00333CF1 /* Strings.swift in Sources */,
+				469555B12B77822F00E12C9B /* DeptView.swift in Sources */,
 				46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */,
 				460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */,
 				460D1D882B64399A00DA3E02 /* InvestmentViewModel.swift in Sources */,
@@ -421,6 +455,8 @@
 				4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */,
 				467E75992B6DA8A500162E0D /* ReceivablesViewController.swift in Sources */,
 				467111C72B7144C90030AE1A /* ReceiVablesListViewController.swift in Sources */,
+				469555B62B778BA600E12C9B /* DeptListViewModel.swift in Sources */,
+				46A8A8842B76C28900118562 /* DeptViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

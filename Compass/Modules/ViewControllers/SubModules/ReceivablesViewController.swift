@@ -112,6 +112,4 @@ class ReceivablesViewController: UIViewController, Coordinating, ReceivablesView
             }
         }
     }
-    
-    
 }

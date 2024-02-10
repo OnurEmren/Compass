@@ -12,8 +12,6 @@ import DGCharts
 import CoreData
 
 class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDelegate {
-
-    
     var coordinator: Coordinator?
     var isGeneralExpense = false
     private var expenseViewModel = ExpenseViewModel()
@@ -48,10 +46,13 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
         if entityName == "GeneralExpenseEntry" {
             segmentedControl.selectedSegmentIndex = 1
             fetchGeneralData()
-            
+            expenseView.generalExpenseTableView.reloadData()
+
         } else {
             segmentedControl.selectedSegmentIndex = 0
             fetchDetailData()
+            expenseView.expenseTableView.reloadData()
+            setupView()
         }
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
@@ -97,33 +98,38 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
         segmentedControl.backgroundColor = .gray
         segmentedControl.tintColor = .black
         
+        expenseView.expenseTableView.reloadData()
         expenseView.addButton.addTarget(self, action: #selector(goToAddExpense), for: .touchUpInside)
         expenseView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
     @objc
-    private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            fetchDetailData()
-            entityName = "ExpenseEntry"
-            setupDetailExpenseChart(expenseData: fetchedDetailData)
-            expenseView.expenseTableView.isHidden = false
-            expenseView.generalExpenseTableView.isHidden = true
-            break
-        case 1:    
-            fetchGeneralData()
-            entityName = "GeneralExpenseEntry"
-            setupCombinedChart(generalData: fetchedGeneralData)
-            expenseView.expenseTableView.isHidden = true
-            expenseView.generalExpenseTableView.isHidden = false
-            expenseView.generalExpenseTableView.reloadData()
-            loadGeneralRecords()
-            break
-        default:
-            break
-        }
-    }
+     private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+         switch sender.selectedSegmentIndex {
+         case 0:
+             fetchDetailData()
+             entityName = "ExpenseEntry"
+             expenseView.setupDetailExpenseChartView(detailExpenseData: fetchedDetailData)
+             loadAttendanceRecords()
+             expenseView.expenseTableView.isHidden = false
+             expenseView.generalExpenseTableView.isHidden = true
+             expenseView.expenseTableView.reloadData()
+             expenseView.updateChart()
+             break
+         case 1:
+             fetchGeneralData()
+             entityName = "GeneralExpenseEntry"
+             expenseView.setupCombinedChart(generalData: fetchedGeneralData)
+             loadGeneralRecords()
+             expenseView.expenseTableView.isHidden = true
+             expenseView.generalExpenseTableView.isHidden = false
+             expenseView.generalExpenseTableView.reloadData()
+             expenseView.updateCombinedChart()
+             break
+         default:
+             break
+         }
+     }
     
     func loadAttendanceRecords() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -161,7 +167,7 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
     }
     
     func didFetchGeneralData(generalData: [GeneralExpenseEntry]) {
-        self.setupCombinedChart(generalData: generalData)
+        expenseView.setupCombinedChart(generalData: generalData)
         self.fetchedGeneralData = generalData
         
         if let lastEntry = generalData.last {
@@ -180,10 +186,6 @@ class ExpenseViewController: UIViewController, Coordinating, ExpenseViewModelDel
     
     private func setupDetailExpenseChart(expenseData: [ExpenseEntry]) {
         expenseView.setupDetailExpenseChartView(detailExpenseData: expenseData)
-    }
-    
-    private func setupCombinedChart(generalData: [GeneralExpenseEntry]) {
-        expenseView.setupCombinedChart(generalData: generalData)
     }
     
     @objc

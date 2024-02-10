@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import DGCharts
+import CoreData
 
 class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
     let expenseChart: PieChartView = {
@@ -64,7 +65,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
     private let cellIdentifier2 = "generalExpenseCellIdentifier"
     private var expenseRecord: [ExpenseEntry] = []
     private var generalExpenseRecord: [GeneralExpenseEntry] = []
-    
+    private var appDelegate = UIApplication.shared.delegate as! AppDelegate
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -93,7 +94,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
             make.centerX.equalToSuperview()
             make.top.equalTo(monthLabel).offset(30)
         }
-        totalExpenseLabel.textColor = Colors.lightThemeColor
+        totalExpenseLabel.textColor = .white
         
         expenseChart.snp.makeConstraints { make in
             make.top.equalTo(totalExpenseLabel.snp.top).offset(80)
@@ -107,7 +108,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         legend.horizontalAlignment = .center
         legend.orientation = .horizontal
         legend.formSize = 12
-        legend.font = UIFont(name: "MalayalamSangamMN", size: 12) ?? .systemFont(ofSize: 12)
+        legend.font = UIFont.preferredFont(forTextStyle: .body)
         
         addButton.snp.makeConstraints { make in
             make.top.equalTo(expenseChart.snp.bottom).offset(20)
@@ -148,6 +149,9 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        expenseTableView.reloadData()
+        generalExpenseTableView.reloadData()
     }
     
     func showPieChart(with entry: ExpenseEntry) {
@@ -158,19 +162,19 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         var taxEntries: [PieChartDataEntry] = []
 
         // Veri setini oluştur
-        let clothesExpense = PieChartDataEntry(value: entry.clothesExpense, label: "Maaş")
+        let clothesExpense = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
         clothesEntries.append(clothesExpense)
 
-        let foodExpense = PieChartDataEntry(value: entry.foodExpense, label: "Yan Gelir")
+        let foodExpense = PieChartDataEntry(value: entry.foodExpense, label: "Gıda")
         foodEntries.append(foodExpense)
         
-        let fuelExpense = PieChartDataEntry(value: entry.fuelExpense, label: "Yan Gelir")
+        let fuelExpense = PieChartDataEntry(value: entry.fuelExpense, label: "Ulaşım")
         fuelEntries.append(fuelExpense)
         
-        let rentExpense = PieChartDataEntry(value: entry.rentExpense, label: "Yan Gelir")
+        let rentExpense = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
         rentEntries.append(rentExpense)
         
-        let taxExpense = PieChartDataEntry(value: entry.taxExpense, label: "Yan Gelir")
+        let taxExpense = PieChartDataEntry(value: entry.taxExpense, label: "Faturalar")
         taxEntries.append(taxExpense)
     
 
@@ -189,7 +193,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         formatter.numberStyle = .percent
         formatter.maximumFractionDigits = 1
         formatter.multiplier = 1.0
-
+       
         let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
         combinedDataSet.colors = ChartColorTemplates.pastel()
 
@@ -245,50 +249,86 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
     //MARK: - TableView Delegate and Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == expenseTableView {
-            return expenseRecord.count
-        } else {
-            return generalExpenseRecord.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           if tableView == expenseTableView {
+               return expenseRecord.count
+           } else {
+               return generalExpenseRecord.count
+           }
+       }
        
-        
-        if tableView == expenseTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-            let record = expenseRecord[indexPath.row]
-            cell.contentView.subviews.forEach { $0.removeFromSuperview() }
-            setLabelTag(cell: cell, record: record, indexPath: indexPath)
-            cell.layer.cornerRadius = 20
-            cell.layer.masksToBounds = false
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier2, for: indexPath)
-            let generalRecord = generalExpenseRecord[indexPath.row]
-            cell.contentView.subviews.forEach { $0.removeFromSuperview() }
-            setupCombinedChart(generalData: generalExpenseRecord)
-            setGeneralLabelTag(cell: cell, record: generalRecord, indexPath: indexPath)
-            cell.layer.cornerRadius = 20
-            cell.layer.masksToBounds = false
-            return cell
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+          
+           if tableView == expenseTableView {
+               let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+               let record = expenseRecord[indexPath.row]
+               cell.contentView.subviews.forEach { $0.removeFromSuperview() }
+               setLabelTag(cell: cell, record: record, indexPath: indexPath)
+               cell.layer.cornerRadius = 20
+               cell.layer.masksToBounds = false
+               return cell
+           } else {
+               let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier2, for: indexPath)
+               let generalRecord = generalExpenseRecord[indexPath.row]
+               cell.contentView.subviews.forEach { $0.removeFromSuperview() }
+               setupCombinedChart(generalData: generalExpenseRecord)
+               setGeneralLabelTag(cell: cell, record: generalRecord, indexPath: indexPath)
+               cell.layer.cornerRadius = 20
+               cell.layer.masksToBounds = false
+               return cell
+           }
+       }
+       
+       func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+             return 80
+         }
+       
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           expenseTableView.deselectRow(at: indexPath, animated: true)
+           generalExpenseTableView.deselectRow(at: indexPath, animated: true)
+           
+           if tableView == expenseTableView {
+               let selectedRecord = expenseRecord[indexPath.row]
+               showPieChart(with: selectedRecord)
+           } else {
+               let selectedGeneralRecord = generalExpenseRecord[indexPath.row]
+               showGeneralChart(with: selectedGeneralRecord)
+           }
+       }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if tableView == expenseTableView {
+                let recordToRemove = expenseRecord[indexPath.row]
+                deleteExpenseData(record: recordToRemove)
+                expenseRecord.remove(at: indexPath.row)
+            } else {
+                let recordToRemove = generalExpenseRecord[indexPath.row]
+                deleteGeneralExpenseData(record: recordToRemove)
+                generalExpenseRecord.remove(at: indexPath.row)
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return 80
-      }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        expenseTableView.deselectRow(at: indexPath, animated: true)
-        generalExpenseTableView.deselectRow(at: indexPath, animated: true)
-        
-        if tableView == expenseTableView {
-            let selectedRecord = expenseRecord[indexPath.row]
-            showPieChart(with: selectedRecord)
-        } else {
-            let selectedGeneralRecord = generalExpenseRecord[indexPath.row]
-            showGeneralChart(with: selectedGeneralRecord)
+    func deleteExpenseData(record: ExpenseEntry) {
+        let context = appDelegate.persistentContainer.viewContext
+        context.delete(record)
+        do {
+            try context.save()
+            updateChart()
+        } catch {
+            print("Error deleting expense data: \(error.localizedDescription)")
+        }
+    }
+
+    func deleteGeneralExpenseData(record: GeneralExpenseEntry) {
+        let context = appDelegate.persistentContainer.viewContext
+        context.delete(record)
+        do {
+            try context.save()
+            updateCombinedChart()
+        } catch {
+            print("Error deleting general expense data: \(error.localizedDescription)")
         }
     }
     
@@ -312,6 +352,28 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         
    //     let colorIndex = indexPath.row % Colors.colors.count
         cell.backgroundColor = .white
+    }
+    //MARK: - Private Methods
+    
+    private func configureCell(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell
+        
+        if tableView == expenseTableView {
+            cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+            let record = expenseRecord[indexPath.row]
+            setLabelTag(cell: cell, record: record, indexPath: indexPath)
+            showPieChart(with: record)
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier2, for: indexPath)
+            let generalRecord = generalExpenseRecord[indexPath.row]
+            setGeneralLabelTag(cell: cell, record: generalRecord, indexPath: indexPath)
+            setupCombinedChart(generalData: generalExpenseRecord)
+        }
+        
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = false
+        
+        return cell
     }
     
     private func setGeneralLabelTag(cell: UITableViewCell, record: GeneralExpenseEntry, indexPath: IndexPath) {
@@ -431,7 +493,6 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.expenseChart.data = generalData
         self.expenseChart.centerText = "Genel Giderler"
         self.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeOutBack)
-
     }
     
     //After deleted data
@@ -446,91 +507,47 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setupDetailExpenseChartView(detailExpenseData: [ExpenseEntry]) {
-        var clothesExpenseEntries: [PieChartDataEntry] = []
-        var foodExpenseEntries: [PieChartDataEntry] = []
-        var fuelExpenseEntries: [PieChartDataEntry] = []
-        var rentExpenseEntries: [PieChartDataEntry] = []
-        var taxExpenseEntries: [PieChartDataEntry] = []
-        var transportEntries: [PieChartDataEntry] = []
-        
-        for (_, entry) in detailExpenseData.enumerated() {
-            let clothesExpenseEntry = PieChartDataEntry(value: entry.clothesExpense, label: "Giyim")
-            let foodExpenseEntry = PieChartDataEntry(value: entry.foodExpense, label: "Gıda")
-            let fuelExpenseEntry = PieChartDataEntry(value: entry.fuelExpense, label: "Yakıt")
-            let rentExpenseEntry = PieChartDataEntry(value: entry.rentExpense, label: "Kira")
-            let taxExpenseEntry = PieChartDataEntry(value: entry.taxExpense, label: "Faturalar")
-            
-            clothesExpenseEntries.append(clothesExpenseEntry)
-            foodExpenseEntries.append(foodExpenseEntry)
-            fuelExpenseEntries.append(fuelExpenseEntry)
-            rentExpenseEntries.append(rentExpenseEntry)
-            taxExpenseEntries.append(taxExpenseEntry)
-            
-            let combinedEntries = clothesExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries + transportEntries
-            let combinedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
-            combinedDataSet.colors = ChartColorTemplates.pastel()
-            
-            let combinedData = combinedEntries
-            let totalProcent = combinedData.reduce(0) { $0 + $1.value }
-            let procent = combinedData.map { $0.value / totalProcent }
-            
-            for (index, entry) in combinedEntries.enumerated() {
-                if let procentWage = procent[safe: index] {
-                    let formattedOran = String(format: "%.2f%%", procentWage * 100)
-                    
-                    entry.label = entry.label.map { "\($0) - \(formattedOran)" }
-                }
-            }
-            
-            let totalExpense = entry.clothesExpense + entry.foodExpense + entry.fuelExpense + entry.rentExpense + entry.taxExpense
-            totalExpenseLabel.text = "Toplam Gider: \(totalExpense)"
-            
-            let month = entry.month
-            if let unwrappedMonth = month {
-                monthLabel.text = "\(unwrappedMonth) Dönemi"
-            } else {
-                monthLabel.text = "\(String(describing: month)) Bilinmiyor"
-            }
-            
+        guard let lastEntry = detailExpenseData.last else {
+            return
         }
         
-        let clothesDataSet = PieChartDataSet(entries: clothesExpenseEntries, label: "")
+        let clothesExpenseEntry = PieChartDataEntry(value: lastEntry.clothesExpense, label: "Giyim")
+        let foodExpenseEntry = PieChartDataEntry(value: lastEntry.foodExpense, label: "Gıda")
+        let fuelExpenseEntry = PieChartDataEntry(value: lastEntry.fuelExpense, label: "Yakıt")
+        let rentExpenseEntry = PieChartDataEntry(value: lastEntry.rentExpense, label: "Kira")
+        let taxExpenseEntry = PieChartDataEntry(value: lastEntry.taxExpense, label: "Faturalar")
+        
+        let clothesDataSet = PieChartDataSet(entries: [clothesExpenseEntry], label: "")
         clothesDataSet.colors = ChartColorTemplates.pastel()
         
-        let foodDataSet = PieChartDataSet(entries: foodExpenseEntries, label: "")
+        let foodDataSet = PieChartDataSet(entries: [foodExpenseEntry], label: "")
         foodDataSet.colors = ChartColorTemplates.pastel()
         
-        let fuelDataSet = PieChartDataSet(entries: fuelExpenseEntries, label: "")
+        let fuelDataSet = PieChartDataSet(entries: [fuelExpenseEntry], label: "")
         fuelDataSet.colors = ChartColorTemplates.pastel()
         
-        let rentDataSet = PieChartDataSet(entries: rentExpenseEntries, label: "")
+        let rentDataSet = PieChartDataSet(entries: [rentExpenseEntry], label: "")
         rentDataSet.colors = ChartColorTemplates.pastel()
         
-        let taxDataSet = PieChartDataSet(entries: taxExpenseEntries, label: "")
+        let taxDataSet = PieChartDataSet(entries: [taxExpenseEntry], label: "")
         taxDataSet.colors = ChartColorTemplates.pastel()
-        
-        let transportDataSet = PieChartDataSet(entries: transportEntries, label: "")
-        transportDataSet.colors = ChartColorTemplates.pastel()
-        
         
         let clothesData = PieChartData(dataSet: clothesDataSet)
         let foodData = PieChartData(dataSet: foodDataSet)
         let fuelData = PieChartData(dataSet: fuelDataSet)
         let rentData = PieChartData(dataSet: rentDataSet)
         let taxData = PieChartData(dataSet: taxDataSet)
-        let transportData = PieChartData(dataSet: transportDataSet)
         
         clothesData.setValueTextColor(.white)
         foodData.setValueTextColor(.white)
         fuelData.setValueTextColor(.white)
         rentData.setValueTextColor(.white)
         taxData.setValueTextColor(.white)
-        transportData.setValueTextColor(.white)
         
         //TODO: Add Procent Pie
         
         let combinedDataSet = PieChartDataSet(
-            entries: clothesExpenseEntries + foodExpenseEntries + fuelExpenseEntries + rentExpenseEntries + taxExpenseEntries,
+            entries: [clothesExpenseEntry, foodExpenseEntry, fuelExpenseEntry, rentExpenseEntry, taxExpenseEntry],
             label: "")
         combinedDataSet.colors = ChartColorTemplates.pastel()
         
@@ -539,6 +556,16 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.expenseChart.data = combinedData
         self.expenseChart.centerText = "Giderlerim"
         self.expenseChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0, easingOption: .easeOutBack)
+        
+        let totalExpense = lastEntry.clothesExpense + lastEntry.foodExpense + lastEntry.fuelExpense + lastEntry.rentExpense + lastEntry.taxExpense
+        totalExpenseLabel.text = "Toplam Gider: \(totalExpense)"
+        
+        let month = lastEntry.month
+        if let unwrappedMonth = month {
+            monthLabel.text = "\(unwrappedMonth) Dönemi"
+        } else {
+            monthLabel.text = "\(String(describing: month)) Bilinmiyor"
+        }
     }
     
     //After deleted data
@@ -557,5 +584,15 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
 
         let updatedDataSet = PieChartDataSet(entries: combinedEntries, label: "")
         expenseChart.data = PieChartData(dataSet: updatedDataSet)
+    }
+    
+    func updateChart() {
+        setupDetailExpenseChartView(detailExpenseData: expenseRecord)
+        expenseTableView.reloadData()
+    }
+    
+    func updateCombinedChart(){
+        setupCombinedChart(generalData: generalExpenseRecord)
+        generalExpenseTableView.reloadData()
     }
 }

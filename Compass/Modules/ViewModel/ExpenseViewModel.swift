@@ -75,7 +75,7 @@ class ExpenseViewModel {
         
         if entityName == "ExpenseEntry" {
             let expenseFetchRequest: NSFetchRequest<ExpenseEntry> = ExpenseEntry.fetchRequest()
-            expenseFetchRequest.sortDescriptors = [NSSortDescriptor(key: "transportExpense", ascending: false)]
+            expenseFetchRequest.sortDescriptors = [NSSortDescriptor(key: "totalExpense", ascending: false)]
             expenseFetchRequest.fetchLimit = 1
             fetchRequest = expenseFetchRequest as? NSFetchRequest<NSFetchRequestResult>
         } else if entityName == "GeneralExpenseEntry" {

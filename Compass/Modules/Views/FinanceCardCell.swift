@@ -24,7 +24,6 @@ class FinanceCardCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = Colors.tryColor
-        label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         return label
     }()
     
@@ -32,7 +31,6 @@ class FinanceCardCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = Colors.tryColor
-        label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         return label
     }()
     
@@ -40,21 +38,24 @@ class FinanceCardCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = Colors.tryColor
-        label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         return label
     }()
     
     let investmentLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
         return label
     }()
     
     let receivablesLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNextCondensed-DemiBold", size: 20)
+        return label
+    }()
+    
+    let deptLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
         return label
     }()
     
@@ -82,6 +83,7 @@ class FinanceCardCell: UICollectionViewCell {
         expenseLabel.text = nil
         investmentLabel.text = nil
         receivablesLabel.text = nil
+        deptLabel.text = nil
     }
 
     private func setupViews() {
@@ -90,14 +92,14 @@ class FinanceCardCell: UICollectionViewCell {
         addSubview(expenseLabel)
         addSubview(investmentLabel)
         addSubview(receivablesLabel)
+        addSubview(deptLabel)
         
-        overallStatusLabel.snp.makeConstraints { make in
+        incomeLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(5)
             make.center.equalToSuperview()
         }
         
-        incomeLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
-
+        overallStatusLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         
@@ -112,17 +114,20 @@ class FinanceCardCell: UICollectionViewCell {
         receivablesLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+        
+        deptLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
     
     func configure(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         overallStatusLabel.text = title
         overallStatusLabel.textColor = .white
-        overallStatusLabel.font = Fonts.generalFont
+        overallStatusLabel.font = UIFont.preferredFont(forTextStyle: .body)
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
         layer.masksToBounds = false
         layer.borderColor = UIColor.white.cgColor
-        layer.shadowColor = UIColor.white.cgColor
         layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
@@ -131,7 +136,7 @@ class FinanceCardCell: UICollectionViewCell {
     
     func configureInComeLabel(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         incomeLabel.text = title
-        incomeLabel.font = Fonts.generalFont
+        incomeLabel.font = UIFont.preferredFont(forTextStyle: .body)
         incomeLabel.textColor = .white
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
@@ -147,7 +152,7 @@ class FinanceCardCell: UICollectionViewCell {
     
     func configureExpenseLabel(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         expenseLabel.text = title
-        expenseLabel.font = Fonts.generalFont
+        expenseLabel.font = UIFont.preferredFont(forTextStyle: .body)
         expenseLabel.textColor = .white
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
@@ -163,7 +168,7 @@ class FinanceCardCell: UICollectionViewCell {
     
     func configureInvestmentLabel(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         investmentLabel.text = title
-        investmentLabel.font = Fonts.generalFont
+        investmentLabel.font = UIFont.preferredFont(forTextStyle: .body)
         investmentLabel.textColor = .white
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
@@ -179,7 +184,7 @@ class FinanceCardCell: UICollectionViewCell {
     
     func configureReceivablesLabel(with title: String, backgroundColor: UIColor, overallStatus: Double) {
         receivablesLabel.text = title
-        receivablesLabel.font = Fonts.generalFont
+        receivablesLabel.font = UIFont.preferredFont(forTextStyle: .body)
         receivablesLabel.textColor = .white
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
@@ -193,8 +198,23 @@ class FinanceCardCell: UICollectionViewCell {
         updateReceivablesLabel(with: overallStatus)
     }
     
+    func configureDeptLabel(with title: String, backgroundColor: UIColor, deptStatus: Double) {
+        deptLabel.text = title
+        deptLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        deptLabel.textColor = .white
+        self.backgroundColor = backgroundColor
+        layer.cornerRadius = 12
+        layer.masksToBounds = false
+        layer.borderWidth = 0.7
+        layer.borderColor = UIColor.white.cgColor
+        layer.shadowColor = UIColor.white.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        updateDeptLabel(with: deptStatus)
+    }
+    
     private func updateLabel(with overallStatus: Double) {
-        
         if overallStatus < 0 {
             overallStatusLabel.textColor = .red
         } else if overallStatus == 0 {
@@ -220,5 +240,9 @@ class FinanceCardCell: UICollectionViewCell {
     
     private func updateReceivablesLabel(with overallStatus: Double) {
         receivablesLabel.text = "Alacaklarım: \(overallStatus)"
+    }
+    
+    private func updateDeptLabel(with overallStatus: Double) {
+        deptLabel.text = "Borçlarım: \(overallStatus)"
     }
 }

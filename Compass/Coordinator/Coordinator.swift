@@ -16,6 +16,7 @@ enum Event {
     case goToInvestmentEntryVC
     case goToGeneralExpenseVC
     case goToReceivablesEntryVC
+    case goToDetpEntryVC
 }
 
 protocol Coordinator: AnyObject {

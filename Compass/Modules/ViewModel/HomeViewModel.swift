@@ -108,4 +108,19 @@ class HomeViewModel {
         }
         return receivablesEntries
     }
+    
+    func fetchDeptData() -> [DeptEntry] {
+        var deptsEntries: [DeptEntry] = []
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchDeptRequest = NSFetchRequest<DeptEntry>(entityName: "DeptEntry")
+        
+        do {
+            deptsEntries = try context.fetch(fetchDeptRequest)
+            
+        } catch {
+            print("Yatırım verisi çekme hatası: \(error)")
+        }
+        return deptsEntries
+    }
 }

@@ -55,6 +55,13 @@ class AppCoordinator: Coordinator {
             let viewModel = ReceivablesViewModel(context:context)
             let receivablesEntryVC = ReceivablesViewController(viewModel: viewModel)
             navigationController?.pushViewController(receivablesEntryVC, animated: true)
+            
+        case .goToDetpEntryVC:
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let viewModel = DeptViewModel(context: context)
+            let deptEntryVC = DeptViewController(viewModel: viewModel)
+            deptEntryVC.coordinator = self
+            navigationController?.pushViewController(deptEntryVC, animated: true)
         }
     }
     
@@ -101,6 +108,10 @@ class AppCoordinator: Coordinator {
             let receivablesListVC = ReceiVablesListViewController()
             receivablesListVC.coordinator = self
             navigationController?.pushViewController(receivablesListVC, animated: true)
+        case 4:
+            let deptVC = DeptListViewController()
+            deptVC.coordinator = self
+            navigationController?.pushViewController(deptVC, animated: true)
         default:
             break
         }
