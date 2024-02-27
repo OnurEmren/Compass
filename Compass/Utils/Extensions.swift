@@ -13,7 +13,8 @@ class UIExtensions {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: fontSize)
         label.textAlignment = alignment
-        label.font = Fonts.generalFont
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.textColor = .white
         label.text = text
         return label
     }

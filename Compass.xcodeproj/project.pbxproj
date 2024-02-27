@@ -32,6 +32,8 @@
 		469555B12B77822F00E12C9B /* DeptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469555B02B77822F00E12C9B /* DeptView.swift */; };
 		469555B32B7782AF00E12C9B /* DeptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469555B22B7782AF00E12C9B /* DeptViewModel.swift */; };
 		469555B62B778BA600E12C9B /* DeptListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469555B52B778BA600E12C9B /* DeptListViewModel.swift */; };
+		469555B82B77900C00E12C9B /* CurrencyServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469555B72B77900C00E12C9B /* CurrencyServise.swift */; };
+		469555BA2B7791E600E12C9B /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469555B92B7791E600E12C9B /* CurrencyModel.swift */; };
 		4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697B8E42B66B44A0021D591 /* GeneralExpense.swift */; };
 		469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */; };
 		469D15C12B598E9200544E35 /* InComeEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 469D15BF2B598E9200544E35 /* InComeEntry.xcdatamodeld */; };
@@ -50,6 +52,9 @@
 		46B8561B2B6EECDD004F5E56 /* ReceivablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B8561A2B6EECDD004F5E56 /* ReceivablesView.swift */; };
 		46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */; };
 		46BF14422B65CC7400431683 /* GeneralExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF14412B65CC7400431683 /* GeneralExpenseView.swift */; };
+		46EDC60A2B8DC66C00A73D7C /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC6092B8DC66C00A73D7C /* IAPManager.swift */; };
+		46EDC60C2B8DC89100A73D7C /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC60B2B8DC89100A73D7C /* IAPView.swift */; };
+		46EDC60E2B8DCB5100A73D7C /* IPManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC60D2B8DCB5100A73D7C /* IPManagerViewController.swift */; };
 		46F2DD0B2B582610008792D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0A2B582610008792D0 /* AppDelegate.swift */; };
 		46F2DD0D2B582610008792D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0C2B582610008792D0 /* SceneDelegate.swift */; };
 		46F2DD0F2B582610008792D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F2DD0E2B582610008792D0 /* HomeViewController.swift */; };
@@ -77,6 +82,7 @@
 		460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListViewController.swift; sourceTree = "<group>"; };
 		460D1D8B2B6451C400DA3E02 /* InvestmentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListView.swift; sourceTree = "<group>"; };
 		460D1D8D2B64526500DA3E02 /* InvestmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentListViewModel.swift; sourceTree = "<group>"; };
+		46314D2A2B8DF8040023FA99 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		464CBD7B2B6C2AA500553715 /* InComeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeViewModel.swift; sourceTree = "<group>"; };
 		464CBD7D2B6C3C6D00553715 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		464CBD7F2B6C40B900553715 /* SpaceGrotesk-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -91,6 +97,8 @@
 		469555B02B77822F00E12C9B /* DeptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptView.swift; sourceTree = "<group>"; };
 		469555B22B7782AF00E12C9B /* DeptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptViewModel.swift; sourceTree = "<group>"; };
 		469555B52B778BA600E12C9B /* DeptListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeptListViewModel.swift; sourceTree = "<group>"; };
+		469555B72B77900C00E12C9B /* CurrencyServise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServise.swift; sourceTree = "<group>"; };
+		469555B92B7791E600E12C9B /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		4697B8E42B66B44A0021D591 /* GeneralExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpense.swift; sourceTree = "<group>"; };
 		469D15BD2B598C3D00544E35 /* InComeEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InComeEntryViewController.swift; sourceTree = "<group>"; };
 		469D15C02B598E9200544E35 /* InComeEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InComeEntry.xcdatamodel; sourceTree = "<group>"; };
@@ -109,6 +117,9 @@
 		46B8561A2B6EECDD004F5E56 /* ReceivablesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivablesView.swift; sourceTree = "<group>"; };
 		46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseViewController.swift; sourceTree = "<group>"; };
 		46BF14412B65CC7400431683 /* GeneralExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseView.swift; sourceTree = "<group>"; };
+		46EDC6092B8DC66C00A73D7C /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		46EDC60B2B8DC89100A73D7C /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
+		46EDC60D2B8DCB5100A73D7C /* IPManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPManagerViewController.swift; sourceTree = "<group>"; };
 		46F2DD072B582610008792D0 /* Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Compass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F2DD0A2B582610008792D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46F2DD0C2B582610008792D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +155,7 @@
 		469555B42B77884A00E12C9B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				469555B72B77900C00E12C9B /* CurrencyServise.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -184,8 +196,19 @@
 				460D1D892B6450AC00DA3E02 /* InvestmentListViewController.swift */,
 				467111C62B7144C90030AE1A /* ReceiVablesListViewController.swift */,
 				46A8A87D2B76B13200118562 /* DeptListViewController.swift */,
+				46EDC60D2B8DCB5100A73D7C /* IPManagerViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		46EDC6082B8DC61700A73D7C /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				46EDC6092B8DC66C00A73D7C /* IAPManager.swift */,
+				46EDC60B2B8DC89100A73D7C /* IAPView.swift */,
+				46314D2A2B8DF8040023FA99 /* Configuration.storekit */,
+			);
+			path = InAppPurchase;
 			sourceTree = "<group>";
 		};
 		46F2DCFE2B582610008792D0 = {
@@ -228,6 +251,7 @@
 				4697B8E42B66B44A0021D591 /* GeneralExpense.swift */,
 				46B856182B6EEC9B004F5E56 /* Receivables.swift */,
 				46A8A8812B76B4D000118562 /* Dept.swift */,
+				469555B92B7791E600E12C9B /* CurrencyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +342,7 @@
 		46F2DD412B583125008792D0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				46EDC6082B8DC61700A73D7C /* InAppPurchase */,
 				46F2DD262B5827A7008792D0 /* ViewControllers */,
 				46F2DD1F2B5826D2008792D0 /* Views */,
 				46F2DD202B5826D7008792D0 /* ViewModel */,
@@ -414,6 +439,8 @@
 				469555B32B7782AF00E12C9B /* DeptViewModel.swift in Sources */,
 				46AF0AD42B585B9700647EA1 /* InvestmentViewController.swift in Sources */,
 				46051FEF2B66F3F700C614D2 /* ExpenseView.swift in Sources */,
+				46EDC60C2B8DC89100A73D7C /* IAPView.swift in Sources */,
+				469555B82B77900C00E12C9B /* CurrencyServise.swift in Sources */,
 				46F2DD322B582A33008792D0 /* Colors.swift in Sources */,
 				46F2DD252B582741008792D0 /* AppCoordinator.swift in Sources */,
 				46051FED2B66F0E600C614D2 /* Extensions.swift in Sources */,
@@ -426,6 +453,7 @@
 				460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */,
 				460D1D882B64399A00DA3E02 /* InvestmentViewModel.swift in Sources */,
 				46FC99AC2B5C91E60064A1F0 /* ExpenseEntryView.swift in Sources */,
+				469555BA2B7791E600E12C9B /* CurrencyModel.swift in Sources */,
 				467111CD2B7151450030AE1A /* OnBoardingVC.swift in Sources */,
 				46FC99AA2B5C904F0064A1F0 /* ExpenseEntryViewController.swift in Sources */,
 				46B8561B2B6EECDD004F5E56 /* ReceivablesView.swift in Sources */,
@@ -446,6 +474,7 @@
 				460D1D8A2B6450AC00DA3E02 /* InvestmentListViewController.swift in Sources */,
 				467111C92B7145B60030AE1A /* ReceivablesListView.swift in Sources */,
 				46F34BDE2B6A815200C9F570 /* ExpenseViewModel.swift in Sources */,
+				46EDC60A2B8DC66C00A73D7C /* IAPManager.swift in Sources */,
 				46FC99A82B5C8B830064A1F0 /* Expense.swift in Sources */,
 				460D1D8E2B64526500DA3E02 /* InvestmentListViewModel.swift in Sources */,
 				460D1D8C2B6451C400DA3E02 /* InvestmentListView.swift in Sources */,
@@ -453,6 +482,7 @@
 				46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */,
 				469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */,
 				4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */,
+				46EDC60E2B8DCB5100A73D7C /* IPManagerViewController.swift in Sources */,
 				467E75992B6DA8A500162E0D /* ReceivablesViewController.swift in Sources */,
 				467111C72B7144C90030AE1A /* ReceiVablesListViewController.swift in Sources */,
 				469555B62B778BA600E12C9B /* DeptListViewModel.swift in Sources */,

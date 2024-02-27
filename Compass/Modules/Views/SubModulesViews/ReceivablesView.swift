@@ -30,7 +30,7 @@ class ReceivablesView: UIView {
         textField.layer.borderWidth = 0.7
         textField.layer.masksToBounds = true
         textField.textColor = .white
-        textField.font = Fonts.generalFont
+        textField.font = UIFont.preferredFont(forTextStyle: .headline)
         textField.textAlignment = .center
         textField.layer.borderColor = UIColor.white.cgColor
         return textField
@@ -46,7 +46,7 @@ class ReceivablesView: UIView {
         textField.layer.borderWidth = 0.7
         textField.layer.masksToBounds = true
         textField.textColor = .white
-        textField.font = Fonts.generalFont
+        textField.font = UIFont.preferredFont(forTextStyle: .headline)
         textField.textAlignment = .center
         textField.layer.borderColor = UIColor.white.cgColor
         return textField
@@ -62,7 +62,7 @@ class ReceivablesView: UIView {
         textField.layer.borderWidth = 0.7
         textField.layer.masksToBounds = true
         textField.textColor = .white
-        textField.font = Fonts.generalFont
+        textField.font = UIFont.preferredFont(forTextStyle: .headline)
         textField.textAlignment = .center
         textField.layer.borderColor = UIColor.white.cgColor
         return textField
@@ -72,6 +72,7 @@ class ReceivablesView: UIView {
         let image = UIImageView(image: UIImage(named: "spiral"))
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.alpha = 0.6
         return image
     }()
     
@@ -157,9 +158,9 @@ class ReceivablesView: UIView {
         }
                 
         viewModel.saveReceiVables(
-            receivablesAmountTextField: receivablesAmountTextfield.text,
-            dateTextField: dateTextfield.text,
-            personTextField: personTextfield.text)
+            receivablesAmountTextField: receivables,
+            dateTextField: date,
+            personTextField: person)
         showToastInvestment(message: "Kayıt Başarılı")
     }
 }

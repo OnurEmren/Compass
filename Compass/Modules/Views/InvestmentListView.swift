@@ -19,6 +19,7 @@ class InvestmentListView: UIView {
         let image = UIImageView(image: UIImage(named: "spiral"))
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.alpha = 0.6
         return image
     }()
 
@@ -72,6 +73,9 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
 
         cell.layer.cornerRadius = 20
         cell.layer.masksToBounds = false
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 0.7
+        cell.backgroundColor = .clear
       
         return cell
     }
@@ -115,8 +119,8 @@ extension InvestmentListView: UITableViewDelegate, UITableViewDataSource {
     
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
         let label = UILabel()
-        label.textColor = .black
-        label.font = Fonts.generalFont
+        label.textColor = .white
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.contentView.addSubview(label)
         
         label.snp.makeConstraints { make in

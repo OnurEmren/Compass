@@ -92,7 +92,7 @@ class AppCoordinator: Coordinator {
     func showDetailViewController(for selectedIndex: Int) {
         switch selectedIndex {
         case 0:
-            let inComeVC = InComeViewController()
+            let inComeVC = IPManagerViewController()
             inComeVC.coordinator = self
             navigationController?.pushViewController(inComeVC, animated: true)
         case 1:

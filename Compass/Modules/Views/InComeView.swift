@@ -84,6 +84,7 @@ class InComeView: UIView {
         let image = UIImageView(image: UIImage(named: "spiral"))
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.alpha = 0.6
         return image
     }()
     
@@ -156,7 +157,7 @@ class InComeView: UIView {
         legend.horizontalAlignment = .center
         legend.orientation = .vertical
         legend.formSize = 15
-        legend.font = UIFont(name: "MalayalamSangamMN", size: 15) ?? .systemFont(ofSize: 19)
+        legend.font = UIFont.preferredFont(forTextStyle: .headline)
                 
         addButton.snp.makeConstraints { make in
             make.top.equalTo(incomeDistributionChart.snp.bottom).offset(20)
@@ -320,7 +321,10 @@ extension InComeView: UITableViewDelegate, UITableViewDataSource {
 
         cell.layer.cornerRadius = 20
         cell.layer.masksToBounds = false
-
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 0.7
+        cell.backgroundColor = .clear
+        
         return cell
     }
     
@@ -365,8 +369,8 @@ extension InComeView: UITableViewDelegate, UITableViewDataSource {
     
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
         let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .white
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.contentView.addSubview(label)
         
         label.snp.makeConstraints { make in
@@ -391,7 +395,7 @@ extension InComeView: UITableViewDelegate, UITableViewDataSource {
         let labelConfigs: [(tag: Int, text: String)] = [
             (1, "Maaş: \(record.wage)"),
             (2, "Yan Gelir: \(record.sideInCome)"),
-            (3, "Tarih: \(String(describing: record.month))"),
+            (3, "Tarih: \(String(describing: record.month ?? ""))"),
         ]
         
         var previousLabel: UIView?
@@ -399,10 +403,5 @@ extension InComeView: UITableViewDelegate, UITableViewDataSource {
         for config in labelConfigs {
             previousLabel = createAndConfigureLabel(tag: config.tag, text: config.text, cell: cell, topView: previousLabel)
         }
-        
-        //Set Color
-        let colorIndex = indexPath.row % Colors.colors.count
-        cell.backgroundColor = Colors.colors[colorIndex]
     }
-    
 }

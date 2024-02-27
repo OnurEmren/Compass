@@ -22,13 +22,14 @@ class Investment: UIView, UIPickerViewDataSource, UIPickerViewDelegate, UITextFi
     private var purchasePriceTextField = UITextField()
     private var investmentTypeTextField = UITextField()
     private var investmentDateTextField = UITextField()
-    private var pieceTextField = UITextField()
+    var pieceTextField = UITextField()
     private var titleLabel = UILabel()
     private var saveButton = UIButton()
     private let imageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "spiral"))
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.alpha = 0.6
         return image
     }()
     

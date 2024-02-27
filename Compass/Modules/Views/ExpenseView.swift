@@ -41,6 +41,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         let image = UIImageView(image: UIImage(named: "spiral"))
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.alpha = 0.6
         return image
     }()
     
@@ -145,6 +146,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         generalExpenseTableView.delegate = self
         generalExpenseTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier2)
         generalExpenseTableView.backgroundColor = .clear
+        
         insertSubview(imageView, at: 0)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -265,6 +267,9 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
                setLabelTag(cell: cell, record: record, indexPath: indexPath)
                cell.layer.cornerRadius = 20
                cell.layer.masksToBounds = false
+               cell.layer.borderColor = UIColor.white.cgColor
+               cell.layer.borderWidth = 0.7
+               cell.backgroundColor = .clear
                return cell
            } else {
                let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier2, for: indexPath)
@@ -274,6 +279,9 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
                setGeneralLabelTag(cell: cell, record: generalRecord, indexPath: indexPath)
                cell.layer.cornerRadius = 20
                cell.layer.masksToBounds = false
+               cell.layer.borderColor = UIColor.white.cgColor
+               cell.layer.borderWidth = 0.7
+               cell.backgroundColor = .clear
                return cell
            }
        }
@@ -349,9 +357,7 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
         for config in labelConfigs {
             previousLabel = createAndConfigureLabel(tag: config.tag, text: config.text, cell: cell, topView: previousLabel)
         }
-        
-   //     let colorIndex = indexPath.row % Colors.colors.count
-        cell.backgroundColor = .white
+        cell.backgroundColor = .clear
     }
     //MARK: - Private Methods
     
@@ -402,8 +408,8 @@ class ExpenseView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
         let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .white
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.contentView.addSubview(label)
         
         label.snp.makeConstraints { make in

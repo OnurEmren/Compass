@@ -511,7 +511,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
-            landmarkName = "didTapSaveButton(clothesExpenseText:fuelExpenseText:foodExpenseText:rentExpenseText:taxExpenseText:month:)"
+            landmarkName = "setupView()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1479,13 +1479,13 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "saveButtonTapped()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "488DE774-8A8D-484C-B82A-A699C1F9DBC5 - 565079e72d5f757f"
+                  uuid = "488DE774-8A8D-484C-B82A-A699C1F9DBC5 - 565079e72d5f755e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1495,12 +1495,12 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "216">
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "300">
                </Location>
                <Location
-                  uuid = "488DE774-8A8D-484C-B82A-A699C1F9DBC5 - 565079e72d5f757f"
+                  uuid = "488DE774-8A8D-484C-B82A-A699C1F9DBC5 - 565079e72d5f755e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1510,8 +1510,8 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
                   offsetFromSymbolStart = "60">
                </Location>
             </Locations>
@@ -1527,13 +1527,13 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "saveButtonTapped()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "292EE7C1-34CE-4F77-A989-BD869125DEE8 - 565079e72d5f755e"
+                  uuid = "292EE7C1-34CE-4F77-A989-BD869125DEE8 - 565079e72d5f7539"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1543,12 +1543,12 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
-                  offsetFromSymbolStart = "460">
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "536">
                </Location>
                <Location
-                  uuid = "292EE7C1-34CE-4F77-A989-BD869125DEE8 - 565079e72d5f755e"
+                  uuid = "292EE7C1-34CE-4F77-A989-BD869125DEE8 - 565079e72d5f7539"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1558,9 +1558,24 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
                   offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "292EE7C1-34CE-4F77-A989-BD869125DEE8 - 565079e72d5f7539"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "154"
+                  endingLineNumber = "154"
+                  offsetFromSymbolStart = "304">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1575,13 +1590,13 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "saveButtonTapped()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "F57B854A-598A-4486-8AC4-B85ADCCF86F1 - 565079e72d5f7539"
+                  uuid = "F57B854A-598A-4486-8AC4-B85ADCCF86F1 - 565079e72d5f75fb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1591,12 +1606,12 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "800">
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "1432">
                </Location>
                <Location
-                  uuid = "F57B854A-598A-4486-8AC4-B85ADCCF86F1 - 565079e72d5f7539"
+                  uuid = "F57B854A-598A-4486-8AC4-B85ADCCF86F1 - 565079e72d5f7518"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1606,9 +1621,24 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
                   offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "F57B854A-598A-4486-8AC4-B85ADCCF86F1 - 565079e72d5f7518"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "544">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1623,8 +1653,8 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "saveButtonTapped()"
             landmarkType = "7">
             <Locations>
@@ -1641,10 +1671,10 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "160"
                   endingLineNumber = "160"
-                  offsetFromSymbolStart = "1164">
+                  offsetFromSymbolStart = "792">
                </Location>
                <Location
-                  uuid = "784CE2D9-5ECC-4E5E-A596-4544F888ABC9 - 565079e72d5f7664"
+                  uuid = "784CE2D9-5ECC-4E5E-A596-4544F888ABC9 - 565079e72d5f7647"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1654,8 +1684,8 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "159"
-                  endingLineNumber = "159"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
                   offsetFromSymbolStart = "780">
                </Location>
             </Locations>
@@ -1671,13 +1701,13 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "saveButtonTapped()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "14F095A2-B782-4952-9993-7CEDF1FC41EB - 565079e72d5f7647"
+                  uuid = "14F095A2-B782-4952-9993-7CEDF1FC41EB - 565079e72d5f7626"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1687,12 +1717,12 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
-                  offsetFromSymbolStart = "1164">
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "952">
                </Location>
                <Location
-                  uuid = "14F095A2-B782-4952-9993-7CEDF1FC41EB - 565079e72d5f7647"
+                  uuid = "14F095A2-B782-4952-9993-7CEDF1FC41EB - 565079e72d5f7626"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1702,9 +1732,24 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "160"
-                  endingLineNumber = "160"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
                   offsetFromSymbolStart = "792">
+               </Location>
+               <Location
+                  uuid = "14F095A2-B782-4952-9993-7CEDF1FC41EB - 565079e72d5f7626"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "808">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1719,13 +1764,13 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "saveButtonTapped()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9A617519-CB53-4617-87E1-3A975EC2C24A - 565079e72d5f7626"
+                  uuid = "9A617519-CB53-4617-87E1-3A975EC2C24A - 565079e72d5f7601"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1735,12 +1780,12 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
-                  offsetFromSymbolStart = "1208">
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "1116">
                </Location>
                <Location
-                  uuid = "9A617519-CB53-4617-87E1-3A975EC2C24A - 565079e72d5f7626"
+                  uuid = "9A617519-CB53-4617-87E1-3A975EC2C24A - 565079e72d5f7601"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1750,9 +1795,24 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "161"
-                  endingLineNumber = "161"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
                   offsetFromSymbolStart = "952">
+               </Location>
+               <Location
+                  uuid = "9A617519-CB53-4617-87E1-3A975EC2C24A - 565079e72d5f7601"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "816">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1767,8 +1827,8 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "saveButtonTapped()"
             landmarkType = "7">
             <Locations>
@@ -1785,10 +1845,10 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"
                   endingLineNumber = "163"
-                  offsetFromSymbolStart = "1300">
+                  offsetFromSymbolStart = "1380">
                </Location>
                <Location
-                  uuid = "A0B55532-8742-4C59-B5CA-2681173D4D28 - 565079e72d5f7601"
+                  uuid = "A0B55532-8742-4C59-B5CA-2681173D4D28 - 565079e72d5f76e0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1798,9 +1858,24 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
                   offsetFromSymbolStart = "1116">
+               </Location>
+               <Location
+                  uuid = "A0B55532-8742-4C59-B5CA-2681173D4D28 - 565079e72d5f76e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "824">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1815,13 +1890,13 @@
             filePath = "Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "saveButtonTapped()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "FC157666-6C99-4B49-9D9B-47AB210A1587 - 565079e72d5f75fb"
+                  uuid = "FC157666-6C99-4B49-9D9B-47AB210A1587 - 565079e72d5f7664"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1831,12 +1906,12 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "156"
-                  endingLineNumber = "156"
-                  offsetFromSymbolStart = "2992">
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "780">
                </Location>
                <Location
-                  uuid = "FC157666-6C99-4B49-9D9B-47AB210A1587 - 565079e72d5f75fb"
+                  uuid = "FC157666-6C99-4B49-9D9B-47AB210A1587 - 565079e72d5f75da"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -1846,9 +1921,24 @@
                   urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "156"
-                  endingLineNumber = "156"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
                   offsetFromSymbolStart = "1432">
+               </Location>
+               <Location
+                  uuid = "FC157666-6C99-4B49-9D9B-47AB210A1587 - 565079e72d5f75da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Compass.ReceivablesView.saveButtonTapped() -&gt; ()"
+                  moduleName = "Compass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/onuremren/Desktop/ONUR/Swift%20Projects/Compass/Compass/Modules/Views/SubModulesViews/ReceivablesView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "972">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2279,6 +2369,54 @@
             endingLineNumber = "102"
             landmarkName = "setupView()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "383A240B-857C-4BD1-9838-6F62039940B1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Network/CurrencyServise.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "fetchData(from:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53AB5175-5044-4270-A841-A0926C2DF3A5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/Views/SubModulesViews/InvestmentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "setupView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC8102A3-DB57-4F40-B665-144C9262F4A9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Compass/Modules/InAppPurchase/IAPView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "IpModel"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

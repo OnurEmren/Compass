@@ -19,6 +19,7 @@ class DeptListViewController: UIViewController, Coordinating, DeptListViewModelP
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .black
         setupViewModel()
         setupNavigationSettings()
         setupView()

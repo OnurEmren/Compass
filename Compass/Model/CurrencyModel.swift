@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct CurrencyModel: Codable {
+    let success: Bool
+    let timestamp: TimeInterval
+    let base: String
+    let date: String
+    let rates: [String: Double]
+}

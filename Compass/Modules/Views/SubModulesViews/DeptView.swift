@@ -23,14 +23,14 @@ class DeptView: UIView {
     private var deptAmountTextField: UITextField = {
         let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Alacaklı olduğum miktar",
+            string: "Borç miktarı",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         textField.layer.cornerRadius = 10
         textField.layer.borderWidth = 0.7
         textField.layer.masksToBounds = true
         textField.textColor = .white
-        textField.font = Fonts.generalFont
+        textField.font = UIFont.preferredFont(forTextStyle: .headline)
         textField.textAlignment = .center
         textField.layer.borderColor = UIColor.white.cgColor
         return textField
@@ -46,7 +46,7 @@ class DeptView: UIView {
         textField.layer.borderWidth = 0.7
         textField.layer.masksToBounds = true
         textField.textColor = .white
-        textField.font = Fonts.generalFont
+        textField.font = UIFont.preferredFont(forTextStyle: .headline)
         textField.textAlignment = .center
         textField.layer.borderColor = UIColor.white.cgColor
         return textField
@@ -62,7 +62,7 @@ class DeptView: UIView {
         textField.layer.borderWidth = 0.7
         textField.layer.masksToBounds = true
         textField.textColor = .white
-        textField.font = Fonts.generalFont
+        textField.font = UIFont.preferredFont(forTextStyle: .headline)
         textField.textAlignment = .center
         textField.layer.borderColor = UIColor.white.cgColor
         return textField
@@ -72,6 +72,7 @@ class DeptView: UIView {
         let image = UIImageView(image: UIImage(named: "spiral"))
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.alpha = 0.6
         return image
     }()
     
@@ -151,15 +152,15 @@ class DeptView: UIView {
     func saveButtonTapped() {
         guard let person = personTextfield.text,
               let date = dateTextfield.text,
-              let receivables = deptAmountTextField.text
+              let deptAmound = deptAmountTextField.text
         else {
             return
         }
                 
         viewModel.saveDept(
-            deptAmountText: deptAmountTextField.text,
-            dateTextField: dateTextfield.text,
-            personTextField: personTextfield.text)
+            deptAmountText: deptAmound,
+            dateTextField: date,
+            personTextField: person)
         showToastInvestment(message: "Kayıt Başarılı")
     }
 }

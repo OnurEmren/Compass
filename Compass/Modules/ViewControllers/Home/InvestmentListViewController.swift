@@ -74,6 +74,8 @@ class InvestmentListViewController: UIViewController, Coordinating {
     private func loadAttendanceRecords() {
         viewModel.loadAttendanceRecords()
     }
+    
+  
 }
 
 extension InvestmentListViewController: InvestmentListViewModelDelegate {

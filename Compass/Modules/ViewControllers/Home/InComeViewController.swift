@@ -26,10 +26,10 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
         
         view.backgroundColor = .black
         inComeViewModel.delegate = self
+        inComeView.incomeDistributionChart.delegate = self
         setupNavigationView()
         setupViews()
         loadAttendanceRecords()
-        inComeView.incomeDistributionChart.delegate = self
     }
     
     func loadAttendanceRecords() {

@@ -10,7 +10,7 @@ import UIKit
 
 class DeptListView: UIView {
     private let tableView = UITableView()
-    private var attendanceRecords: [DeptEntry] = []
+    private var deptRecords: [DeptEntry] = []
     private let cellIdentifier = "depListTableViewCell"
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -18,6 +18,7 @@ class DeptListView: UIView {
         let image = UIImageView(image: UIImage(named: "spiral"))
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.alpha = 0.6
         return image
     }()
 
@@ -32,6 +33,7 @@ class DeptListView: UIView {
     
     private func setupViews() {
         addSubview(tableView)
+        tableView.sectionHeaderHeight = 0
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -51,7 +53,7 @@ class DeptListView: UIView {
     }
     
     func updateAttendanceRecords(_ records: [DeptEntry]) {
-        attendanceRecords = records
+        deptRecords = records
         tableView.reloadData()
     }
 }
@@ -59,26 +61,26 @@ class DeptListView: UIView {
 extension DeptListView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        attendanceRecords.count
+        deptRecords.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let record = attendanceRecords[indexPath.row]
+        let record = deptRecords[indexPath.row]
         
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         setLabelTag(cell: cell, record: record, indexPath: indexPath)
 
         cell.layer.cornerRadius = 20
         cell.layer.masksToBounds = false
-      
+       
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 100
+        100
     }
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Sil") { [weak self] (_, _, completionHandler) in
@@ -93,14 +95,14 @@ extension DeptListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func deleteActionTapped(at indexPath: IndexPath) {
-        let recordToDelete = attendanceRecords[indexPath.row]
+        let recordToDelete = deptRecords[indexPath.row]
         let context = appDelegate.persistentContainer.viewContext
         context.delete(recordToDelete)
         
         do {
             try context.save()
             showToastInvestment(message: "Veriler silindi.")
-            attendanceRecords.remove(at: indexPath.row)
+            deptRecords.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.reloadData()
         } catch {
@@ -114,8 +116,8 @@ extension DeptListView: UITableViewDelegate, UITableViewDataSource {
     
     private func createAndConfigureLabel(tag: Int, text: String, cell: UITableViewCell, topView: UIView? = nil) -> UILabel {
         let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .body, compatibleWith: .current)
+        label.textColor = .white
+        label.font = UIFont.preferredFont(forTextStyle: .headline, compatibleWith: .current)
         cell.contentView.addSubview(label)
         
         label.snp.makeConstraints { make in
@@ -127,6 +129,10 @@ extension DeptListView: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 0.7
+       
         label.text = text
         return label
     }
@@ -151,6 +157,7 @@ extension DeptListView: UITableViewDelegate, UITableViewDataSource {
         }
         
         //Set Color
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = .clear
+        
     }
 }

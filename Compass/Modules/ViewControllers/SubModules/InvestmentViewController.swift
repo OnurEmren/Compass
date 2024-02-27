@@ -27,6 +27,8 @@ class InvestmentViewController: UIViewController, Coordinating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getServiceData()
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = UIColor.white
         
@@ -57,5 +59,30 @@ class InvestmentViewController: UIViewController, Coordinating {
     @objc
     private func saveButtonTapped() {
         investment.saveButtonTapped()
+    }
+    
+    private func getServiceData() {
+//        let apiService = CurrencyServise()
+//        let url = URL(string: "https://raw.githubusercontent.com/atilsamancioglu/CurrencyData/main/currency.json")!
+//        apiService.fetchData(from: url) { result in
+//            switch result {
+//            case .success(let model):
+//                DispatchQueue.main.async {
+//                    var labelText = ""
+//                    if let usdRate = model.rates["USD"] {
+//                        labelText += "USD: \(usdRate)\n"
+//                    }
+//                    if let eurRate = model.rates["EUR"] {
+//                        labelText += "EUR: \(eurRate)\n"
+//                    }
+//                    self.investment.pieceTextField.text = labelText
+//                }
+//
+//                print(model)
+//            case .failure(let error):
+//                // Bir hata oluştu, hata ile ilgili işlemler
+//                print("Hata: \(error)")
+//            }
+//        }
     }
 }

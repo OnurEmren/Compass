@@ -45,6 +45,7 @@ enum Colors{
     static let tryGreen2: CGFloat = 143.0 / 255.0
     static let tryBlue2: CGFloat = 241.0 / 255.0
     
+    static let anotherRed = UIColor(red: 205, green: 92, blue: 92, alpha: 1)
     
     static let lightThemeColor = UIColor(red: lightRed, green:lightGreen, blue: lightBlue, alpha: 1)
     static let darkThemeColor = UIColor (red: darkRed, green: darkGreen, blue: darkBlue, alpha: 1)

@@ -29,7 +29,7 @@ class DeptViewController: UIViewController, Coordinating, DeptViewSaveProtocol {
         
         navigationSettings()
         setupView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .black
     }
     
     private func navigationSettings() {

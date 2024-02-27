@@ -20,7 +20,7 @@ class ReceivablesViewController: UIViewController, Coordinating, ReceivablesView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        view.backgroundColor = .black
         navigationSettings()
         setupView()
         receivablesView.saveDelegate = self
