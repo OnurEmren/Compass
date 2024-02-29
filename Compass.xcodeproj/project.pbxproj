@@ -52,6 +52,8 @@
 		46B8561B2B6EECDD004F5E56 /* ReceivablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B8561A2B6EECDD004F5E56 /* ReceivablesView.swift */; };
 		46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */; };
 		46BF14422B65CC7400431683 /* GeneralExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF14412B65CC7400431683 /* GeneralExpenseView.swift */; };
+		46CE52C42B90E94D006A498E /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE52C32B90E94D006A498E /* AccountViewController.swift */; };
+		46D5D87F2B8E5B2A00BCBA38 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D5D87E2B8E5B2A00BCBA38 /* User.swift */; };
 		46EDC60A2B8DC66C00A73D7C /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC6092B8DC66C00A73D7C /* IAPManager.swift */; };
 		46EDC60C2B8DC89100A73D7C /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC60B2B8DC89100A73D7C /* IAPView.swift */; };
 		46EDC60E2B8DCB5100A73D7C /* IPManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC60D2B8DCB5100A73D7C /* IPManagerViewController.swift */; };
@@ -117,6 +119,8 @@
 		46B8561A2B6EECDD004F5E56 /* ReceivablesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivablesView.swift; sourceTree = "<group>"; };
 		46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseViewController.swift; sourceTree = "<group>"; };
 		46BF14412B65CC7400431683 /* GeneralExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseView.swift; sourceTree = "<group>"; };
+		46CE52C32B90E94D006A498E /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		46D5D87E2B8E5B2A00BCBA38 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		46EDC6092B8DC66C00A73D7C /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		46EDC60B2B8DC89100A73D7C /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
 		46EDC60D2B8DCB5100A73D7C /* IPManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPManagerViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				467111C62B7144C90030AE1A /* ReceiVablesListViewController.swift */,
 				46A8A87D2B76B13200118562 /* DeptListViewController.swift */,
 				46EDC60D2B8DCB5100A73D7C /* IPManagerViewController.swift */,
+				46CE52C32B90E94D006A498E /* AccountViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			children = (
 				46EDC6092B8DC66C00A73D7C /* IAPManager.swift */,
 				46EDC60B2B8DC89100A73D7C /* IAPView.swift */,
+				46D5D87E2B8E5B2A00BCBA38 /* User.swift */,
 				46314D2A2B8DF8040023FA99 /* Configuration.storekit */,
 			);
 			path = InAppPurchase;
@@ -451,6 +457,7 @@
 				469555B12B77822F00E12C9B /* DeptView.swift in Sources */,
 				46AF0ACC2B58550A00647EA1 /* FinanceCardCell.swift in Sources */,
 				460D1D862B6423E600DA3E02 /* InvestmentTypeEntry.swift in Sources */,
+				46CE52C42B90E94D006A498E /* AccountViewController.swift in Sources */,
 				460D1D882B64399A00DA3E02 /* InvestmentViewModel.swift in Sources */,
 				46FC99AC2B5C91E60064A1F0 /* ExpenseEntryView.swift in Sources */,
 				469555BA2B7791E600E12C9B /* CurrencyModel.swift in Sources */,
@@ -487,6 +494,7 @@
 				467111C72B7144C90030AE1A /* ReceiVablesListViewController.swift in Sources */,
 				469555B62B778BA600E12C9B /* DeptListViewModel.swift in Sources */,
 				46A8A8842B76C28900118562 /* DeptViewController.swift in Sources */,
+				46D5D87F2B8E5B2A00BCBA38 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

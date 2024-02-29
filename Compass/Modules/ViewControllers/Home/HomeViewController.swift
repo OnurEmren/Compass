@@ -28,7 +28,8 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         ("Yatırım", UIColor.black),
         ("Alacaklarım", UIColor.black),
         ("Borçlarım", UIColor.black),
-        ("Genel Durum", UIColor.black)
+        ("Genel Durum", UIColor.black),
+        ("Hesap işlemleri", UIColor.black)
     ]
     
     private let imageView: UIImageView = {
@@ -156,6 +157,10 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         case "Genel Durum":
             let overallStatus = overallStatus
             cell.configure(with: title, backgroundColor: color, overallStatus: overallStatus)
+        
+        case "Hesap işlemleri":
+            cell.configureAccountLabel(with: title, backgroundColor: color)
+            
         default:
             break
         }

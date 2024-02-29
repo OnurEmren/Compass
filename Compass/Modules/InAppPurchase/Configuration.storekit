@@ -15,63 +15,15 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "subscribe_bronze",
-      "referenceName" : "Bronze Subscribe",
-      "type" : "Consumable"
-    },
-    {
-      "displayPrice" : "0.99",
-      "familyShareable" : false,
-      "internalID" : "61048F79",
-      "localizations" : [
-        {
-          "description" : "",
-          "displayName" : "",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "subscribe_silver",
-      "referenceName" : "Silver Subscribe",
-      "type" : "Consumable"
-    },
-    {
-      "displayPrice" : "0.99",
-      "familyShareable" : false,
-      "internalID" : "08F639E9",
-      "localizations" : [
-        {
-          "description" : "",
-          "displayName" : "",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "subscribe_gold",
-      "referenceName" : "Gold Subscribe",
-      "type" : "Consumable"
-    },
-    {
-      "displayPrice" : "0.99",
-      "familyShareable" : false,
-      "internalID" : "27A65C12",
-      "localizations" : [
-        {
-          "description" : "",
-          "displayName" : "",
-          "locale" : "en_US"
-        },
-        {
-          "description" : "",
-          "displayName" : "Türkçe",
-          "locale" : "tr"
-        }
-      ],
-      "productID" : "subscribe_diamond",
-      "referenceName" : "Diamond Subscribe",
+      "productID" : "subscribe_premium",
+      "referenceName" : "Premium Subscribe",
       "type" : "Consumable"
     }
   ],
   "settings" : {
     "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
     "_storeKitErrors" : [
       {
         "current" : null,

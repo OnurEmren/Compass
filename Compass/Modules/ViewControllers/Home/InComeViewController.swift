@@ -17,13 +17,19 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
     private var inComeView = InComeView()
     private var inComeViewModel = InComeViewModel()
     private var fetchedInComeData: [InComeEntry] = []
-    
+    private var user = User()
+
     //MARK: - Lifecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Strings.incomeTitle
         
+        if UserDefaults.standard.bool(forKey: "userIsPremium") {
+            user.userIsPremium = true
+        } else {
+            coordinator?.eventOccured(with: .goToPaymentVC)
+        }
         view.backgroundColor = .black
         inComeViewModel.delegate = self
         inComeView.incomeDistributionChart.delegate = self
@@ -63,14 +69,19 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
     
     //Setup Views
     private func setupViews() {
-        view.addSubview(inComeView)
         
-        inComeView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        if user.userIsPremium == true {
+            view.addSubview(inComeView)
+            
+            inComeView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            inComeView.addButton.addTarget(self, action: #selector(goToAddInCome), for: .touchUpInside)
+            inComeView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        } else {
+            coordinator?.eventOccured(with: .goToPaymentVC)
         }
         
-        inComeView.addButton.addTarget(self, action: #selector(goToAddInCome), for: .touchUpInside)
-        inComeView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
     //MARK: - Chart Methods

@@ -62,6 +62,11 @@ class AppCoordinator: Coordinator {
             let deptEntryVC = DeptViewController(viewModel: viewModel)
             deptEntryVC.coordinator = self
             navigationController?.pushViewController(deptEntryVC, animated: true)
+            
+        case .goToPaymentVC:
+            let paymentVC = IPManagerViewController()
+            paymentVC.coordinator = self
+            navigationController?.pushViewController(paymentVC, animated: true)
         }
     }
     
@@ -92,7 +97,7 @@ class AppCoordinator: Coordinator {
     func showDetailViewController(for selectedIndex: Int) {
         switch selectedIndex {
         case 0:
-            let inComeVC = IPManagerViewController()
+            let inComeVC = InComeViewController()
             inComeVC.coordinator = self
             navigationController?.pushViewController(inComeVC, animated: true)
         case 1:

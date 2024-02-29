@@ -59,6 +59,12 @@ class FinanceCardCell: UICollectionViewCell {
         return label
     }()
     
+    let accountLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
+    }()
+    
     private let imageView: UIImageView = {
         let image = UIImageView(image: UIImage(named: "abstract2"))
         image.contentMode = .center
@@ -93,6 +99,7 @@ class FinanceCardCell: UICollectionViewCell {
         addSubview(investmentLabel)
         addSubview(receivablesLabel)
         addSubview(deptLabel)
+        addSubview(accountLabel)
         
         incomeLabel.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(5)
@@ -116,6 +123,10 @@ class FinanceCardCell: UICollectionViewCell {
         }
         
         deptLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        accountLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
     }
@@ -214,6 +225,20 @@ class FinanceCardCell: UICollectionViewCell {
         updateDeptLabel(with: deptStatus)
     }
     
+    func configureAccountLabel(with title: String, backgroundColor: UIColor) {
+        accountLabel.text = "Hesap İşlemleri"
+        accountLabel.textColor = .white
+        accountLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        self.backgroundColor = backgroundColor
+        layer.cornerRadius = 12
+        layer.masksToBounds = false
+        layer.borderColor = UIColor.white.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        updateAccountLabel()
+    }
+    
     private func updateLabel(with overallStatus: Double) {
         if overallStatus < 0 {
             overallStatusLabel.textColor = .red
@@ -244,5 +269,9 @@ class FinanceCardCell: UICollectionViewCell {
     
     private func updateDeptLabel(with overallStatus: Double) {
         deptLabel.text = "Borçlarım: \(overallStatus)"
+    }
+    
+    private func updateAccountLabel() {
+        accountLabel.text = "Hesap İşlemleri"
     }
 }

@@ -14,7 +14,7 @@ class IPManagerViewController: UIViewController, Coordinating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        view.backgroundColor = .black
         
         loadingView()
     }
