@@ -67,6 +67,11 @@ class AppCoordinator: Coordinator {
             let paymentVC = IPManagerViewController()
             paymentVC.coordinator = self
             navigationController?.pushViewController(paymentVC, animated: true)
+            
+        case .goToAccountVC:
+            let accountVC = AccountViewController()
+            accountVC.coordinator = self
+            navigationController?.pushViewController(accountVC, animated: true)
         }
     }
     

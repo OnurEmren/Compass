@@ -53,6 +53,7 @@
 		46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */; };
 		46BF14422B65CC7400431683 /* GeneralExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BF14412B65CC7400431683 /* GeneralExpenseView.swift */; };
 		46CE52C42B90E94D006A498E /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE52C32B90E94D006A498E /* AccountViewController.swift */; };
+		46CE52C62B90E9E9006A498E /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE52C52B90E9E9006A498E /* AccountView.swift */; };
 		46D5D87F2B8E5B2A00BCBA38 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D5D87E2B8E5B2A00BCBA38 /* User.swift */; };
 		46EDC60A2B8DC66C00A73D7C /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC6092B8DC66C00A73D7C /* IAPManager.swift */; };
 		46EDC60C2B8DC89100A73D7C /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EDC60B2B8DC89100A73D7C /* IAPView.swift */; };
@@ -120,6 +121,7 @@
 		46BF143F2B65C97100431683 /* GeneralExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseViewController.swift; sourceTree = "<group>"; };
 		46BF14412B65CC7400431683 /* GeneralExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExpenseView.swift; sourceTree = "<group>"; };
 		46CE52C32B90E94D006A498E /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		46CE52C52B90E9E9006A498E /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		46D5D87E2B8E5B2A00BCBA38 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		46EDC6092B8DC66C00A73D7C /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		46EDC60B2B8DC89100A73D7C /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				46B42F112B69A22D000E976C /* TryViewController.swift */,
 				467E75982B6DA8A500162E0D /* ReceivablesViewController.swift */,
 				46A8A8832B76C28900118562 /* DeptViewController.swift */,
+				46CE52C52B90E9E9006A498E /* AccountView.swift */,
 			);
 			path = SubModules;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				46AF0AD22B585B6600647EA1 /* ExpenseViewController.swift in Sources */,
 				46BF14402B65C97100431683 /* GeneralExpenseViewController.swift in Sources */,
 				469D15BE2B598C3D00544E35 /* InComeEntryViewController.swift in Sources */,
+				46CE52C62B90E9E9006A498E /* AccountView.swift in Sources */,
 				4697B8E52B66B44A0021D591 /* GeneralExpense.swift in Sources */,
 				46EDC60E2B8DCB5100A73D7C /* IPManagerViewController.swift in Sources */,
 				467E75992B6DA8A500162E0D /* ReceivablesViewController.swift in Sources */,

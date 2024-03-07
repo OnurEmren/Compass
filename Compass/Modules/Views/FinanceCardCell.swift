@@ -226,11 +226,12 @@ class FinanceCardCell: UICollectionViewCell {
     }
     
     func configureAccountLabel(with title: String, backgroundColor: UIColor) {
-        accountLabel.text = "Hesap İşlemleri"
+        accountLabel.text = title
         accountLabel.textColor = .white
         accountLabel.font = UIFont.preferredFont(forTextStyle: .body)
         self.backgroundColor = backgroundColor
         layer.cornerRadius = 12
+        layer.borderWidth = 0.7
         layer.masksToBounds = false
         layer.borderColor = UIColor.white.cgColor
         layer.shadowOpacity = 0.5

@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, Coordinating, UICollectionViewDelega
         ("Alacaklarım", UIColor.black),
         ("Borçlarım", UIColor.black),
         ("Genel Durum", UIColor.black),
-        ("Hesap işlemleri", UIColor.black)
+        ("Hesap işlemleri", UIColor.white)
     ]
     
     private let imageView: UIImageView = {
