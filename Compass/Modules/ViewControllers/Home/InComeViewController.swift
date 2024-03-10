@@ -69,18 +69,14 @@ class InComeViewController: UIViewController, Coordinating, ChartViewDelegate, I
     
     //Setup Views
     private func setupViews() {
+        view.addSubview(inComeView)
         
-        if user.userIsPremium == true {
-            view.addSubview(inComeView)
-            
-            inComeView.snp.makeConstraints { make in
-                make.edges.equalToSuperview()
-            }
-            inComeView.addButton.addTarget(self, action: #selector(goToAddInCome), for: .touchUpInside)
-            inComeView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-        } else {
-            coordinator?.eventOccured(with: .goToPaymentVC)
+        inComeView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
+        inComeView.addButton.addTarget(self, action: #selector(goToAddInCome), for: .touchUpInside)
+        inComeView.deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+
         
     }
     

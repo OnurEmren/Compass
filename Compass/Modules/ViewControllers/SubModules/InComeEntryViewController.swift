@@ -13,10 +13,16 @@ class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate, Coor
     
     var coordinator: Coordinator?
     private let incomeEntryView = InComeEntryPickerView()
-    private let font = UIFont(name: "TamilSangamMN", size: 18.0)
+    private var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.bool(forKey: "userIsPremium") {
+            user.userIsPremium = true
+        } else {
+            coordinator?.eventOccured(with: .goToPaymentVC)
+        }
         
         setNavigation()
         setupViews()
@@ -44,12 +50,18 @@ class IncomeEntryViewController: UIViewController, IncomeEntryViewDelegate, Coor
     }
     
     private func setupViews() {
-        view.addSubview(incomeEntryView)
         
-        incomeEntryView.saveDelegate = self
-        incomeEntryView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        if user.userIsPremium == true {
+            view.addSubview(incomeEntryView)
+            
+            incomeEntryView.saveDelegate = self
+            incomeEntryView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        } else {
+            coordinator?.eventOccured(with: .goToPaymentVC)
         }
+        
     }
     
     func didTapSaveButton(incomeText: String?, sideIncomeText: String?, inComeType: String?, currency: String?, month: String?) {
